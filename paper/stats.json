@@ -1,0 +1,193 @@
+{
+  "chemprot:bitfit-lora": {
+    "delta": -1.1242432977803398,
+    "p": 0.04326281659258991,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "chemprot:dora-lora": {
+    "delta": -0.0864802536754139,
+    "p": 0.8075499102701184,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "chemprot:pissa-lora": {
+    "delta": -0.06726241952531944,
+    "p": 0.8075499102701261,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "chemprot:adalora-lora": {
+    "delta": 0.24983184395118338,
+    "p": 0.5457432374205068,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "chemprot:eva-lora": {
+    "delta": -1.0204669933698463,
+    "p": 0.09289077475302554,
+    "n": 5,
+    "p_holm": 1.0
+  },
+  "chemprot:eva_white-lora": {
+    "delta": -0.4785240703372762,
+    "p": 0.6506313310577891,
+    "n": 5,
+    "p_holm": 1.0
+  },
+  "chemprot:drift-lora": {
+    "delta": -0.12683770539060335,
+    "p": 0.3365200347605779,
+    "n": 5,
+    "p_holm": 1.0
+  },
+  "chemprot:gev-lora": {
+    "delta": -0.05765350245027593,
+    "p": 0.9147197134577529,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "rct20k:bitfit-lora": {
+    "delta": 0.0055555555555586444,
+    "p": 0.9772315279875482,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "rct20k:dora-lora": {
+    "delta": -0.23888888888888848,
+    "p": 0.27697897636237917,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "rct20k:pissa-lora": {
+    "delta": -0.04999999999999819,
+    "p": 0.786619594850298,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "rct20k:adalora-lora": {
+    "delta": -1.533333333333331,
+    "p": 0.32630405363504644,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "rct20k:eva-lora": {
+    "delta": 0.013333333333336304,
+    "p": 0.9470097665167357,
+    "n": 5,
+    "p_holm": 1.0
+  },
+  "rct20k:eva_white-lora": {
+    "delta": 0.24000000000000246,
+    "p": 0.18108599353199048,
+    "n": 5,
+    "p_holm": 1.0
+  },
+  "rct20k:drift-lora": {
+    "delta": 0.196666666666665,
+    "p": 0.16148967013488574,
+    "n": 5,
+    "p_holm": 1.0
+  },
+  "rct20k:gev-lora": {
+    "delta": 0.0500000000000019,
+    "p": 0.746151342703055,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "hoc:bitfit-lora": {
+    "delta": 0.33585761348565357,
+    "p": 0.5207304936141917,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "hoc:dora-lora": {
+    "delta": -19.976896418944925,
+    "p": 0.46077449393962405,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "hoc:pissa-lora": {
+    "delta": -26.711162452402338,
+    "p": 0.2965908090196477,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "hoc:adalora-lora": {
+    "delta": 0.218628331835898,
+    "p": 0.8663047731037077,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "hoc:eva-lora": {
+    "delta": -18.564625850340132,
+    "p": 0.18851173812868594,
+    "n": 5,
+    "p_holm": 1.0
+  },
+  "hoc:eva_white-lora": {
+    "delta": -0.6741111538955202,
+    "p": 0.5963217314555993,
+    "n": 5,
+    "p_holm": 1.0
+  },
+  "hoc:drift-lora": {
+    "delta": -2.2649210627647265,
+    "p": 0.526184348987169,
+    "n": 5,
+    "p_holm": 1.0
+  },
+  "hoc:gev-lora": {
+    "delta": -0.2935010482180256,
+    "p": 0.7174583793024587,
+    "n": 3,
+    "p_holm": 1.0
+  },
+  "failed": {
+    "chemprot:full": [],
+    "chemprot:bitfit": [],
+    "chemprot:lora": [],
+    "chemprot:dora": [],
+    "chemprot:pissa": [],
+    "chemprot:adalora": [],
+    "chemprot:eva": [],
+    "chemprot:eva_white": [],
+    "chemprot:drift": [],
+    "chemprot:gev": [],
+    "rct20k:full": [],
+    "rct20k:bitfit": [],
+    "rct20k:lora": [],
+    "rct20k:dora": [],
+    "rct20k:pissa": [],
+    "rct20k:adalora": [],
+    "rct20k:eva": [],
+    "rct20k:eva_white": [],
+    "rct20k:drift": [],
+    "rct20k:gev": [],
+    "hoc:full": [],
+    "hoc:bitfit": [],
+    "hoc:lora": [],
+    "hoc:dora": [
+      2
+    ],
+    "hoc:pissa": [
+      1,
+      2
+    ],
+    "hoc:adalora": [],
+    "hoc:eva": [
+      2,
+      5
+    ],
+    "hoc:eva_white": [],
+    "hoc:drift": [
+      1
+    ],
+    "hoc:gev": []
+  },
+  "fail_floor": {
+    "chemprot": 0.7409559126493613,
+    "rct20k": 0.7433333333333334,
+    "hoc": 0.7187019969278035
+  }
+}

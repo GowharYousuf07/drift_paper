@@ -1,0 +1,58 @@
+# ---- Secrets: never commit ----
+kaggle API.txt
+Kaggle_API_2.txt
+kaggle_accounts.json
+*.token
+kaggle.json
+.env
+
+# ---- Large binaries: activation profiles (3.2 GB) ----
+runs/profiles/
+kaggle/output/
+*.pt
+*.pth
+*.safetensors
+
+# ---- Datasets: regenerate with `python src/download_data.py` ----
+data/
+
+# ---- Vendored toolchain (Tectonic LaTeX binary) ----
+tools/
+
+# ---- Generated release bundle: rebuild with `python src/make_release.py` ----
+release/
+drift_release.zip
+
+# ---- Peer-review material (confidential to venue) ----
+peer_review.docx
+ARS_re_review_round2.docx
+paper/response.tex
+paper/response.pdf
+paper/response2.tex
+paper/response2.pdf
+paper/review_compliance.md
+paper/review_audit.txt
+
+# ---- Snapshots / backups ----
+_backup_pre_revision_*/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+*.egg-info/
+
+# ---- LaTeX build artifacts ----
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.synctex.gz
+paper/_tectest.pdf
+
+# ---- Editor / OS ----
+.DS_Store
+Thumbs.db

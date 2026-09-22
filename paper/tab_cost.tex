@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\caption{Profiling cost on one NVIDIA T4.}
+\label{tab:cost}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+Task & Forward & Spectral (1 $\tau$) & Spectral (5 $\tau$) & vs.\ LoRA \\
+\midrule
+ChemProt & 35\,s & 47\,s & 140\,s & 45\% \\
+RCT-20k & 28\,s & 45\,s & 143\,s & 42\% \\
+HoC & 99\,s & 47\,s & 136\,s & 47\% \\
+\bottomrule
+\end{tabular}
+\end{table}

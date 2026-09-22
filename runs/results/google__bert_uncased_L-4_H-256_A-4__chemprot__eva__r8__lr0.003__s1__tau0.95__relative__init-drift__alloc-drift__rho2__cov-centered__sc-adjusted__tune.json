@@ -1,0 +1,211 @@
+{
+  "id": "google__bert_uncased_L-4_H-256_A-4__chemprot__eva__r8__lr0.003__s1__tau0.95__relative__init-drift__alloc-drift__rho2__cov-centered__sc-adjusted__tune",
+  "args": {
+    "model": "google/bert_uncased_L-4_H-256_A-4",
+    "task": "chemprot",
+    "method": "eva",
+    "seed": 1,
+    "budget_rank": 8,
+    "alpha": 16.0,
+    "dropout": 0.0,
+    "lr": 0.003,
+    "epochs": 10,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "max_len": 128,
+    "max_train": null,
+    "weight_decay": 0.01,
+    "tau": 0.95,
+    "rho": 2.0,
+    "score_mode": "relative",
+    "init_mode": "drift",
+    "alloc_mode": "drift",
+    "r_min": 0,
+    "target": "all",
+    "cov": "centered",
+    "scale": "adjusted",
+    "n_ref": 1024,
+    "n_dom": 1024,
+    "ref": "wikitext",
+    "tag": "tune",
+    "amp": true,
+    "deterministic": false,
+    "force": false,
+    "verbose": false
+  },
+  "wall_s": 41.33670155800064,
+  "n_train": 4169,
+  "n_dev": 2427,
+  "n_test": 3469,
+  "num_labels": 13,
+  "metric": "micro_f1",
+  "max_len": 128,
+  "budget": {
+    "budget_rank": 8,
+    "budget_params": 147456,
+    "n_modules": 24
+  },
+  "spent_params": 147456,
+  "rank_hist": {
+    "2": 1,
+    "3": 4,
+    "4": 3,
+    "10": 1,
+    "11": 3,
+    "13": 2,
+    "15": 6,
+    "16": 4
+  },
+  "ranks": {
+    "bert.encoder.layer.0.attention.self.query": 15,
+    "bert.encoder.layer.0.attention.self.key": 15,
+    "bert.encoder.layer.0.attention.self.value": 15,
+    "bert.encoder.layer.0.attention.output.dense": 16,
+    "bert.encoder.layer.0.intermediate.dense": 4,
+    "bert.encoder.layer.0.output.dense": 3,
+    "bert.encoder.layer.1.attention.self.query": 15,
+    "bert.encoder.layer.1.attention.self.key": 15,
+    "bert.encoder.layer.1.attention.self.value": 15,
+    "bert.encoder.layer.1.attention.output.dense": 13,
+    "bert.encoder.layer.1.intermediate.dense": 3,
+    "bert.encoder.layer.1.output.dense": 4,
+    "bert.encoder.layer.2.attention.self.query": 16,
+    "bert.encoder.layer.2.attention.self.key": 16,
+    "bert.encoder.layer.2.attention.self.value": 16,
+    "bert.encoder.layer.2.attention.output.dense": 13,
+    "bert.encoder.layer.2.intermediate.dense": 2,
+    "bert.encoder.layer.2.output.dense": 3,
+    "bert.encoder.layer.3.attention.self.query": 11,
+    "bert.encoder.layer.3.attention.self.key": 11,
+    "bert.encoder.layer.3.attention.self.value": 11,
+    "bert.encoder.layer.3.attention.output.dense": 10,
+    "bert.encoder.layer.3.intermediate.dense": 3,
+    "bert.encoder.layer.3.output.dense": 4
+  },
+  "versions": {
+    "torch": "2.10.0+cu128",
+    "transformers": "5.0.0"
+  },
+  "result": {
+    "test": {
+      "micro_f1": 0.531565292591525,
+      "macro_f1": 0.27177648935600124,
+      "accuracy": 0.531565292591525
+    },
+    "dev_best": {
+      "micro_f1": 0.5278121137206427,
+      "macro_f1": 0.27919651454605865,
+      "accuracy": 0.5278121137206427
+    },
+    "best_epoch": 6,
+    "train_time_s": 39.40036588100338,
+    "peak_mem_bytes": 275875328,
+    "params_total": 11321357,
+    "params_trainable": 216589,
+    "params_head": 69133,
+    "params_adapter": 147456,
+    "steps": 1310,
+    "history": [
+      {
+        "epoch": 0,
+        "dev": 0.49979398434281,
+        "train_loss": 1.730183810678147,
+        "grad_norm_mean": 4.772742552611664,
+        "grad_norm_max": 14.604018211364746,
+        "amp_skipped_steps": 1,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      },
+      {
+        "epoch": 1,
+        "dev": 0.5133910177173465,
+        "train_loss": 1.4833573676247633,
+        "grad_norm_mean": 11.301444053649902,
+        "grad_norm_max": 48.037776947021484,
+        "amp_skipped_steps": 1,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 16384.0
+      },
+      {
+        "epoch": 2,
+        "dev": 0.4684796044499382,
+        "train_loss": 1.462273645037003,
+        "grad_norm_mean": 33.14339102679536,
+        "grad_norm_max": 367.2767639160156,
+        "amp_skipped_steps": 4,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 1024.0
+      },
+      {
+        "epoch": 3,
+        "dev": 0.4684796044499382,
+        "train_loss": 1.4951790853311087,
+        "grad_norm_mean": 38.12097927996221,
+        "grad_norm_max": 416.5641784667969,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 1024.0
+      },
+      {
+        "epoch": 4,
+        "dev": 0.4824886691388546,
+        "train_loss": 1.4980639264783786,
+        "grad_norm_mean": 24.817819802815677,
+        "grad_norm_max": 140.0117645263672,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 1024.0
+      },
+      {
+        "epoch": 5,
+        "dev": 0.5195714874330449,
+        "train_loss": 1.4067751333003735,
+        "grad_norm_mean": 27.008609098332528,
+        "grad_norm_max": 315.78387451171875,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 1024.0
+      },
+      {
+        "epoch": 6,
+        "dev": 0.5278121137206427,
+        "train_loss": 1.4053523868094875,
+        "grad_norm_mean": 28.17737343475109,
+        "grad_norm_max": 260.05120849609375,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 1024.0
+      },
+      {
+        "epoch": 7,
+        "dev": 0.5150391429748661,
+        "train_loss": 1.370100594658888,
+        "grad_norm_mean": 24.314879330059956,
+        "grad_norm_max": 309.57794189453125,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 1024.0
+      },
+      {
+        "epoch": 8,
+        "dev": 0.511330861145447,
+        "train_loss": 1.3835158566482195,
+        "grad_norm_mean": 21.263248662002216,
+        "grad_norm_max": 198.5345001220703,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 1024.0
+      },
+      {
+        "epoch": 9,
+        "dev": 0.5224557066337041,
+        "train_loss": 1.3420398726718117,
+        "grad_norm_mean": 20.248920895671116,
+        "grad_norm_max": 204.7914581298828,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 1024.0
+      }
+    ]
+  }
+}

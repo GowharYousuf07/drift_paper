@@ -1,0 +1,204 @@
+{
+  "id": "google__bert_uncased_L-4_H-512_A-8__chemprot__lora__r8__lr0.001__s2",
+  "args": {
+    "model": "google/bert_uncased_L-4_H-512_A-8",
+    "task": "chemprot",
+    "method": "lora",
+    "seed": 2,
+    "budget_rank": 8,
+    "alpha": 16.0,
+    "dropout": 0.0,
+    "lr": 0.001,
+    "epochs": 10,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "max_len": 128,
+    "max_train": null,
+    "weight_decay": 0.01,
+    "tau": 0.95,
+    "rho": 2.0,
+    "score_mode": "relative",
+    "init_mode": "drift",
+    "alloc_mode": "drift",
+    "r_min": 0,
+    "target": "all",
+    "cov": "centered",
+    "scale": "adjusted",
+    "n_ref": 1024,
+    "n_dom": 1024,
+    "ref": "wikitext",
+    "tag": "",
+    "amp": true,
+    "deterministic": false,
+    "force": false,
+    "verbose": false
+  },
+  "wall_s": 47.58985392899922,
+  "n_train": 4169,
+  "n_dev": 2427,
+  "n_test": 3469,
+  "num_labels": 13,
+  "metric": "micro_f1",
+  "max_len": 128,
+  "budget": {
+    "budget_rank": 8,
+    "budget_params": 294912,
+    "n_modules": 24
+  },
+  "spent_params": 294912,
+  "rank_hist": {
+    "8": 24
+  },
+  "ranks": {
+    "bert.encoder.layer.0.attention.self.query": 8,
+    "bert.encoder.layer.0.attention.self.key": 8,
+    "bert.encoder.layer.0.attention.self.value": 8,
+    "bert.encoder.layer.0.attention.output.dense": 8,
+    "bert.encoder.layer.0.intermediate.dense": 8,
+    "bert.encoder.layer.0.output.dense": 8,
+    "bert.encoder.layer.1.attention.self.query": 8,
+    "bert.encoder.layer.1.attention.self.key": 8,
+    "bert.encoder.layer.1.attention.self.value": 8,
+    "bert.encoder.layer.1.attention.output.dense": 8,
+    "bert.encoder.layer.1.intermediate.dense": 8,
+    "bert.encoder.layer.1.output.dense": 8,
+    "bert.encoder.layer.2.attention.self.query": 8,
+    "bert.encoder.layer.2.attention.self.key": 8,
+    "bert.encoder.layer.2.attention.self.value": 8,
+    "bert.encoder.layer.2.attention.output.dense": 8,
+    "bert.encoder.layer.2.intermediate.dense": 8,
+    "bert.encoder.layer.2.output.dense": 8,
+    "bert.encoder.layer.3.attention.self.query": 8,
+    "bert.encoder.layer.3.attention.self.key": 8,
+    "bert.encoder.layer.3.attention.self.value": 8,
+    "bert.encoder.layer.3.attention.output.dense": 8,
+    "bert.encoder.layer.3.intermediate.dense": 8,
+    "bert.encoder.layer.3.output.dense": 8
+  },
+  "versions": {
+    "torch": "2.10.0+cu128",
+    "transformers": "5.0.0"
+  },
+  "result": {
+    "test": {
+      "micro_f1": 0.7546843470740847,
+      "macro_f1": 0.46473200132068254,
+      "accuracy": 0.7546843470740847
+    },
+    "dev_best": {
+      "micro_f1": 0.7643180881747013,
+      "macro_f1": 0.5534644263381426,
+      "accuracy": 0.7643180881747013
+    },
+    "best_epoch": 8,
+    "train_time_s": 45.07576228500329,
+    "peak_mem_bytes": 560687104,
+    "params_total": 29065229,
+    "params_trainable": 564237,
+    "params_head": 269325,
+    "params_adapter": 294912,
+    "steps": 1310,
+    "history": [
+      {
+        "epoch": 0,
+        "dev": 0.61557478368356,
+        "train_loss": 1.5536583625633298,
+        "grad_norm_mean": 3.822860486634815,
+        "grad_norm_max": 6.786541938781738,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 65536.0
+      },
+      {
+        "epoch": 1,
+        "dev": 0.7185826122785332,
+        "train_loss": 0.9068603820473183,
+        "grad_norm_mean": 3.5752843791291915,
+        "grad_norm_max": 6.032051086425781,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 65536.0
+      },
+      {
+        "epoch": 2,
+        "dev": 0.7317676143386898,
+        "train_loss": 0.6703946326525156,
+        "grad_norm_mean": 3.515256777064491,
+        "grad_norm_max": 6.297002792358398,
+        "amp_skipped_steps": 1,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      },
+      {
+        "epoch": 3,
+        "dev": 0.7486608982282653,
+        "train_loss": 0.5281943446807279,
+        "grad_norm_mean": 3.372349391456779,
+        "grad_norm_max": 6.231723308563232,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      },
+      {
+        "epoch": 4,
+        "dev": 0.7523691800576844,
+        "train_loss": 0.4117071865169147,
+        "grad_norm_mean": 3.3561041505282163,
+        "grad_norm_max": 6.897561073303223,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      },
+      {
+        "epoch": 5,
+        "dev": 0.7552533992583437,
+        "train_loss": 0.345191010423289,
+        "grad_norm_mean": 3.309743544300094,
+        "grad_norm_max": 8.321253776550293,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      },
+      {
+        "epoch": 6,
+        "dev": 0.749896992171405,
+        "train_loss": 0.27616249821113265,
+        "grad_norm_mean": 3.0753459595996917,
+        "grad_norm_max": 6.151833534240723,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      },
+      {
+        "epoch": 7,
+        "dev": 0.7618459002884219,
+        "train_loss": 0.21117634454187545,
+        "grad_norm_mean": 2.8999312698613595,
+        "grad_norm_max": 13.64886474609375,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      },
+      {
+        "epoch": 8,
+        "dev": 0.7643180881747013,
+        "train_loss": 0.16118163066624686,
+        "grad_norm_mean": 2.6697087138322475,
+        "grad_norm_max": 9.359991073608398,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      },
+      {
+        "epoch": 9,
+        "dev": 0.7634940255459415,
+        "train_loss": 0.12988717498556349,
+        "grad_norm_mean": 2.3454389847416914,
+        "grad_norm_max": 5.973379611968994,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      }
+    ]
+  }
+}

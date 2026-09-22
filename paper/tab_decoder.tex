@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{Decoder SLM: SmolLM2-360M (test F1, mean$\pm$s.d., three seeds), each method at its own tuned learning rate (rate above the score).}
+\label{tab:decoder}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lcc}
+\toprule
+Method & ChemProt & HoC \\
+\midrule
+LoRA & \shortstack{$10^{-3}$\\\textbf{83.9\textsubscript{$\pm$\,0.5}}} & \shortstack{$10^{-3}$\\\textbf{80.9\textsubscript{$\pm$\,0.8}}} \\
+EVA (budget-matched) & \shortstack{$3{\times}10^{-4}$\\82.2\textsubscript{$\pm$\,3.6}} & \shortstack{$10^{-3}$\\74.6\textsubscript{$\pm$\,5.5}} \\
+EVA (whitened) & \shortstack{$10^{-3}$\\83.1\textsubscript{$\pm$\,1.4}} & \shortstack{$10^{-3}$\\80.5\textsubscript{$\pm$\,0.3}} \\
+\method{} & \shortstack{$10^{-3}$\\83.4\textsubscript{$\pm$\,1.9}} & \shortstack{$10^{-3}$\\80.3\textsubscript{$\pm$\,0.9}} \\
+\bottomrule
+\end{tabular}
+\end{table}

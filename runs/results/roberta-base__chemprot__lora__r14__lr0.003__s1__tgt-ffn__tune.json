@@ -1,0 +1,204 @@
+{
+  "id": "roberta-base__chemprot__lora__r14__lr0.003__s1__tgt-ffn__tune",
+  "args": {
+    "model": "roberta-base",
+    "task": "chemprot",
+    "method": "lora",
+    "seed": 1,
+    "budget_rank": 14,
+    "alpha": 16.0,
+    "dropout": 0.0,
+    "lr": 0.003,
+    "epochs": 10,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "max_len": 128,
+    "max_train": null,
+    "weight_decay": 0.01,
+    "tau": 0.95,
+    "rho": 2.0,
+    "score_mode": "relative",
+    "init_mode": "drift",
+    "alloc_mode": "drift",
+    "r_min": 0,
+    "target": "ffn",
+    "cov": "centered",
+    "scale": "adjusted",
+    "n_ref": 1024,
+    "n_dom": 1024,
+    "ref": "wikitext",
+    "tag": "tune",
+    "amp": true,
+    "deterministic": false,
+    "force": false,
+    "verbose": false
+  },
+  "wall_s": 155.75997927099888,
+  "n_train": 4169,
+  "n_dev": 2427,
+  "n_test": 3469,
+  "num_labels": 13,
+  "metric": "micro_f1",
+  "max_len": 128,
+  "budget": {
+    "budget_rank": 14,
+    "budget_params": 1290240,
+    "n_modules": 24
+  },
+  "spent_params": 1290240,
+  "rank_hist": {
+    "14": 24
+  },
+  "ranks": {
+    "roberta.encoder.layer.0.intermediate.dense": 14,
+    "roberta.encoder.layer.0.output.dense": 14,
+    "roberta.encoder.layer.1.intermediate.dense": 14,
+    "roberta.encoder.layer.1.output.dense": 14,
+    "roberta.encoder.layer.2.intermediate.dense": 14,
+    "roberta.encoder.layer.2.output.dense": 14,
+    "roberta.encoder.layer.3.intermediate.dense": 14,
+    "roberta.encoder.layer.3.output.dense": 14,
+    "roberta.encoder.layer.4.intermediate.dense": 14,
+    "roberta.encoder.layer.4.output.dense": 14,
+    "roberta.encoder.layer.5.intermediate.dense": 14,
+    "roberta.encoder.layer.5.output.dense": 14,
+    "roberta.encoder.layer.6.intermediate.dense": 14,
+    "roberta.encoder.layer.6.output.dense": 14,
+    "roberta.encoder.layer.7.intermediate.dense": 14,
+    "roberta.encoder.layer.7.output.dense": 14,
+    "roberta.encoder.layer.8.intermediate.dense": 14,
+    "roberta.encoder.layer.8.output.dense": 14,
+    "roberta.encoder.layer.9.intermediate.dense": 14,
+    "roberta.encoder.layer.9.output.dense": 14,
+    "roberta.encoder.layer.10.intermediate.dense": 14,
+    "roberta.encoder.layer.10.output.dense": 14,
+    "roberta.encoder.layer.11.intermediate.dense": 14,
+    "roberta.encoder.layer.11.output.dense": 14
+  },
+  "versions": {
+    "torch": "2.10.0+cu128",
+    "transformers": "5.0.0"
+  },
+  "result": {
+    "test": {
+      "micro_f1": 0.3617757278754684,
+      "macro_f1": 0.04427744848998024,
+      "accuracy": 0.3617757278754684
+    },
+    "dev_best": {
+      "micro_f1": 0.334569427276473,
+      "macro_f1": 0.0417824431408871,
+      "accuracy": 0.334569427276473
+    },
+    "best_epoch": 1,
+    "train_time_s": 148.6756677129997,
+    "peak_mem_bytes": 2129032192,
+    "params_total": 125945869,
+    "params_trainable": 1890829,
+    "params_head": 600589,
+    "params_adapter": 1290240,
+    "steps": 1310,
+    "history": [
+      {
+        "epoch": 0,
+        "dev": 0.11454470539761022,
+        "train_loss": 1.880594875066335,
+        "grad_norm_mean": 5.219737382335517,
+        "grad_norm_max": 24.661272048950195,
+        "amp_skipped_steps": 2,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 16384.0
+      },
+      {
+        "epoch": 1,
+        "dev": 0.334569427276473,
+        "train_loss": 2.1067288686300962,
+        "grad_norm_mean": 2.8513805829841674,
+        "grad_norm_max": 7.2542500495910645,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 16384.0
+      },
+      {
+        "epoch": 2,
+        "dev": 0.334569427276473,
+        "train_loss": 2.025828936627803,
+        "grad_norm_mean": 2.0380339822696367,
+        "grad_norm_max": 3.7216219902038574,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 16384.0
+      },
+      {
+        "epoch": 3,
+        "dev": 0.334569427276473,
+        "train_loss": 2.002076223606372,
+        "grad_norm_mean": 1.768016746025959,
+        "grad_norm_max": 3.4780337810516357,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 16384.0
+      },
+      {
+        "epoch": 4,
+        "dev": 0.334569427276473,
+        "train_loss": 1.9920976817152882,
+        "grad_norm_mean": 1.5441361852274595,
+        "grad_norm_max": 3.0969088077545166,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 16384.0
+      },
+      {
+        "epoch": 5,
+        "dev": 0.334569427276473,
+        "train_loss": 1.9738572808622403,
+        "grad_norm_mean": 1.3834003169117992,
+        "grad_norm_max": 2.457195281982422,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 16384.0
+      },
+      {
+        "epoch": 6,
+        "dev": 0.334569427276473,
+        "train_loss": 1.973664895268797,
+        "grad_norm_mean": 1.3377508229881752,
+        "grad_norm_max": 2.548224925994873,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 16384.0
+      },
+      {
+        "epoch": 7,
+        "dev": 0.334569427276473,
+        "train_loss": 1.9683152209711439,
+        "grad_norm_mean": 1.2837734936757852,
+        "grad_norm_max": 2.2700700759887695,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 16384.0
+      },
+      {
+        "epoch": 8,
+        "dev": 0.334569427276473,
+        "train_loss": 1.9566595772750506,
+        "grad_norm_mean": 1.2051474729567084,
+        "grad_norm_max": 2.4276199340820312,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 16384.0
+      },
+      {
+        "epoch": 9,
+        "dev": 0.334569427276473,
+        "train_loss": 1.9552172922906075,
+        "grad_norm_mean": 1.1439253437610073,
+        "grad_norm_max": 2.279825448989868,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 16384.0
+      }
+    ]
+  }
+}

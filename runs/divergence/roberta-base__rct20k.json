@@ -1,0 +1,952 @@
+{
+ "model": "roberta-base",
+ "task": "rct20k",
+ "n": 1024,
+ "max_len": 96,
+ "n_texts": {
+  "target": 1024,
+  "ref": 1024,
+  "ref2": 1024
+ },
+ "dims": {
+  "roberta.encoder.layer.0.attention.self.query": 768,
+  "roberta.encoder.layer.0.attention.self.key": 768,
+  "roberta.encoder.layer.0.attention.self.value": 768,
+  "roberta.encoder.layer.0.attention.output.dense": 768,
+  "roberta.encoder.layer.0.intermediate.dense": 768,
+  "roberta.encoder.layer.0.output.dense": 3072,
+  "roberta.encoder.layer.1.attention.self.query": 768,
+  "roberta.encoder.layer.1.attention.self.key": 768,
+  "roberta.encoder.layer.1.attention.self.value": 768,
+  "roberta.encoder.layer.1.attention.output.dense": 768,
+  "roberta.encoder.layer.1.intermediate.dense": 768,
+  "roberta.encoder.layer.1.output.dense": 3072,
+  "roberta.encoder.layer.2.attention.self.query": 768,
+  "roberta.encoder.layer.2.attention.self.key": 768,
+  "roberta.encoder.layer.2.attention.self.value": 768,
+  "roberta.encoder.layer.2.attention.output.dense": 768,
+  "roberta.encoder.layer.2.intermediate.dense": 768,
+  "roberta.encoder.layer.2.output.dense": 3072,
+  "roberta.encoder.layer.3.attention.self.query": 768,
+  "roberta.encoder.layer.3.attention.self.key": 768,
+  "roberta.encoder.layer.3.attention.self.value": 768,
+  "roberta.encoder.layer.3.attention.output.dense": 768,
+  "roberta.encoder.layer.3.intermediate.dense": 768,
+  "roberta.encoder.layer.3.output.dense": 3072,
+  "roberta.encoder.layer.4.attention.self.query": 768,
+  "roberta.encoder.layer.4.attention.self.key": 768,
+  "roberta.encoder.layer.4.attention.self.value": 768,
+  "roberta.encoder.layer.4.attention.output.dense": 768,
+  "roberta.encoder.layer.4.intermediate.dense": 768,
+  "roberta.encoder.layer.4.output.dense": 3072,
+  "roberta.encoder.layer.5.attention.self.query": 768,
+  "roberta.encoder.layer.5.attention.self.key": 768,
+  "roberta.encoder.layer.5.attention.self.value": 768,
+  "roberta.encoder.layer.5.attention.output.dense": 768,
+  "roberta.encoder.layer.5.intermediate.dense": 768,
+  "roberta.encoder.layer.5.output.dense": 3072,
+  "roberta.encoder.layer.6.attention.self.query": 768,
+  "roberta.encoder.layer.6.attention.self.key": 768,
+  "roberta.encoder.layer.6.attention.self.value": 768,
+  "roberta.encoder.layer.6.attention.output.dense": 768,
+  "roberta.encoder.layer.6.intermediate.dense": 768,
+  "roberta.encoder.layer.6.output.dense": 3072,
+  "roberta.encoder.layer.7.attention.self.query": 768,
+  "roberta.encoder.layer.7.attention.self.key": 768,
+  "roberta.encoder.layer.7.attention.self.value": 768,
+  "roberta.encoder.layer.7.attention.output.dense": 768,
+  "roberta.encoder.layer.7.intermediate.dense": 768,
+  "roberta.encoder.layer.7.output.dense": 3072,
+  "roberta.encoder.layer.8.attention.self.query": 768,
+  "roberta.encoder.layer.8.attention.self.key": 768,
+  "roberta.encoder.layer.8.attention.self.value": 768,
+  "roberta.encoder.layer.8.attention.output.dense": 768,
+  "roberta.encoder.layer.8.intermediate.dense": 768,
+  "roberta.encoder.layer.8.output.dense": 3072,
+  "roberta.encoder.layer.9.attention.self.query": 768,
+  "roberta.encoder.layer.9.attention.self.key": 768,
+  "roberta.encoder.layer.9.attention.self.value": 768,
+  "roberta.encoder.layer.9.attention.output.dense": 768,
+  "roberta.encoder.layer.9.intermediate.dense": 768,
+  "roberta.encoder.layer.9.output.dense": 3072,
+  "roberta.encoder.layer.10.attention.self.query": 768,
+  "roberta.encoder.layer.10.attention.self.key": 768,
+  "roberta.encoder.layer.10.attention.self.value": 768,
+  "roberta.encoder.layer.10.attention.output.dense": 768,
+  "roberta.encoder.layer.10.intermediate.dense": 768,
+  "roberta.encoder.layer.10.output.dense": 3072,
+  "roberta.encoder.layer.11.attention.self.query": 768,
+  "roberta.encoder.layer.11.attention.self.key": 768,
+  "roberta.encoder.layer.11.attention.self.value": 768,
+  "roberta.encoder.layer.11.attention.output.dense": 768,
+  "roberta.encoder.layer.11.intermediate.dense": 768,
+  "roberta.encoder.layer.11.output.dense": 3072
+ },
+ "modules": {
+  "roberta.encoder.layer.0.attention.self.query": {
+   "target": {
+    "coral": 0.5427297409133208,
+    "bures": 0.14013939528813313,
+    "jeffreys": 0.2439983764813498
+   },
+   "ref2": {
+    "coral": 0.0571355176615665,
+    "bures": 0.004628180664143056,
+    "jeffreys": 0.01166668191183029
+   }
+  },
+  "roberta.encoder.layer.0.attention.self.key": {
+   "target": {
+    "coral": 0.5427297409133208,
+    "bures": 0.14013939528813313,
+    "jeffreys": 0.2439983764813498
+   },
+   "ref2": {
+    "coral": 0.0571355176615665,
+    "bures": 0.004628180664143056,
+    "jeffreys": 0.01166668191183029
+   }
+  },
+  "roberta.encoder.layer.0.attention.self.value": {
+   "target": {
+    "coral": 0.5427297409133208,
+    "bures": 0.14013939528813313,
+    "jeffreys": 0.2439983764813498
+   },
+   "ref2": {
+    "coral": 0.0571355176615665,
+    "bures": 0.004628180664143056,
+    "jeffreys": 0.01166668191183029
+   }
+  },
+  "roberta.encoder.layer.0.attention.output.dense": {
+   "target": {
+    "coral": 0.7637931794962758,
+    "bures": 0.16976741210580504,
+    "jeffreys": 0.2851829400897852
+   },
+   "ref2": {
+    "coral": 0.09325905980120307,
+    "bures": 0.008107677252301437,
+    "jeffreys": 0.022270281944373638
+   }
+  },
+  "roberta.encoder.layer.0.intermediate.dense": {
+   "target": {
+    "coral": 0.5762088671059401,
+    "bures": 0.1372193634503649,
+    "jeffreys": 0.22951706117135706
+   },
+   "ref2": {
+    "coral": 0.05011774722356347,
+    "bures": 0.004281856716417565,
+    "jeffreys": 0.010773318840926471
+   }
+  },
+  "roberta.encoder.layer.0.output.dense": {
+   "target": {
+    "coral": 1.096193857144612,
+    "bures": 0.3833086118437512,
+    "jeffreys": 0.7204459091584792
+   },
+   "ref2": {
+    "coral": 0.0915023231641924,
+    "bures": 0.013001719538824119,
+    "jeffreys": 0.03155481196387666
+   }
+  },
+  "roberta.encoder.layer.1.attention.self.query": {
+   "target": {
+    "coral": 0.6113364760724601,
+    "bures": 0.15719771906338975,
+    "jeffreys": 0.27615927281384156
+   },
+   "ref2": {
+    "coral": 0.05812789761665986,
+    "bures": 0.004136627414370375,
+    "jeffreys": 0.009985384384263218
+   }
+  },
+  "roberta.encoder.layer.1.attention.self.key": {
+   "target": {
+    "coral": 0.6113364760724601,
+    "bures": 0.15719771906338975,
+    "jeffreys": 0.27615927281384156
+   },
+   "ref2": {
+    "coral": 0.05812789761665986,
+    "bures": 0.004136627414370375,
+    "jeffreys": 0.009985384384263218
+   }
+  },
+  "roberta.encoder.layer.1.attention.self.value": {
+   "target": {
+    "coral": 0.6113364760724601,
+    "bures": 0.15719771906338975,
+    "jeffreys": 0.27615927281384156
+   },
+   "ref2": {
+    "coral": 0.05812789761665986,
+    "bures": 0.004136627414370375,
+    "jeffreys": 0.009985384384263218
+   }
+  },
+  "roberta.encoder.layer.1.attention.output.dense": {
+   "target": {
+    "coral": 0.9043456862254404,
+    "bures": 0.20520727599585875,
+    "jeffreys": 0.33415287058270304
+   },
+   "ref2": {
+    "coral": 0.09672185129984537,
+    "bures": 0.00743479518909429,
+    "jeffreys": 0.01828252259419849
+   }
+  },
+  "roberta.encoder.layer.1.intermediate.dense": {
+   "target": {
+    "coral": 0.6694042327787686,
+    "bures": 0.1590593347197682,
+    "jeffreys": 0.2662383811747018
+   },
+   "ref2": {
+    "coral": 0.05910342798599679,
+    "bures": 0.004142220718752032,
+    "jeffreys": 0.00991061207606525
+   }
+  },
+  "roberta.encoder.layer.1.output.dense": {
+   "target": {
+    "coral": 1.2593048485919411,
+    "bures": 0.3933760254825054,
+    "jeffreys": 0.7487503845613108
+   },
+   "ref2": {
+    "coral": 0.09474287821764175,
+    "bures": 0.013894537175283661,
+    "jeffreys": 0.03499601245801043
+   }
+  },
+  "roberta.encoder.layer.2.attention.self.query": {
+   "target": {
+    "coral": 0.7224539898220299,
+    "bures": 0.1768813390241517,
+    "jeffreys": 0.30764837627415353
+   },
+   "ref2": {
+    "coral": 0.0644502980260601,
+    "bures": 0.0039641330622885995,
+    "jeffreys": 0.009192056673220206
+   }
+  },
+  "roberta.encoder.layer.2.attention.self.key": {
+   "target": {
+    "coral": 0.7224539898220299,
+    "bures": 0.1768813390241517,
+    "jeffreys": 0.30764837627415353
+   },
+   "ref2": {
+    "coral": 0.0644502980260601,
+    "bures": 0.0039641330622885995,
+    "jeffreys": 0.009192056673220206
+   }
+  },
+  "roberta.encoder.layer.2.attention.self.value": {
+   "target": {
+    "coral": 0.7224539898220299,
+    "bures": 0.1768813390241517,
+    "jeffreys": 0.30764837627415353
+   },
+   "ref2": {
+    "coral": 0.0644502980260601,
+    "bures": 0.0039641330622885995,
+    "jeffreys": 0.009192056673220206
+   }
+  },
+  "roberta.encoder.layer.2.attention.output.dense": {
+   "target": {
+    "coral": 1.0711246803332186,
+    "bures": 0.227664332201301,
+    "jeffreys": 0.36221037920049626
+   },
+   "ref2": {
+    "coral": 0.11711727957478701,
+    "bures": 0.007889566413713966,
+    "jeffreys": 0.016966158874917703
+   }
+  },
+  "roberta.encoder.layer.2.intermediate.dense": {
+   "target": {
+    "coral": 0.7792937048888068,
+    "bures": 0.17830112778114238,
+    "jeffreys": 0.2965450427907337
+   },
+   "ref2": {
+    "coral": 0.07343077560060207,
+    "bures": 0.004287706955156123,
+    "jeffreys": 0.00969558330742637
+   }
+  },
+  "roberta.encoder.layer.2.output.dense": {
+   "target": {
+    "coral": 1.2169738066882136,
+    "bures": 0.40794626942071566,
+    "jeffreys": 0.8193990155194113
+   },
+   "ref2": {
+    "coral": 0.10692611872021966,
+    "bures": 0.013443666479739047,
+    "jeffreys": 0.03250670514206888
+   }
+  },
+  "roberta.encoder.layer.3.attention.self.query": {
+   "target": {
+    "coral": 0.8393563095443918,
+    "bures": 0.20177253989740374,
+    "jeffreys": 0.3537194341088348
+   },
+   "ref2": {
+    "coral": 0.07365483502376284,
+    "bures": 0.004181736393264579,
+    "jeffreys": 0.009342929716235515
+   }
+  },
+  "roberta.encoder.layer.3.attention.self.key": {
+   "target": {
+    "coral": 0.8393563095443918,
+    "bures": 0.20177253989740374,
+    "jeffreys": 0.3537194341088348
+   },
+   "ref2": {
+    "coral": 0.07365483502376284,
+    "bures": 0.004181736393264579,
+    "jeffreys": 0.009342929716235515
+   }
+  },
+  "roberta.encoder.layer.3.attention.self.value": {
+   "target": {
+    "coral": 0.8393563095443918,
+    "bures": 0.20177253989740374,
+    "jeffreys": 0.3537194341088348
+   },
+   "ref2": {
+    "coral": 0.07365483502376284,
+    "bures": 0.004181736393264579,
+    "jeffreys": 0.009342929716235515
+   }
+  },
+  "roberta.encoder.layer.3.attention.output.dense": {
+   "target": {
+    "coral": 1.2259656390467206,
+    "bures": 0.2880968665946624,
+    "jeffreys": 0.46601314362278035
+   },
+   "ref2": {
+    "coral": 0.13846919167998376,
+    "bures": 0.011403782991979083,
+    "jeffreys": 0.0250697758048275
+   }
+  },
+  "roberta.encoder.layer.3.intermediate.dense": {
+   "target": {
+    "coral": 0.8877616214680388,
+    "bures": 0.205280105923632,
+    "jeffreys": 0.3457071721206588
+   },
+   "ref2": {
+    "coral": 0.0791553351426449,
+    "bures": 0.004603418801834014,
+    "jeffreys": 0.010312163204431846
+   }
+  },
+  "roberta.encoder.layer.3.output.dense": {
+   "target": {
+    "coral": 1.3835782248110464,
+    "bures": 0.3888313315981584,
+    "jeffreys": 0.7635909815369957
+   },
+   "ref2": {
+    "coral": 0.09014971746737836,
+    "bures": 0.013825647370716565,
+    "jeffreys": 0.033655830372081974
+   }
+  },
+  "roberta.encoder.layer.4.attention.self.query": {
+   "target": {
+    "coral": 0.8912820335989408,
+    "bures": 0.20922393354389723,
+    "jeffreys": 0.3672760436895288
+   },
+   "ref2": {
+    "coral": 0.07396209704628452,
+    "bures": 0.004436063512184729,
+    "jeffreys": 0.009969537755443625
+   }
+  },
+  "roberta.encoder.layer.4.attention.self.key": {
+   "target": {
+    "coral": 0.8912820335989408,
+    "bures": 0.20922393354389723,
+    "jeffreys": 0.3672760436895288
+   },
+   "ref2": {
+    "coral": 0.07396209704628452,
+    "bures": 0.004436063512184729,
+    "jeffreys": 0.009969537755443625
+   }
+  },
+  "roberta.encoder.layer.4.attention.self.value": {
+   "target": {
+    "coral": 0.8912820335989408,
+    "bures": 0.20922393354389723,
+    "jeffreys": 0.3672760436895288
+   },
+   "ref2": {
+    "coral": 0.07396209704628452,
+    "bures": 0.004436063512184729,
+    "jeffreys": 0.009969537755443625
+   }
+  },
+  "roberta.encoder.layer.4.attention.output.dense": {
+   "target": {
+    "coral": 1.1806742156132823,
+    "bures": 0.28297026211825815,
+    "jeffreys": 0.4512926238580539
+   },
+   "ref2": {
+    "coral": 0.1365182278069359,
+    "bures": 0.012526282035763003,
+    "jeffreys": 0.026773375752889406
+   }
+  },
+  "roberta.encoder.layer.4.intermediate.dense": {
+   "target": {
+    "coral": 0.9265244446213926,
+    "bures": 0.21156038372249664,
+    "jeffreys": 0.36069124040133715
+   },
+   "ref2": {
+    "coral": 0.07886643384189368,
+    "bures": 0.005034198156002034,
+    "jeffreys": 0.01142409730047711
+   }
+  },
+  "roberta.encoder.layer.4.output.dense": {
+   "target": {
+    "coral": 1.0148179216615079,
+    "bures": 0.30800059306019945,
+    "jeffreys": 0.6342510260121343
+   },
+   "ref2": {
+    "coral": 0.041853683894089166,
+    "bures": 0.01234329215842056,
+    "jeffreys": 0.03201505590857967
+   }
+  },
+  "roberta.encoder.layer.5.attention.self.query": {
+   "target": {
+    "coral": 0.8834534030292407,
+    "bures": 0.20487180476618727,
+    "jeffreys": 0.36016183557884385
+   },
+   "ref2": {
+    "coral": 0.06985051004810112,
+    "bures": 0.004668177781029126,
+    "jeffreys": 0.010716875372094536
+   }
+  },
+  "roberta.encoder.layer.5.attention.self.key": {
+   "target": {
+    "coral": 0.8834534030292407,
+    "bures": 0.20487180476618727,
+    "jeffreys": 0.36016183557884385
+   },
+   "ref2": {
+    "coral": 0.06985051004810112,
+    "bures": 0.004668177781029126,
+    "jeffreys": 0.010716875372094536
+   }
+  },
+  "roberta.encoder.layer.5.attention.self.value": {
+   "target": {
+    "coral": 0.8834534030292407,
+    "bures": 0.20487180476618727,
+    "jeffreys": 0.36016183557884385
+   },
+   "ref2": {
+    "coral": 0.06985051004810112,
+    "bures": 0.004668177781029126,
+    "jeffreys": 0.010716875372094536
+   }
+  },
+  "roberta.encoder.layer.5.attention.output.dense": {
+   "target": {
+    "coral": 1.1047021191431114,
+    "bures": 0.28407759766409413,
+    "jeffreys": 0.4509361730194481
+   },
+   "ref2": {
+    "coral": 0.14717044626836587,
+    "bures": 0.014246922424886233,
+    "jeffreys": 0.03164656769961405
+   }
+  },
+  "roberta.encoder.layer.5.intermediate.dense": {
+   "target": {
+    "coral": 0.9176008922736382,
+    "bures": 0.20942897779110847,
+    "jeffreys": 0.35407317807442795
+   },
+   "ref2": {
+    "coral": 0.07612585330785213,
+    "bures": 0.005259871894079726,
+    "jeffreys": 0.01209554462370832
+   }
+  },
+  "roberta.encoder.layer.5.output.dense": {
+   "target": {
+    "coral": 1.1750601619251493,
+    "bures": 0.324315417071078,
+    "jeffreys": 0.6174095451680721
+   },
+   "ref2": {
+    "coral": 0.07730157520069257,
+    "bures": 0.013943449447437084,
+    "jeffreys": 0.03395078358856973
+   }
+  },
+  "roberta.encoder.layer.6.attention.self.query": {
+   "target": {
+    "coral": 0.8988160104458841,
+    "bures": 0.20398102471700064,
+    "jeffreys": 0.34763152406305076
+   },
+   "ref2": {
+    "coral": 0.06899550048457556,
+    "bures": 0.004746892182013962,
+    "jeffreys": 0.010955189276193655
+   }
+  },
+  "roberta.encoder.layer.6.attention.self.key": {
+   "target": {
+    "coral": 0.8988160104458841,
+    "bures": 0.20398102471700064,
+    "jeffreys": 0.34763152406305076
+   },
+   "ref2": {
+    "coral": 0.06899550048457556,
+    "bures": 0.004746892182013962,
+    "jeffreys": 0.010955189276193655
+   }
+  },
+  "roberta.encoder.layer.6.attention.self.value": {
+   "target": {
+    "coral": 0.8988160104458841,
+    "bures": 0.20398102471700064,
+    "jeffreys": 0.34763152406305076
+   },
+   "ref2": {
+    "coral": 0.06899550048457556,
+    "bures": 0.004746892182013962,
+    "jeffreys": 0.010955189276193655
+   }
+  },
+  "roberta.encoder.layer.6.attention.output.dense": {
+   "target": {
+    "coral": 1.17489669180558,
+    "bures": 0.29717113753385194,
+    "jeffreys": 0.4517019700269824
+   },
+   "ref2": {
+    "coral": 0.15884789876953984,
+    "bures": 0.013914855850133412,
+    "jeffreys": 0.028147178261689554
+   }
+  },
+  "roberta.encoder.layer.6.intermediate.dense": {
+   "target": {
+    "coral": 0.9200490012456303,
+    "bures": 0.21190634076415216,
+    "jeffreys": 0.3429932940476883
+   },
+   "ref2": {
+    "coral": 0.07443940682630258,
+    "bures": 0.005380457522395021,
+    "jeffreys": 0.01219287006417713
+   }
+  },
+  "roberta.encoder.layer.6.output.dense": {
+   "target": {
+    "coral": 1.2626509782218178,
+    "bures": 0.3145459326265416,
+    "jeffreys": 0.6141017187375726
+   },
+   "ref2": {
+    "coral": 0.057477920084899735,
+    "bures": 0.013842241498907892,
+    "jeffreys": 0.03368976734923912
+   }
+  },
+  "roberta.encoder.layer.7.attention.self.query": {
+   "target": {
+    "coral": 0.8732318240780823,
+    "bures": 0.20622734310880353,
+    "jeffreys": 0.3407655491806789
+   },
+   "ref2": {
+    "coral": 0.06468214187153738,
+    "bures": 0.0047266440835134205,
+    "jeffreys": 0.010891307364201408
+   }
+  },
+  "roberta.encoder.layer.7.attention.self.key": {
+   "target": {
+    "coral": 0.8732318240780823,
+    "bures": 0.20622734310880353,
+    "jeffreys": 0.3407655491806789
+   },
+   "ref2": {
+    "coral": 0.06468214187153738,
+    "bures": 0.0047266440835134205,
+    "jeffreys": 0.010891307364201408
+   }
+  },
+  "roberta.encoder.layer.7.attention.self.value": {
+   "target": {
+    "coral": 0.8732318240780823,
+    "bures": 0.20622734310880353,
+    "jeffreys": 0.3407655491806789
+   },
+   "ref2": {
+    "coral": 0.06468214187153738,
+    "bures": 0.0047266440835134205,
+    "jeffreys": 0.010891307364201408
+   }
+  },
+  "roberta.encoder.layer.7.attention.output.dense": {
+   "target": {
+    "coral": 0.9394437623922398,
+    "bures": 0.1950391580113875,
+    "jeffreys": 0.3080767151621566
+   },
+   "ref2": {
+    "coral": 0.12125956105971601,
+    "bures": 0.008742485968597169,
+    "jeffreys": 0.018965359753273958
+   }
+  },
+  "roberta.encoder.layer.7.intermediate.dense": {
+   "target": {
+    "coral": 0.8772056982174776,
+    "bures": 0.20196381365276594,
+    "jeffreys": 0.3262101249459566
+   },
+   "ref2": {
+    "coral": 0.06766842671057098,
+    "bures": 0.004967785209650799,
+    "jeffreys": 0.01144710461160181
+   }
+  },
+  "roberta.encoder.layer.7.output.dense": {
+   "target": {
+    "coral": 0.6937282829151852,
+    "bures": 0.21808218183070616,
+    "jeffreys": 0.5053563422113141
+   },
+   "ref2": {
+    "coral": 0.018875245097064296,
+    "bures": 0.009566089742301553,
+    "jeffreys": 0.02789856933082091
+   }
+  },
+  "roberta.encoder.layer.8.attention.self.query": {
+   "target": {
+    "coral": 0.8202584464275261,
+    "bures": 0.1946874453704006,
+    "jeffreys": 0.32241229733392895
+   },
+   "ref2": {
+    "coral": 0.0620830372314044,
+    "bures": 0.004538554739919709,
+    "jeffreys": 0.010495914121135153
+   }
+  },
+  "roberta.encoder.layer.8.attention.self.key": {
+   "target": {
+    "coral": 0.8202584464275261,
+    "bures": 0.1946874453704006,
+    "jeffreys": 0.32241229733392895
+   },
+   "ref2": {
+    "coral": 0.0620830372314044,
+    "bures": 0.004538554739919709,
+    "jeffreys": 0.010495914121135153
+   }
+  },
+  "roberta.encoder.layer.8.attention.self.value": {
+   "target": {
+    "coral": 0.8202584464275261,
+    "bures": 0.1946874453704006,
+    "jeffreys": 0.32241229733392895
+   },
+   "ref2": {
+    "coral": 0.0620830372314044,
+    "bures": 0.004538554739919709,
+    "jeffreys": 0.010495914121135153
+   }
+  },
+  "roberta.encoder.layer.8.attention.output.dense": {
+   "target": {
+    "coral": 0.9787437313369374,
+    "bures": 0.19748211160264595,
+    "jeffreys": 0.30850830094079984
+   },
+   "ref2": {
+    "coral": 0.1432477280745519,
+    "bures": 0.010373556175745202,
+    "jeffreys": 0.021033659688912687
+   }
+  },
+  "roberta.encoder.layer.8.intermediate.dense": {
+   "target": {
+    "coral": 0.8253937749975818,
+    "bures": 0.19362133953087435,
+    "jeffreys": 0.31227986577783184
+   },
+   "ref2": {
+    "coral": 0.06476125563524925,
+    "bures": 0.004677218588204468,
+    "jeffreys": 0.010767072183653026
+   }
+  },
+  "roberta.encoder.layer.8.output.dense": {
+   "target": {
+    "coral": 0.3482082979799702,
+    "bures": 0.21609473172689952,
+    "jeffreys": 0.4637084800175266
+   },
+   "ref2": {
+    "coral": 0.07828465235730882,
+    "bures": 0.009964732376942065,
+    "jeffreys": 0.026630787069325645
+   }
+  },
+  "roberta.encoder.layer.9.attention.self.query": {
+   "target": {
+    "coral": 0.8215593374412119,
+    "bures": 0.19754026937304903,
+    "jeffreys": 0.33090642097519907
+   },
+   "ref2": {
+    "coral": 0.06329078136318805,
+    "bures": 0.004553506220632997,
+    "jeffreys": 0.010354620928166414
+   }
+  },
+  "roberta.encoder.layer.9.attention.self.key": {
+   "target": {
+    "coral": 0.8215593374412119,
+    "bures": 0.19754026937304903,
+    "jeffreys": 0.33090642097519907
+   },
+   "ref2": {
+    "coral": 0.06329078136318805,
+    "bures": 0.004553506220632997,
+    "jeffreys": 0.010354620928166414
+   }
+  },
+  "roberta.encoder.layer.9.attention.self.value": {
+   "target": {
+    "coral": 0.8215593374412119,
+    "bures": 0.19754026937304903,
+    "jeffreys": 0.33090642097519907
+   },
+   "ref2": {
+    "coral": 0.06329078136318805,
+    "bures": 0.004553506220632997,
+    "jeffreys": 0.010354620928166414
+   }
+  },
+  "roberta.encoder.layer.9.attention.output.dense": {
+   "target": {
+    "coral": 0.9527224171499842,
+    "bures": 0.18619205294268415,
+    "jeffreys": 0.2788715940560029
+   },
+   "ref2": {
+    "coral": 0.13779305865476474,
+    "bures": 0.009918648086725046,
+    "jeffreys": 0.019851658097404856
+   }
+  },
+  "roberta.encoder.layer.9.intermediate.dense": {
+   "target": {
+    "coral": 0.8473193556614401,
+    "bures": 0.19737294102323744,
+    "jeffreys": 0.3185455522228555
+   },
+   "ref2": {
+    "coral": 0.06630488082107522,
+    "bures": 0.004680898293510705,
+    "jeffreys": 0.010555354553640095
+   }
+  },
+  "roberta.encoder.layer.9.output.dense": {
+   "target": {
+    "coral": 0.31278985830865413,
+    "bures": 0.16172487034992078,
+    "jeffreys": 0.39477179938954166
+   },
+   "ref2": {
+    "coral": 0.03503449877870474,
+    "bures": 0.006898007657987426,
+    "jeffreys": 0.021661303012440847
+   }
+  },
+  "roberta.encoder.layer.10.attention.self.query": {
+   "target": {
+    "coral": 0.7916053891168711,
+    "bures": 0.2032618069232892,
+    "jeffreys": 0.3520317990774664
+   },
+   "ref2": {
+    "coral": 0.060553730429491984,
+    "bures": 0.004678449132008655,
+    "jeffreys": 0.01073143532132037
+   }
+  },
+  "roberta.encoder.layer.10.attention.self.key": {
+   "target": {
+    "coral": 0.7916053891168711,
+    "bures": 0.2032618069232892,
+    "jeffreys": 0.3520317990774664
+   },
+   "ref2": {
+    "coral": 0.060553730429491984,
+    "bures": 0.004678449132008655,
+    "jeffreys": 0.01073143532132037
+   }
+  },
+  "roberta.encoder.layer.10.attention.self.value": {
+   "target": {
+    "coral": 0.7916053891168711,
+    "bures": 0.2032618069232892,
+    "jeffreys": 0.3520317990774664
+   },
+   "ref2": {
+    "coral": 0.060553730429491984,
+    "bures": 0.004678449132008655,
+    "jeffreys": 0.01073143532132037
+   }
+  },
+  "roberta.encoder.layer.10.attention.output.dense": {
+   "target": {
+    "coral": 0.9056598061754292,
+    "bures": 0.274863333398083,
+    "jeffreys": 0.43158735967245754
+   },
+   "ref2": {
+    "coral": 0.11817614155518452,
+    "bures": 0.012983169673033812,
+    "jeffreys": 0.025434463864505208
+   }
+  },
+  "roberta.encoder.layer.10.intermediate.dense": {
+   "target": {
+    "coral": 0.7995191752440838,
+    "bures": 0.2059160559994775,
+    "jeffreys": 0.35222317557413585
+   },
+   "ref2": {
+    "coral": 0.06010085888603145,
+    "bures": 0.0049044845980890095,
+    "jeffreys": 0.011183033925594721
+   }
+  },
+  "roberta.encoder.layer.10.output.dense": {
+   "target": {
+    "coral": 0.43155847050000906,
+    "bures": 0.1971056502542381,
+    "jeffreys": 0.47402896958414975
+   },
+   "ref2": {
+    "coral": 0.01698564643434248,
+    "bures": 0.008007756471460237,
+    "jeffreys": 0.026430124708810565
+   }
+  },
+  "roberta.encoder.layer.11.attention.self.query": {
+   "target": {
+    "coral": 0.7633279287810858,
+    "bures": 0.20848509434003226,
+    "jeffreys": 0.3738375733331356
+   },
+   "ref2": {
+    "coral": 0.05628922344140314,
+    "bures": 0.004679201836036206,
+    "jeffreys": 0.011116742125204304
+   }
+  },
+  "roberta.encoder.layer.11.attention.self.key": {
+   "target": {
+    "coral": 0.7633279287810858,
+    "bures": 0.20848509434003226,
+    "jeffreys": 0.3738375733331356
+   },
+   "ref2": {
+    "coral": 0.05628922344140314,
+    "bures": 0.004679201836036206,
+    "jeffreys": 0.011116742125204304
+   }
+  },
+  "roberta.encoder.layer.11.attention.self.value": {
+   "target": {
+    "coral": 0.7633279287810858,
+    "bures": 0.20848509434003226,
+    "jeffreys": 0.3738375733331356
+   },
+   "ref2": {
+    "coral": 0.05628922344140314,
+    "bures": 0.004679201836036206,
+    "jeffreys": 0.011116742125204304
+   }
+  },
+  "roberta.encoder.layer.11.attention.output.dense": {
+   "target": {
+    "coral": 0.8603056954439998,
+    "bures": 0.18458496870532892,
+    "jeffreys": 0.3066414845620835
+   },
+   "ref2": {
+    "coral": 0.12508191231604723,
+    "bures": 0.00951683197561537,
+    "jeffreys": 0.021187899302298252
+   }
+  },
+  "roberta.encoder.layer.11.intermediate.dense": {
+   "target": {
+    "coral": 0.7626931622754256,
+    "bures": 0.19144860637727934,
+    "jeffreys": 0.3453021226121944
+   },
+   "ref2": {
+    "coral": 0.05925175657710264,
+    "bures": 0.004885730077681227,
+    "jeffreys": 0.011413312970319556
+   }
+  },
+  "roberta.encoder.layer.11.output.dense": {
+   "target": {
+    "coral": 0.6171861635525319,
+    "bures": 0.35454523039477404,
+    "jeffreys": 0.7027209364646074
+   },
+   "ref2": {
+    "coral": 0.055135993526074525,
+    "bures": 0.013148225846534523,
+    "jeffreys": 0.0351760644852499
+   }
+  }
+ },
+ "t_s": 430.838690584
+}

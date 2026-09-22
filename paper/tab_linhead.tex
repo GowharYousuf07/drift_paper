@@ -1,0 +1,17 @@
+\begin{table}[h]
+\centering
+\caption{ChemProt with the backbone's classification head (Table~\ref{tab:main}, seeds 1--3) and with a single linear head on the first token ($768\times13$), every configuration tuned on its own (test micro-F1, three seeds).}
+\label{tab:linhead}
+\footnotesize
+\begin{tabular}{lcc}
+\toprule
+Method & \shortstack{RoBERTa head\\($0.60$M)} & \shortstack{Linear head\\($0.01$M)} \\
+\midrule
+LoRA & 82.5\textsubscript{$\pm$\,0.3} & 81.9\textsubscript{$\pm$\,0.1} \\
+EVA (budget-matched) & 81.8\textsubscript{$\pm$\,1.5} & 80.4\textsubscript{$\pm$\,0.3} \\
+EVA (whitened) & 82.6\textsubscript{$\pm$\,0.4} & 81.1\textsubscript{$\pm$\,0.8} \\
+\method{} & 82.3\textsubscript{$\pm$\,0.4} & 82.7\textsubscript{$\pm$\,0.7} \\
+BitFit & 81.3\textsubscript{$\pm$\,0.1} & 80.6\textsubscript{$\pm$\,0.5} \\
+\bottomrule
+\end{tabular}
+\end{table}

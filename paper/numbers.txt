@@ -1,0 +1,473 @@
+﻿
+==============================================================================
+RUN COUNTS
+==============================================================================
+study runs (excluding smoke): 1322 | tuning runs: 443
+by backbone: {'google__bert_uncased_L-12_H-768_A-12': 42, 'google__bert_uncased_L-2_H-128_A-2': 60, 'google__bert_uncased_L-4_H-256_A-4': 49, 'google__bert_uncased_L-4_H-512_A-8': 45, 'google__bert_uncased_L-8_H-512_A-8': 40, 'HuggingFaceTB__SmolLM2-360M': 59, 'roberta-base': 1027}
+
+==============================================================================
+LEARNING-RATE SELECTIONS THAT MOVED (main table, first grid vs extended)
+==============================================================================
+  chemprot  drift      first-grid best 0.0003 -> final 0.0003 [same] extension tried: 0.001:82.9
+  chemprot  lora       first-grid best 0.0003 -> final 0.0003 [same] extension tried: 
+  chemprot  eva        first-grid best 0.0001 -> final 0.0001 [same] extension tried: 
+  chemprot  eva_white  first-grid best 0.0003 -> final 0.001 [MOVED] extension tried: 0.001:84.2, 0.003:33.5
+  chemprot  adalora    first-grid best 0.0003 -> final 0.003 [MOVED] extension tried: 0.001:83.5, 0.003:83.9, 0.01:70.8
+  chemprot  full       first-grid best 5e-05 -> final 5e-05 [same] extension tried: 0.0001:81.2
+  chemprot  bitfit     first-grid best 0.001 -> final 0.001 [same] extension tried: 
+  chemprot  linear     first-grid best 0.005 -> final 0.005 [same] extension tried: 
+  chemprot  pissa      first-grid best 0.0003 -> final 0.0003 [same] extension tried: 0.001:81.5
+  chemprot  dora       first-grid best 0.0003 -> final 0.001 [MOVED] extension tried: 0.001:83.3, 0.003:33.5
+  rct20k    drift      first-grid best 0.0001 -> final 0.0001 [same] extension tried: 
+  rct20k    lora       first-grid best 0.0003 -> final 0.0003 [same] extension tried: 
+  rct20k    eva        first-grid best 0.0001 -> final 0.0001 [same] extension tried: 
+  rct20k    eva_white  first-grid best 0.0001 -> final 0.0001 [same] extension tried: 
+  rct20k    adalora    first-grid best 0.0003 -> final 0.003 [MOVED] extension tried: 0.001:84.5, 0.003:84.5, 0.01:77.5
+  rct20k    full       first-grid best 3e-05 -> final 3e-05 [same] extension tried: 
+  rct20k    bitfit     first-grid best 0.003 -> final 0.003 [same] extension tried: 0.01:82.1
+  rct20k    linear     first-grid best 0.02 -> final 0.02 [same] extension tried: 0.05:74.0
+  rct20k    pissa      first-grid best 0.0001 -> final 0.0001 [same] extension tried: 3e-05:83.4
+  rct20k    dora       first-grid best 0.0001 -> final 0.0001 [same] extension tried: 3e-05:83.1
+  hoc       drift      first-grid best 0.0003 -> final 0.0003 [same] extension tried: 0.001:11.8
+  hoc       lora       first-grid best 0.0003 -> final 0.0003 [same] extension tried: 
+  hoc       eva        first-grid best 0.0003 -> final 0.0003 [same] extension tried: 0.001:11.8
+  hoc       eva_white  first-grid best 0.0001 -> final 0.0001 [same] extension tried: 
+  hoc       adalora    first-grid best 0.0003 -> final 0.003 [MOVED] extension tried: 0.001:81.3, 0.003:82.9, 0.01:79.6
+  hoc       full       first-grid best 5e-05 -> final 5e-05 [same] extension tried: 0.0001:11.8
+  hoc       bitfit     first-grid best 0.001 -> final 0.001 [same] extension tried: 
+  hoc       linear     first-grid best 0.02 -> final 0.02 [same] extension tried: 0.05:29.0
+  hoc       pissa      first-grid best 0.0003 -> final 0.0003 [same] extension tried: 0.001:11.8
+  hoc       dora       first-grid best 0.0003 -> final 0.0003 [same] extension tried: 0.001:22.0
+
+==============================================================================
+RQ1 MAIN TABLE
+==============================================================================
+  chemprot:
+    full       81.7+-0.4 (n=3)  lr=5e-05  
+    linear     49.3+-0.6 (n=3)  lr=0.005  
+    bitfit     81.3+-0.1 (n=3)  lr=0.001  vs LoRA -1.12 p=0.043 holm=1.000
+    lora       82.5+-0.3 (n=5)  lr=0.0003  
+    dora       82.4+-0.6 (n=3)  lr=0.001  vs LoRA -0.09 p=0.808 holm=1.000
+    pissa      82.4+-0.6 (n=3)  lr=0.0003  vs LoRA -0.07 p=0.808 holm=1.000
+    adalora    82.7+-0.9 (n=3)  lr=0.003  vs LoRA +0.25 p=0.546 holm=1.000
+    eva        81.5+-1.2 (n=5)  lr=0.0001  vs LoRA -1.02 p=0.093 holm=1.000
+    eva_white  82.0+-2.0 (n=5)  lr=0.001  vs LoRA -0.48 p=0.651 holm=1.000
+    drift      82.4+-0.3 (n=5)  lr=0.0003  vs LoRA -0.13 p=0.337 holm=1.000
+    gev        82.4+-0.6 (n=3)  lr=0.001  vs LoRA -0.06 p=0.915 holm=1.000
+  rct20k:
+    full       83.7+-0.6 (n=3)  lr=3e-05  
+    linear     77.3+-0.6 (n=3)  lr=0.02  
+    bitfit     83.9+-0.1 (n=3)  lr=0.003  vs LoRA +0.01 p=0.977 holm=1.000
+    lora       83.7+-0.3 (n=5)  lr=0.0003  
+    dora       83.6+-0.1 (n=3)  lr=0.0001  vs LoRA -0.24 p=0.277 holm=1.000
+    pissa      83.8+-0.1 (n=3)  lr=0.0001  vs LoRA -0.05 p=0.787 holm=1.000
+    adalora    82.3+-1.8 (n=3)  lr=0.003  vs LoRA -1.53 p=0.326 holm=1.000
+    eva        83.7+-0.2 (n=5)  lr=0.0001  vs LoRA +0.01 p=0.947 holm=1.000
+    eva_white  84.0+-0.1 (n=5)  lr=0.0001  vs LoRA +0.24 p=0.181 holm=1.000
+    drift      83.9+-0.1 (n=5)  lr=0.0001  vs LoRA +0.20 p=0.161 holm=1.000
+    gev        83.9+-0.1 (n=3)  lr=0.0001  vs LoRA +0.05 p=0.746 holm=1.000
+  hoc:
+    full       76.2+-1.9 (n=3)  lr=5e-05  
+    linear     48.8+-2.0 (n=3)  lr=0.02  
+    bitfit     78.2+-0.6 (n=3)  lr=0.001  vs LoRA +0.34 p=0.521 holm=1.000
+    lora       78.0+-1.4 (n=5)  lr=0.0003  
+    dora       57.9+-37.8 (n=3)  lr=0.0003  vs LoRA -19.98 p=0.461 holm=1.000
+    pissa      51.2+-33.0 (n=3)  lr=0.0003  vs LoRA -26.71 p=0.297 holm=1.000
+    adalora    78.1+-0.7 (n=3)  lr=0.003  vs LoRA +0.22 p=0.866 holm=1.000
+    eva        59.4+-25.4 (n=5)  lr=0.0003  vs LoRA -18.56 p=0.189 holm=1.000
+    eva_white  77.3+-1.3 (n=5)  lr=0.0001  vs LoRA -0.67 p=0.596 holm=1.000
+    drift      75.7+-8.0 (n=5)  lr=0.0003  vs LoRA -2.26 p=0.526 holm=1.000
+    gev        77.6+-2.2 (n=3)  lr=0.0003  vs LoRA -0.29 p=0.717 holm=1.000
+  largest gain over LoRA: (0.33585761348565357, 'hoc:bitfit-lora')
+  smallest Holm-adjusted p: 1.0
+  uncorrected p<0.05: [('chemprot:bitfit-lora', -1.12, 0.043)]
+  failed runs: {'hoc:dora': [2], 'hoc:pissa': [1, 2], 'hoc:eva': [2, 5], 'hoc:drift': [1]}
+  HoC micro-F1 bitfit: 81.6+-0.4 (n=3)
+  HoC micro-F1 lora: 80.7+-1.2 (n=5)
+  HoC micro-F1 full: 80.0+-2.4 (n=3)
+  BitFit - LoRA HoC micro: +0.99 p=0.142 n=3
+  chemprot: PEFT spread 1.4 (bitfit..adalora)
+  rct20k: PEFT spread 1.6 (adalora..eva_white)
+
+==============================================================================
+RQ1 HoC NUMERICS
+==============================================================================
+  lora       fp16 78.0+-1.4 (n=5) failed 0/5 | fp32 78.9+-0.8 (n=3) median 79.3 failed 0/3 | per-seed fp32 {1: 79.4, 2: 79.3, 3: 77.9}
+      seed 1: best epoch 11, dev by epoch 12 62 77 76 80 80 81 81 82 81 82 82 | max grad norm 1.43
+      seed 2: best epoch 11, dev by epoch 12 51 74 78 80 80 81 81 83 81 83 83 | max grad norm 1.46
+      seed 3: best epoch 7, dev by epoch 12 50 71 76 77 79 77 81 81 79 79 79 | max grad norm 1.35
+  dora       fp16 57.9+-37.8 (n=3) failed 1/3 | fp32 78.4+-0.2 (n=3) median 78.4 failed 0/3 | per-seed fp32 {1: 78.4, 2: 78.6, 3: 78.2}
+      seed 1: best epoch 10, dev by epoch 12 37 71 75 77 78 81 79 81 78 81 80 | max grad norm 1.94
+      seed 2: best epoch 7, dev by epoch 12 55 73 78 81 80 81 81 81 80 80 80 | max grad norm 1.31
+      seed 3: best epoch 7, dev by epoch 12 46 74 75 77 78 79 81 79 79 78 79 | max grad norm 1.24
+  pissa      fp16 51.2+-33.0 (n=3) failed 2/3 | fp32 78.3+-0.8 (n=3) median 78.2 failed 0/3 | per-seed fp32 {1: 78.2, 2: 77.6, 3: 79.2}
+      seed 1: best epoch 8, dev by epoch 12 12 34 72 76 79 80 80 82 79 80 81 | max grad norm 12.24
+      seed 2: best epoch 7, dev by epoch 18 64 73 78 79 79 80 81 78 76 79 79 | max grad norm 3.78
+      seed 3: best epoch 11, dev by epoch 22 63 76 79 79 79 80 82 82 84 83 84 | max grad norm 142.55
+  eva        fp16 59.4+-25.4 (n=5) failed 2/5 | fp32 14.3+-0.0 (n=3) median 14.3 failed 3/3 | per-seed fp32 {1: 14.3, 2: 14.3, 3: 14.3}
+      seed 1: best epoch 0, dev by epoch 12 12 12 12 12 12 12 12 12 12 12 12 | max grad norm 2.82
+      seed 2: best epoch 0, dev by epoch 12 12 12 12 12 12 12 12 12 12 12 12 | max grad norm 5.13
+      seed 3: best epoch 0, dev by epoch 12 12 12 12 12 12 12 12 12 12 12 12 | max grad norm 8.30
+  eva_white  fp16 77.3+-1.3 (n=5) failed 0/5 | fp32 76.7+-0.6 (n=3) median 76.9 failed 0/3 | per-seed fp32 {1: 77.2, 2: 76.9, 3: 76.1}
+      seed 1: best epoch 9, dev by epoch 12 32 64 72 74 76 79 78 79 80 79 79 | max grad norm 2.01
+      seed 2: best epoch 11, dev by epoch 12 12 47 65 75 74 78 78 79 78 79 80 | max grad norm 4.61
+      seed 3: best epoch 8, dev by epoch 12 22 55 68 69 73 76 76 78 78 78 78 | max grad norm 2.20
+  drift      fp16 75.7+-8.0 (n=5) failed 1/5 | fp32 79.3+-0.7 (n=3) median 79.2 failed 0/3 | per-seed fp32 {1: 78.8, 2: 79.2, 3: 80.0}
+      seed 1: best epoch 10, dev by epoch 12 15 42 69 77 79 79 78 80 79 80 79 | max grad norm 1.45
+      seed 2: best epoch 9, dev by epoch 12 39 62 73 75 78 79 80 80 81 80 80 | max grad norm 5.31
+      seed 3: best epoch 8, dev by epoch 12 44 69 74 78 76 80 81 82 80 80 79 | max grad norm 3.03
+  gev        fp16 77.6+-2.2 (n=3) failed 0/3 | fp32 56.7+-36.7 (n=3) median 76.6 failed 1/3 | per-seed fp32 {1: 14.3, 2: 79.2, 3: 76.6}
+      seed 1: best epoch 0, dev by epoch 12 12 12 12 12 12 12 12 12 12 12 12 | max grad norm 1.66
+      seed 2: best epoch 7, dev by epoch 12 40 65 77 77 79 81 82 81 80 81 79 | max grad norm 1.78
+      seed 3: best epoch 4, dev by epoch 12 44 73 76 80 79 79 80 80 79 80 80 | max grad norm 2.03
+  fp32 repeat of DRIFT seed 1 identical: False 0.8250896057347671 0.8019201228878647
+  EVA at 1e-4 on HoC (5 seeds): 77.4+-0.8 (n=5) failed 0/5 per-seed {1: 76.9, 2: 76.3, 3: 78.0, 4: 78.0, 5: 77.7}
+
+==============================================================================
+RQ2 CONTROLS AND GEV (test F1)
+==============================================================================
+  chemprot: DRIFT 82.3+-0.4 (n=3) (lr 0.0003)
+    ref=news      82.0+-0.2 (n=3)  vs DRIFT -0.31 (p=0.307, n=3)
+    ref=shuffled  83.1+-0.3 (n=3)  vs DRIFT +0.77 (p=0.068, n=3)
+    ref=random    82.8+-0.4 (n=3)  vs DRIFT +0.43 (p=0.460, n=3)
+    GEV 82.4+-0.6 (n=3) lr 0.001 vs LoRA -0.06 (p=0.915, n=3) vs DRIFT +0.08 (p=0.853, n=3)
+    EVA rank-unit 81.9+-0.5 (n=3) params 1.26M vs EVA budget-matched +0.12 (p=0.872, n=3); failed 0/3
+  hoc: DRIFT 73.2+-10.2 (n=3) (lr 0.0003)
+    ref=news      77.8+-1.9 (n=3)  vs DRIFT +4.59 (p=0.497, n=3)
+    ref=random    78.4+-0.8 (n=3)  vs DRIFT +5.18 (p=0.448, n=3)
+    GEV 77.6+-2.2 (n=3) lr 0.0003 vs LoRA -0.29 (p=0.717, n=3) vs DRIFT +4.38 (p=0.451, n=3)
+    EVA rank-unit 78.4+-1.1 (n=3) params 1.29M vs EVA budget-matched +18.32 (p=0.400, n=3); failed 0/3
+  rct20k: DRIFT 84.0+-0.1 (n=3) (lr 0.0001)
+    GEV 83.9+-0.1 (n=3) lr 0.0001 vs LoRA +0.05 (p=0.746, n=3) vs DRIFT -0.06 (p=0.560, n=3)
+
+==============================================================================
+RQ2 REFERENCE CONTROLS OVER FIVE SEEDS (seeds 4-5 added)
+==============================================================================
+  chemprot ref=news      82.3+-0.6 (n=5) seeds [1, 2, 3, 4, 5] failed 0/5 | vs LoRA -0.17 (p=0.551, n=5) | vs DRIFT -0.04 (p=0.879, n=5)
+  chemprot ref=shuffled  82.9+-0.4 (n=5) seeds [1, 2, 3, 4, 5] failed 0/5 | vs LoRA +0.40 (p=0.049, n=5) | vs DRIFT +0.53 (p=0.057, n=5)
+  chemprot ref=random    82.6+-0.4 (n=5) seeds [1, 2, 3, 4, 5] failed 0/5 | vs LoRA +0.07 (p=0.775, n=5) | vs DRIFT +0.20 (p=0.540, n=5)
+    Holm over this task's reference-vs-LoRA comparisons: news 1.000, shuffled 0.146, random 1.000
+  hoc      ref=news      78.0+-1.4 (n=5) seeds [1, 2, 3, 4, 5] failed 0/5 | vs LoRA +0.01 (p=0.991, n=5) | vs DRIFT +2.27 (p=0.540, n=5)
+  hoc      ref=random    77.8+-1.0 (n=5) seeds [1, 2, 3, 4, 5] failed 0/5 | vs LoRA -0.13 (p=0.834, n=5) | vs DRIFT +2.14 (p=0.582, n=5)
+    Holm over this task's reference-vs-LoRA comparisons: news 1.000, random 1.000
+
+==============================================================================
+RQ2 PROFILE SUMMARIES (leading directions)
+==============================================================================
+  roberta-base__chemprot__ref1024__dom1024__cen__gev.json | n_ref 1024 | drift ratio {'0.0': 1.0}
+    [0.0] 48/48 hidden-state modules peak on 77/588; energy median 73.3x max 2747.7x
+    [gev] 0/48 hidden-state modules peak on 77/588; energy median 15.2x max 80.9x
+  roberta-base__chemprot__ref1024__dom1024__news__cen.json | n_ref 1024 | drift ratio {'0.0': 1.0, '0.5': 0.5998, '0.9': 0.1668, '0.95': 0.0933, '0.99': 0.0227}
+    [0.0] 48/48 hidden-state modules peak on 77/588; energy median 73.3x max 2747.7x
+    [0.5] 0/48 hidden-state modules peak on 77/588; energy median 23.8x max 144.2x
+    [0.9] 0/48 hidden-state modules peak on 77/588; energy median 7.3x max 63.3x
+    [0.95] 0/48 hidden-state modules peak on 77/588; energy median 4.2x max 52.9x
+    [0.99] 0/48 hidden-state modules peak on 77/588; energy median 1.0x max 18.4x
+  roberta-base__chemprot__ref1024__dom1024__random__cen.json | n_ref 1024 | drift ratio {'0.0': 1.0, '0.5': 0.7049, '0.9': 0.3292, '0.95': 0.2227, '0.99': 0.076}
+    [0.0] 48/48 hidden-state modules peak on 77/588; energy median 73.3x max 2747.7x
+    [0.5] 15/48 hidden-state modules peak on 77/588; energy median 30.9x max 1048.1x
+    [0.9] 0/48 hidden-state modules peak on 77/588; energy median 19.8x max 714.7x
+    [0.95] 0/48 hidden-state modules peak on 77/588; energy median 13.4x max 559.2x
+    [0.99] 0/48 hidden-state modules peak on 77/588; energy median 5.6x max 213.4x
+  roberta-base__chemprot__ref1024__dom1024__shuffled__cen.json | n_ref 1024 | drift ratio {'0.0': 1.0, '0.5': 0.6316, '0.9': 0.1769, '0.95': 0.0988, '0.99': 0.0245}
+    [0.0] 48/48 hidden-state modules peak on 77/588; energy median 73.3x max 2747.7x
+    [0.5] 5/48 hidden-state modules peak on 77/588; energy median 23.2x max 427.1x
+    [0.9] 1/48 hidden-state modules peak on 77/588; energy median 6.3x max 58.1x
+    [0.95] 0/48 hidden-state modules peak on 77/588; energy median 3.8x max 48.8x
+    [0.99] 0/48 hidden-state modules peak on 77/588; energy median 2.1x max 38.4x
+  roberta-base__hoc__ref1024__dom1024__cen__gev.json | n_ref 1024 | drift ratio {'0.0': 1.0}
+    [0.0] 45/48 hidden-state modules peak on 77/588; energy median 58.7x max 1037.5x
+    [gev] 0/48 hidden-state modules peak on 77/588; energy median 8.4x max 46.2x
+  roberta-base__hoc__ref1024__dom1024__news__cen.json | n_ref 1024 | drift ratio {'0.0': 1.0, '0.5': 0.5957, '0.9': 0.1634, '0.95': 0.0914, '0.99': 0.0208}
+    [0.0] 45/48 hidden-state modules peak on 77/588; energy median 58.7x max 1037.5x
+    [0.5] 0/48 hidden-state modules peak on 77/588; energy median 20.4x max 172.0x
+    [0.9] 0/48 hidden-state modules peak on 77/588; energy median 5.4x max 160.9x
+    [0.95] 0/48 hidden-state modules peak on 77/588; energy median 3.1x max 95.1x
+    [0.99] 0/48 hidden-state modules peak on 77/588; energy median 0.7x max 15.0x
+  roberta-base__hoc__ref1024__dom1024__random__cen.json | n_ref 1024 | drift ratio {'0.0': 1.0, '0.5': 0.7205, '0.9': 0.3848, '0.95': 0.2813, '0.99': 0.1105}
+    [0.0] 45/48 hidden-state modules peak on 77/588; energy median 58.7x max 1037.5x
+    [0.5] 0/48 hidden-state modules peak on 77/588; energy median 29.7x max 700.0x
+    [0.9] 0/48 hidden-state modules peak on 77/588; energy median 18.8x max 200.1x
+    [0.95] 0/48 hidden-state modules peak on 77/588; energy median 14.5x max 109.5x
+    [0.99] 0/48 hidden-state modules peak on 77/588; energy median 7.0x max 46.4x
+  roberta-base__mtsamples__ref1024__dom1024__cen.json | n_ref 1024 | drift ratio {'0.0': 1.0, '0.5': 0.5518, '0.9': 0.1373, '0.95': 0.0755, '0.99': 0.0197}
+    [0.0] 43/48 hidden-state modules peak on 77/588; energy median 56.6x max 2893.0x
+    [0.5] 0/48 hidden-state modules peak on 77/588; energy median 20.3x max 245.3x
+    [0.9] 0/48 hidden-state modules peak on 77/588; energy median 5.5x max 119.8x
+    [0.95] 1/48 hidden-state modules peak on 77/588; energy median 4.0x max 95.5x
+    [0.99] 0/48 hidden-state modules peak on 77/588; energy median 1.7x max 75.7x
+  roberta-base__mtsamples__ref1024__dom1024__news__cen.json | n_ref 1024 | drift ratio {'0.0': 1.0, '0.5': 0.5405, '0.9': 0.1284, '0.95': 0.0685, '0.99': 0.0153}
+    [0.0] 43/48 hidden-state modules peak on 77/588; energy median 56.6x max 2893.0x
+    [0.5] 0/48 hidden-state modules peak on 77/588; energy median 20.9x max 81.2x
+    [0.9] 0/48 hidden-state modules peak on 77/588; energy median 4.3x max 20.3x
+    [0.95] 0/48 hidden-state modules peak on 77/588; energy median 2.6x max 15.1x
+    [0.99] 0/48 hidden-state modules peak on 77/588; energy median 0.7x max 6.4x
+  roberta-base__mtsamples__ref1024__dom1024__random__cen.json | n_ref 1024 | drift ratio {'0.0': 1.0, '0.5': 0.6992, '0.9': 0.3651, '0.95': 0.2642, '0.99': 0.1067}
+    [0.0] 43/48 hidden-state modules peak on 77/588; energy median 56.6x max 2893.0x
+    [0.5] 3/48 hidden-state modules peak on 77/588; energy median 29.2x max 2170.1x
+    [0.9] 0/48 hidden-state modules peak on 77/588; energy median 15.7x max 758.8x
+    [0.95] 0/48 hidden-state modules peak on 77/588; energy median 12.9x max 300.4x
+    [0.99] 0/48 hidden-state modules peak on 77/588; energy median 6.4x max 106.1x
+  roberta-base__rct20k__ref1024__dom1024__cen__gev.json | n_ref 1024 | drift ratio {'0.0': 1.0}
+    [0.0] 45/48 hidden-state modules peak on 77/588; energy median 71.2x max 1762.6x
+    [gev] 0/48 hidden-state modules peak on 77/588; energy median 8.8x max 63.4x
+
+==============================================================================
+RQ2 TAU SWEEP
+==============================================================================
+  fixed: tau 0: 79.7+-2.3 | tau 0.5: 82.6+-1.2 | tau 0.9: 82.5+-0.8 | tau 0.95: 82.3+-0.4 | tau 0.99: 82.5+-0.6
+  tuned: tau 0: 81.8+-1.5 | tau 0.5: 82.4+-0.4 | tau 0.9: 82.5+-0.5 | tau 0.95: 82.3+-0.4 | tau 0.99: 81.9+-0.3
+  tuned rate tau=0.5: 0.001
+  tuned rate tau=0.9: 0.001
+  tuned rate tau=0.99: 0.001
+
+==============================================================================
+RQ3 ABLATION (ChemProt)
+==============================================================================
+  LoRA (uniform rank, random init)             82.5+-0.3 (n=3) vs LoRA +0.00 (p=1.000, n=3) vs DRIFT +0.13 (p=0.562, n=3)
+  Rank allocation only (random init)           82.1+-0.3 (n=3) vs LoRA -0.31 (p=0.026, n=3) vs DRIFT -0.17 (p=0.511, n=3)
+  Drift init only (uniform rank)               82.9+-0.9 (n=3) vs LoRA +0.49 (p=0.461, n=3) vs DRIFT +0.62 (p=0.482, n=3)
+  Random orthonormal init, drift ranks         82.3+-1.0 (n=3) vs LoRA -0.17 (p=0.772, n=3) vs DRIFT -0.04 (p=0.919, n=3)
+  No deflation ($\tau{=}0$), \method{}'s rate  79.7+-2.3 (n=3) vs LoRA -2.75 (p=0.191, n=3) vs DRIFT -2.61 (p=0.166, n=3)
+  Absolute (unnormalised) drift score          82.4+-0.6 (n=3) vs LoRA -0.09 (p=0.668, n=3) vs DRIFT +0.05 (p=0.885, n=3)
+  \method{} (full)                             82.3+-0.4 (n=3) vs LoRA -0.13 (p=0.562, n=3) vs DRIFT +0.00 (p=1.000, n=3)
+  GEV init (uniform rank)                      82.4+-0.6 (n=3) vs LoRA -0.06 (p=0.915, n=3) vs DRIFT +0.08 (p=0.853, n=3)
+  EVA, rank-unit budget (its own rule)         81.9+-0.5 (n=3) vs LoRA -0.52 (p=0.169, n=3) vs DRIFT -0.38 (p=0.473, n=3)
+  \method{}, news reference                    82.0+-0.2 (n=3) vs LoRA -0.44 (p=0.048, n=3) vs DRIFT -0.31 (p=0.307, n=3)
+  \method{}, word-shuffled reference           83.1+-0.3 (n=3) vs LoRA +0.63 (p=0.001, n=3) vs DRIFT +0.77 (p=0.068, n=3)
+  \method{}, random-token reference            82.8+-0.4 (n=3) vs LoRA +0.30 (p=0.508, n=3) vs DRIFT +0.43 (p=0.460, n=3)
+
+==============================================================================
+RQ3 PLACEMENT
+==============================================================================
+  chemprot  All modules                    r= 8 82.5+-0.3 (n=3) lr=0.0003 params 1.33M
+  chemprot  All modules                    r= 4 82.6+-0.5 (n=3) lr=0.0003 params 0.66M
+  chemprot  Feed-forward only              r= 8 83.4+-0.9 (n=3) lr=0.001 params 0.74M
+  chemprot  Feed-forward only              r=14 82.8+-0.8 (n=3) lr=0.001 params 1.29M
+  chemprot  Attention only                 r= 8 82.3+-0.5 (n=3) lr=0.001 params 0.59M
+  chemprot  \method{}, feed-forward only   r= 8 82.8+-0.3 (n=3) lr=0.0003 params 0.74M
+  chemprot  \method{}, attention only      r= 8 81.2+-0.8 (n=3) lr=0.0003 params 0.59M
+    ffn8 - all8 +0.91 (p=0.325, n=3) | ffn14 - all8 +0.34 (p=0.520, n=3) | all4 - ffn8 -0.81 (p=0.099, n=3) | all4 - all8 +0.11 (p=0.837, n=3) | ffn14 - ffn8 -0.58 (p=0.549, n=3) | attn8 - all8 -0.17 (p=0.744, n=3)
+  rct20k    All modules                    r= 8 83.9+-0.2 (n=3) lr=0.0003 params 1.33M
+  rct20k    All modules                    r= 4 83.5+-0.5 (n=3) lr=0.001 params 0.66M
+  rct20k    Feed-forward only              r= 8 83.7+-0.2 (n=3) lr=0.0003 params 0.74M
+  rct20k    Feed-forward only              r=14 83.6+-0.4 (n=3) lr=0.001 params 1.29M
+  rct20k    Attention only                 r= 8 83.9+-0.1 (n=3) lr=0.0003 params 0.59M
+  rct20k    \method{}, feed-forward only   r= 8 83.8+-0.3 (n=3) lr=0.0001 params 0.74M
+  rct20k    \method{}, attention only      r= 8 83.7+-0.1 (n=3) lr=0.0001 params 0.59M
+    ffn8 - all8 -0.17 (p=0.058, n=3) | ffn14 - all8 -0.25 (p=0.532, n=3) | all4 - ffn8 -0.19 (p=0.651, n=3) | all4 - all8 -0.36 (p=0.467, n=3) | ffn14 - ffn8 -0.08 (p=0.818, n=3) | attn8 - all8 +0.01 (p=0.978, n=3)
+  hoc       All modules                    r= 8 77.9+-1.3 (n=3) lr=0.0003 params 1.33M
+  hoc       All modules                    r= 4 78.7+-1.0 (n=3) lr=0.0003 params 0.66M
+  hoc       Feed-forward only              r= 8 78.0+-1.4 (n=3) lr=0.001 params 0.74M
+  hoc       Feed-forward only              r=14 35.0+-35.9 (n=3) lr=0.001 params 1.29M
+  hoc       Attention only                 r= 8 77.9+-3.6 (n=3) lr=0.0003 params 0.59M
+  hoc       \method{}, feed-forward only   r= 8 75.6+-7.8 (n=3) lr=0.0003 params 0.74M
+  hoc       \method{}, attention only      r= 8 78.2+-1.5 (n=3) lr=0.0003 params 0.59M
+    ffn8 - all8 +0.09 (p=0.909, n=3) | ffn14 - all8 -42.92 (p=0.183, n=3) | all4 - ffn8 +0.73 (p=0.070, n=3) | all4 - all8 +0.82 (p=0.344, n=3) | ffn14 - ffn8 -43.02 (p=0.181, n=3) | attn8 - all8 +0.02 (p=0.995, n=3)
+
+==============================================================================
+RQ3 THE FEED-FORWARD r14 HoC CELL: fp32 RERUN AND MULTI-SEED RATE
+==============================================================================
+  fp16 @ selected  35.0+-35.9 (n=3) trained 1/3 | test per seed {1: 76.4, 2: 14.3, 3: 14.3} | trained mean 76.4
+  fp32 @ selected  56.6+-36.6 (n=3) trained 2/3 | test per seed {1: 77.3, 2: 14.3, 3: 78.1} | trained mean 77.7
+  fp16 @ 3e-4      77.0+-4.1 (n=3) trained 3/3 | test per seed {1: 80.0, 2: 72.3, 3: 78.7} | trained mean 77.0
+  selected rate 0.001; mean dev over 3 seeds: 35.3 at 0.001 vs 80.7 at 0.0003 -> a three-seed dev mean selects 0.0003
+    ffn14@3e-4 - all8 -0.90 (p=0.777, n=3) | ffn14@3e-4 - ffn8 -0.99 (p=0.783, n=3) | ffn14 fp32 - all8 -21.36 (p=0.423, n=3)
+
+==============================================================================
+RQ4 BUDGET SWEEP (ChemProt, tuned per rank)
+==============================================================================
+  drift      r1: 81.8+-0.1 (lr 0.0003) | r2: 81.6+-0.7 (lr 0.001) | r4: 81.6+-0.9 (lr 0.001) | r8: 82.3+-0.4 (lr 0.0003) | r16: 82.5+-0.7 (lr 0.001)
+  lora       r1: 81.0+-0.4 (lr 0.001) | r2: 82.4+-0.2 (lr 0.001) | r4: 82.6+-0.5 (lr 0.0003) | r8: 82.5+-0.3 (lr 0.0003) | r16: 82.2+-0.7 (lr 0.001)
+  eva        r1: 78.2+-2.0 (lr 0.0001) | r2: 80.7+-0.7 (lr 0.0001) | r4: 81.4+-0.9 (lr 0.0001) | r8: 81.8+-1.5 (lr 0.0001) | r16: 82.2+-1.2 (lr 0.0003)
+  eva_white  r1: 81.4+-0.1 (lr 0.001) | r2: 82.4+-0.2 (lr 0.001) | r4: 82.0+-1.2 (lr 0.001) | r8: 82.6+-0.4 (lr 0.001) | r16: 82.3+-0.4 (lr 0.0003)
+  lora_rs    r1: 81.0+-0.4 (lr 0.001) | r2: 82.4+-0.6 (lr 0.0003) | r4: 82.5+-0.7 (lr 0.0003) | r8: 82.8+-0.7 (lr 0.0003) | r16: 82.4+-0.4 (lr 0.0003)
+  r1: spread LoRA/DRIFT/whitened 0.9; EVA - LoRA -2.8
+      EVA vs LoRA at r1: -2.79 (p=0.097, n=3); EVA best epochs [9, 9, 9]
+  r2: spread LoRA/DRIFT/whitened 0.8; EVA - LoRA -1.7
+      EVA vs LoRA at r2: -1.74 (p=0.032, n=3); EVA best epochs [7, 9, 9]
+  r4: spread LoRA/DRIFT/whitened 1.0; EVA - LoRA -1.2
+      EVA vs LoRA at r4: -1.20 (p=0.269, n=3); EVA best epochs [6, 7, 9]
+  r8: spread LoRA/DRIFT/whitened 0.3; EVA - LoRA -0.6
+      EVA vs LoRA at r8: -0.64 (p=0.457, n=3); EVA best epochs [7, 9, 9]
+  r16: spread LoRA/DRIFT/whitened 0.3; EVA - LoRA +0.1
+      EVA vs LoRA at r16: +0.07 (p=0.953, n=3); EVA best epochs [8, 8, 9]
+
+==============================================================================
+RQ4 LADDER (ChemProt, tuned per backbone)
+==============================================================================
+  BERT-Tiny:
+    lora       60.9+-1.9 (n=3) lr=0.003
+    eva        58.3+-1.1 (n=3) lr=0.001 vs LoRA -2.54 (p=0.105, n=3)
+    eva_white  59.3+-1.2 (n=3) lr=0.003 vs LoRA -1.59 (p=0.198, n=3)
+    drift      61.2+-1.8 (n=3) lr=0.001 vs LoRA +0.35 (p=0.886, n=3)
+    eva_rb     47.5+-3.4 (n=3) lr=0.0001 vs LoRA -13.38 (p=0.049, n=3)
+  BERT-Mini:
+    lora       70.8+-0.9 (n=3) lr=0.001
+    eva        68.4+-2.1 (n=3) lr=0.001 vs LoRA -2.45 (p=0.073, n=3)
+    eva_white  69.1+-0.8 (n=3) lr=0.001 vs LoRA -1.78 (p=0.200, n=3)
+    drift      70.1+-0.9 (n=3) lr=0.001 vs LoRA -0.73 (p=0.118, n=3)
+    eva_rb     63.9+-0.8 (n=3) lr=0.0001 vs LoRA -6.92 (p=0.000, n=3)
+  BERT-Small:
+    lora       76.1+-0.7 (n=3) lr=0.001
+    eva        74.4+-0.4 (n=3) lr=0.001 vs LoRA -1.68 (p=0.102, n=3)
+    eva_white  74.6+-0.4 (n=3) lr=0.001 vs LoRA -1.52 (p=0.145, n=3)
+    drift      74.8+-0.7 (n=3) lr=0.0003 vs LoRA -1.32 (p=0.154, n=3)
+    eva_rb     71.1+-0.7 (n=3) lr=0.0001 vs LoRA -4.94 (p=0.012, n=3)
+  BERT-Medium:
+    lora       77.6+-0.7 (n=3) lr=0.001
+    eva        76.5+-1.3 (n=3) lr=0.0003 vs LoRA -1.16 (p=0.337, n=3)
+    eva_white  76.7+-0.5 (n=3) lr=0.0003 vs LoRA -0.99 (p=0.285, n=3)
+    drift      76.6+-1.1 (n=3) lr=0.0003 vs LoRA -1.01 (p=0.365, n=3)
+    eva_rb     74.9+-0.9 (n=3) lr=0.0001 vs LoRA -2.70 (p=0.066, n=3)
+  BERT-Base:
+    lora       79.2+-0.9 (n=3) lr=0.0003
+    eva        79.2+-1.3 (n=3) lr=0.0001 vs LoRA -0.01 (p=0.995, n=3)
+    eva_white  79.8+-0.4 (n=3) lr=0.001 vs LoRA +0.52 (p=0.535, n=3)
+    drift      80.5+-0.5 (n=3) lr=0.001 vs LoRA +1.29 (p=0.026, n=3)
+    eva_rb     79.2+-1.3 (n=3) lr=0.0001 vs LoRA -0.01 (p=0.995, n=3)
+  BERT-Tiny profiled from all texts:
+    eva        59.0+-0.3 (n=3) vs 1,024-text profile 58.3+-1.1 (n=3): +0.70 (p=0.461, n=3)
+    eva_white  60.6+-1.1 (n=3) vs 1,024-text profile 59.3+-1.2 (n=3): +1.34 (p=0.196, n=3)
+    drift      60.3+-1.3 (n=3) vs 1,024-text profile 61.2+-1.8 (n=3): -0.92 (p=0.512, n=3)
+
+==============================================================================
+fp32 HoC COLUMN (all methods) AND EVA'S fp32 RATE SELECTION
+==============================================================================
+  full       fp32 77.6+-1.2 (n=3) median 77.3 failed 0/3 | fp16 76.2+-1.9 (n=3)
+  linear     fp32 49.4+-2.0 (n=3) median 49.1 failed 3/3 | fp16 48.8+-2.0 (n=3)
+  bitfit     fp32 78.9+-1.4 (n=3) median 79.5 failed 0/3 | fp16 78.2+-0.6 (n=3)
+  lora       fp32 78.9+-0.8 (n=3) median 79.3 failed 0/3 | fp16 78.0+-1.4 (n=5)
+  dora       fp32 78.4+-0.2 (n=3) median 78.4 failed 0/3 | fp16 57.9+-37.8 (n=3)
+  pissa      fp32 78.3+-0.8 (n=3) median 78.2 failed 0/3 | fp16 51.2+-33.0 (n=3)
+  adalora    fp32 78.9+-0.9 (n=3) median 78.4 failed 0/3 | fp16 78.1+-0.7 (n=3)
+  eva        fp32 14.3+-0.0 (n=3) median 14.3 failed 3/3 | fp16 59.4+-25.4 (n=5)
+  eva_white  fp32 76.7+-0.6 (n=3) median 76.9 failed 0/3 | fp16 77.3+-1.3 (n=5)
+  drift      fp32 79.3+-0.7 (n=3) median 79.2 failed 0/3 | fp16 75.7+-8.0 (n=5)
+  gev        fp32 56.7+-36.7 (n=3) median 76.6 failed 1/3 | fp16 77.6+-2.2 (n=3)
+  EVA fp32 lr=3e-05: mean dev 65.4 test 61.1+-2.0 (n=3) failed 3/3
+  EVA fp32 lr=0.0001: mean dev 79.9 test 76.1+-1.2 (n=3) failed 0/3
+  EVA fp32 lr=0.0003: mean dev 11.8 test 14.3+-0.0 (n=3) failed 3/3
+  -> multi-seed fp32 selection picks 0.0001: test 76.1+-1.2 (n=3)
+
+==============================================================================
+DECODER ON HoC
+==============================================================================
+  lora       80.9+-0.8 (n=3) lr=0.001 failed 0/3
+  eva        74.6+-5.5 (n=3) lr=0.001 failed 0/3 vs LoRA -6.28 (p=0.224, n=3)
+  eva_white  80.5+-0.3 (n=3) lr=0.001 failed 0/3 vs LoRA -0.37 (p=0.401, n=3)
+  drift      80.3+-0.9 (n=3) lr=0.001 failed 0/3 vs LoRA -0.56 (p=0.622, n=3)
+
+==============================================================================
+INSTANCE-LEVEL BOOTSTRAP (replicate of Table I with predictions)
+==============================================================================
+  chemprot:adalora         mean 82.7 [81.3, 84.1] delta +0.25 [-0.68, +1.14] rep +0.00 (n=3)
+  chemprot:bitfit          mean 81.3 [80.1, 82.5] delta -1.12 [-2.04, -0.18] rep +0.00 (n=3)
+  chemprot:dora            mean 82.4 [81.1, 83.6] delta -0.09 [-1.02, +0.80] rep +0.00 (n=3)
+  chemprot:drift           mean 82.4 [81.3, 83.6] delta -0.13 [-0.69, +0.46] rep +0.00 (n=5)
+  chemprot:eva             mean 81.5 [80.0, 83.0] delta -1.02 [-2.06, +0.02] rep +0.00 (n=5)
+  chemprot:eva_white       mean 82.0 [80.1, 83.9] delta -0.48 [-2.52, +1.10] rep +0.00 (n=5)
+  chemprot:gev             mean 82.4 [81.1, 83.6] delta -0.06 [-1.14, +1.00] rep +0.00 (n=3)
+  chemprot:lora            mean 82.5 [81.3, 83.7] rep +0.00 (n=5)
+  chemprot:pissa           mean 82.4 [81.1, 83.7] delta -0.07 [-0.88, +0.75] rep +0.00 (n=3)
+  hoc:adalora              mean 78.8 [75.4, 82.0] delta -0.07 [-2.75, +2.61] rep +0.68 (n=3)
+  hoc:bitfit               mean 79.5 [76.2, 82.8] delta +0.65 [-1.89, +3.34] rep +1.29 (n=3)
+  hoc:dora                 mean 79.0 [75.8, 82.1] delta +0.10 [-2.51, +2.60] rep +21.06 (n=3)
+  hoc:drift                mean 79.0 [75.8, 82.2] delta +0.02 [-2.00, +2.08] rep +3.30 (n=5)
+  hoc:eva                  mean 65.4 [39.5, 80.6] delta -13.63 [-41.26, +1.28] rep +5.96 (n=5)
+  hoc:eva_white            mean 77.8 [74.3, 80.9] delta -1.21 [-3.40, +0.89] rep +0.48 (n=5)
+  hoc:gev                  mean 79.7 [76.4, 82.9] delta +0.85 [-1.14, +3.03] rep +2.12 (n=3)
+  hoc:lora                 mean 79.0 [75.7, 82.3] rep +1.02 (n=5)
+  hoc:pissa                mean 63.0 [34.6, 80.6] delta -15.86 [-45.93, +1.93] rep +11.83 (n=3)
+  rct20k:adalora           mean 82.3 [80.5, 84.2] delta -1.53 [-3.37, +0.48] rep -0.00 (n=3)
+  rct20k:bitfit            mean 83.9 [82.9, 84.8] delta +0.01 [-0.58, +0.62] rep +0.00 (n=3)
+  rct20k:dora              mean 83.6 [82.7, 84.5] delta -0.24 [-0.72, +0.28] rep +0.00 (n=3)
+  rct20k:drift             mean 83.9 [83.0, 84.8] delta +0.20 [-0.28, +0.67] rep +0.00 (n=5)
+  rct20k:eva               mean 83.7 [82.8, 84.7] delta +0.01 [-0.54, +0.58] rep +0.00 (n=5)
+  rct20k:eva_white         mean 84.0 [83.0, 84.8] delta +0.24 [-0.22, +0.70] rep -0.00 (n=5)
+  rct20k:gev               mean 83.9 [83.0, 84.8] delta +0.05 [-0.47, +0.61] rep +0.00 (n=3)
+  rct20k:lora              mean 83.7 [82.8, 84.6] rep +0.00 (n=5)
+  rct20k:pissa             mean 83.8 [82.9, 84.7] delta -0.05 [-0.60, +0.50] rep +0.00 (n=3)
+  intervals of the difference to LoRA that exclude zero: ['chemprot:bitfit']
+
+==============================================================================
+rsLoRA SCALE (LoRA, ChemProt, tuned per rank)
+==============================================================================
+  r1  alpha/sqrt(r): 81.0+-0.4 (n=3) lr 0.001 | alpha/r 81.0+-0.4 (n=3) | diff +0.00 (p=1.000, n=3)
+  r2  alpha/sqrt(r): 82.4+-0.6 (n=3) lr 0.0003 | alpha/r 82.4+-0.2 (n=3) | diff +0.02 (p=0.956, n=3)
+  r4  alpha/sqrt(r): 82.5+-0.7 (n=3) lr 0.0003 | alpha/r 82.6+-0.5 (n=3) | diff -0.06 (p=0.934, n=3)
+  r8  alpha/sqrt(r): 82.8+-0.7 (n=3) lr 0.0003 | alpha/r 82.5+-0.3 (n=3) | diff +0.38 (p=0.582, n=3)
+  r16 alpha/sqrt(r): 82.4+-0.4 (n=3) lr 0.0003 | alpha/r 82.2+-0.7 (n=3) | diff +0.18 (p=0.504, n=3)
+
+==============================================================================
+BUDGETS 0.5% AND 2% ON RCT-20k AND HoC
+==============================================================================
+  rct20k  r4  | lora 83.5+-0.5 (n=3) | eva 83.8+-0.2 (n=3) +0.33 (p=0.369, n=3) | eva_white 83.9+-0.1 (n=3) +0.43 (p=0.249, n=3) | drift 83.9+-0.4 (n=3) +0.43 (p=0.495, n=3)
+  rct20k  r8  | lora 83.9+-0.2 (n=3) | eva 83.7+-0.2 (n=3) -0.18 (p=0.501, n=3) | eva_white 83.9+-0.1 (n=3) +0.04 (p=0.781, n=3) | drift 84.0+-0.1 (n=3) +0.11 (p=0.622, n=3)
+  rct20k  r16 | lora 84.0+-0.1 (n=3) | eva 83.5+-0.3 (n=3) -0.52 (p=0.042, n=3) | eva_white 84.1+-0.1 (n=3) +0.05 (p=0.714, n=3) | drift 83.9+-0.2 (n=3) -0.16 (p=0.060, n=3)
+  hoc     r4  | lora 78.7+-1.0 (n=3) | eva 77.4+-1.6 (n=3) -1.35 (p=0.350, n=3) | eva_white 77.4+-0.6 (n=3) -1.34 (p=0.092, n=3) | drift 61.3+-29.1 (n=3) -17.45 (p=0.421, n=3)
+  hoc     r8  | lora 77.9+-1.3 (n=3) | eva 60.1+-29.3 (n=3) -17.86 (p=0.408, n=3) | eva_white 77.4+-0.9 (n=3) -0.51 (p=0.705, n=3) | drift 73.2+-10.2 (n=3) -4.67 (p=0.463, n=3)
+  hoc     r16 | lora 80.3+-1.6 (n=3) | eva 77.8+-2.2 (n=3) -2.55 (p=0.204, n=3) | eva_white 79.0+-0.5 (n=3) -1.28 (p=0.389, n=3) | drift 74.9+-0.6 (n=3) -5.40 (p=0.017, n=3)
+
+==============================================================================
+LINEAR HEAD (ChemProt)
+==============================================================================
+  lora       default 82.5+-0.3 (n=3) | linear 81.9+-0.1 (n=3) lr 0.0003
+  eva        default 81.8+-1.5 (n=3) | linear 80.4+-0.3 (n=3) lr 0.0001 | vs linear-head LoRA -1.54 (p=0.029, n=3)
+  eva_white  default 82.6+-0.4 (n=3) | linear 81.1+-0.8 (n=3) lr 0.001 | vs linear-head LoRA -0.78 (p=0.289, n=3)
+  drift      default 82.3+-0.4 (n=3) | linear 82.7+-0.7 (n=3) lr 0.001 | vs linear-head LoRA +0.80 (p=0.141, n=3)
+  bitfit     default 81.3+-0.1 (n=3) | linear 80.6+-0.5 (n=3) lr 0.001 | vs linear-head LoRA -1.25 (p=0.059, n=3)
+
+==============================================================================
+FACTORISATION ON RCT-20k AND HoC
+==============================================================================
+  rct20k  allocOnly 83.9+-0.1 (n=3) vs LoRA +0.03 (p=0.879, n=3)
+  rct20k  initOnly  83.9+-0.2 (n=3) vs LoRA +0.04 (p=0.882, n=3)
+  hoc     allocOnly 65.0+-25.1 (n=3) vs LoRA -12.87 (p=0.450, n=3)
+  hoc     initOnly  78.7+-1.1 (n=3) vs LoRA +0.80 (p=0.409, n=3)
+
+==============================================================================
+CLINICAL NOTES (MTSamples)
+==============================================================================
+  LoRA                                 micro 84.6+-1.0 (n=3) macro 84.3+-1.8 (n=3) lr 0.0001 failed 0/3 n_train 1436 | per seed 85.4 83.4 85.1
+  EVA (budget-matched)                 micro 83.5+-0.2 (n=3) macro 81.5+-1.2 (n=3) lr 0.0001 failed 0/3 n_train 1436 | vs LoRA -1.08 (p=0.199, n=3) | per seed 83.4 83.4 83.8
+  EVA (whitened)                       micro 83.4+-0.6 (n=3) macro 82.7+-1.0 (n=3) lr 0.0001 failed 0/3 n_train 1436 | vs LoRA -1.19 (p=0.128, n=3) | per seed 84.1 83.1 83.1
+  \method{}                            micro 84.5+-0.2 (n=3) macro 83.4+-0.8 (n=3) lr 0.0001 failed 0/3 n_train 1436 | vs LoRA -0.11 (p=0.860, n=3) | per seed 84.7 84.4 84.4
+  \method{}, news reference            micro 84.4+-1.4 (n=3) macro 83.3+-1.2 (n=3) lr 0.0001 failed 0/3 n_train 1436 | vs LoRA -0.22 (p=0.742, n=3) | per seed 86.0 83.4 83.8
+  \method{}, random-token reference    micro 85.1+-0.6 (n=3) macro 84.4+-0.4 (n=3) lr 0.0001 failed 0/3 n_train 1436 | vs LoRA +0.43 (p=0.659, n=3) | per seed 84.4 85.4 85.4
+  tuning lora       3e-05:72.1 0.0001:84.4 0.0003:83.4 0.001:81.5
+  tuning eva        3e-05:77.6 0.0001:83.4 0.0003:81.2
+  tuning eva_white  3e-05:72.4 0.0001:84.1 0.0003:83.4 0.001:81.2
+  tuning drift      3e-05:71.4 0.0001:84.4 0.0003:81.8 0.001:81.8
+  roberta-base__mtsamples__ref1024__dom1024__cen.json [0.0] 43/48 hidden-state modules on 77/588; energy median 56.6x
+  roberta-base__mtsamples__ref1024__dom1024__cen.json [0.5] 0/48 hidden-state modules on 77/588; energy median 20.3x
+  roberta-base__mtsamples__ref1024__dom1024__cen.json [0.9] 0/48 hidden-state modules on 77/588; energy median 5.5x
+  roberta-base__mtsamples__ref1024__dom1024__cen.json [0.95] 1/48 hidden-state modules on 77/588; energy median 4.0x
+  roberta-base__mtsamples__ref1024__dom1024__cen.json [0.99] 0/48 hidden-state modules on 77/588; energy median 1.7x
+    drift ratio {'0.0': 1.0000002057573674, '0.5': 0.5518445525469279, '0.9': 0.13727200725774813, '0.95': 0.07553169311605396, '0.99': 0.019728338445256736}
+  roberta-base__mtsamples__ref1024__dom1024__news__cen.json [0.0] 43/48 hidden-state modules on 77/588; energy median 56.6x
+  roberta-base__mtsamples__ref1024__dom1024__news__cen.json [0.5] 0/48 hidden-state modules on 77/588; energy median 20.9x
+  roberta-base__mtsamples__ref1024__dom1024__news__cen.json [0.9] 0/48 hidden-state modules on 77/588; energy median 4.3x
+  roberta-base__mtsamples__ref1024__dom1024__news__cen.json [0.95] 0/48 hidden-state modules on 77/588; energy median 2.6x
+  roberta-base__mtsamples__ref1024__dom1024__news__cen.json [0.99] 0/48 hidden-state modules on 77/588; energy median 0.7x
+    drift ratio {'0.0': 1.0000002057573674, '0.5': 0.5404975844386193, '0.9': 0.12839698494045854, '0.95': 0.06851787543557458, '0.99': 0.015347031695584986}
+  roberta-base__mtsamples__ref1024__dom1024__random__cen.json [0.0] 43/48 hidden-state modules on 77/588; energy median 56.6x
+  roberta-base__mtsamples__ref1024__dom1024__random__cen.json [0.5] 3/48 hidden-state modules on 77/588; energy median 29.2x
+  roberta-base__mtsamples__ref1024__dom1024__random__cen.json [0.9] 0/48 hidden-state modules on 77/588; energy median 15.7x
+  roberta-base__mtsamples__ref1024__dom1024__random__cen.json [0.95] 0/48 hidden-state modules on 77/588; energy median 12.9x
+  roberta-base__mtsamples__ref1024__dom1024__random__cen.json [0.99] 0/48 hidden-state modules on 77/588; energy median 6.4x
+    drift ratio {'0.0': 1.0000002057573674, '0.5': 0.6992237366594956, '0.9': 0.36507811070220875, '0.95': 0.26422604894398366, '0.99': 0.1067356600948625}
+
+==============================================================================
+TAU-FREE DIVERGENCES
+==============================================================================
+  chemprot  target  coral 1.1716 bures 0.3456 jeffreys 0.6529
+  chemprot  ref2    coral 0.0765 bures 0.0068 jeffreys 0.0160
+  chemprot  news    coral 0.9197 bures 0.1787 jeffreys 0.2809
+  chemprot  random  coral 1.0581 bures 0.4378 jeffreys 0.8929
+  rct20k    target  coral 0.8776 bures 0.2306 jeffreys 0.4108
+  rct20k    ref2    coral 0.0808 bures 0.0079 jeffreys 0.0188
+  hoc       target  coral 0.7625 bures 0.2093 jeffreys 0.3930
+  hoc       ref2    coral 0.0749 bures 0.0056 jeffreys 0.0128
+  mtsamples target  coral 1.1048 bures 0.2770 jeffreys 0.4952
+  mtsamples ref2    coral 0.0749 bures 0.0056 jeffreys 0.0128

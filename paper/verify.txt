@@ -1,0 +1,223 @@
+﻿MAIN TABLE
+  full       means                                           OK paper [81.7, 83.7, 76.2] recomputed [81.7, 83.7, 76.2]
+  full       HoC median                                      OK paper 75.5 recomputed 75.5
+  full       failed                                          OK paper 0/9 recomputed 0/9
+  linear     means                                           OK paper [49.3, 77.3, 48.8] recomputed [49.3, 77.3, 48.8]
+  linear     HoC median                                      OK paper 48.5 recomputed 48.5
+  bitfit     means                                           OK paper [81.3, 83.9, 78.2] recomputed [81.3, 83.9, 78.2]
+  bitfit     HoC median                                      OK paper 78.5 recomputed 78.5
+  bitfit     failed                                          OK paper 0/9 recomputed 0/9
+  lora       means                                           OK paper [82.5, 83.7, 78.0] recomputed [82.5, 83.7, 78.0]
+  lora       HoC median                                      OK paper 78.3 recomputed 78.3
+  lora       failed                                          OK paper 0/15 recomputed 0/15
+  dora       means                                           OK paper [82.4, 83.6, 57.9] recomputed [82.4, 83.6, 57.9]
+  dora       HoC median                                      OK paper 79.1 recomputed 79.1
+  dora       failed                                          OK paper 1/9 recomputed 1/9
+  pissa      means                                           OK paper [82.4, 83.8, 51.2] recomputed [82.4, 83.8, 51.2]
+  pissa      HoC median                                      OK paper 61.5 recomputed 61.5
+  pissa      failed                                          OK paper 2/9 recomputed 2/9
+  adalora    means                                           OK paper [82.7, 82.3, 78.1] recomputed [82.7, 82.3, 78.1]
+  adalora    HoC median                                      OK paper 77.7 recomputed 77.7
+  adalora    failed                                          OK paper 0/9 recomputed 0/9
+  eva        means                                           OK paper [81.5, 83.7, 59.4] recomputed [81.5, 83.7, 59.4]
+  eva        HoC median                                      OK paper 76.5 recomputed 76.5
+  eva        failed                                          OK paper 2/15 recomputed 2/15
+  eva_white  means                                           OK paper [82.0, 84.0, 77.3] recomputed [82.0, 84.0, 77.3]
+  eva_white  HoC median                                      OK paper 77.8 recomputed 77.8
+  eva_white  failed                                          OK paper 0/15 recomputed 0/15
+  drift      means                                           OK paper [82.4, 83.9, 75.7] recomputed [82.4, 83.9, 75.7]
+  drift      HoC median                                      OK paper 79.0 recomputed 79.0
+  drift      failed                                          OK paper 1/15 recomputed 1/15
+  gev        means                                           OK paper [82.4, 83.9, 77.6] recomputed [82.4, 83.9, 77.6]
+  gev        HoC median                                      OK paper 78.3 recomputed 78.3
+  gev        failed                                          OK paper 0/9 recomputed 0/9
+ABLATION (three tasks)
+  LoRA (uniform rank, random init)                           OK paper [82.5, 83.9, 77.9] recomputed [82.5, 83.9, 77.9] n=[3, 3, 3]
+  Rank allocation only (random init)                         OK paper [82.1, 83.9, 65.0] recomputed [82.1, 83.9, 65.0] n=[3, 3, 3]
+  Drift init only (uniform rank)                             OK paper [82.9, 83.9, 78.7] recomputed [82.9, 83.9, 78.7] n=[3, 3, 3]
+  Random orthonormal init, drift ranks                       OK paper [82.3] recomputed [82.3] n=[3]
+  No deflation ($\tau{=}0$), \method{}'s rate                OK paper [79.7] recomputed [79.7] n=[3]
+  Absolute (unnormalised) drift score                        OK paper [82.4] recomputed [82.4] n=[3]
+  \method{} (full)                                           OK paper [82.3, 84.0, 73.2] recomputed [82.3, 84.0, 73.2] n=[3, 3, 3]
+  GEV init (uniform rank)                                    OK paper [82.4, 83.9, 77.6] recomputed [82.4, 83.9, 77.6] n=[3, 3, 3]
+  EVA, rank-unit budget (its own rule)                       OK paper [81.9, 78.4] recomputed [81.9, 78.4] n=[3, 3]
+  \method{}, news reference                                  OK paper [82.0, 77.8] recomputed [82.0, 77.8] n=[3, 3]
+  \method{}, word-shuffled reference                         OK paper [83.1] recomputed [83.1] n=[3]
+  \method{}, random-token reference                          OK paper [82.8, 78.4] recomputed [82.8, 78.4] n=[3, 3]
+fp32 HoC
+  fp32 full                                                  OK paper [76.2, 77.6] recomputed [76.2, 77.6]
+  fp32 linear                                                OK paper [48.8, 49.4] recomputed [48.8, 49.4]
+  fp32 bitfit                                                OK paper [78.2, 78.9] recomputed [78.2, 78.9]
+  fp32 lora                                                  OK paper [78.0, 78.9] recomputed [78.0, 78.9]
+  fp32 dora                                                  OK paper [57.9, 78.4] recomputed [57.9, 78.4]
+  fp32 pissa                                                 OK paper [51.2, 78.3] recomputed [51.2, 78.3]
+  fp32 adalora                                               OK paper [78.1, 78.9] recomputed [78.1, 78.9]
+  fp32 eva                                                   OK paper [59.4, 14.3] recomputed [59.4, 14.3]
+  fp32 eva_white                                             OK paper [77.3, 76.7] recomputed [77.3, 76.7]
+  fp32 drift                                                 OK paper [75.7, 79.3] recomputed [75.7, 79.3]
+  fp32 gev                                                   OK paper [77.6, 56.7] recomputed [77.6, 56.7]
+BUDGETS ON RCT-20k AND HoC
+  rct20k r4                                                  OK paper [83.5, 83.8, 83.9, 83.9] recomputed [83.5, 83.8, 83.9, 83.9]
+  rct20k r8                                                  OK paper [83.9, 83.7, 83.9, 84.0] recomputed [83.9, 83.7, 83.9, 84.0]
+  rct20k r16                                                 OK paper [84.0, 83.5, 84.1, 83.9] recomputed [84.0, 83.5, 84.1, 83.9]
+  hoc r4                                                     OK paper [78.7, 77.4, 77.4, 61.3] recomputed [78.7, 77.4, 77.4, 61.3]
+  hoc r8                                                     OK paper [77.9, 60.1, 77.4, 73.2] recomputed [77.9, 60.1, 77.4, 73.2]
+  hoc r16                                                    OK paper [80.3, 77.8, 79.0, 74.9] recomputed [80.3, 77.8, 79.0, 74.9]
+LINEAR HEAD (ChemProt)
+  linear head lora                                           OK paper [82.5, 81.9] recomputed [82.5, 81.9]
+  linear head eva                                            OK paper [81.8, 80.4] recomputed [81.8, 80.4]
+  linear head eva_white                                      OK paper [82.6, 81.1] recomputed [82.6, 81.1]
+  linear head drift                                          OK paper [82.3, 82.7] recomputed [82.3, 82.7]
+  linear head bitfit                                         OK paper [81.3, 80.6] recomputed [81.3, 80.6]
+PLACEMENT
+  All modules r=8                                            OK paper [82.5, 83.9, 77.9] recomputed [82.5, 83.9, 77.9]
+  All modules r=4                                            OK paper [82.6, 83.5, 78.7] recomputed [82.6, 83.5, 78.7]
+  Feed-forward only r=8                                      OK paper [83.4, 83.7, 78.0] recomputed [83.4, 83.7, 78.0]
+  Feed-forward only r=14                                     OK paper [82.8, 83.6, 35.0] recomputed [82.8, 83.6, 35.0]
+  Attention only r=8                                         OK paper [82.3, 83.9, 77.9] recomputed [82.3, 83.9, 77.9]
+  \method{}, feed-forward only r=8                           OK paper [82.8, 83.8, 75.6] recomputed [82.8, 83.8, 75.6]
+  \method{}, attention only r=8                              OK paper [81.2, 83.7, 78.2] recomputed [81.2, 83.7, 78.2]
+LADDER (ChemProt)
+  BERT-Tiny                                                  OK paper [60.9, 58.3, 59.3, 61.2, 47.5] recomputed [60.9, 58.3, 59.3, 61.2, 47.5]
+  BERT-Mini                                                  OK paper [70.8, 68.4, 69.1, 70.1, 63.9] recomputed [70.8, 68.4, 69.1, 70.1, 63.9]
+  BERT-Small                                                 OK paper [76.1, 74.4, 74.6, 74.8, 71.1] recomputed [76.1, 74.4, 74.6, 74.8, 71.1]
+  BERT-Medium                                                OK paper [77.6, 76.5, 76.7, 76.6, 74.9] recomputed [77.6, 76.5, 76.7, 76.6, 74.9]
+  BERT-Base                                                  OK paper [79.2, 79.2, 79.8, 80.5, 79.2] recomputed [79.2, 79.2, 79.8, 80.5, 79.2]
+DECODER (SmolLM2-360M; ChemProt, HoC)
+  LoRA                                                       OK paper [83.9, 80.9] recomputed [83.9, 80.9]
+  EVA (budget-matched)                                       OK paper [82.2, 74.6] recomputed [82.2, 74.6]
+  EVA (whitened)                                             OK paper [83.1, 80.5] recomputed [83.1, 80.5]
+  \method{}                                                  OK paper [83.4, 80.3] recomputed [83.4, 80.3]
+CLINICAL NOTES (MTSamples)
+  clinical lora                                              OK paper [84.6, 84.3] recomputed [84.6, 84.3]
+  clinical eva                                               OK paper [83.5, 81.5] recomputed [83.5, 81.5]
+  clinical eva_white                                         OK paper [83.4, 82.7] recomputed [83.4, 82.7]
+  clinical drift                                             OK paper [84.5, 83.4] recomputed [84.5, 83.4]
+  clinical drift ref=news                                    OK paper [84.4, 83.3] recomputed [84.4, 83.3]
+  clinical drift ref=random                                  OK paper [85.1, 84.4] recomputed [85.1, 84.4]
+LEARNING-RATE SELECTIONS
+  119 tuned configurations, 0 with the selection on a grid edge
+TEXT CHECKS
+  Holm over 24 comparisons: smallest adjusted p = 1.00       OK 
+  one nominal difference: BitFit ChemProt                    OK 
+  largest gain over LoRA 0.34                                OK 
+  PEFT spread ChemProt/RCT <= 1.7 (is 1.7)                   OK 
+  DRIFT vs LoRA, five seeds                                  OK 
+  DRIFT vs whitened EVA p >= 0.70 (0.701)                    OK 
+  HoC failures PiSSA 2/3, DoRA 1/3, EVA 2/5, DRIFT 1/5, others 0 OK 
+  DRIFT HoC seed 1 and the other four                        OK 
+  EVA ChemProt and HoC, five seeds                           OK 
+  whitened EVA HoC                                           OK 
+  whitened EVA ChemProt at its tuned rate                    OK 
+  whitened EVA ChemProt at 3e-4                              OK 
+  fp32: the four fp16 failures of PiSSA/DoRA/DRIFT vanish (9 fp32 runs) OK 
+  fp32: EVA fails all three seeds, two of which trained in fp16 OK 
+  fp32: EVA's loss flat at 0.38, gradients bounded           OK 
+  AdaLoRA RCT-20k: two seeds fall in the third epoch         OK 
+  ChemProt reference controls                                OK 
+  HoC reference controls                                     OK 
+  HoC WikiText three seeds                                   OK 
+  no reference differs from WikiText (min p 0.068)           OK 
+  shuffled reference vs LoRA                                 OK 
+  five-seed reference controls: all have five seeds          OK 
+  shuffled reference over five seeds                         OK 
+  other references within 0.2 of LoRA (0.17)                 OK 
+  no HoC run with a replaced reference fails                 OK 
+  GEV means                                                  OK 
+  GEV within 0.3 of LoRA, p >= 0.72                          OK 
+  GEV rates                                                  OK 
+  GEV no failed run                                          OK 
+  EVA rank-unit parameters                                   OK 
+  EVA rank-unit accuracy                                     OK 
+  EVA rank-unit vs budget-matched EVA                        OK 
+  EVA rank-unit: no HoC failure, seed 2 fails for budget-matched EVA OK 
+  tau sweep at tuned rates                                   OK 
+  family within 0.5 of LoRA on ChemProt/RCT, below on HoC    OK 
+  ffn14 vs all8                                              OK 
+  ffn14 HoC: two of three seeds never leave the constant prediction OK 
+  all4 vs ffn8                                               OK 
+  ffn8 vs all8 ChemProt                                      OK 
+  all4 vs all8                                               OK 
+  attention-only within 0.2 of all8 (0.17)                   OK 
+  DRIFT attention-only vs LoRA attention-only ChemProt       OK 
+  DRIFT feed-forward-only fails one HoC seed                 OK 
+  DRIFT never significantly better than LoRA at the same placement OK 
+  NEW-3 fp32 rerun recovers one of the two failed seeds      OK 
+  NEW-3 the three-seed dev mean selects the lower rate       OK 
+  NEW-3 all three seeds train at the lower rate              OK 
+  NEW-3 repaired cell still below all-module rank 8 and feed-forward rank 8 OK 
+  NEW-3 placement caption quotes the repaired cell           OK 
+  budget spread LoRA/DRIFT/whitened <= 1.0 (1.0)             OK 
+  LoRA rank 2                                                OK 
+  EVA at ranks 1 and 2                                       OK 
+  EVA rate 1e-4 up to rank 8                                 OK 
+  DRIFT at rank 1                                            OK 
+  EVA collapses at 3e-4 at ranks 1-2; others train at 1e-3   OK 
+  EVA rank 1 at 1e-4, best epoch last                        OK 
+  ladder DRIFT on Tiny and Base                              OK 
+  ladder: only EVA at RoBERTa's rate on BERT-Mini survives Holm OK 
+  EVA trails by 0.0-2.5 at its own rate; whitened by at most 1.8 OK 
+  EVA at RoBERTa's rate behind the tuned LoRA                OK 
+  Discussion: BERT-Tiny 13.4 / 2.5                           OK 
+  BERT-Tiny full profile                                     OK 
+  ladder seed spreads                                        OK 
+  rsLoRA scale tracks alpha/r                                OK 
+  rsLoRA and alpha/r coincide at rank 1                      OK 
+  LoRA best at all three HoC budgets, none on RCT-20k ({'rct20k': 0, 'hoc': 3}) OK 
+  RCT-20k budgets within 0.6 of LoRA (0.52)                  OK 
+  two nominal budget differences, both losses, neither survives Holm OK 
+  HoC rank 16 beats rank 8 for LoRA                          OK 
+  rank 4 level with rank 8 on all three tasks                OK 
+  linear head: DRIFT the largest difference, EVA the weakest OK 
+  EVA's fp32 rate one step lower again (3e-5) is undertrained OK 
+  energy-check statement in the protocol box is two-sided    OK 
+  EVA's fp32 rate selection picks 1e-4 and still trails LoRA OK 
+  fp16 EVA at 1e-4 over five seeds                           OK 
+  fp32 repeat differs from the original run                  OK 
+  factorisation on RCT-20k and HoC                           OK 
+  decoder on HoC: no failures, all at 1e-3, EVA least stable OK 
+  instance-level intervals: only BitFit on ChemProt excludes zero OK 
+  GEV: no fp16 failure, one fp32 collapse                    OK 
+  energy ordering matches the failure ordering               OK 
+  replicate reproduces ChemProt and RCT-20k exactly, not HoC OK 
+  linear head: every method but DRIFT loses 0.6-1.5 points   OK 
+  run counts (1322 runs, 443 tuning)                         OK 
+  mechanism: 24/24 distinct inputs on ChemProt, 23/24 on RCT-20k and HoC OK 
+  mechanism: median energy 59-73x over all 72 modules        OK 
+  energies by module group (hidden / attention-output / feed-forward) OK 
+  deflated energy after tau = 0.95                           OK 
+  references absorb the outlier dimensions at tau 0.95       OK 
+  reference energies: news/shuffled 3-4x, random 13-15x      OK 
+  GEV avoids the outlier dimensions; median 8-15x            OK 
+  energy-check range 1-15x covers GEV and the references     OK 
+  published reference points reproduced                      OK 
+  HoC medians quoted in the prose                            OK 
+  the identical-settings pair of dev scores                  OK 
+  fp32 EVA's flat training loss                              OK 
+  tau sweep at DRIFT's own rate                              OK 
+  ChemProt factorisation quoted with its p-values            OK 
+  drift ratio and its excess over 1 - tau (48 distinct sites) OK 
+  clinical drift ratio matches ChemProt's                    OK 
+  CORAL divergences quoted in V-C                            OK 
+  placement parameter counts                                 OK 
+  HoC gaps at ranks 4 and 16                                 OK 
+  decoder on ChemProt                                        OK 
+  clinical numbers quoted in V-F                             OK 
+  linear-head numbers quoted in Appendix D                   OK 
+  BitFit's HoC lead under both metrics                       OK 
+  BitFit within 1.4 of the best method                       OK 
+  GEV within 0.3 of LoRA (Section V-A wording)               OK 
+  ladder deficits quoted in V-E and the abstract             OK 
+  tau gap at the tuned rates                                 OK 
+  random-orthonormal mean                                    OK 
+  budget spreads quoted in V-E (ChemProt 1.0, RCT-20k 0.6)   OK 
+  ChemProt rank 2 within 0.1 of the full budget (gap 0.03)   OK 
+  HoC rank 16 gain quoted in the Discussion                  OK 
+  attention-only within 0.2 of all-module rank 8             OK 
+  average weight on dimension 588 (768-dimensional inputs)   OK 
+  ladder energies after deflation                            OK 
+  decoder and clinical energies after deflation              OK 
+  AdaLoRA's RCT-20k selection is a near-tie on seed 1        OK 
+  AdaLoRA: the three-seed dev mean prefers the lower rate    OK 
+  the allocation-only difference quoted in the limitation    OK 
+TOTAL MISMATCHES: 0

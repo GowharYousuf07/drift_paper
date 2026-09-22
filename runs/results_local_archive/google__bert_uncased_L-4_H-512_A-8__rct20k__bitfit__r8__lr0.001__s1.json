@@ -1,0 +1,67 @@
+{
+  "id": "google__bert_uncased_L-4_H-512_A-8__rct20k__bitfit__r8__lr0.001__s1",
+  "args": {
+    "model": "google/bert_uncased_L-4_H-512_A-8",
+    "task": "rct20k",
+    "method": "bitfit",
+    "seed": 1,
+    "budget_rank": 8,
+    "alpha": 16.0,
+    "dropout": 0.0,
+    "lr": 0.001,
+    "epochs": 8,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "max_len": 96,
+    "max_train": null,
+    "weight_decay": 0.01,
+    "tau": 0.95,
+    "rho": 2.0,
+    "score_mode": "relative",
+    "init_mode": "drift",
+    "alloc_mode": "drift",
+    "r_min": 0,
+    "target": "all",
+    "n_ref": 1024,
+    "n_dom": 1024,
+    "tag": "",
+    "amp": false,
+    "force": false,
+    "verbose": false
+  },
+  "wall_s": 186.87817190005444,
+  "n_train": 5000,
+  "n_dev": 6000,
+  "n_test": 6000,
+  "num_labels": 5,
+  "metric": "micro_f1",
+  "max_len": 96,
+  "budget": {
+    "budget_rank": 8,
+    "budget_params": 294912,
+    "n_modules": 24
+  },
+  "spent_params": null,
+  "rank_hist": {},
+  "ranks": {},
+  "result": {
+    "test": {
+      "micro_f1": 0.8061666666666667,
+      "macro_f1": 0.738544662296246,
+      "accuracy": 0.8061666666666667
+    },
+    "dev_best": {
+      "micro_f1": 0.8091666666666667,
+      "macro_f1": 0.7483758964699044,
+      "accuracy": 0.8091666666666667
+    },
+    "best_epoch": 7,
+    "train_time_s": 173.7665013000369,
+    "peak_mem_bytes": 467525120,
+    "params_total": 28766213,
+    "params_trainable": 287749,
+    "params_head": 265221,
+    "params_adapter": 22528,
+    "steps": 1256
+  }
+}

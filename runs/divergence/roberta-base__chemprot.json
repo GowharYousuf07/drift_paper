@@ -1,0 +1,1674 @@
+{
+ "model": "roberta-base",
+ "task": "chemprot",
+ "n": 1024,
+ "max_len": 128,
+ "n_texts": {
+  "target": 1024,
+  "ref": 1024,
+  "ref2": 1024,
+  "news": 1024,
+  "random": 1024
+ },
+ "dims": {
+  "roberta.encoder.layer.0.attention.self.query": 768,
+  "roberta.encoder.layer.0.attention.self.key": 768,
+  "roberta.encoder.layer.0.attention.self.value": 768,
+  "roberta.encoder.layer.0.attention.output.dense": 768,
+  "roberta.encoder.layer.0.intermediate.dense": 768,
+  "roberta.encoder.layer.0.output.dense": 3072,
+  "roberta.encoder.layer.1.attention.self.query": 768,
+  "roberta.encoder.layer.1.attention.self.key": 768,
+  "roberta.encoder.layer.1.attention.self.value": 768,
+  "roberta.encoder.layer.1.attention.output.dense": 768,
+  "roberta.encoder.layer.1.intermediate.dense": 768,
+  "roberta.encoder.layer.1.output.dense": 3072,
+  "roberta.encoder.layer.2.attention.self.query": 768,
+  "roberta.encoder.layer.2.attention.self.key": 768,
+  "roberta.encoder.layer.2.attention.self.value": 768,
+  "roberta.encoder.layer.2.attention.output.dense": 768,
+  "roberta.encoder.layer.2.intermediate.dense": 768,
+  "roberta.encoder.layer.2.output.dense": 3072,
+  "roberta.encoder.layer.3.attention.self.query": 768,
+  "roberta.encoder.layer.3.attention.self.key": 768,
+  "roberta.encoder.layer.3.attention.self.value": 768,
+  "roberta.encoder.layer.3.attention.output.dense": 768,
+  "roberta.encoder.layer.3.intermediate.dense": 768,
+  "roberta.encoder.layer.3.output.dense": 3072,
+  "roberta.encoder.layer.4.attention.self.query": 768,
+  "roberta.encoder.layer.4.attention.self.key": 768,
+  "roberta.encoder.layer.4.attention.self.value": 768,
+  "roberta.encoder.layer.4.attention.output.dense": 768,
+  "roberta.encoder.layer.4.intermediate.dense": 768,
+  "roberta.encoder.layer.4.output.dense": 3072,
+  "roberta.encoder.layer.5.attention.self.query": 768,
+  "roberta.encoder.layer.5.attention.self.key": 768,
+  "roberta.encoder.layer.5.attention.self.value": 768,
+  "roberta.encoder.layer.5.attention.output.dense": 768,
+  "roberta.encoder.layer.5.intermediate.dense": 768,
+  "roberta.encoder.layer.5.output.dense": 3072,
+  "roberta.encoder.layer.6.attention.self.query": 768,
+  "roberta.encoder.layer.6.attention.self.key": 768,
+  "roberta.encoder.layer.6.attention.self.value": 768,
+  "roberta.encoder.layer.6.attention.output.dense": 768,
+  "roberta.encoder.layer.6.intermediate.dense": 768,
+  "roberta.encoder.layer.6.output.dense": 3072,
+  "roberta.encoder.layer.7.attention.self.query": 768,
+  "roberta.encoder.layer.7.attention.self.key": 768,
+  "roberta.encoder.layer.7.attention.self.value": 768,
+  "roberta.encoder.layer.7.attention.output.dense": 768,
+  "roberta.encoder.layer.7.intermediate.dense": 768,
+  "roberta.encoder.layer.7.output.dense": 3072,
+  "roberta.encoder.layer.8.attention.self.query": 768,
+  "roberta.encoder.layer.8.attention.self.key": 768,
+  "roberta.encoder.layer.8.attention.self.value": 768,
+  "roberta.encoder.layer.8.attention.output.dense": 768,
+  "roberta.encoder.layer.8.intermediate.dense": 768,
+  "roberta.encoder.layer.8.output.dense": 3072,
+  "roberta.encoder.layer.9.attention.self.query": 768,
+  "roberta.encoder.layer.9.attention.self.key": 768,
+  "roberta.encoder.layer.9.attention.self.value": 768,
+  "roberta.encoder.layer.9.attention.output.dense": 768,
+  "roberta.encoder.layer.9.intermediate.dense": 768,
+  "roberta.encoder.layer.9.output.dense": 3072,
+  "roberta.encoder.layer.10.attention.self.query": 768,
+  "roberta.encoder.layer.10.attention.self.key": 768,
+  "roberta.encoder.layer.10.attention.self.value": 768,
+  "roberta.encoder.layer.10.attention.output.dense": 768,
+  "roberta.encoder.layer.10.intermediate.dense": 768,
+  "roberta.encoder.layer.10.output.dense": 3072,
+  "roberta.encoder.layer.11.attention.self.query": 768,
+  "roberta.encoder.layer.11.attention.self.key": 768,
+  "roberta.encoder.layer.11.attention.self.value": 768,
+  "roberta.encoder.layer.11.attention.output.dense": 768,
+  "roberta.encoder.layer.11.intermediate.dense": 768,
+  "roberta.encoder.layer.11.output.dense": 3072
+ },
+ "modules": {
+  "roberta.encoder.layer.0.attention.self.query": {
+   "target": {
+    "coral": 0.8775440468363058,
+    "bures": 0.27201786889338697,
+    "jeffreys": 0.49703274181371815
+   },
+   "ref2": {
+    "coral": 0.05296760110102995,
+    "bures": 0.003951775791129375,
+    "jeffreys": 0.009901127348100003
+   },
+   "news": {
+    "coral": 0.6203571676813189,
+    "bures": 0.10434611130910199,
+    "jeffreys": 0.1613987866361688
+   },
+   "random": {
+    "coral": 0.8199462920156051,
+    "bures": 0.2423436044129912,
+    "jeffreys": 0.4050302133843815
+   }
+  },
+  "roberta.encoder.layer.0.attention.self.key": {
+   "target": {
+    "coral": 0.8775440468363058,
+    "bures": 0.27201786889338697,
+    "jeffreys": 0.49703274181371815
+   },
+   "ref2": {
+    "coral": 0.05296760110102995,
+    "bures": 0.003951775791129375,
+    "jeffreys": 0.009901127348100003
+   },
+   "news": {
+    "coral": 0.6203571676813189,
+    "bures": 0.10434611130910199,
+    "jeffreys": 0.1613987866361688
+   },
+   "random": {
+    "coral": 0.8199462920156051,
+    "bures": 0.2423436044129912,
+    "jeffreys": 0.4050302133843815
+   }
+  },
+  "roberta.encoder.layer.0.attention.self.value": {
+   "target": {
+    "coral": 0.8775440468363058,
+    "bures": 0.27201786889338697,
+    "jeffreys": 0.49703274181371815
+   },
+   "ref2": {
+    "coral": 0.05296760110102995,
+    "bures": 0.003951775791129375,
+    "jeffreys": 0.009901127348100003
+   },
+   "news": {
+    "coral": 0.6203571676813189,
+    "bures": 0.10434611130910199,
+    "jeffreys": 0.1613987866361688
+   },
+   "random": {
+    "coral": 0.8199462920156051,
+    "bures": 0.2423436044129912,
+    "jeffreys": 0.4050302133843815
+   }
+  },
+  "roberta.encoder.layer.0.attention.output.dense": {
+   "target": {
+    "coral": 0.9373122959369772,
+    "bures": 0.2712445701219739,
+    "jeffreys": 0.5226954082813424
+   },
+   "ref2": {
+    "coral": 0.08766320907129231,
+    "bures": 0.007173361096695086,
+    "jeffreys": 0.019840493801133396
+   },
+   "news": {
+    "coral": 0.6076460100261443,
+    "bures": 0.11692974110902354,
+    "jeffreys": 0.214259789657121
+   },
+   "random": {
+    "coral": 0.8588869349346393,
+    "bures": 0.2498084205860729,
+    "jeffreys": 0.378163546432841
+   }
+  },
+  "roberta.encoder.layer.0.intermediate.dense": {
+   "target": {
+    "coral": 0.7543358391070402,
+    "bures": 0.24181358084760118,
+    "jeffreys": 0.4426267874735561
+   },
+   "ref2": {
+    "coral": 0.04678544623831863,
+    "bures": 0.0037076380774327955,
+    "jeffreys": 0.009253271337840596
+   },
+   "news": {
+    "coral": 0.5658776212310351,
+    "bures": 0.10265968661641933,
+    "jeffreys": 0.16090179437679608
+   },
+   "random": {
+    "coral": 0.7795553832914193,
+    "bures": 0.24688410209701783,
+    "jeffreys": 0.4210297407448642
+   }
+  },
+  "roberta.encoder.layer.0.output.dense": {
+   "target": {
+    "coral": 1.4599343002167693,
+    "bures": 0.531502800852514,
+    "jeffreys": 1.0935851537809351
+   },
+   "ref2": {
+    "coral": 0.08734497626347842,
+    "bures": 0.01110177077904817,
+    "jeffreys": 0.026678762727891048
+   },
+   "news": {
+    "coral": 0.8945252123244779,
+    "bures": 0.24903044260022522,
+    "jeffreys": 0.41304007841930557
+   },
+   "random": {
+    "coral": 1.0689295931744514,
+    "bures": 0.5323228629927439,
+    "jeffreys": 1.0670976641571648
+   }
+  },
+  "roberta.encoder.layer.1.attention.self.query": {
+   "target": {
+    "coral": 0.8666822099422596,
+    "bures": 0.2639677754267171,
+    "jeffreys": 0.4844599450928486
+   },
+   "ref2": {
+    "coral": 0.05458634991712041,
+    "bures": 0.003558529635719676,
+    "jeffreys": 0.008525086818022443
+   },
+   "news": {
+    "coral": 0.5887923122374291,
+    "bures": 0.1081170333434418,
+    "jeffreys": 0.18108000807749325
+   },
+   "random": {
+    "coral": 0.8085368938534218,
+    "bures": 0.2481576860077095,
+    "jeffreys": 0.4926240432319513
+   }
+  },
+  "roberta.encoder.layer.1.attention.self.key": {
+   "target": {
+    "coral": 0.8666822099422596,
+    "bures": 0.2639677754267171,
+    "jeffreys": 0.4844599450928486
+   },
+   "ref2": {
+    "coral": 0.05458634991712041,
+    "bures": 0.003558529635719676,
+    "jeffreys": 0.008525086818022443
+   },
+   "news": {
+    "coral": 0.5887923122374291,
+    "bures": 0.1081170333434418,
+    "jeffreys": 0.18108000807749325
+   },
+   "random": {
+    "coral": 0.8085368938534218,
+    "bures": 0.2481576860077095,
+    "jeffreys": 0.4926240432319513
+   }
+  },
+  "roberta.encoder.layer.1.attention.self.value": {
+   "target": {
+    "coral": 0.8666822099422596,
+    "bures": 0.2639677754267171,
+    "jeffreys": 0.4844599450928486
+   },
+   "ref2": {
+    "coral": 0.05458634991712041,
+    "bures": 0.003558529635719676,
+    "jeffreys": 0.008525086818022443
+   },
+   "news": {
+    "coral": 0.5887923122374291,
+    "bures": 0.1081170333434418,
+    "jeffreys": 0.18108000807749325
+   },
+   "random": {
+    "coral": 0.8085368938534218,
+    "bures": 0.2481576860077095,
+    "jeffreys": 0.4926240432319513
+   }
+  },
+  "roberta.encoder.layer.1.attention.output.dense": {
+   "target": {
+    "coral": 1.063020271419829,
+    "bures": 0.2847133453947208,
+    "jeffreys": 0.5258505896926231
+   },
+   "ref2": {
+    "coral": 0.09228908278365491,
+    "bures": 0.006644434053495019,
+    "jeffreys": 0.016342303191584362
+   },
+   "news": {
+    "coral": 0.6322430925051015,
+    "bures": 0.12559053541174214,
+    "jeffreys": 0.21036592063704185
+   },
+   "random": {
+    "coral": 1.1001653171009775,
+    "bures": 0.3209024090516337,
+    "jeffreys": 0.515325038651633
+   }
+  },
+  "roberta.encoder.layer.1.intermediate.dense": {
+   "target": {
+    "coral": 0.8511271981882612,
+    "bures": 0.2523819546170656,
+    "jeffreys": 0.45653348490280865
+   },
+   "ref2": {
+    "coral": 0.05652303967551371,
+    "bures": 0.0035844373360540693,
+    "jeffreys": 0.008501559559346283
+   },
+   "news": {
+    "coral": 0.5634774710391384,
+    "bures": 0.10312041880540423,
+    "jeffreys": 0.16765441076291787
+   },
+   "random": {
+    "coral": 0.7709467377916104,
+    "bures": 0.2388243576586211,
+    "jeffreys": 0.4686253849149491
+   }
+  },
+  "roberta.encoder.layer.1.output.dense": {
+   "target": {
+    "coral": 1.3882840936555583,
+    "bures": 0.5028672202564759,
+    "jeffreys": 1.0593806010009894
+   },
+   "ref2": {
+    "coral": 0.09162636735057259,
+    "bures": 0.011817213057651488,
+    "jeffreys": 0.02943150723464094
+   },
+   "news": {
+    "coral": 0.7089454569483733,
+    "bures": 0.20696101239277453,
+    "jeffreys": 0.3599820650402641
+   },
+   "random": {
+    "coral": 1.2727360504868954,
+    "bures": 0.5418122641667709,
+    "jeffreys": 1.1333971558357354
+   }
+  },
+  "roberta.encoder.layer.2.attention.self.query": {
+   "target": {
+    "coral": 0.9387421683053313,
+    "bures": 0.2652427121672336,
+    "jeffreys": 0.4827395338089986
+   },
+   "ref2": {
+    "coral": 0.06080407998098466,
+    "bures": 0.0033968266366961597,
+    "jeffreys": 0.00783802474809403
+   },
+   "news": {
+    "coral": 0.5771253525206764,
+    "bures": 0.10546595383373747,
+    "jeffreys": 0.1784781508669726
+   },
+   "random": {
+    "coral": 0.8031174188921175,
+    "bures": 0.2528014285525495,
+    "jeffreys": 0.5497764143326229
+   }
+  },
+  "roberta.encoder.layer.2.attention.self.key": {
+   "target": {
+    "coral": 0.9387421683053313,
+    "bures": 0.2652427121672336,
+    "jeffreys": 0.4827395338089986
+   },
+   "ref2": {
+    "coral": 0.06080407998098466,
+    "bures": 0.0033968266366961597,
+    "jeffreys": 0.00783802474809403
+   },
+   "news": {
+    "coral": 0.5771253525206764,
+    "bures": 0.10546595383373747,
+    "jeffreys": 0.1784781508669726
+   },
+   "random": {
+    "coral": 0.8031174188921175,
+    "bures": 0.2528014285525495,
+    "jeffreys": 0.5497764143326229
+   }
+  },
+  "roberta.encoder.layer.2.attention.self.value": {
+   "target": {
+    "coral": 0.9387421683053313,
+    "bures": 0.2652427121672336,
+    "jeffreys": 0.4827395338089986
+   },
+   "ref2": {
+    "coral": 0.06080407998098466,
+    "bures": 0.0033968266366961597,
+    "jeffreys": 0.00783802474809403
+   },
+   "news": {
+    "coral": 0.5771253525206764,
+    "bures": 0.10546595383373747,
+    "jeffreys": 0.1784781508669726
+   },
+   "random": {
+    "coral": 0.8031174188921175,
+    "bures": 0.2528014285525495,
+    "jeffreys": 0.5497764143326229
+   }
+  },
+  "roberta.encoder.layer.2.attention.output.dense": {
+   "target": {
+    "coral": 1.2008890317049847,
+    "bures": 0.30162395715327284,
+    "jeffreys": 0.5389620962627664
+   },
+   "ref2": {
+    "coral": 0.10854226835704768,
+    "bures": 0.0067217888582031815,
+    "jeffreys": 0.014562271407269511
+   },
+   "news": {
+    "coral": 0.7021327834800525,
+    "bures": 0.1373119450239635,
+    "jeffreys": 0.21766486463426604
+   },
+   "random": {
+    "coral": 1.2730170926778346,
+    "bures": 0.42531026259271787,
+    "jeffreys": 0.7912653073734337
+   }
+  },
+  "roberta.encoder.layer.2.intermediate.dense": {
+   "target": {
+    "coral": 0.9709182217095526,
+    "bures": 0.2577311258223798,
+    "jeffreys": 0.4574351178093863
+   },
+   "ref2": {
+    "coral": 0.0690115255745674,
+    "bures": 0.0036677630141597195,
+    "jeffreys": 0.008270786803963981
+   },
+   "news": {
+    "coral": 0.5857046346886418,
+    "bures": 0.10170326704373389,
+    "jeffreys": 0.1648955457761463
+   },
+   "random": {
+    "coral": 0.8039884328588112,
+    "bures": 0.24695257958562156,
+    "jeffreys": 0.5155072726779351
+   }
+  },
+  "roberta.encoder.layer.2.output.dense": {
+   "target": {
+    "coral": 1.6709796534846093,
+    "bures": 0.5427127302754313,
+    "jeffreys": 1.145363309602791
+   },
+   "ref2": {
+    "coral": 0.098391192095201,
+    "bures": 0.011241735341964043,
+    "jeffreys": 0.027052056972725502
+   },
+   "news": {
+    "coral": 0.9314159841406501,
+    "bures": 0.2188999935259437,
+    "jeffreys": 0.35166897987676116
+   },
+   "random": {
+    "coral": 1.6135568959773512,
+    "bures": 0.6641352326646555,
+    "jeffreys": 1.3588260301115462
+   }
+  },
+  "roberta.encoder.layer.3.attention.self.query": {
+   "target": {
+    "coral": 1.060233388793216,
+    "bures": 0.2858267361848521,
+    "jeffreys": 0.5256371731251572
+   },
+   "ref2": {
+    "coral": 0.06879367047978721,
+    "bures": 0.0035460720924334055,
+    "jeffreys": 0.0078912545547698
+   },
+   "news": {
+    "coral": 0.5760036351296661,
+    "bures": 0.10586442816767039,
+    "jeffreys": 0.1803681280821714
+   },
+   "random": {
+    "coral": 0.9255419151043848,
+    "bures": 0.2956675359446357,
+    "jeffreys": 0.6700156574554148
+   }
+  },
+  "roberta.encoder.layer.3.attention.self.key": {
+   "target": {
+    "coral": 1.060233388793216,
+    "bures": 0.2858267361848521,
+    "jeffreys": 0.5256371731251572
+   },
+   "ref2": {
+    "coral": 0.06879367047978721,
+    "bures": 0.0035460720924334055,
+    "jeffreys": 0.0078912545547698
+   },
+   "news": {
+    "coral": 0.5760036351296661,
+    "bures": 0.10586442816767039,
+    "jeffreys": 0.1803681280821714
+   },
+   "random": {
+    "coral": 0.9255419151043848,
+    "bures": 0.2956675359446357,
+    "jeffreys": 0.6700156574554148
+   }
+  },
+  "roberta.encoder.layer.3.attention.self.value": {
+   "target": {
+    "coral": 1.060233388793216,
+    "bures": 0.2858267361848521,
+    "jeffreys": 0.5256371731251572
+   },
+   "ref2": {
+    "coral": 0.06879367047978721,
+    "bures": 0.0035460720924334055,
+    "jeffreys": 0.0078912545547698
+   },
+   "news": {
+    "coral": 0.5760036351296661,
+    "bures": 0.10586442816767039,
+    "jeffreys": 0.1803681280821714
+   },
+   "random": {
+    "coral": 0.9255419151043848,
+    "bures": 0.2956675359446357,
+    "jeffreys": 0.6700156574554148
+   }
+  },
+  "roberta.encoder.layer.3.attention.output.dense": {
+   "target": {
+    "coral": 1.5394787467375326,
+    "bures": 0.38341236201089623,
+    "jeffreys": 0.6729767812811003
+   },
+   "ref2": {
+    "coral": 0.12956296689904886,
+    "bures": 0.00975717974449064,
+    "jeffreys": 0.021541594813877074
+   },
+   "news": {
+    "coral": 0.7011240449436849,
+    "bures": 0.1433138282903399,
+    "jeffreys": 0.22141924528808943
+   },
+   "random": {
+    "coral": 1.408006786524616,
+    "bures": 0.47028239725043175,
+    "jeffreys": 0.8529361386277419
+   }
+  },
+  "roberta.encoder.layer.3.intermediate.dense": {
+   "target": {
+    "coral": 1.1004521298377428,
+    "bures": 0.2876754653196685,
+    "jeffreys": 0.5155104403859063
+   },
+   "ref2": {
+    "coral": 0.07448895223560423,
+    "bures": 0.003932161712801863,
+    "jeffreys": 0.008750640785961883
+   },
+   "news": {
+    "coral": 0.5922865280493504,
+    "bures": 0.106936441665193,
+    "jeffreys": 0.1759432374494081
+   },
+   "random": {
+    "coral": 0.9208401741777795,
+    "bures": 0.2977147883086073,
+    "jeffreys": 0.6474759785035076
+   }
+  },
+  "roberta.encoder.layer.3.output.dense": {
+   "target": {
+    "coral": 1.6847552637184682,
+    "bures": 0.5264611506461625,
+    "jeffreys": 1.0929692058217015
+   },
+   "ref2": {
+    "coral": 0.08608130158068801,
+    "bures": 0.01162143543996419,
+    "jeffreys": 0.028016886829768106
+   },
+   "news": {
+    "coral": 1.403521701969333,
+    "bures": 0.23019586510824808,
+    "jeffreys": 0.3534256393894022
+   },
+   "random": {
+    "coral": 1.6411802197536267,
+    "bures": 0.6580464738098066,
+    "jeffreys": 1.3906297375605008
+   }
+  },
+  "roberta.encoder.layer.4.attention.self.query": {
+   "target": {
+    "coral": 1.088323768240998,
+    "bures": 0.2917514821690932,
+    "jeffreys": 0.5371938400150766
+   },
+   "ref2": {
+    "coral": 0.06898366962976912,
+    "bures": 0.0037577702819158176,
+    "jeffreys": 0.008413903767716446
+   },
+   "news": {
+    "coral": 0.561980199716918,
+    "bures": 0.10322219125733945,
+    "jeffreys": 0.17021351320784017
+   },
+   "random": {
+    "coral": 0.9492769573502832,
+    "bures": 0.32337688787273544,
+    "jeffreys": 0.7549902917128974
+   }
+  },
+  "roberta.encoder.layer.4.attention.self.key": {
+   "target": {
+    "coral": 1.088323768240998,
+    "bures": 0.2917514821690932,
+    "jeffreys": 0.5371938400150766
+   },
+   "ref2": {
+    "coral": 0.06898366962976912,
+    "bures": 0.0037577702819158176,
+    "jeffreys": 0.008413903767716446
+   },
+   "news": {
+    "coral": 0.561980199716918,
+    "bures": 0.10322219125733945,
+    "jeffreys": 0.17021351320784017
+   },
+   "random": {
+    "coral": 0.9492769573502832,
+    "bures": 0.32337688787273544,
+    "jeffreys": 0.7549902917128974
+   }
+  },
+  "roberta.encoder.layer.4.attention.self.value": {
+   "target": {
+    "coral": 1.088323768240998,
+    "bures": 0.2917514821690932,
+    "jeffreys": 0.5371938400150766
+   },
+   "ref2": {
+    "coral": 0.06898366962976912,
+    "bures": 0.0037577702819158176,
+    "jeffreys": 0.008413903767716446
+   },
+   "news": {
+    "coral": 0.561980199716918,
+    "bures": 0.10322219125733945,
+    "jeffreys": 0.17021351320784017
+   },
+   "random": {
+    "coral": 0.9492769573502832,
+    "bures": 0.32337688787273544,
+    "jeffreys": 0.7549902917128974
+   }
+  },
+  "roberta.encoder.layer.4.attention.output.dense": {
+   "target": {
+    "coral": 1.4855430461869839,
+    "bures": 0.36723026423124727,
+    "jeffreys": 0.6416594007029552
+   },
+   "ref2": {
+    "coral": 0.1263362747759233,
+    "bures": 0.010613570748214674,
+    "jeffreys": 0.02259150771267393
+   },
+   "news": {
+    "coral": 0.7073490426541442,
+    "bures": 0.15054627968630996,
+    "jeffreys": 0.228095325835034
+   },
+   "random": {
+    "coral": 1.2742781913644943,
+    "bures": 0.477687302173992,
+    "jeffreys": 0.8429762992925716
+   }
+  },
+  "roberta.encoder.layer.4.intermediate.dense": {
+   "target": {
+    "coral": 1.0981370840242977,
+    "bures": 0.29065733538450034,
+    "jeffreys": 0.5250488325449718
+   },
+   "ref2": {
+    "coral": 0.07419340059003769,
+    "bures": 0.004294307755130955,
+    "jeffreys": 0.009673958477707911
+   },
+   "news": {
+    "coral": 0.5974854265289316,
+    "bures": 0.10770614954211766,
+    "jeffreys": 0.17194378099996643
+   },
+   "random": {
+    "coral": 0.9281949522318987,
+    "bures": 0.3233289059215636,
+    "jeffreys": 0.7203539312227012
+   }
+  },
+  "roberta.encoder.layer.4.output.dense": {
+   "target": {
+    "coral": 0.7098926680614079,
+    "bures": 0.4025289557797729,
+    "jeffreys": 0.8750669850991202
+   },
+   "ref2": {
+    "coral": 0.042904415218056186,
+    "bures": 0.01062551864398209,
+    "jeffreys": 0.026966896812164576
+   },
+   "news": {
+    "coral": 0.5629381091774281,
+    "bures": 0.18435054202344903,
+    "jeffreys": 0.32403619512608595
+   },
+   "random": {
+    "coral": 0.9565961546124495,
+    "bures": 0.5739576436098011,
+    "jeffreys": 1.2770181216929455
+   }
+  },
+  "roberta.encoder.layer.5.attention.self.query": {
+   "target": {
+    "coral": 1.0748996424192696,
+    "bures": 0.29032913891565126,
+    "jeffreys": 0.531004400781472
+   },
+   "ref2": {
+    "coral": 0.06564882983276055,
+    "bures": 0.0039762372019604975,
+    "jeffreys": 0.009068909670889802
+   },
+   "news": {
+    "coral": 0.6084832216590935,
+    "bures": 0.11367397121231715,
+    "jeffreys": 0.18519317845536598
+   },
+   "random": {
+    "coral": 0.9269915009558776,
+    "bures": 0.34176171476936545,
+    "jeffreys": 0.7746831285717353
+   }
+  },
+  "roberta.encoder.layer.5.attention.self.key": {
+   "target": {
+    "coral": 1.0748996424192696,
+    "bures": 0.29032913891565126,
+    "jeffreys": 0.531004400781472
+   },
+   "ref2": {
+    "coral": 0.06564882983276055,
+    "bures": 0.0039762372019604975,
+    "jeffreys": 0.009068909670889802
+   },
+   "news": {
+    "coral": 0.6084832216590935,
+    "bures": 0.11367397121231715,
+    "jeffreys": 0.18519317845536598
+   },
+   "random": {
+    "coral": 0.9269915009558776,
+    "bures": 0.34176171476936545,
+    "jeffreys": 0.7746831285717353
+   }
+  },
+  "roberta.encoder.layer.5.attention.self.value": {
+   "target": {
+    "coral": 1.0748996424192696,
+    "bures": 0.29032913891565126,
+    "jeffreys": 0.531004400781472
+   },
+   "ref2": {
+    "coral": 0.06564882983276055,
+    "bures": 0.0039762372019604975,
+    "jeffreys": 0.009068909670889802
+   },
+   "news": {
+    "coral": 0.6084832216590935,
+    "bures": 0.11367397121231715,
+    "jeffreys": 0.18519317845536598
+   },
+   "random": {
+    "coral": 0.9269915009558776,
+    "bures": 0.34176171476936545,
+    "jeffreys": 0.7746831285717353
+   }
+  },
+  "roberta.encoder.layer.5.attention.output.dense": {
+   "target": {
+    "coral": 1.4284994838953002,
+    "bures": 0.38833452490838827,
+    "jeffreys": 0.6818391044382313
+   },
+   "ref2": {
+    "coral": 0.1361818387382591,
+    "bures": 0.012317158570091191,
+    "jeffreys": 0.027343615579739522
+   },
+   "news": {
+    "coral": 0.7688277561820577,
+    "bures": 0.1720562466672848,
+    "jeffreys": 0.26510152455636393
+   },
+   "random": {
+    "coral": 1.4969696043540324,
+    "bures": 0.5856894217010027,
+    "jeffreys": 1.1225497387205934
+   }
+  },
+  "roberta.encoder.layer.5.intermediate.dense": {
+   "target": {
+    "coral": 1.0879715225157054,
+    "bures": 0.29242355249624996,
+    "jeffreys": 0.5250994051605691
+   },
+   "ref2": {
+    "coral": 0.07182273496240686,
+    "bures": 0.004525408011303522,
+    "jeffreys": 0.010334605767482019
+   },
+   "news": {
+    "coral": 0.626050812247905,
+    "bures": 0.11735288985925152,
+    "jeffreys": 0.18589580603454414
+   },
+   "random": {
+    "coral": 0.9432540704029503,
+    "bures": 0.3480369046322316,
+    "jeffreys": 0.76749587283125
+   }
+  },
+  "roberta.encoder.layer.5.output.dense": {
+   "target": {
+    "coral": 1.1050022185803685,
+    "bures": 0.42460913711950754,
+    "jeffreys": 0.8848409481778932
+   },
+   "ref2": {
+    "coral": 0.0778336849671652,
+    "bures": 0.011880616343295625,
+    "jeffreys": 0.028448035624975665
+   },
+   "news": {
+    "coral": 0.8725504669452107,
+    "bures": 0.19771651192507322,
+    "jeffreys": 0.312116562401324
+   },
+   "random": {
+    "coral": 1.2651114703511475,
+    "bures": 0.687200028988348,
+    "jeffreys": 1.502438024723098
+   }
+  },
+  "roberta.encoder.layer.6.attention.self.query": {
+   "target": {
+    "coral": 1.0497829032152282,
+    "bures": 0.28582717213686504,
+    "jeffreys": 0.5116997765302826
+   },
+   "ref2": {
+    "coral": 0.06474997878812362,
+    "bures": 0.004040499836007516,
+    "jeffreys": 0.009282288261091676
+   },
+   "news": {
+    "coral": 0.5832279840145441,
+    "bures": 0.1118395106031016,
+    "jeffreys": 0.18044427617059045
+   },
+   "random": {
+    "coral": 0.9317137696755325,
+    "bures": 0.3618528546653059,
+    "jeffreys": 0.8298479853200422
+   }
+  },
+  "roberta.encoder.layer.6.attention.self.key": {
+   "target": {
+    "coral": 1.0497829032152282,
+    "bures": 0.28582717213686504,
+    "jeffreys": 0.5116997765302826
+   },
+   "ref2": {
+    "coral": 0.06474997878812362,
+    "bures": 0.004040499836007516,
+    "jeffreys": 0.009282288261091676
+   },
+   "news": {
+    "coral": 0.5832279840145441,
+    "bures": 0.1118395106031016,
+    "jeffreys": 0.18044427617059045
+   },
+   "random": {
+    "coral": 0.9317137696755325,
+    "bures": 0.3618528546653059,
+    "jeffreys": 0.8298479853200422
+   }
+  },
+  "roberta.encoder.layer.6.attention.self.value": {
+   "target": {
+    "coral": 1.0497829032152282,
+    "bures": 0.28582717213686504,
+    "jeffreys": 0.5116997765302826
+   },
+   "ref2": {
+    "coral": 0.06474997878812362,
+    "bures": 0.004040499836007516,
+    "jeffreys": 0.009282288261091676
+   },
+   "news": {
+    "coral": 0.5832279840145441,
+    "bures": 0.1118395106031016,
+    "jeffreys": 0.18044427617059045
+   },
+   "random": {
+    "coral": 0.9317137696755325,
+    "bures": 0.3618528546653059,
+    "jeffreys": 0.8298479853200422
+   }
+  },
+  "roberta.encoder.layer.6.attention.output.dense": {
+   "target": {
+    "coral": 1.469344138166233,
+    "bures": 0.3958420387679853,
+    "jeffreys": 0.684630655616272
+   },
+   "ref2": {
+    "coral": 0.14777189872021732,
+    "bures": 0.012053356783201075,
+    "jeffreys": 0.024271603681221388
+   },
+   "news": {
+    "coral": 0.7904009972203933,
+    "bures": 0.16399484238593187,
+    "jeffreys": 0.2226606491844383
+   },
+   "random": {
+    "coral": 1.3158132065649533,
+    "bures": 0.5239226890348194,
+    "jeffreys": 0.9557744286472776
+   }
+  },
+  "roberta.encoder.layer.6.intermediate.dense": {
+   "target": {
+    "coral": 1.0717743585185928,
+    "bures": 0.2927285248934999,
+    "jeffreys": 0.5082170929069427
+   },
+   "ref2": {
+    "coral": 0.0701336345028398,
+    "bures": 0.0046150404691385205,
+    "jeffreys": 0.01041722489291863
+   },
+   "news": {
+    "coral": 0.6053799573281957,
+    "bures": 0.11598596754347712,
+    "jeffreys": 0.17874206450746688
+   },
+   "random": {
+    "coral": 0.9380106259495368,
+    "bures": 0.36005972950609566,
+    "jeffreys": 0.8008840164174396
+   }
+  },
+  "roberta.encoder.layer.6.output.dense": {
+   "target": {
+    "coral": 1.0523083357086807,
+    "bures": 0.40915504864963803,
+    "jeffreys": 0.8655593710438041
+   },
+   "ref2": {
+    "coral": 0.061342533501538885,
+    "bures": 0.01185226118572813,
+    "jeffreys": 0.028288595571856145
+   },
+   "news": {
+    "coral": 0.84992906967934,
+    "bures": 0.17994164826573655,
+    "jeffreys": 0.2748295986576019
+   },
+   "random": {
+    "coral": 1.113427243549399,
+    "bures": 0.6888461876278531,
+    "jeffreys": 1.519071514485164
+   }
+  },
+  "roberta.encoder.layer.7.attention.self.query": {
+   "target": {
+    "coral": 0.9980743451244408,
+    "bures": 0.28324259922661676,
+    "jeffreys": 0.4984900991057106
+   },
+   "ref2": {
+    "coral": 0.06118921895469494,
+    "bures": 0.0040293366121231244,
+    "jeffreys": 0.009247634807112881
+   },
+   "news": {
+    "coral": 0.5785698122949662,
+    "bures": 0.11269046737723931,
+    "jeffreys": 0.1736971547195456
+   },
+   "random": {
+    "coral": 0.9285058496355013,
+    "bures": 0.36588243158279354,
+    "jeffreys": 0.8418013675880589
+   }
+  },
+  "roberta.encoder.layer.7.attention.self.key": {
+   "target": {
+    "coral": 0.9980743451244408,
+    "bures": 0.28324259922661676,
+    "jeffreys": 0.4984900991057106
+   },
+   "ref2": {
+    "coral": 0.06118921895469494,
+    "bures": 0.0040293366121231244,
+    "jeffreys": 0.009247634807112881
+   },
+   "news": {
+    "coral": 0.5785698122949662,
+    "bures": 0.11269046737723931,
+    "jeffreys": 0.1736971547195456
+   },
+   "random": {
+    "coral": 0.9285058496355013,
+    "bures": 0.36588243158279354,
+    "jeffreys": 0.8418013675880589
+   }
+  },
+  "roberta.encoder.layer.7.attention.self.value": {
+   "target": {
+    "coral": 0.9980743451244408,
+    "bures": 0.28324259922661676,
+    "jeffreys": 0.4984900991057106
+   },
+   "ref2": {
+    "coral": 0.06118921895469494,
+    "bures": 0.0040293366121231244,
+    "jeffreys": 0.009247634807112881
+   },
+   "news": {
+    "coral": 0.5785698122949662,
+    "bures": 0.11269046737723931,
+    "jeffreys": 0.1736971547195456
+   },
+   "random": {
+    "coral": 0.9285058496355013,
+    "bures": 0.36588243158279354,
+    "jeffreys": 0.8418013675880589
+   }
+  },
+  "roberta.encoder.layer.7.attention.output.dense": {
+   "target": {
+    "coral": 1.214597528153616,
+    "bures": 0.2739750215003578,
+    "jeffreys": 0.4803325238306968
+   },
+   "ref2": {
+    "coral": 0.11312250908684865,
+    "bures": 0.0073964332481646355,
+    "jeffreys": 0.015905236566940983
+   },
+   "news": {
+    "coral": 0.5919078652797853,
+    "bures": 0.09557421903975971,
+    "jeffreys": 0.14130598314554077
+   },
+   "random": {
+    "coral": 1.5210799156474084,
+    "bures": 0.5142918881001037,
+    "jeffreys": 0.9389305682216262
+   }
+  },
+  "roberta.encoder.layer.7.intermediate.dense": {
+   "target": {
+    "coral": 1.0026350365702792,
+    "bures": 0.2774640243449238,
+    "jeffreys": 0.4829985626906421
+   },
+   "ref2": {
+    "coral": 0.06434798749122186,
+    "bures": 0.004245832791490711,
+    "jeffreys": 0.009729792865990072
+   },
+   "news": {
+    "coral": 0.5851200984367677,
+    "bures": 0.11107106962807656,
+    "jeffreys": 0.16618157039794146
+   },
+   "random": {
+    "coral": 0.9927937511818491,
+    "bures": 0.3664428905268964,
+    "jeffreys": 0.8075544704669539
+   }
+  },
+  "roberta.encoder.layer.7.output.dense": {
+   "target": {
+    "coral": 0.6963648186623399,
+    "bures": 0.2928922519525383,
+    "jeffreys": 0.7084273292123757
+   },
+   "ref2": {
+    "coral": 0.022293227422301082,
+    "bures": 0.008511456011407015,
+    "jeffreys": 0.023918367090972614
+   },
+   "news": {
+    "coral": 0.6849014126238148,
+    "bures": 0.1508897820183399,
+    "jeffreys": 0.23750107861433856
+   },
+   "random": {
+    "coral": 0.423665747203774,
+    "bures": 0.550693697372221,
+    "jeffreys": 1.3281993438671722
+   }
+  },
+  "roberta.encoder.layer.8.attention.self.query": {
+   "target": {
+    "coral": 0.9615829715541765,
+    "bures": 0.27295780480803655,
+    "jeffreys": 0.48487709296432935
+   },
+   "ref2": {
+    "coral": 0.05873892836055198,
+    "bures": 0.0038430866873182534,
+    "jeffreys": 0.008854144348784176
+   },
+   "news": {
+    "coral": 0.5544044699722962,
+    "bures": 0.10982211871691239,
+    "jeffreys": 0.16619609902646393
+   },
+   "random": {
+    "coral": 1.0062603100873329,
+    "bures": 0.39208827280153846,
+    "jeffreys": 0.8852958354573623
+   }
+  },
+  "roberta.encoder.layer.8.attention.self.key": {
+   "target": {
+    "coral": 0.9615829715541765,
+    "bures": 0.27295780480803655,
+    "jeffreys": 0.48487709296432935
+   },
+   "ref2": {
+    "coral": 0.05873892836055198,
+    "bures": 0.0038430866873182534,
+    "jeffreys": 0.008854144348784176
+   },
+   "news": {
+    "coral": 0.5544044699722962,
+    "bures": 0.10982211871691239,
+    "jeffreys": 0.16619609902646393
+   },
+   "random": {
+    "coral": 1.0062603100873329,
+    "bures": 0.39208827280153846,
+    "jeffreys": 0.8852958354573623
+   }
+  },
+  "roberta.encoder.layer.8.attention.self.value": {
+   "target": {
+    "coral": 0.9615829715541765,
+    "bures": 0.27295780480803655,
+    "jeffreys": 0.48487709296432935
+   },
+   "ref2": {
+    "coral": 0.05873892836055198,
+    "bures": 0.0038430866873182534,
+    "jeffreys": 0.008854144348784176
+   },
+   "news": {
+    "coral": 0.5544044699722962,
+    "bures": 0.10982211871691239,
+    "jeffreys": 0.16619609902646393
+   },
+   "random": {
+    "coral": 1.0062603100873329,
+    "bures": 0.39208827280153846,
+    "jeffreys": 0.8852958354573623
+   }
+  },
+  "roberta.encoder.layer.8.attention.output.dense": {
+   "target": {
+    "coral": 1.655047870862632,
+    "bures": 0.3280714761377228,
+    "jeffreys": 0.5527468669508409
+   },
+   "ref2": {
+    "coral": 0.13139924928474936,
+    "bures": 0.008633004397603727,
+    "jeffreys": 0.017470339891561215
+   },
+   "news": {
+    "coral": 3.789829168373244,
+    "bures": 0.3016878062594206,
+    "jeffreys": 0.283770536737346
+   },
+   "random": {
+    "coral": 1.9518550905054846,
+    "bures": 0.6110174149944463,
+    "jeffreys": 1.4080886144358709
+   }
+  },
+  "roberta.encoder.layer.8.intermediate.dense": {
+   "target": {
+    "coral": 0.9734568736133046,
+    "bures": 0.2784706513397497,
+    "jeffreys": 0.48294144508796677
+   },
+   "ref2": {
+    "coral": 0.06102266803915679,
+    "bures": 0.003964632262266177,
+    "jeffreys": 0.009093400887072889
+   },
+   "news": {
+    "coral": 0.7846220611361527,
+    "bures": 0.14651661056930898,
+    "jeffreys": 0.1988067757384575
+   },
+   "random": {
+    "coral": 1.0034551836854584,
+    "bures": 0.38009411731556586,
+    "jeffreys": 0.8263385157071526
+   }
+  },
+  "roberta.encoder.layer.8.output.dense": {
+   "target": {
+    "coral": 3.0428453512378955,
+    "bures": 0.6992155948099468,
+    "jeffreys": 1.3340042604688973
+   },
+   "ref2": {
+    "coral": 0.07657382787730165,
+    "bures": 0.008841548976546099,
+    "jeffreys": 0.02281912626158822
+   },
+   "news": {
+    "coral": 3.398050664780202,
+    "bures": 0.818904210540313,
+    "jeffreys": 1.5041181300816242
+   },
+   "random": {
+    "coral": 0.9260884465160476,
+    "bures": 0.7748125413343234,
+    "jeffreys": 1.4915386153517054
+   }
+  },
+  "roberta.encoder.layer.9.attention.self.query": {
+   "target": {
+    "coral": 0.9941517561507569,
+    "bures": 0.28144819897470885,
+    "jeffreys": 0.505692315485506
+   },
+   "ref2": {
+    "coral": 0.05967383208621281,
+    "bures": 0.0038563844519690083,
+    "jeffreys": 0.008740384035251791
+   },
+   "news": {
+    "coral": 0.5452154739422281,
+    "bures": 0.10812061112960736,
+    "jeffreys": 0.16804567446089647
+   },
+   "random": {
+    "coral": 1.0530350623063953,
+    "bures": 0.40538681549400546,
+    "jeffreys": 0.9182639958000964
+   }
+  },
+  "roberta.encoder.layer.9.attention.self.key": {
+   "target": {
+    "coral": 0.9941517561507569,
+    "bures": 0.28144819897470885,
+    "jeffreys": 0.505692315485506
+   },
+   "ref2": {
+    "coral": 0.05967383208621281,
+    "bures": 0.0038563844519690083,
+    "jeffreys": 0.008740384035251791
+   },
+   "news": {
+    "coral": 0.5452154739422281,
+    "bures": 0.10812061112960736,
+    "jeffreys": 0.16804567446089647
+   },
+   "random": {
+    "coral": 1.0530350623063953,
+    "bures": 0.40538681549400546,
+    "jeffreys": 0.9182639958000964
+   }
+  },
+  "roberta.encoder.layer.9.attention.self.value": {
+   "target": {
+    "coral": 0.9941517561507569,
+    "bures": 0.28144819897470885,
+    "jeffreys": 0.505692315485506
+   },
+   "ref2": {
+    "coral": 0.05967383208621281,
+    "bures": 0.0038563844519690083,
+    "jeffreys": 0.008740384035251791
+   },
+   "news": {
+    "coral": 0.5452154739422281,
+    "bures": 0.10812061112960736,
+    "jeffreys": 0.16804567446089647
+   },
+   "random": {
+    "coral": 1.0530350623063953,
+    "bures": 0.40538681549400546,
+    "jeffreys": 0.9182639958000964
+   }
+  },
+  "roberta.encoder.layer.9.attention.output.dense": {
+   "target": {
+    "coral": 1.7068810664493472,
+    "bures": 0.325399714808319,
+    "jeffreys": 0.5298410499975821
+   },
+   "ref2": {
+    "coral": 0.13153676329945863,
+    "bures": 0.008357709879649233,
+    "jeffreys": 0.016540839716769673
+   },
+   "news": {
+    "coral": 3.682588781248365,
+    "bures": 0.2929626348728942,
+    "jeffreys": 0.26447410347330735
+   },
+   "random": {
+    "coral": 1.3757305965959845,
+    "bures": 0.4300056387286628,
+    "jeffreys": 0.901020252552428
+   }
+  },
+  "roberta.encoder.layer.9.intermediate.dense": {
+   "target": {
+    "coral": 1.0160410510079596,
+    "bures": 0.2887773071023578,
+    "jeffreys": 0.5003906500674062
+   },
+   "ref2": {
+    "coral": 0.06278107578392074,
+    "bures": 0.003977217172281389,
+    "jeffreys": 0.008924321707618477
+   },
+   "news": {
+    "coral": 0.8458264260605484,
+    "bures": 0.14423187689104,
+    "jeffreys": 0.18932396867281387
+   },
+   "random": {
+    "coral": 0.9930767833274757,
+    "bures": 0.3803110578706703,
+    "jeffreys": 0.8171889341141707
+   }
+  },
+  "roberta.encoder.layer.9.output.dense": {
+   "target": {
+    "coral": 1.4330332136070378,
+    "bures": 0.4762143782640573,
+    "jeffreys": 1.0266030783826823
+   },
+   "ref2": {
+    "coral": 0.03368981747655604,
+    "bures": 0.006235511573930985,
+    "jeffreys": 0.019105810817362512
+   },
+   "news": {
+    "coral": 1.6121498747321061,
+    "bures": 0.5503432356913873,
+    "jeffreys": 1.1133175940131195
+   },
+   "random": {
+    "coral": 0.9024925216296832,
+    "bures": 0.7317222238560452,
+    "jeffreys": 1.2510452391272868
+   }
+  },
+  "roberta.encoder.layer.10.attention.self.query": {
+   "target": {
+    "coral": 0.9854483895251116,
+    "bures": 0.2991588019161653,
+    "jeffreys": 0.5398691567229277
+   },
+   "ref2": {
+    "coral": 0.05752896135365369,
+    "bures": 0.0039733930006811136,
+    "jeffreys": 0.009073419932616567
+   },
+   "news": {
+    "coral": 0.6424745022580812,
+    "bures": 0.13081199929393295,
+    "jeffreys": 0.2013839484083717
+   },
+   "random": {
+    "coral": 1.0634283048052757,
+    "bures": 0.4193798939424922,
+    "jeffreys": 0.8791296465098684
+   }
+  },
+  "roberta.encoder.layer.10.attention.self.key": {
+   "target": {
+    "coral": 0.9854483895251116,
+    "bures": 0.2991588019161653,
+    "jeffreys": 0.5398691567229277
+   },
+   "ref2": {
+    "coral": 0.05752896135365369,
+    "bures": 0.0039733930006811136,
+    "jeffreys": 0.009073419932616567
+   },
+   "news": {
+    "coral": 0.6424745022580812,
+    "bures": 0.13081199929393295,
+    "jeffreys": 0.2013839484083717
+   },
+   "random": {
+    "coral": 1.0634283048052757,
+    "bures": 0.4193798939424922,
+    "jeffreys": 0.8791296465098684
+   }
+  },
+  "roberta.encoder.layer.10.attention.self.value": {
+   "target": {
+    "coral": 0.9854483895251116,
+    "bures": 0.2991588019161653,
+    "jeffreys": 0.5398691567229277
+   },
+   "ref2": {
+    "coral": 0.05752896135365369,
+    "bures": 0.0039733930006811136,
+    "jeffreys": 0.009073419932616567
+   },
+   "news": {
+    "coral": 0.6424745022580812,
+    "bures": 0.13081199929393295,
+    "jeffreys": 0.2013839484083717
+   },
+   "random": {
+    "coral": 1.0634283048052757,
+    "bures": 0.4193798939424922,
+    "jeffreys": 0.8791296465098684
+   }
+  },
+  "roberta.encoder.layer.10.attention.output.dense": {
+   "target": {
+    "coral": 1.3473816664299396,
+    "bures": 0.47373393633145344,
+    "jeffreys": 0.8434993320889401
+   },
+   "ref2": {
+    "coral": 0.10460825603485951,
+    "bures": 0.011140526108392557,
+    "jeffreys": 0.02155739178050986
+   },
+   "news": {
+    "coral": 1.6598099220795681,
+    "bures": 0.33950434674079055,
+    "jeffreys": 0.4396725015567593
+   },
+   "random": {
+    "coral": 1.1144932117573443,
+    "bures": 0.49499012470530324,
+    "jeffreys": 1.0194756496977724
+   }
+  },
+  "roberta.encoder.layer.10.intermediate.dense": {
+   "target": {
+    "coral": 0.9929487214844014,
+    "bures": 0.3072963075718671,
+    "jeffreys": 0.5485805085076869
+   },
+   "ref2": {
+    "coral": 0.05738006921250106,
+    "bures": 0.004201693711329391,
+    "jeffreys": 0.009515685005510699
+   },
+   "news": {
+    "coral": 0.7334344761507897,
+    "bures": 0.14555935444750534,
+    "jeffreys": 0.21184262545297328
+   },
+   "random": {
+    "coral": 0.9891845905339319,
+    "bures": 0.3897760013523486,
+    "jeffreys": 0.7968130624575374
+   }
+  },
+  "roberta.encoder.layer.10.output.dense": {
+   "target": {
+    "coral": 1.3077974285856504,
+    "bures": 0.43287169673658843,
+    "jeffreys": 0.9121433163229458
+   },
+   "ref2": {
+    "coral": 0.017384444183160392,
+    "bures": 0.007342609557799751,
+    "jeffreys": 0.023436779873784452
+   },
+   "news": {
+    "coral": 1.520126461204948,
+    "bures": 0.42484257702458583,
+    "jeffreys": 0.6774192998294495
+   },
+   "random": {
+    "coral": 0.6957185007773129,
+    "bures": 0.6000666072826037,
+    "jeffreys": 1.0844669992339537
+   }
+  },
+  "roberta.encoder.layer.11.attention.self.query": {
+   "target": {
+    "coral": 0.935386485784451,
+    "bures": 0.3078882076821565,
+    "jeffreys": 0.5633809413248123
+   },
+   "ref2": {
+    "coral": 0.05405022485757565,
+    "bures": 0.004018036223564669,
+    "jeffreys": 0.009466842226590666
+   },
+   "news": {
+    "coral": 0.6014760724277585,
+    "bures": 0.13313754652102716,
+    "jeffreys": 0.21265905575919253
+   },
+   "random": {
+    "coral": 1.0487048227103788,
+    "bures": 0.4004120770609103,
+    "jeffreys": 0.8209958095604595
+   }
+  },
+  "roberta.encoder.layer.11.attention.self.key": {
+   "target": {
+    "coral": 0.935386485784451,
+    "bures": 0.3078882076821565,
+    "jeffreys": 0.5633809413248123
+   },
+   "ref2": {
+    "coral": 0.05405022485757565,
+    "bures": 0.004018036223564669,
+    "jeffreys": 0.009466842226590666
+   },
+   "news": {
+    "coral": 0.6014760724277585,
+    "bures": 0.13313754652102716,
+    "jeffreys": 0.21265905575919253
+   },
+   "random": {
+    "coral": 1.0487048227103788,
+    "bures": 0.4004120770609103,
+    "jeffreys": 0.8209958095604595
+   }
+  },
+  "roberta.encoder.layer.11.attention.self.value": {
+   "target": {
+    "coral": 0.935386485784451,
+    "bures": 0.3078882076821565,
+    "jeffreys": 0.5633809413248123
+   },
+   "ref2": {
+    "coral": 0.05405022485757565,
+    "bures": 0.004018036223564669,
+    "jeffreys": 0.009466842226590666
+   },
+   "news": {
+    "coral": 0.6014760724277585,
+    "bures": 0.13313754652102716,
+    "jeffreys": 0.21265905575919253
+   },
+   "random": {
+    "coral": 1.0487048227103788,
+    "bures": 0.4004120770609103,
+    "jeffreys": 0.8209958095604595
+   }
+  },
+  "roberta.encoder.layer.11.attention.output.dense": {
+   "target": {
+    "coral": 1.16407907766229,
+    "bures": 0.30369799421470156,
+    "jeffreys": 0.49592585354395635
+   },
+   "ref2": {
+    "coral": 0.12181306498793376,
+    "bures": 0.008189007560672756,
+    "jeffreys": 0.017838146466024885
+   },
+   "news": {
+    "coral": 0.8489452781017466,
+    "bures": 0.15342198584132394,
+    "jeffreys": 0.21267235123521133
+   },
+   "random": {
+    "coral": 1.0292090167807466,
+    "bures": 0.37524117069055296,
+    "jeffreys": 0.6632953662168264
+   }
+  },
+  "roberta.encoder.layer.11.intermediate.dense": {
+   "target": {
+    "coral": 0.8960833021884533,
+    "bures": 0.28443856228450404,
+    "jeffreys": 0.5111819345008286
+   },
+   "ref2": {
+    "coral": 0.056850740947980864,
+    "bures": 0.004198063695671106,
+    "jeffreys": 0.009723514004097211
+   },
+   "news": {
+    "coral": 0.6050830709980234,
+    "bures": 0.12422130496995543,
+    "jeffreys": 0.197860391731834
+   },
+   "random": {
+    "coral": 0.9283146639376636,
+    "bures": 0.3264334176096151,
+    "jeffreys": 0.6754783879965827
+   }
+  },
+  "roberta.encoder.layer.11.output.dense": {
+   "target": {
+    "coral": 0.829031716142518,
+    "bures": 0.5007397228195494,
+    "jeffreys": 1.051323716382767
+   },
+   "ref2": {
+    "coral": 0.052168044405173995,
+    "bures": 0.011211249715064486,
+    "jeffreys": 0.029678638987252537
+   },
+   "news": {
+    "coral": 0.4971084344785129,
+    "bures": 0.1977117581577439,
+    "jeffreys": 0.30896349149848645
+   },
+   "random": {
+    "coral": 0.9319609308888988,
+    "bures": 0.5774636197102245,
+    "jeffreys": 0.9765764952172571
+   }
+  }
+ },
+ "t_s": 880.0655191310001
+}

@@ -1,0 +1,73 @@
+\begin{table*}[!ht]
+\centering
+\caption{Learning-rate selection (dev set, seed 1) for all 119 tuned configurations. Each grid starts from the listed first values and is extended one step past whichever edge holds the best score until the selection is interior; no selection lies on an edge of its final grid.}
+\label{tab:lr}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llll}
+\toprule
+Configuration & Selected & Configuration & Selected \\
+\midrule
+RoBERTa-base, ChemProt, \method{} & 3e-4 [1e-5, 1e-3] & RoBERTa-base, ChemProt, LoRA, $r{=}16$ & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, ChemProt, LoRA & 3e-4 [1e-4, 1e-3] & RoBERTa-base, ChemProt, EVA, $r{=}16$ & 3e-4 [3e-5, 1e-3] \\
+RoBERTa-base, ChemProt, EVA & 1e-4 [1e-5, 3e-4] & RoBERTa-base, ChemProt, EVA (whitened), $r{=}16$ & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, ChemProt, EVA (whitened) & 1e-3 [1e-5, 3e-3] & BERT-Tiny, ChemProt, \method{} & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, ChemProt, AdaLoRA & 3e-3 [1e-4, 1e-2] & BERT-Tiny, ChemProt, LoRA & 3e-3 [1e-4, 1e-2] \\
+RoBERTa-base, ChemProt, Full fine-tuning & 5e-5 [1e-5, 1e-4] & BERT-Tiny, ChemProt, EVA & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, ChemProt, BitFit & 1e-3 [3e-4, 3e-3] & BERT-Tiny, ChemProt, EVA (whitened) & 3e-3 [1e-4, 1e-2] \\
+RoBERTa-base, ChemProt, Linear probe & 5e-3 [1e-3, 2e-2] & BERT-Mini, ChemProt, \method{} & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, ChemProt, PiSSA & 3e-4 [1e-4, 1e-3] & BERT-Mini, ChemProt, LoRA & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, ChemProt, DoRA & 1e-3 [1e-4, 3e-3] & BERT-Mini, ChemProt, EVA & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, RCT-20k, \method{} & 1e-4 [1e-5, 3e-4] & BERT-Mini, ChemProt, EVA (whitened) & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, RCT-20k, LoRA & 3e-4 [1e-4, 1e-3] & BERT-Small, ChemProt, \method{} & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, RCT-20k, EVA & 1e-4 [1e-5, 3e-4] & BERT-Small, ChemProt, LoRA & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, RCT-20k, EVA (whitened) & 1e-4 [1e-5, 3e-4] & BERT-Small, ChemProt, EVA & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, RCT-20k, AdaLoRA & 3e-3 [1e-4, 1e-2] & BERT-Small, ChemProt, EVA (whitened) & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, RCT-20k, Full fine-tuning & 3e-5 [1e-5, 5e-5] & BERT-Medium, ChemProt, \method{} & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, RCT-20k, BitFit & 3e-3 [3e-4, 1e-2] & BERT-Medium, ChemProt, LoRA & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, RCT-20k, Linear probe & 2e-2 [1e-3, 5e-2] & BERT-Medium, ChemProt, EVA & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, RCT-20k, PiSSA & 1e-4 [3e-5, 3e-4] & BERT-Medium, ChemProt, EVA (whitened) & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, RCT-20k, DoRA & 1e-4 [3e-5, 3e-4] & BERT-Base, ChemProt, \method{} & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, HoC, \method{} & 3e-4 [1e-5, 1e-3] & BERT-Base, ChemProt, LoRA & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, HoC, LoRA & 3e-4 [1e-4, 1e-3] & BERT-Base, ChemProt, EVA & 1e-4 [3e-5, 1e-3] \\
+RoBERTa-base, HoC, EVA & 3e-4 [1e-5, 1e-3] & BERT-Base, ChemProt, EVA (whitened) & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, HoC, EVA (whitened) & 1e-4 [1e-5, 3e-4] & SmolLM2-360M, HoC, LoRA & 1e-3 [3e-4, 3e-3] \\
+RoBERTa-base, HoC, AdaLoRA & 3e-3 [1e-4, 1e-2] & SmolLM2-360M, HoC, EVA & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, HoC, Full fine-tuning & 5e-5 [1e-5, 1e-4] & SmolLM2-360M, HoC, EVA (whitened) & 1e-3 [3e-4, 3e-3] \\
+RoBERTa-base, HoC, BitFit & 1e-3 [3e-4, 3e-3] & SmolLM2-360M, HoC, \method{} & 1e-3 [3e-4, 3e-3] \\
+RoBERTa-base, HoC, Linear probe & 2e-2 [1e-3, 5e-2] & RoBERTa-base, ChemProt, LoRA, $r{=}1$, rsLoRA scale & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, HoC, PiSSA & 3e-4 [1e-4, 1e-3] & RoBERTa-base, ChemProt, LoRA, $r{=}2$, rsLoRA scale & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, HoC, DoRA & 3e-4 [1e-4, 1e-3] & RoBERTa-base, ChemProt, LoRA, $r{=}4$, rsLoRA scale & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, ChemProt, LoRA, attention only & 1e-3 [1e-4, 3e-3] & RoBERTa-base, ChemProt, LoRA, rsLoRA scale & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, ChemProt, LoRA, FFN only & 1e-3 [1e-4, 3e-3] & RoBERTa-base, ChemProt, LoRA, $r{=}16$, rsLoRA scale & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, ChemProt, LoRA, FFN only, $r{=}14$ & 1e-3 [1e-4, 3e-3] & RoBERTa-base, RCT-20k, \method{}, $r{=}4$ & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, ChemProt, LoRA, $r{=}4$ & 3e-4 [1e-4, 1e-3] & RoBERTa-base, RCT-20k, EVA, $r{=}4$ & 1e-4 [3e-5, 3e-4] \\
+RoBERTa-base, RCT-20k, LoRA, attention only & 3e-4 [1e-4, 1e-3] & RoBERTa-base, RCT-20k, EVA (whitened), $r{=}4$ & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, RCT-20k, LoRA, FFN only & 3e-4 [1e-4, 1e-3] & RoBERTa-base, RCT-20k, \method{}, $r{=}16$ & 1e-4 [3e-5, 1e-3] \\
+RoBERTa-base, RCT-20k, LoRA, FFN only, $r{=}14$ & 1e-3 [1e-4, 3e-3] & RoBERTa-base, RCT-20k, LoRA, $r{=}16$ & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, RCT-20k, LoRA, $r{=}4$ & 1e-3 [1e-4, 3e-3] & RoBERTa-base, RCT-20k, EVA, $r{=}16$ & 3e-4 [3e-5, 1e-3] \\
+RoBERTa-base, HoC, LoRA, attention only & 3e-4 [1e-4, 1e-3] & RoBERTa-base, RCT-20k, EVA (whitened), $r{=}16$ & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, HoC, LoRA, FFN only & 1e-3 [1e-4, 3e-3] & RoBERTa-base, HoC, \method{}, $r{=}4$ & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, HoC, LoRA, FFN only, $r{=}14$ & 1e-3 [1e-4, 3e-3] & RoBERTa-base, HoC, EVA, $r{=}4$ & 1e-4 [3e-5, 3e-4] \\
+RoBERTa-base, HoC, LoRA, $r{=}4$ & 3e-4 [1e-4, 1e-3] & RoBERTa-base, HoC, EVA (whitened), $r{=}4$ & 1e-4 [3e-5, 1e-3] \\
+RoBERTa-base, ChemProt, GEV & 1e-3 [1e-4, 3e-3] & RoBERTa-base, HoC, \method{}, $r{=}16$ & 1e-4 [3e-5, 1e-3] \\
+RoBERTa-base, RCT-20k, GEV & 1e-4 [3e-5, 1e-3] & RoBERTa-base, HoC, LoRA, $r{=}16$ & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, HoC, GEV & 3e-4 [1e-4, 1e-3] & RoBERTa-base, HoC, EVA, $r{=}16$ & 1e-4 [3e-5, 3e-4] \\
+RoBERTa-base, ChemProt, \method{}, $\tau{=}0.5$ & 1e-3 [1e-4, 3e-3] & RoBERTa-base, HoC, EVA (whitened), $r{=}16$ & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, ChemProt, \method{}, $\tau{=}0.9$ & 1e-3 [1e-4, 3e-3] & RoBERTa-base, ChemProt, LoRA, linear head & 3e-4 [1e-4, 1e-3] \\
+RoBERTa-base, ChemProt, \method{}, $\tau{=}0.99$ & 1e-3 [1e-4, 3e-3] & RoBERTa-base, ChemProt, EVA, linear head & 1e-4 [3e-5, 3e-4] \\
+RoBERTa-base, ChemProt, \method{}, $r{=}1$ & 3e-4 [1e-4, 1e-3] & RoBERTa-base, ChemProt, EVA (whitened), linear head & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, ChemProt, LoRA, $r{=}1$ & 1e-3 [1e-4, 3e-3] & RoBERTa-base, ChemProt, \method{}, linear head & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, ChemProt, EVA, $r{=}1$ & 1e-4 [3e-5, 3e-4] & RoBERTa-base, ChemProt, BitFit, linear head & 1e-3 [3e-4, 3e-3] \\
+RoBERTa-base, ChemProt, EVA (whitened), $r{=}1$ & 1e-3 [1e-4, 3e-3] & RoBERTa-base, MTSamples, LoRA & 1e-4 [3e-5, 1e-3] \\
+RoBERTa-base, ChemProt, \method{}, $r{=}2$ & 1e-3 [1e-4, 3e-3] & RoBERTa-base, MTSamples, EVA & 1e-4 [3e-5, 3e-4] \\
+RoBERTa-base, ChemProt, LoRA, $r{=}2$ & 1e-3 [1e-4, 3e-3] & RoBERTa-base, MTSamples, EVA (whitened) & 1e-4 [3e-5, 1e-3] \\
+RoBERTa-base, ChemProt, EVA, $r{=}2$ & 1e-4 [3e-5, 3e-4] & RoBERTa-base, MTSamples, \method{} & 1e-4 [3e-5, 1e-3] \\
+RoBERTa-base, ChemProt, EVA (whitened), $r{=}2$ & 1e-3 [1e-4, 3e-3] & SmolLM2-360M, ChemProt, \method{} & 1e-3 [1e-5, 3e-3] \\
+RoBERTa-base, ChemProt, \method{}, $r{=}4$ & 1e-3 [1e-4, 3e-3] & SmolLM2-360M, ChemProt, EVA & 3e-4 [1e-5, 3e-3] \\
+RoBERTa-base, ChemProt, EVA, $r{=}4$ & 1e-4 [3e-5, 3e-4] & SmolLM2-360M, ChemProt, EVA (whitened) & 1e-3 [1e-5, 3e-3] \\
+RoBERTa-base, ChemProt, EVA (whitened), $r{=}4$ & 1e-3 [1e-4, 3e-3] & SmolLM2-360M, ChemProt, LoRA & 1e-3 [1e-4, 3e-3] \\
+RoBERTa-base, ChemProt, \method{}, $r{=}16$ & 1e-3 [1e-4, 3e-3] &  &  \\
+\bottomrule
+\end{tabular}
+\end{table*}

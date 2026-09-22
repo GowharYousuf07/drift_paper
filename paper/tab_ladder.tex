@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{Backbone ladder on ChemProt (test micro-F1, mean$\pm$s.d., three seeds): the BERT miniatures share one vocabulary and pretraining recipe. Each method runs at the learning rate tuned on that backbone's dev set; the last column keeps EVA at the rate tuned for it on RoBERTa-base.}
+\label{tab:ladder}
+\footnotesize
+\setlength{\tabcolsep}{1.4pt}
+\begin{tabular}{lccccc}
+\toprule
+BERT & LoRA & EVA & \shortstack{EVA\\(whitened)} & \method{} & \shortstack{EVA\\(RoBERTa's rate)} \\
+\midrule
+Tiny (4.4M) & 60.9\textsubscript{$\pm$\,1.9} & 58.3\textsubscript{$\pm$\,1.1} & 59.3\textsubscript{$\pm$\,1.2} & \textbf{61.2\textsubscript{$\pm$\,1.8}} & 47.5\textsubscript{$\pm$\,3.4} \\
+Mini (11.2M) & \textbf{70.8\textsubscript{$\pm$\,0.9}} & 68.4\textsubscript{$\pm$\,2.1} & 69.1\textsubscript{$\pm$\,0.8} & 70.1\textsubscript{$\pm$\,0.9} & 63.9\textsubscript{$\pm$\,0.8} \\
+Small (28.8M) & \textbf{76.1\textsubscript{$\pm$\,0.7}} & 74.4\textsubscript{$\pm$\,0.4} & 74.6\textsubscript{$\pm$\,0.4} & 74.8\textsubscript{$\pm$\,0.7} & 71.1\textsubscript{$\pm$\,0.7} \\
+Medium (41.4M) & \textbf{77.6\textsubscript{$\pm$\,0.7}} & 76.5\textsubscript{$\pm$\,1.3} & 76.7\textsubscript{$\pm$\,0.5} & 76.6\textsubscript{$\pm$\,1.1} & 74.9\textsubscript{$\pm$\,0.9} \\
+Base (110.1M) & 79.2\textsubscript{$\pm$\,0.9} & 79.2\textsubscript{$\pm$\,1.3} & 79.8\textsubscript{$\pm$\,0.4} & \textbf{80.5\textsubscript{$\pm$\,0.5}} & 79.2\textsubscript{$\pm$\,1.3} \\
+\bottomrule
+\end{tabular}
+\end{table}

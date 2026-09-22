@@ -1,0 +1,67 @@
+{
+  "id": "google__bert_uncased_L-4_H-512_A-8__chemprot__bitfit__r8__lr0.001__s1",
+  "args": {
+    "model": "google/bert_uncased_L-4_H-512_A-8",
+    "task": "chemprot",
+    "method": "bitfit",
+    "seed": 1,
+    "budget_rank": 8,
+    "alpha": 16.0,
+    "dropout": 0.0,
+    "lr": 0.001,
+    "epochs": 10,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "max_len": 128,
+    "max_train": null,
+    "weight_decay": 0.01,
+    "tau": 0.95,
+    "rho": 2.0,
+    "score_mode": "relative",
+    "init_mode": "drift",
+    "alloc_mode": "drift",
+    "r_min": 0,
+    "target": "all",
+    "n_ref": 1024,
+    "n_dom": 1024,
+    "tag": "",
+    "amp": false,
+    "force": false,
+    "verbose": false
+  },
+  "wall_s": 215.05063989991322,
+  "n_train": 4169,
+  "n_dev": 2427,
+  "n_test": 3469,
+  "num_labels": 13,
+  "metric": "micro_f1",
+  "max_len": 128,
+  "budget": {
+    "budget_rank": 8,
+    "budget_params": 294912,
+    "n_modules": 24
+  },
+  "spent_params": null,
+  "rank_hist": {},
+  "ranks": {},
+  "result": {
+    "test": {
+      "micro_f1": 0.6601326030556356,
+      "macro_f1": 0.38216122957719223,
+      "accuracy": 0.6601326030556356
+    },
+    "dev_best": {
+      "micro_f1": 0.6847960444993819,
+      "macro_f1": 0.445871559420186,
+      "accuracy": 0.6847960444993819
+    },
+    "best_epoch": 8,
+    "train_time_s": 206.07781200006139,
+    "peak_mem_bytes": 573014528,
+    "params_total": 28770317,
+    "params_trainable": 291853,
+    "params_head": 269325,
+    "params_adapter": 22528,
+    "steps": 1310
+  }
+}

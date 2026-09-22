@@ -1,0 +1,69 @@
+{
+  "id": "roberta-base__hoc__linear__r8__lr0.02__s2",
+  "args": {
+    "model": "roberta-base",
+    "task": "hoc",
+    "method": "linear",
+    "seed": 2,
+    "budget_rank": 8,
+    "alpha": 16.0,
+    "dropout": 0.0,
+    "lr": 0.02,
+    "epochs": 12,
+    "batch_size": 16,
+    "eval_batch_size": 64,
+    "max_len": 512,
+    "max_train": null,
+    "weight_decay": 0.01,
+    "tau": 0.95,
+    "rho": 2.0,
+    "score_mode": "relative",
+    "init_mode": "drift",
+    "alloc_mode": "drift",
+    "r_min": 0,
+    "target": "all",
+    "cov": "centered",
+    "scale": "adjusted",
+    "n_ref": 1024,
+    "n_dom": 1024,
+    "tag": "",
+    "amp": true,
+    "force": false,
+    "verbose": false
+  },
+  "wall_s": 113.99273338800049,
+  "n_train": 1295,
+  "n_dev": 186,
+  "n_test": 371,
+  "num_labels": 10,
+  "metric": "example_f1",
+  "max_len": 512,
+  "budget": {
+    "budget_rank": 8,
+    "budget_params": 1327104,
+    "n_modules": 72
+  },
+  "spent_params": null,
+  "rank_hist": {},
+  "ranks": {},
+  "result": {
+    "test": {
+      "example_f1": 0.508946219997433,
+      "micro_f1": 0.5478615071283096,
+      "macro_f1": 0.47137837677161454
+    },
+    "dev_best": {
+      "example_f1": 0.5228494623655914,
+      "micro_f1": 0.5469061876247505,
+      "macro_f1": 0.480202603776127
+    },
+    "best_epoch": 9,
+    "train_time_s": 110.19169958800012,
+    "peak_mem_bytes": 1295458816,
+    "params_total": 124653322,
+    "params_trainable": 598282,
+    "params_head": 598282,
+    "params_adapter": 0,
+    "steps": 972
+  }
+}

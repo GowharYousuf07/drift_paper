@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Adapter placement with LoRA, each configuration at its own tuned learning rate (test F1, mean$\pm$s.d., seeds $1$--$3$; Table~\ref{tab:main} reports five seeds for the methods that have them). Rank 14 on the feed-forward matrices spends about the all-module rank-8 budget; rank 4 on all modules about the feed-forward rank-8 budget. \method{} rows use \method{}'s rate. Two of three seeds fail in the feed-forward rank-14 HoC cell at its selected rate; at the rate a three-seed dev mean selects, all three train and it reaches 77.0$\pm$4.1 (Section~\ref{sec:placement}).}
+\label{tab:placement}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrccc}
+\toprule
+Placement & $r$ & Params & ChemProt & RCT-20k & HoC \\
+\midrule
+All modules & 8 & 1.33M & 82.5\textsubscript{$\pm$\,0.3} & 83.9\textsubscript{$\pm$\,0.2} & 77.9\textsubscript{$\pm$\,1.3} \\
+All modules & 4 & 0.66M & 82.6\textsubscript{$\pm$\,0.5} & 83.5\textsubscript{$\pm$\,0.5} & 78.7\textsubscript{$\pm$\,1.0} \\
+Feed-forward only & 8 & 0.74M & 83.4\textsubscript{$\pm$\,0.9} & 83.7\textsubscript{$\pm$\,0.2} & 78.0\textsubscript{$\pm$\,1.4} \\
+Feed-forward only & 14 & 1.29M & 82.8\textsubscript{$\pm$\,0.8} & 83.6\textsubscript{$\pm$\,0.4} & 35.0\textsubscript{$\pm$\,35.9} \\
+Attention only & 8 & 0.59M & 82.3\textsubscript{$\pm$\,0.5} & 83.9\textsubscript{$\pm$\,0.1} & 77.9\textsubscript{$\pm$\,3.6} \\
+\midrule
+\method{}, feed-forward only & 8 & 0.74M & 82.8\textsubscript{$\pm$\,0.3} & 83.8\textsubscript{$\pm$\,0.3} & 75.6\textsubscript{$\pm$\,7.8} \\
+\method{}, attention only & 8 & 0.59M & 81.2\textsubscript{$\pm$\,0.8} & 83.7\textsubscript{$\pm$\,0.1} & 78.2\textsubscript{$\pm$\,1.5} \\
+\bottomrule
+\end{tabular}
+\end{table}

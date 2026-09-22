@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{Clinical notes (MTSamples, 12 specialties; test micro- and macro-F1, mean$\pm$s.d.\ over three seeds). Each method runs at the rate tuned on the clinical dev set; the reference rows use \method{}'s rate. $\Delta$: paired difference to LoRA in micro-F1. Failed: as in Table~\ref{tab:main}.}
+\label{tab:clinical}
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lcccc}
+\toprule
+Method & Micro-F1 & Macro-F1 & $\Delta$ ($p$) & Failed \\
+\midrule
+LoRA & 84.6\textsubscript{$\pm$\,1.0} & 84.3\textsubscript{$\pm$\,1.8} & -- & 0/3 \\
+EVA (budget-matched) & 83.5\textsubscript{$\pm$\,0.2} & 81.5\textsubscript{$\pm$\,1.2} & -1.1 (0.20) & 0/3 \\
+EVA (whitened) & 83.4\textsubscript{$\pm$\,0.6} & 82.7\textsubscript{$\pm$\,1.0} & -1.2 (0.13) & 0/3 \\
+\method{} & 84.5\textsubscript{$\pm$\,0.2} & 83.4\textsubscript{$\pm$\,0.8} & -0.1 (0.86) & 0/3 \\
+\midrule
+\method{}, news reference & 84.4\textsubscript{$\pm$\,1.4} & 83.3\textsubscript{$\pm$\,1.2} & -0.2 (0.74) & 0/3 \\
+\method{}, random-token reference & 85.1\textsubscript{$\pm$\,0.6} & 84.4\textsubscript{$\pm$\,0.4} & +0.4 (0.66) & 0/3 \\
+\bottomrule
+\end{tabular}
+\end{table}

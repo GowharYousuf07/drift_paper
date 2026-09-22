@@ -1,0 +1,23 @@
+\begin{table}[h]
+\centering
+\caption{Tau-free divergence of each corpus's input covariances from the WikiText reference (trace-normalised; mean over the $48$ distinct input sites). Floor: a disjoint half of WikiText at the same sequence length. News and random tokens at ChemProt's length.}
+\label{tab:div}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccc}
+\toprule
+Corpus vs.\ WikiText & CORAL & Bures & Jeffreys \\
+\midrule
+ChemProt & 1.172 & 0.3456 & 0.653 \\
+\quad floor (ChemProt length) & 0.076 & 0.0068 & 0.016 \\
+News (CNN/DailyMail) & 0.920 & 0.1787 & 0.281 \\
+Random tokens & 1.058 & 0.4378 & 0.893 \\
+RCT-20k & 0.878 & 0.2306 & 0.411 \\
+\quad floor (RCT-20k length) & 0.081 & 0.0079 & 0.019 \\
+HoC & 0.763 & 0.2093 & 0.393 \\
+\quad floor (HoC length) & 0.075 & 0.0056 & 0.013 \\
+MTSamples & 1.105 & 0.2770 & 0.495 \\
+\quad floor (MTSamples length) & 0.075 & 0.0056 & 0.013 \\
+\bottomrule
+\end{tabular}
+\end{table}

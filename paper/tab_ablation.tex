@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\caption{Ablation (test F1, mean$\pm$s.d.; seeds $1$--$3$ throughout, so the LoRA and \method{} rows differ from the five-seed values of Table~\ref{tab:main}; $1.33$M adapter parameters except EVA's rank-unit rule, which spends $1.26$--$1.29$M). Over five seeds the reference rows give ChemProt 82.3, 82.9, 82.6; HoC 78.0, 77.8 (Section~\ref{sec:outliers}). Upper block: only the allocation rule and the initialisation change, at \method{}'s learning rate. Lower block: the generalised-eigenvector contrast (own rate), EVA with its own budget rule (EVA's rate), and \method{} with its WikiText reference replaced. --: not run.}
+\label{tab:ablation}
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lccc}
+\toprule
+Variant & ChemProt & RCT-20k & HoC \\
+\midrule
+LoRA (uniform rank, random init) & 82.5\textsubscript{$\pm$\,0.3} & 83.9\textsubscript{$\pm$\,0.2} & 77.9\textsubscript{$\pm$\,1.3} \\
+Rank allocation only (random init) & 82.1\textsubscript{$\pm$\,0.3} & 83.9\textsubscript{$\pm$\,0.1} & 65.0\textsubscript{$\pm$\,25.1} \\
+Drift init only (uniform rank) & 82.9\textsubscript{$\pm$\,0.9} & 83.9\textsubscript{$\pm$\,0.2} & 78.7\textsubscript{$\pm$\,1.1} \\
+Random orthonormal init, drift ranks & 82.3\textsubscript{$\pm$\,1.0} & -- & -- \\
+No deflation ($\tau{=}0$), \method{}'s rate & 79.7\textsubscript{$\pm$\,2.3} & -- & -- \\
+Absolute (unnormalised) drift score & 82.4\textsubscript{$\pm$\,0.6} & -- & -- \\
+\method{} (full) & 82.3\textsubscript{$\pm$\,0.4} & 84.0\textsubscript{$\pm$\,0.1} & 73.2\textsubscript{$\pm$\,10.2} \\
+\midrule
+GEV init (uniform rank) & 82.4\textsubscript{$\pm$\,0.6} & 83.9\textsubscript{$\pm$\,0.1} & 77.6\textsubscript{$\pm$\,2.2} \\
+EVA, rank-unit budget (its own rule) & 81.9\textsubscript{$\pm$\,0.5} & -- & 78.4\textsubscript{$\pm$\,1.1} \\
+\method{}, news reference & 82.0\textsubscript{$\pm$\,0.2} & -- & 77.8\textsubscript{$\pm$\,1.9} \\
+\method{}, word-shuffled reference & 83.1\textsubscript{$\pm$\,0.3} & -- & -- \\
+\method{}, random-token reference & 82.8\textsubscript{$\pm$\,0.4} & -- & 78.4\textsubscript{$\pm$\,0.8} \\
+\bottomrule
+\end{tabular}
+\end{table}

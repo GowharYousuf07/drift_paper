@@ -1,0 +1,184 @@
+{
+  "id": "roberta-base__rct20k__lora__r14__lr0.001__s1__tgt-ffn",
+  "args": {
+    "model": "roberta-base",
+    "task": "rct20k",
+    "method": "lora",
+    "seed": 1,
+    "budget_rank": 14,
+    "alpha": 16.0,
+    "dropout": 0.0,
+    "lr": 0.001,
+    "epochs": 8,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "max_len": 96,
+    "max_train": null,
+    "weight_decay": 0.01,
+    "tau": 0.95,
+    "rho": 2.0,
+    "score_mode": "relative",
+    "init_mode": "drift",
+    "alloc_mode": "drift",
+    "r_min": 0,
+    "target": "ffn",
+    "cov": "centered",
+    "scale": "adjusted",
+    "n_ref": 1024,
+    "n_dom": 1024,
+    "ref": "wikitext",
+    "tag": "",
+    "amp": true,
+    "deterministic": false,
+    "force": false,
+    "verbose": false
+  },
+  "wall_s": 145.53779172400027,
+  "n_train": 5000,
+  "n_dev": 6000,
+  "n_test": 6000,
+  "num_labels": 5,
+  "metric": "micro_f1",
+  "max_len": 96,
+  "budget": {
+    "budget_rank": 14,
+    "budget_params": 1290240,
+    "n_modules": 24
+  },
+  "spent_params": 1290240,
+  "rank_hist": {
+    "14": 24
+  },
+  "ranks": {
+    "roberta.encoder.layer.0.intermediate.dense": 14,
+    "roberta.encoder.layer.0.output.dense": 14,
+    "roberta.encoder.layer.1.intermediate.dense": 14,
+    "roberta.encoder.layer.1.output.dense": 14,
+    "roberta.encoder.layer.2.intermediate.dense": 14,
+    "roberta.encoder.layer.2.output.dense": 14,
+    "roberta.encoder.layer.3.intermediate.dense": 14,
+    "roberta.encoder.layer.3.output.dense": 14,
+    "roberta.encoder.layer.4.intermediate.dense": 14,
+    "roberta.encoder.layer.4.output.dense": 14,
+    "roberta.encoder.layer.5.intermediate.dense": 14,
+    "roberta.encoder.layer.5.output.dense": 14,
+    "roberta.encoder.layer.6.intermediate.dense": 14,
+    "roberta.encoder.layer.6.output.dense": 14,
+    "roberta.encoder.layer.7.intermediate.dense": 14,
+    "roberta.encoder.layer.7.output.dense": 14,
+    "roberta.encoder.layer.8.intermediate.dense": 14,
+    "roberta.encoder.layer.8.output.dense": 14,
+    "roberta.encoder.layer.9.intermediate.dense": 14,
+    "roberta.encoder.layer.9.output.dense": 14,
+    "roberta.encoder.layer.10.intermediate.dense": 14,
+    "roberta.encoder.layer.10.output.dense": 14,
+    "roberta.encoder.layer.11.intermediate.dense": 14,
+    "roberta.encoder.layer.11.output.dense": 14
+  },
+  "versions": {
+    "torch": "2.10.0+cu128",
+    "transformers": "5.0.0"
+  },
+  "result": {
+    "test": {
+      "micro_f1": 0.8401666666666666,
+      "macro_f1": 0.7776528133404476,
+      "accuracy": 0.8401666666666666
+    },
+    "dev_best": {
+      "micro_f1": 0.8473333333333334,
+      "macro_f1": 0.7842028648802453,
+      "accuracy": 0.8473333333333334
+    },
+    "best_epoch": 3,
+    "train_time_s": 135.426423891,
+    "peak_mem_bytes": 1781330432,
+    "params_total": 125939717,
+    "params_trainable": 1884677,
+    "params_head": 594437,
+    "params_adapter": 1290240,
+    "steps": 1256,
+    "history": [
+      {
+        "epoch": 0,
+        "dev": 0.8201666666666667,
+        "train_loss": 0.8931013829768844,
+        "grad_norm_mean": 2.8032544653886444,
+        "grad_norm_max": 7.886765480041504,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 65536.0
+      },
+      {
+        "epoch": 1,
+        "dev": 0.823,
+        "train_loss": 0.5324538475388934,
+        "grad_norm_mean": 2.3570396649609706,
+        "grad_norm_max": 6.0071120262146,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 65536.0
+      },
+      {
+        "epoch": 2,
+        "dev": 0.8311666666666667,
+        "train_loss": 0.4299357671077084,
+        "grad_norm_mean": 2.105318049716342,
+        "grad_norm_max": 4.4364094734191895,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 65536.0
+      },
+      {
+        "epoch": 3,
+        "dev": 0.8473333333333334,
+        "train_loss": 0.37518220769751603,
+        "grad_norm_mean": 2.0628339428051263,
+        "grad_norm_max": 6.849513053894043,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 65536.0
+      },
+      {
+        "epoch": 4,
+        "dev": 0.8438333333333333,
+        "train_loss": 0.30598754592382227,
+        "grad_norm_mean": 1.9020760473172376,
+        "grad_norm_max": 7.2813496589660645,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 65536.0
+      },
+      {
+        "epoch": 5,
+        "dev": 0.8348333333333333,
+        "train_loss": 0.2326229272089946,
+        "grad_norm_mean": 1.8384089089313131,
+        "grad_norm_max": 4.377395153045654,
+        "amp_skipped_steps": 1,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      },
+      {
+        "epoch": 6,
+        "dev": 0.8411666666666666,
+        "train_loss": 0.1807871382375052,
+        "grad_norm_mean": 1.8510276758746735,
+        "grad_norm_max": 4.424699783325195,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      },
+      {
+        "epoch": 7,
+        "dev": 0.8386666666666667,
+        "train_loss": 0.14401040159782785,
+        "grad_norm_mean": 1.6453104955470486,
+        "grad_norm_max": 6.018429279327393,
+        "amp_skipped_steps": 0,
+        "nonfinite_loss_steps": 0,
+        "loss_scale": 32768.0
+      }
+    ]
+  }
+}
