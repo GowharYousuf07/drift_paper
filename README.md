@@ -103,3 +103,10 @@ The harness reproduces the published reference point: RoBERTa-base on ChemProt
 reaches **82.4** test micro-F1 with LoRA at 1.06% trainable parameters, against
 **81.9 ± 1.0** reported for full fine-tuning by Gururangan et al. (ACL 2020) on
 the same split.
+
+## License
+
+Code in this repository is released under the [MIT License](LICENSE).
+
+The paper text and figures under `paper/` are not covered by the MIT License;
+all rights to those are reserved pending publication.
