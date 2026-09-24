@@ -62,6 +62,14 @@ def main():
                                alloc_mode=a.alloc_mode,
                                target=a.target, seed=a.seed, scale=a.scale,
                                scaling=a.scaling)
+    if getattr(a, "grad_ckpt", False):
+        # recompute activations in the backward pass instead of storing them: the
+        # same updates with far less memory. Non-reentrant checkpointing passes
+        # gradients to the adapters inside each block although the frozen
+        # embeddings feeding it do not require grad; only active in train mode.
+        model.config.use_cache = False
+        model.gradient_checkpointing_enable(
+            gradient_checkpointing_kwargs={"use_reentrant": False})
     model.to(device)
     if device.type == "cuda":
         torch.cuda.reset_peak_memory_stats()

@@ -167,7 +167,7 @@ ITEMS = [
         (TAB_CLIN, "Micro-F1"),
         (MAIN, "test clinical style rather than clinical deployment")]),
     ("R3 W4", "Boxed procedure with a threshold (two-sided after round 2) and its cost", [
-        (MAIN, "medians of $59$--$125\\times$ coincided with failed runs"),
+        (MAIN, "medians of $59$--$125\\times$ coincided with failed or unstable runs"),
         (MAIN, "costs only the target half of the profiling pass ($10$--$63$\\,s here)")]),
     ("R3 W5", "Alternative general corpus and a trivial-reference control", [
         (TAB_ABL, "\\method{}, news reference"),
@@ -238,7 +238,7 @@ ITEMS = [
         (TAB_BX, "RCT-20k & 4 &"), (TAB_BX, "HoC & 4 &")]),
     # ------------------------------------------------- round 2 (re-review)
     ("R2 NEW-1", "Protocol box: threshold stated two-sided, consistent with the ladder", [
-        (MAIN, "medians of $59$--$125\\times$ coincided with failed runs and $1$--$15\\times$ with stable training"),
+        (MAIN, "medians of $59$--$125\\times$ coincided with failed or unstable runs and $1$--$15\\times$ with stable training"),
         (MAIN, "on the BERT ladder $20$--$59\\times$ trained stably at tuned rates"),
         (MAIN, "not as a verdict"),
         (RESP2, "adopted the suggested wording")]),

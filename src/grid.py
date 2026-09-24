@@ -163,6 +163,8 @@ def make_cmd(model, task, method, seed, lr=None, amp=None, **kw):
             cmd += ["--" + k, str(kw[k])]
     if kw.get("deterministic"):
         cmd += ["--deterministic"]
+    if kw.get("grad_ckpt"):
+        cmd += ["--grad_ckpt"]
     if AMP if amp is None else amp:
         cmd += ["--amp"]
     return cmd
@@ -612,6 +614,33 @@ def plan_decoder_hoc(model, seeds=(1, 2, 3)):
             for seed in seeds for m in DECODER_METHODS]
 
 
+def plan_decoder_fp32(model, seeds=(1, 2, 3), methods=("eva", "lora")):
+    """The decoder on HoC in deterministic fp32 at the rates tuned in fp16. In fp16
+    two of EVA's three seeds overflowed after the first epochs (the loss scale fell
+    to zero and every later step was non-finite), although their early checkpoints
+    stay above the failure threshold: numerics or method? LoRA is the
+    precision-matched baseline. fp32 activations of the 360M decoder at 512 tokens
+    and batch 8 exceed a T4's 16 GB, so these runs use gradient checkpointing
+    (same updates, less memory). EVA first, so a session that stops early still
+    answers the question. Each run takes about two hours, beyond the default
+    one-hour cap, and logs its dev score every epoch (--verbose, not part of the
+    run id)."""
+    return [make_cmd(DECODER, "hoc", m, seed, batch_size=DECODER_HOC_BATCH,
+                     amp=False, deterministic=True, grad_ckpt=True, tag="fp32")
+            + ["--verbose"]
+            for m in methods for seed in seeds]
+
+
+def plan_decoder_fp32_eva(model, seeds=(1, 2, 3)):
+    """plan_decoder_fp32, EVA only (the session with the decoder profile)."""
+    return plan_decoder_fp32(model, seeds, methods=("eva",))
+
+
+def plan_decoder_fp32_lora(model, seeds=(1, 2, 3)):
+    """plan_decoder_fp32, LoRA only (needs no profile, so any account can run it)."""
+    return plan_decoder_fp32(model, seeds, methods=("lora",))
+
+
 PREDS_METHODS = ("lora", "drift", "eva", "eva_white", "bitfit", "dora", "pissa",
                  "adalora", "gev")
 
@@ -715,7 +744,9 @@ PLANS = {"tune": plan_tune, "main": plan_main, "ladder": plan_ladder,
          "decoder_hoc": plan_decoder_hoc, "preds": plan_preds, "rslora": plan_rslora,
          "budget_x": plan_budget_x, "fp32_rest": plan_fp32_rest,
          "eva_fp32_lr": plan_eva_fp32_lr, "linhead": plan_linhead,
-         "factor_x": plan_factor_x, "r2_fixes": plan_r2_fixes}
+         "factor_x": plan_factor_x, "r2_fixes": plan_r2_fixes,
+         "decoder_fp32": plan_decoder_fp32, "decoder_fp32_eva": plan_decoder_fp32_eva,
+         "decoder_fp32_lora": plan_decoder_fp32_lora}
 MODEL_ONLY = ("tune", "decoder_tune", "decoder_tune_ext", "tune_rev", "tune_rev2",
               "tune_rev2a", "tune_rev2b", "tune_clin")
 SEEDS_ONLY = ("ladder", "ladder_lr")
@@ -725,7 +756,9 @@ SEEDS_ONLY = ("ladder", "ladder_lr")
 # a profiling step for 5.6 h until the platform killed the session; with a cap the
 # step fails, the run that needed it fails fast, and everything else proceeds.
 PROFILE_TIMEOUT_S = 30 * 60
-RUN_TIMEOUT_S = 60 * 60
+# one hour fits every fp16 run; the decoder's fp32 runs take longer and raise it
+# through the environment (DRIFT_RUN_TIMEOUT_H) in their notebook cell
+RUN_TIMEOUT_S = float(os.environ.get("DRIFT_RUN_TIMEOUT_H", "1")) * 3600
 
 
 def _run_capped(cmd, timeout):

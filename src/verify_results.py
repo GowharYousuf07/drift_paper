@@ -735,7 +735,7 @@ ediff = ttest(score(EL[1e-4]), score(F32["lora"]))
 check("EVA's fp32 rate one step lower again (3e-5) is undertrained",
       quoted(f"at $3\\times10^{{-5}}$, it is merely undertrained ({mstd(score(EL[3e-5]))})"))
 check("energy-check statement in the protocol box is two-sided",
-      quoted("medians of $59$--$125\\times$ coincided with failed runs and $1$--$15\\times$ with stable training")
+      quoted("medians of $59$--$125\\times$ coincided with failed or unstable runs and $1$--$15\\times$ with stable training")
       and quoted("on the BERT ladder $20$--$59\\times$ trained stably at tuned rates")
       and quoted("not as a verdict"))
 check("EVA's fp32 rate selection picks 1e-4 and still trails LoRA",
@@ -1051,6 +1051,63 @@ DC = {m: score(runs(DEC, "chemprot", m, tuned(DEC, "chemprot", m))) for m in ("l
 check("decoder on ChemProt",
       quoted(f"No method beats LoRA ({mstd(DC['lora'])})")
       and quoted(f"least stable ({mstd(DC['eva'])}, one seed at ${min(DC['eva'].values()):.1f}$)"))
+# Section VI: on SmolLM2-360M EVA fails no run on either task (failure: best dev
+# score more than 10 points below the median of LoRA's runs) but has the widest
+# seed spread of the four methods on both
+dec_fail, dec_widest = 0, True
+for t in ("chemprot", "hoc"):
+    R4 = {m: runs(DEC, t, m, tuned(DEC, t, m)) for m in ("lora", "eva", "eva_white", "drift")}
+    med_t = st.median(100 * r["result"]["dev_best"][METRIC[t]] for r in R4["lora"].values())
+    dec_fail += sum(100 * r["result"]["dev_best"][METRIC[t]] < med_t - 10
+                    for rs in R4.values() for r in rs.values())
+    sd = {m: st.stdev(score(rs).values()) for m, rs in R4.items()}
+    dec_widest &= max(sd, key=sd.get) == "eva"
+check("decoder: no failed run on either task, EVA the least stable on both (Section VI)",
+      dec_fail == 0 and dec_widest
+      and quoted("where it failed no run but was the least stable method"))
+# Section V-E: the decoder's HoC column in fp32 (deterministic kernels, gradient
+# checkpointing, same rate and profile). In fp16 two of EVA's three seeds overflow:
+# the loss scale falls to zero, no gradient reaches the adapter from the fifth
+# epoch on, and their best checkpoints (second and third epochs) stay above the
+# failure threshold. In fp32 EVA trains in every seed without a non-finite step,
+# although its gradient norm still spikes, and is level with LoRA.
+h16 = {m: runs(DEC, "hoc", m, tuned(DEC, "hoc", m)) for m in ("lora", "eva")}
+h32 = {m: runs(DEC, "hoc", m, tuned(DEC, "hoc", m), tags=("fp32",), deterministic=True)
+       for m in ("lora", "eva")}
+floor_d = st.median(100 * r["result"]["dev_best"]["example_f1"]
+                    for r in h16["lora"].values()) - 10
+over = {s: r["result"] for s, r in h16["eva"].items()
+        if any(e.get("loss_scale") is not None and e["loss_scale"] == 0
+               for e in r["result"]["history"])}
+over_ok = (len(h16["eva"]) == 3 and len(over) == 2
+           and all(res["history"][3]["grad_norm_max"] > 0
+                   and all(e["grad_norm_max"] == 0 for e in res["history"][4:])
+                   for res in over.values())
+           and sorted(res["best_epoch"] for res in over.values()) == [1, 2]
+           and all(100 * res["dev_best"]["example_f1"] > floor_d for res in over.values()))
+e32, l32 = score(h32["eva"]), score(h32["lora"])
+nonfin32 = sum(e.get("nonfinite_loss_steps", 0) for r in h32["eva"].values()
+               for e in r["result"]["history"])
+trained32 = all(100 * r["result"]["dev_best"]["example_f1"] > floor_d
+                for r in h32["eva"].values())
+setup32 = all(r["args"].get("grad_ckpt") and not r["args"].get("amp")
+              and abs(r["args"]["lr"] - tuned(DEC, "hoc", m)) < 1e-12
+              for m, rs in h32.items() for r in rs.values())
+gmax_e = max(e["grad_norm_max"] for r in h32["eva"].values() for e in r["result"]["history"])
+gmax_l = max(e["grad_norm_max"] for r in h32["lora"].values() for e in r["result"]["history"])
+d_el, d_ll = ttest(e32, l32), ttest(l32, score(h16["lora"]))
+check("decoder HoC in fp32: EVA's fp16 overflow gone, level with LoRA (Section V-E)",
+      len(e32) == 3 and len(l32) == 3 and over_ok and nonfin32 == 0 and trained32
+      and setup32
+      and quoted("the fp16 loss scale collapsing to zero")
+      and quoted("from the fifth epoch on, so their scores come from checkpoints of the "
+                 "second and third epochs, which stay above our failure threshold")
+      and quoted("EVA trains in every seed without a non-finite step")
+      and quoted(f"still reaches ${gmax_e:.0f}$, against at most ${gmax_l:.1f}$ for LoRA")
+      and quoted(f"It scores {mstd(e32)}, level with LoRA's {mstd(l32)} in fp32 "
+                 f"({sgn(d_el[0])}, $p = {d_el[1]:.2f}$)")
+      and quoted(f"precision leaves LoRA itself unchanged ({sgn(d_ll[0])}, "
+                 f"$p = {d_ll[1]:.2f}$)"))
 CL = {m: runs(RB, "mtsamples", m, tuned(RB, "mtsamples", m))
       for m in ("lora", "eva", "eva_white", "drift")}
 CL["news"] = runs(RB, "mtsamples", "drift", tuned(RB, "mtsamples", "drift"), ref="news")

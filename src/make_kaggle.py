@@ -32,7 +32,7 @@ ALL_PHASES = ("tune", "main", "ablation", "budget", "ladder")
 DEADLINE_HOURS = 10.5
 # which parts of the revision a notebook runs (see revision_cells)
 REVISION_BLOCKS = ("divergence", "tune_rev", "stage2", "dependent", "clinical",
-                   "independent", "decoder")
+                   "independent", "decoder", "decoder_fp32")
 DIV_TASKS = ("chemprot", "rct20k", "hoc", "mtsamples")
 
 
@@ -49,7 +49,10 @@ def revision_cells(blocks):
       clinical    the clinical-notes task
       independent post-audit runs with their own tuning (rsLoRA, budgets
                   elsewhere, linear head) and EVA's fp32 rates
-      decoder     the decoder on HoC (slowest; last)"""
+      decoder     the decoder on HoC (slowest; last)
+      decoder_fp32 EVA and LoRA on the decoder's HoC in fp32 (needs the decoder
+                  profile of the kernel that ran 'decoder' attached); _eva and
+                  _lora run one method each, so two accounts can share them"""
     cells = []
     cells.append(code(
         "def pending_count(plan, seeds='1,2,3', model=MODEL):\n"
@@ -173,6 +176,24 @@ def revision_cells(blocks):
         cells.append(code(
             "tune_until_done('tune_rev2b')\n"
             "run_all([('decoder_hoc', '1,2,3')])\n"
+        ))
+    for blk in ("decoder_fp32", "decoder_fp32_eva", "decoder_fp32_lora"):
+        if blk not in blocks:
+            continue
+        who = {"decoder_fp32": "EVA and LoRA", "decoder_fp32_eva": "EVA",
+               "decoder_fp32_lora": "LoRA"}[blk]
+        cells.append(md(
+            "## The decoder on HoC in fp32\n"
+            f"{who} at the fp16-tuned rate, deterministic kernels, gradient "
+            "checkpointing so fp32 fits a T4 (about two hours per run, so the "
+            "per-run cap is raised). EVA reuses the attached kernel's decoder "
+            "profile, so its initial directions match its fp16 runs."
+        ))
+        cells.append(code(
+            "os.environ['DRIFT_RUN_TIMEOUT_H'] = '5'\n"
+            "prof = 'runs/profiles/HuggingFaceTB__SmolLM2-360M__hoc__ref1024__dom1024__cen.pt'\n"
+            "print('decoder HoC profile present:', os.path.exists(prof))\n"
+            f"run_all([('{blk}', '1,2,3')])\n"
         ))
     cells.append(code(
         "if div_proc is not None:\n"
@@ -857,17 +878,23 @@ def build_revision():
       drift_revision.ipynb    everything, in priority order
       drift_revision_a2.ipynb what needs no result of session 1 (second account)
       drift_revision_s2.ipynb what does, plus leftovers (first account, short)
-      drift_revision_q1.ipynb only the short runs (first account's last hour)"""
+      drift_revision_q1.ipynb only the short runs (first account's last hour)
+      drift_revision_f2.ipynb the decoder's HoC in fp32, EVA (attach the kernel
+                              that ran the decoder, for its profile)
+      drift_revision_f1.ipynb the decoder's HoC in fp32, LoRA (any account)"""
     global REVISION_BLOCKS
     build("drift_revision_smoke.ipynb", phases=("revision_smoke",), profile_phase=False,
           restore_profiles=True, embed_results=True)
     build("drift_revision_smoke2.ipynb", phases=("revision_smoke2",), profile_phase=False)
     for name, blocks in [
             ("drift_revision.ipynb", ("divergence", "tune_rev", "quick", "stage2",
-                                      "clinical", "independent", "dependent", "decoder")),
+                                      "clinical", "independent", "dependent", "decoder",
+                                      "decoder_fp32")),
             ("drift_revision_a2.ipynb", ("divergence", "clinical", "independent", "decoder")),
             ("drift_revision_s2.ipynb", ("tune_rev", "stage2", "dependent")),
-            ("drift_revision_q1.ipynb", ("quick",))]:
+            ("drift_revision_q1.ipynb", ("quick",)),
+            ("drift_revision_f2.ipynb", ("decoder_fp32_eva",)),
+            ("drift_revision_f1.ipynb", ("decoder_fp32_lora",))]:
         REVISION_BLOCKS = blocks
         build(name, phases=("revision",), profile_phase=False,
               restore_profiles=True, embed_results=True)

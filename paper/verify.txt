@@ -181,7 +181,7 @@ TEXT CHECKS
   energy ordering matches the failure ordering               OK 
   replicate reproduces ChemProt and RCT-20k exactly, not HoC OK 
   linear head: every method but DRIFT loses 0.6-1.5 points   OK 
-  run counts (1322 runs, 443 tuning)                         OK 
+  run counts (1328 runs, 443 tuning)                         OK 
   mechanism: 24/24 distinct inputs on ChemProt, 23/24 on RCT-20k and HoC OK 
   mechanism: median energy 59-73x over all 72 modules        OK 
   energies by module group (hidden / attention-output / feed-forward) OK 
@@ -202,6 +202,8 @@ TEXT CHECKS
   placement parameter counts                                 OK 
   HoC gaps at ranks 4 and 16                                 OK 
   decoder on ChemProt                                        OK 
+  decoder: no failed run on either task, EVA the least stable on both (Section VI) OK 
+  decoder HoC in fp32: EVA's fp16 overflow gone, level with LoRA (Section V-E) OK 
   clinical numbers quoted in V-F                             OK 
   linear-head numbers quoted in Appendix D                   OK 
   BitFit's HoC lead under both metrics                       OK 

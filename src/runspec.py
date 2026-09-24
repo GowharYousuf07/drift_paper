@@ -49,6 +49,11 @@ def build_parser():
     ap.add_argument("--deterministic", action="store_true",
                     help="deterministic kernels (for fp32 reruns: two runs with the "
                          "same seed then give the same result)")
+    ap.add_argument("--grad_ckpt", action="store_true",
+                    help="gradient checkpointing: activations are recomputed in the "
+                         "backward pass, so the updates are the same but memory is "
+                         "lower (lets the decoder's fp32 HoC runs fit a 16 GB T4). "
+                         "Not part of the run id, since it does not change the run")
     ap.add_argument("--head", default="default", choices=["default", "linear"],
                     help="classification head: the backbone's own (RoBERTa: dense, "
                          "tanh, linear) or a single linear layer")

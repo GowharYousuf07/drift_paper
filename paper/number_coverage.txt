@@ -1,4 +1,4 @@
-﻿verify_results.py: 0 mismatches, 155 matched strings
+﻿verify_results.py: 0 mismatches, 162 matched strings
 excluded: 2 values quoted from other papers, 4 experiment settings (nothing of ours to re-derive)
 result numbers in the body prose not covered by a matched check: 0
 
