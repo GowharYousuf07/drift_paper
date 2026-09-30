@@ -1,0 +1,409 @@
+{
+  "key": "google__bert_uncased_L-2_H-128_A-2__chemprot__ref8192__dom8192__cen",
+  "t_ref_s": 2.8408878940026625,
+  "t_dom_s": 2.482845398997597,
+  "t_eig_s": 0.35678703099983977,
+  "n_modules": 12,
+  "taus": [
+    0.0,
+    0.5,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "centered": true,
+  "ref": "wikitext",
+  "n_ref_actual": 3227,
+  "n_dom_actual": 4169,
+  "drift_ratio": {
+    "0.0": 1.0000000000836193,
+    "0.5": 0.6249029661772407,
+    "0.9": 0.1827351963214863,
+    "0.95": 0.09827684077281844,
+    "0.99": 0.02101759711655869
+  },
+  "k": {
+    "0.0": {
+      "bert.encoder.layer.0.attention.self.query": 0,
+      "bert.encoder.layer.0.attention.self.key": 0,
+      "bert.encoder.layer.0.attention.self.value": 0,
+      "bert.encoder.layer.0.attention.output.dense": 0,
+      "bert.encoder.layer.0.intermediate.dense": 0,
+      "bert.encoder.layer.0.output.dense": 0,
+      "bert.encoder.layer.1.attention.self.query": 0,
+      "bert.encoder.layer.1.attention.self.key": 0,
+      "bert.encoder.layer.1.attention.self.value": 0,
+      "bert.encoder.layer.1.attention.output.dense": 0,
+      "bert.encoder.layer.1.intermediate.dense": 0,
+      "bert.encoder.layer.1.output.dense": 0
+    },
+    "0.5": {
+      "bert.encoder.layer.0.attention.self.query": 13,
+      "bert.encoder.layer.0.attention.self.key": 13,
+      "bert.encoder.layer.0.attention.self.value": 13,
+      "bert.encoder.layer.0.attention.output.dense": 7,
+      "bert.encoder.layer.0.intermediate.dense": 14,
+      "bert.encoder.layer.0.output.dense": 5,
+      "bert.encoder.layer.1.attention.self.query": 16,
+      "bert.encoder.layer.1.attention.self.key": 16,
+      "bert.encoder.layer.1.attention.self.value": 16,
+      "bert.encoder.layer.1.attention.output.dense": 14,
+      "bert.encoder.layer.1.intermediate.dense": 21,
+      "bert.encoder.layer.1.output.dense": 7
+    },
+    "0.9": {
+      "bert.encoder.layer.0.attention.self.query": 71,
+      "bert.encoder.layer.0.attention.self.key": 71,
+      "bert.encoder.layer.0.attention.self.value": 71,
+      "bert.encoder.layer.0.attention.output.dense": 54,
+      "bert.encoder.layer.0.intermediate.dense": 76,
+      "bert.encoder.layer.0.output.dense": 37,
+      "bert.encoder.layer.1.attention.self.query": 77,
+      "bert.encoder.layer.1.attention.self.key": 77,
+      "bert.encoder.layer.1.attention.self.value": 77,
+      "bert.encoder.layer.1.attention.output.dense": 69,
+      "bert.encoder.layer.1.intermediate.dense": 78,
+      "bert.encoder.layer.1.output.dense": 71
+    },
+    "0.95": {
+      "bert.encoder.layer.0.attention.self.query": 89,
+      "bert.encoder.layer.0.attention.self.key": 89,
+      "bert.encoder.layer.0.attention.self.value": 89,
+      "bert.encoder.layer.0.attention.output.dense": 74,
+      "bert.encoder.layer.0.intermediate.dense": 94,
+      "bert.encoder.layer.0.output.dense": 68,
+      "bert.encoder.layer.1.attention.self.query": 94,
+      "bert.encoder.layer.1.attention.self.key": 94,
+      "bert.encoder.layer.1.attention.self.value": 94,
+      "bert.encoder.layer.1.attention.output.dense": 85,
+      "bert.encoder.layer.1.intermediate.dense": 96,
+      "bert.encoder.layer.1.output.dense": 132
+    },
+    "0.99": {
+      "bert.encoder.layer.0.attention.self.query": 112,
+      "bert.encoder.layer.0.attention.self.key": 112,
+      "bert.encoder.layer.0.attention.self.value": 112,
+      "bert.encoder.layer.0.attention.output.dense": 107,
+      "bert.encoder.layer.0.intermediate.dense": 115,
+      "bert.encoder.layer.0.output.dense": 209,
+      "bert.encoder.layer.1.attention.self.query": 114,
+      "bert.encoder.layer.1.attention.self.key": 114,
+      "bert.encoder.layer.1.attention.self.value": 114,
+      "bert.encoder.layer.1.attention.output.dense": 109,
+      "bert.encoder.layer.1.intermediate.dense": 116,
+      "bert.encoder.layer.1.output.dense": 312
+    }
+  },
+  "lead": {
+    "0.0": {
+      "bert.encoder.layer.0.attention.self.query": {
+        "argmax": 27,
+        "peak": 0.22293099761009216,
+        "energy_rel": 8.516732437487073
+      },
+      "bert.encoder.layer.0.attention.self.key": {
+        "argmax": 27,
+        "peak": 0.22293099761009216,
+        "energy_rel": 8.516732437487073
+      },
+      "bert.encoder.layer.0.attention.self.value": {
+        "argmax": 27,
+        "peak": 0.22293099761009216,
+        "energy_rel": 8.516732437487073
+      },
+      "bert.encoder.layer.0.attention.output.dense": {
+        "argmax": 54,
+        "peak": 0.27490878105163574,
+        "energy_rel": 24.617255903600835
+      },
+      "bert.encoder.layer.0.intermediate.dense": {
+        "argmax": 32,
+        "peak": 0.36906811594963074,
+        "energy_rel": 10.199749730805147
+      },
+      "bert.encoder.layer.0.output.dense": {
+        "argmax": 37,
+        "peak": 0.5874792337417603,
+        "energy_rel": 77.58587382420924
+      },
+      "bert.encoder.layer.1.attention.self.query": {
+        "argmax": 95,
+        "peak": 0.25401484966278076,
+        "energy_rel": 10.728718251359012
+      },
+      "bert.encoder.layer.1.attention.self.key": {
+        "argmax": 95,
+        "peak": 0.25401484966278076,
+        "energy_rel": 10.728718251359012
+      },
+      "bert.encoder.layer.1.attention.self.value": {
+        "argmax": 95,
+        "peak": 0.25401484966278076,
+        "energy_rel": 10.728718251359012
+      },
+      "bert.encoder.layer.1.attention.output.dense": {
+        "argmax": 126,
+        "peak": 0.22009679675102234,
+        "energy_rel": 18.46229825206021
+      },
+      "bert.encoder.layer.1.intermediate.dense": {
+        "argmax": 31,
+        "peak": 0.2009831666946411,
+        "energy_rel": 11.597719773393226
+      },
+      "bert.encoder.layer.1.output.dense": {
+        "argmax": 286,
+        "peak": 0.2333821803331375,
+        "energy_rel": 127.69416471255546
+      }
+    },
+    "0.5": {
+      "bert.encoder.layer.0.attention.self.query": {
+        "argmax": 45,
+        "peak": 0.2216365486383438,
+        "energy_rel": 6.390663166543883
+      },
+      "bert.encoder.layer.0.attention.self.key": {
+        "argmax": 45,
+        "peak": 0.2216365486383438,
+        "energy_rel": 6.390663166543883
+      },
+      "bert.encoder.layer.0.attention.self.value": {
+        "argmax": 45,
+        "peak": 0.2216365486383438,
+        "energy_rel": 6.390663166543883
+      },
+      "bert.encoder.layer.0.attention.output.dense": {
+        "argmax": 28,
+        "peak": 0.27177694439888,
+        "energy_rel": 14.86619085348808
+      },
+      "bert.encoder.layer.0.intermediate.dense": {
+        "argmax": 41,
+        "peak": 0.2136850357055664,
+        "energy_rel": 5.95341521599049
+      },
+      "bert.encoder.layer.0.output.dense": {
+        "argmax": 511,
+        "peak": 0.6351149678230286,
+        "energy_rel": 23.94565355964682
+      },
+      "bert.encoder.layer.1.attention.self.query": {
+        "argmax": 41,
+        "peak": 0.22007882595062256,
+        "energy_rel": 6.793112863605013
+      },
+      "bert.encoder.layer.1.attention.self.key": {
+        "argmax": 41,
+        "peak": 0.22007882595062256,
+        "energy_rel": 6.793112863605013
+      },
+      "bert.encoder.layer.1.attention.self.value": {
+        "argmax": 41,
+        "peak": 0.22007882595062256,
+        "energy_rel": 6.793112863605013
+      },
+      "bert.encoder.layer.1.attention.output.dense": {
+        "argmax": 121,
+        "peak": 0.20679299533367157,
+        "energy_rel": 3.876687361246226
+      },
+      "bert.encoder.layer.1.intermediate.dense": {
+        "argmax": 59,
+        "peak": 0.24134622514247894,
+        "energy_rel": 6.695992768428774
+      },
+      "bert.encoder.layer.1.output.dense": {
+        "argmax": 491,
+        "peak": 0.37519150972366333,
+        "energy_rel": 45.65329438804816
+      }
+    },
+    "0.9": {
+      "bert.encoder.layer.0.attention.self.query": {
+        "argmax": 67,
+        "peak": 0.24379856884479523,
+        "energy_rel": 2.4425762542701577
+      },
+      "bert.encoder.layer.0.attention.self.key": {
+        "argmax": 67,
+        "peak": 0.24379856884479523,
+        "energy_rel": 2.4425762542701577
+      },
+      "bert.encoder.layer.0.attention.self.value": {
+        "argmax": 67,
+        "peak": 0.24379856884479523,
+        "energy_rel": 2.4425762542701577
+      },
+      "bert.encoder.layer.0.attention.output.dense": {
+        "argmax": 58,
+        "peak": 0.33145245909690857,
+        "energy_rel": 3.749259566417205
+      },
+      "bert.encoder.layer.0.intermediate.dense": {
+        "argmax": 14,
+        "peak": 0.23292666673660278,
+        "energy_rel": 2.3247467976622094
+      },
+      "bert.encoder.layer.0.output.dense": {
+        "argmax": 420,
+        "peak": 0.41497284173965454,
+        "energy_rel": 7.198428763316609
+      },
+      "bert.encoder.layer.1.attention.self.query": {
+        "argmax": 114,
+        "peak": 0.2200934737920761,
+        "energy_rel": 2.1972478958130313
+      },
+      "bert.encoder.layer.1.attention.self.key": {
+        "argmax": 114,
+        "peak": 0.2200934737920761,
+        "energy_rel": 2.1972478958130313
+      },
+      "bert.encoder.layer.1.attention.self.value": {
+        "argmax": 114,
+        "peak": 0.2200934737920761,
+        "energy_rel": 2.1972478958130313
+      },
+      "bert.encoder.layer.1.attention.output.dense": {
+        "argmax": 20,
+        "peak": 0.27087363600730896,
+        "energy_rel": 1.6477522614266908
+      },
+      "bert.encoder.layer.1.intermediate.dense": {
+        "argmax": 11,
+        "peak": 0.21311943233013153,
+        "energy_rel": 1.6016648380970935
+      },
+      "bert.encoder.layer.1.output.dense": {
+        "argmax": 402,
+        "peak": 0.6664485335350037,
+        "energy_rel": 5.006977145330189
+      }
+    },
+    "0.95": {
+      "bert.encoder.layer.0.attention.self.query": {
+        "argmax": 7,
+        "peak": 0.23126308619976044,
+        "energy_rel": 1.701820094620058
+      },
+      "bert.encoder.layer.0.attention.self.key": {
+        "argmax": 7,
+        "peak": 0.23126308619976044,
+        "energy_rel": 1.701820094620058
+      },
+      "bert.encoder.layer.0.attention.self.value": {
+        "argmax": 7,
+        "peak": 0.23126308619976044,
+        "energy_rel": 1.701820094620058
+      },
+      "bert.encoder.layer.0.attention.output.dense": {
+        "argmax": 51,
+        "peak": 0.289395809173584,
+        "energy_rel": 2.459209639018408
+      },
+      "bert.encoder.layer.0.intermediate.dense": {
+        "argmax": 103,
+        "peak": 0.25772711634635925,
+        "energy_rel": 1.4771418845065214
+      },
+      "bert.encoder.layer.0.output.dense": {
+        "argmax": 285,
+        "peak": 0.32155871391296387,
+        "energy_rel": 2.558747183613215
+      },
+      "bert.encoder.layer.1.attention.self.query": {
+        "argmax": 22,
+        "peak": 0.2773241698741913,
+        "energy_rel": 1.292892823007741
+      },
+      "bert.encoder.layer.1.attention.self.key": {
+        "argmax": 22,
+        "peak": 0.2773241698741913,
+        "energy_rel": 1.292892823007741
+      },
+      "bert.encoder.layer.1.attention.self.value": {
+        "argmax": 22,
+        "peak": 0.2773241698741913,
+        "energy_rel": 1.292892823007741
+      },
+      "bert.encoder.layer.1.attention.output.dense": {
+        "argmax": 68,
+        "peak": 0.26124414801597595,
+        "energy_rel": 0.8674844925167423
+      },
+      "bert.encoder.layer.1.intermediate.dense": {
+        "argmax": 42,
+        "peak": 0.2753932476043701,
+        "energy_rel": 0.944088930342669
+      },
+      "bert.encoder.layer.1.output.dense": {
+        "argmax": 58,
+        "peak": 0.31864845752716064,
+        "energy_rel": 1.8432086176249276
+      }
+    },
+    "0.99": {
+      "bert.encoder.layer.0.attention.self.query": {
+        "argmax": 62,
+        "peak": 0.2845211923122406,
+        "energy_rel": 0.7508320842404627
+      },
+      "bert.encoder.layer.0.attention.self.key": {
+        "argmax": 62,
+        "peak": 0.2845211923122406,
+        "energy_rel": 0.7508320842404627
+      },
+      "bert.encoder.layer.0.attention.self.value": {
+        "argmax": 62,
+        "peak": 0.2845211923122406,
+        "energy_rel": 0.7508320842404627
+      },
+      "bert.encoder.layer.0.attention.output.dense": {
+        "argmax": 55,
+        "peak": 0.3027005195617676,
+        "energy_rel": 1.251372980667051
+      },
+      "bert.encoder.layer.0.intermediate.dense": {
+        "argmax": 116,
+        "peak": 0.2354068011045456,
+        "energy_rel": 0.6240738168286751
+      },
+      "bert.encoder.layer.0.output.dense": {
+        "argmax": 475,
+        "peak": 0.24377867579460144,
+        "energy_rel": 0.7855636168272703
+      },
+      "bert.encoder.layer.1.attention.self.query": {
+        "argmax": 56,
+        "peak": 0.2399844527244568,
+        "energy_rel": 0.5116864326023761
+      },
+      "bert.encoder.layer.1.attention.self.key": {
+        "argmax": 56,
+        "peak": 0.2399844527244568,
+        "energy_rel": 0.5116864326023761
+      },
+      "bert.encoder.layer.1.attention.self.value": {
+        "argmax": 56,
+        "peak": 0.2399844527244568,
+        "energy_rel": 0.5116864326023761
+      },
+      "bert.encoder.layer.1.attention.output.dense": {
+        "argmax": 73,
+        "peak": 0.2609916031360626,
+        "energy_rel": 0.3786422221251551
+      },
+      "bert.encoder.layer.1.intermediate.dense": {
+        "argmax": 124,
+        "peak": 0.3106222152709961,
+        "energy_rel": 0.405630970271212
+      },
+      "bert.encoder.layer.1.output.dense": {
+        "argmax": 71,
+        "peak": 0.4783306121826172,
+        "energy_rel": 0.4384757917415449
+      }
+    }
+  }
+}

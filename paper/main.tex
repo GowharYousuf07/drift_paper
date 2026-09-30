@@ -64,28 +64,28 @@ gowhar390275@gmail.com}
 \maketitle
 
 \begin{abstract}
-Activation-guided methods such as EVA decide where a low-rank adapter's capacity
-goes by profiling the target task's activations beforehand. We test whether this
-helps small language models on biomedical classification when budgets are matched
-and each configuration's learning rate is tuned on its own dev set. Across
+Activation-guided methods such as EVA allocate a low-rank adapter's capacity by
+profiling the target task's activations beforehand. We test whether this helps
+small language models on biomedical classification at matched budgets, with each
+configuration tuned separately. Across
 eleven methods on three benchmarks, none beats a tuned uniform LoRA by more than
 $0.34$ F1 ($1.0$ under HoC's micro-F1), and no difference survives a
 multiple-comparison correction. A budget sweep, a $4$M--$110$M ladder, a decoder
 SLM and a clinical task agree once multiple comparisons are corrected ($1{,}328$
 runs). The methods differ in stability instead, and for activation-PCA
-initialisation we can trace the cause. On RoBERTa-base, its leading directions
+initialisation we trace the cause. On RoBERTa-base, its leading directions
 lie on the backbone's outlier dimensions 77 and 588 at 23--24 of the 24 distinct
-hidden-state inputs and carry a median $59$--$73\times$ an average direction's
-energy, and budget-matched EVA loses 2 of 5 HoC seeds in fp16 and all 3 in fp32.
-The decoder's signature is even stronger. Whitening these directions, deflating a
-general-domain reference subspace (\method{}, which nests EVA) or the exact
-generalised-eigenvector contrast all largely restore stability (whitening most
-reliably) but add no accuracy we can detect at this power. A random-token
-reference serves as well as real text, so the reference supplies the backbone's
-outliers, not domain knowledge. Neither rank allocation nor placement helps at a
-matched budget, and halving the budget costs nothing. Where a larger budget
-helps, allocation still does not. We close with a protocol for evaluating
-allocation.
+hidden-state inputs and, over all modules, carry a median $59$--$73\times$ an
+average direction's energy, and budget-matched EVA loses 2 of 5 HoC seeds in fp16
+and all 3 in fp32. The decoder's signature is even stronger. Whitening these
+directions, deflating a general-domain reference subspace (\method{}, which nests
+EVA) or the exact generalised-eigenvector contrast largely restore stability
+(whitening most reliably) but add no accuracy we can detect at this power. A
+random-token reference serves as well as real text, so the reference supplies the
+backbone's outliers, not domain knowledge. Neither rank allocation nor placement
+helps at a matched budget, and halving the budget costs nothing, so capacity
+rarely binds; where it does, no allocation gain survives correction, but our
+power is lowest there. We close with a protocol for evaluating allocation.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -103,7 +103,7 @@ task-specific classifiers must be served concurrently. Small language models
 (SLMs), from a few million to a few hundred million parameters, suit this
 setting well, and parameter-efficient fine-tuning (PEFT) is the natural way to
 specialise them. A frozen backbone is shared across tasks, while a small
-adapter, typically well under $1\%$ of the parameters, carries the task-specific
+adapter, typically around $1\%$ of the parameters, carries the task-specific
 update~\cite{hu2022lora,han2024peftsurvey}.
 
 This raises a question that is simple to state but matters more than it might
@@ -515,14 +515,15 @@ study we use the BERT miniatures of Turc et al.~\cite{turc2019wellread}, which
 range from BERT-Tiny (4.4M) to BERT-Base (110M). They share one vocabulary, one
 pretraining corpus and one recipe, so only depth and width vary. For the
 architecture check we use the decoder-only
-SmolLM2-360M~\cite{benallal2025smollm2}, classifying from its last token, with
-all $224$ linear modules adapted.
+SmolLM2-360M~\cite{benallal2025smollm2}, classifying from its last token with a
+linear head and adapting all $224$ linear modules.
 
 \noindent\textbf{Adapter placement and budget.}
 All low-rank methods adapt every linear map in every transformer block (the four
 attention projections plus both feed-forward matrices), giving $M = 72$ modules
 for RoBERTa-base. The budget is fixed to that of uniform rank $8$, i.e.
-$B = 1{,}327{,}104$ adapter parameters ($1.06\%$ of the backbone). \method{} and
+$B = 1{,}327{,}104$ adapter parameters ($1.07\%$ of the backbone's $124.06$M).
+\method{} and
 EVA redistribute rank non-uniformly but never exceed $B$. Two methods spend
 slightly more, which, if anything, favours them. DoRA adds a magnitude vector
 per module ($1.41$M). AdaLoRA prunes to the same total \emph{rank} as uniform
@@ -583,6 +584,7 @@ $32$ ($16$ for HoC and the clinical task) with length-grouped batching, and the
 maximum sequence length is $128$ / $96$ / $512$ / $512$ for ChemProt / RCT / HoC
 / clinical notes. We train for $10$ / $8$ / $12$ / $10$ epochs, respectively,
 select the epoch by dev-set score, and report the test score at that epoch. The
+decoder keeps these lengths and epochs but needs a batch of $8$ on HoC. The
 fp32 reruns (Sections~\ref{sec:main} and~\ref{sec:scale}) disable autocast and
 turn on PyTorch's deterministic algorithms in warn-only mode, which leaves the
 memory-efficient attention backward non-deterministic. On the decoder they also
@@ -591,7 +593,7 @@ use gradient checkpointing, without which fp32 does not fit a T4.
 \noindent\textbf{Learning rates.}
 Every configuration from which we draw a conclusion has its own learning rate,
 selected on the dev set with seed $1$. This covers every method of
-Table~\ref{tab:main} on every task, every adapter placement and budget of
+Table~\ref{tab:main} on every task, every LoRA placement and budget of
 Table~\ref{tab:placement}, every budget of the budget sweep, every deflation
 level $\tau$, every backbone of the ladder, the decoder on both its tasks, GEV,
 the clinical task, the rsLoRA scale and the linear-head control. Each grid
@@ -601,8 +603,8 @@ profile-initialised methods) and is extended by one half-decade step past
 whichever edge holds the best dev score until the selection is interior.
 Appendix~\ref{app:lr} lists every grid and selection. Variants that serve only
 as controls (the allocation/initialisation factorisation, EVA's rank-unit rule,
-the reference controls and the fp32 reruns) inherit the rate of their parent
-configuration. $\tau = 0.95$ was fixed before any experiment, as the default of
+the reference controls, \method{} placed on one module type and the fp32 reruns)
+inherit the rate of their parent configuration. $\tau = 0.95$ was fixed before any experiment, as the default of
 our code, and was never tuned, so the $\tau$ sweep is descriptive. The test set
 is never used for any choice.
 
@@ -616,19 +618,26 @@ nuisance factor except the method. We report the mean and the sample standard
 deviation (with $n-1$; at $n = 3$ it is itself noisy) and compare methods with a
 paired $t$-test over shared seeds, correcting with Holm's
 method~\cite{holm1979} over the $24$ comparisons with LoRA in
-Table~\ref{tab:main}. A run is counted as \emph{failed} when its best dev score
-is more than $10$ points below the median of LoRA's runs on the same task. To
-make such runs diagnosable rather than merely countable, every run logs, for
-each epoch, its training loss, the mean and maximum gradient norm before
-clipping, the number of optimiser steps fp16's loss scaler skipped and the final
-loss scale. Section~\ref{sec:main} draws on these logs, and they are released
-with the results. The study comprises $1{,}328$ fine-tuning runs,
-$443$ of them for learning-rate selection, each on one NVIDIA T4.
+Table~\ref{tab:main}. The study comprises $1{,}328$ fine-tuning runs,
+$443$ of them for learning-rate selection, each on one NVIDIA T4. A run is
+counted as \emph{failed} when its best dev score is more than $10$ points below
+the median of LoRA's runs on the same task. To make such runs diagnosable rather
+than merely countable, $784$ of the runs also log, for each epoch, the training
+loss, the mean and maximum gradient norm before clipping, the number of optimiser
+steps fp16's loss scaler skipped and the final loss scale, and
+Section~\ref{sec:main} draws on these logs. Because the criterion reads only the
+best dev score, it does not flag a run that trains well and then stops: in the
+logs, only two reported runs lose their fp16 loss scale, both EVA on the
+decoder's HoC, and neither counts as failed (Section~\ref{sec:scale}).
 
 \noindent\textbf{Availability.}
 All datasets are public. The code, the experiment plans, every per-run result
-file (with its per-epoch training telemetry) and the profile summaries
-\NUM{will be released with the paper}.
+file (with its per-epoch logs, where recorded) and the profile summaries are
+available at \url{https://github.com/GowharYousuf07/drift_paper}. The clinical
+notes come from MTSamples, whose terms allow its sample reports to be shared for
+educational use with credit to the site. The Hugging Face release we use states
+no licence, so we redistribute no note text, and our code downloads it from that
+release.
 
 \section{Results}
 \label{sec:results}
@@ -649,13 +658,14 @@ moves materially is BitFit's lead over LoRA on HoC, which widens from $0.3$ to
 $1.0$ points and remains non-significant ($p = 0.14$).
 
 \noindent\textbf{No method beats uniform LoRA.} At a matched budget of
-$1.06\%$ of the backbone, no method improves on LoRA by more than $0.34$ F1 on
+$1.07\%$ of the backbone, no method improves on LoRA by more than $0.34$ F1 on
 any task (BitFit on HoC, $p = 0.52$). After Holm correction over the $24$
 comparisons with LoRA, no difference in either direction is significant, and
 every adjusted $p$ is $1.00$. Only one difference reaches $p < 0.05$
 uncorrected, and it is a loss: BitFit on ChemProt ($-1.1$, $p = 0.04$). We read
 it, like every nominal result in this paper, as suggestive only. With three to
-five seeds, the tests rule out large gains but do not establish equivalence. On
+five seeds, the seed-level tests rule out large gains but do not establish
+equivalence. On
 ChemProt and RCT-20k the parameter-efficient methods lie within $1.7$ points of
 each other. Over five seeds, \method{} is indistinguishable from LoRA on both
 tasks ($-0.1$, $p = 0.34$; $+0.2$, $p = 0.16$) and from whitened EVA
@@ -692,12 +702,18 @@ prediction in the first epochs, with a training loss that stays at $0.38$ from
 the second epoch and bounded gradients (maximum norm $2.8$--$8.3$, against $143$
 in a PiSSA run that trained normally). EVA's failure is thus an early collapse
 and not a divergence. It is a property of its initialisation at its selected
-rate, and fp16 noise sometimes rescued runs from it rather than causing it. Nor
+rate, and fp16 noise sometimes rescued runs from it rather than causing it. The
+collapsed runs predict the empty label set for every document (their $14.3$ F1
+is the share of test documents without a hallmark), so the initialisation may
+also act through the randomly initialised multi-label head, which a high-energy
+start could drive to predict no label. Our linear-head control covers ChemProt
+only (Appendix~\ref{app:linhead}) and cannot separate the two. Nor
 is fp32 uniformly kinder: GEV, which fails no fp16 run, loses one of its three
 fp32 HoC seeds to the same early collapse (constant prediction from the first
 epoch, maximum gradient norm $1.7$), and that seed was already its slowest in
-fp16. Across both precisions, the four initialisations line up with the energy
-of their initial directions: whitened EVA ($1\times$ by
+fp16. Across both precisions, the four initialisations line up with the median
+energy of their initial directions over all modules (Section~\ref{sec:outliers}):
+whitened EVA ($1\times$ by
 construction) fails nothing, \method{} ($1.5$--$2.7\times$) one fp16 run and no
 fp32 run, GEV ($8$--$15\times$) no fp16 run and one fp32 run, and EVA
 ($59$--$73\times$) two of five in fp16 and all three in fp32. However, fp32 does
@@ -717,9 +733,13 @@ deflation or by a smaller step, never turns into accuracy.
 Appendix~\ref{app:ci} come from a replication of every parameter-efficient run
 of Table~\ref{tab:main} that stores its predictions, and they agree with the
 seed-level tests: of the $24$ paired differences to LoRA only one excludes zero,
-BitFit's loss on ChemProt ($-1.1$, $[-2.0, -0.2]$). On HoC's $371$ test
-documents, the intervals of the methods that do not fail are $\pm2$--$3$ points
-wide. Replacing RoBERTa's $0.60$M-parameter head with a single linear
+BitFit's loss on ChemProt ($-1.1$, $[-2.0, -0.2]$). They also bound what those
+tests cannot. On ChemProt and RCT-20k every interval ends below $+1.2$ points,
+so larger gains over LoRA are excluded, and $12$ of the $16$ lie within $\pm2$
+points, which establishes equivalence at that margin (one we did not fix in
+advance); the other four extend past it only on the side of a loss. On HoC's
+$371$ test documents, the intervals of the methods that do not fail are
+$\pm2$--$3$ points wide, and none ends above $+3.4$. Replacing RoBERTa's $0.60$M-parameter head with a single linear
 classification head (Appendix~\ref{app:linhead}) changes no conclusion either.
 No method beats LoRA significantly with this head (the largest difference is
 \method{}'s $+0.8$, $p = 0.14$), and EVA remains the weakest ($-1.5$,
@@ -742,8 +762,9 @@ seed trains and the test score is $84.0\pm0.1$ instead of $82.3\pm1.8$. Wherever
 we checked the alternative (EVA on HoC in fp32 above, AdaLoRA here, and
 feed-forward-only rank $14$ on HoC in Section~\ref{sec:placement}), selection by
 the mean over seeds picks the more stable rate. We keep single-seed selection
-everywhere, as the protocol states, and report the resulting runs as they are
-instead of re-selecting after seeing test scores.
+for every table entry, as Section~\ref{sec:setup} specifies, and report the
+resulting runs as they are instead of re-selecting after seeing test scores, but
+the protocol of Fig.~\ref{fig:protocol} recommends the multi-seed rule.
 
 \noindent\textbf{EVA's initialisation is the fragile part.} Initialised along
 the target's principal directions, EVA (budget-matched) trails LoRA on ChemProt
@@ -786,7 +807,8 @@ directions carry a median $56$--$71\times$ the input energy of an average
 direction. The other inputs are no safer. The leading directions of the
 attention-output inputs carry a median $50$--$63\times$, and those of the
 feed-forward hidden activations a median $254$--$592\times$ and up to
-$2{,}748\times$, and over all $72$ modules the median is $59$--$73\times$. (This
+$2{,}748\times$, and over all $72$ modules the median is $59$--$73\times$, the
+aggregate we quote from here on unless we name a module group. (This
 ratio of the leading to the mean eigenvalue is the spectral counterpart of a
 small participation ratio, in which one direction holds a large
 share of the variance.) An adapter whose input-side factor points along such a
@@ -795,8 +817,13 @@ randomly initialised one. A learning rate that is comfortable for LoRA therefore
 becomes a very large effective step: in the terms of~\cite{lee2026lrmatters},
 curvature rises and the usable learning rate falls. This matches several
 observations. First, EVA fails on HoC, where single-seed tuning selected LoRA's
-rate for it (Section~\ref{sec:main}). Second, it selects a rate one grid step
-below LoRA's on ChemProt and RCT-20k (Appendix~\ref{app:lr}). Third, the account
+rate for it (Section~\ref{sec:main}). Second, on ChemProt it selects a rate one
+grid step below LoRA's, on RoBERTa-base and on the decoder of
+Section~\ref{sec:scale}, while whitened EVA and \method{} select LoRA's rate or a
+higher one. Elsewhere the selected rates are weak evidence: on RCT-20k whitened
+EVA and \method{} also select EVA's lower rate, on HoC whitened EVA selects a
+lower rate than EVA, and on the clinical notes all four methods share one rate
+(Appendix~\ref{app:lr}). Third, the account
 explains its behaviour at low rank, where the fixed scale $\alpha/r$ is largest.
 At ranks $1$ and $2$ it collapses to the constant prediction already at
 $3\times10^{-4}$, whereas LoRA, whitened EVA and \method{} still train at
@@ -933,8 +960,10 @@ same story (Appendix~\ref{app:div}). In CORAL distance, each task's input
 covariances sit at $10$--$15$ times the floor between two disjoint halves of
 WikiText ($1.17$ for ChemProt, $1.10$ for the clinical notes
 of Section~\ref{sec:clinical}, $0.88$ for RCT-20k, $0.76$ for HoC, against
-$0.08$). They follow the same order as the drift ratio, and the Bures and
-log-det divergences agree. The scale reflects what a corpus is rather than how
+$0.08$). On the three benchmarks they follow the same order as the drift ratio,
+as do the Bures and log-det divergences; the clinical notes, whose drift excess
+slightly exceeds ChemProt's (Section~\ref{sec:clinical}), are the one inversion.
+The scale reflects what a corpus is rather than how
 useful it is as a reference: news text sits closer to WikiText ($0.92$) and
 uniformly random tokens further away ($1.06$) than two of the tasks, yet both
 work equally well as references (Section~\ref{sec:outliers}).
@@ -1010,8 +1039,9 @@ biomedical encoders. Feed-forward-only LoRA is never reliably better than
 all-module LoRA at the same budget, and at rank $14$ it is the least stable
 configuration on HoC, where it needs a multi-seed learning rate to train at all.
 Adapting only attention matches all-module LoRA on every task with less than
-half its parameters, and \method{} placed on one module type is never
-significantly better than LoRA placed there (it trails on ChemProt with
+half its parameters, and \method{} placed on one module type, at the rate it
+inherits from all-module \method{}, is never significantly better than LoRA
+placed there (it trails on ChemProt with
 attention only, $-1.1$, $p = 0.23$, and fails one HoC seed with feed-forward
 only). Reallocating the budget between modules, which is what every allocation
 method optimises, moves accuracy no more than this coarse choice does, and at
@@ -1109,8 +1139,9 @@ a single dimension hosts EVA's leading direction at $13$ of $24$ inputs on
 BERT-Base, in every layer, and at $11$ of $16$ on BERT-Medium, compared with
 $23$ of $24$ on RoBERTa-base. The pattern weakens to $5$ of $8$ on BERT-Mini and
 $3$ of $8$ on BERT-Small, and no dimension recurs across BERT-Tiny's four
-inputs. The energy excess shrinks as well. EVA's leading directions carry a
-median $59\times$ the energy of an average direction on BERT-Base, then
+inputs. The energy excess shrinks as well. Over all modules, EVA's leading
+directions carry a median $59\times$ the energy of an average direction on
+BERT-Base, then
 $40\times$, $36\times$, $20\times$ and $11\times$ down to BERT-Tiny, because
 their share of the variance stays near $7$--$8\%$ at the hidden-state inputs
 while the width falls from $768$ to $128$ (deflation cuts them to
@@ -1120,7 +1151,10 @@ tuned rate EVA fails no run on any BERT miniature, and its seed standard
 deviation ($0.4$--$2.1$ points) is of the order of LoRA's ($0.7$--$1.9$). EVA's
 small deficit, which grows as the backbone shrinks while the energy excess
 falls, must therefore have another cause, which these experiments do not
-isolate.
+isolate. Its growth runs the way Section~I predicted for
+allocation, but as a loss rather than a gain: no allocation method's difference
+from LoRA moves in its favour as the backbone shrinks (Table~\ref{tab:ladder}),
+so the ladder gives the prediction no partial support either.
 
 \IfFileExists{tab_decoder.tex}{\input{tab_decoder}}{}
 
@@ -1131,17 +1165,17 @@ is the strongest we measured. Dimension $40$ hosts EVA's leading direction at
 $41$ of the $64$ hidden-state inputs, in layers $1$--$25$ of $32$. This is
 consistent with the massive activations reported for LLMs, which also sit in
 fixed dimensions of the middle layers~\cite{sun2024massive}. EVA's leading
-directions carry a median $125\times$ the energy of an average direction
-($6.3\times$ after deflation). Tuning again places EVA's learning rate one grid
-step below LoRA's ($3\times10^{-4}$ against $10^{-3}$, just as $10^{-4}$ against
-$3\times10^{-4}$ on RoBERTa-base's ChemProt). Whitened EVA and \method{}, whose
-initial directions carry little excess energy, select LoRA's rate or a higher
-one on ChemProt on both backbones. This is what the curvature account of
-Section~\ref{sec:outliers} predicts, with a lower usable rate for EVA alone. No
+directions carry a median $125\times$ the energy of an average direction over
+all $224$ modules ($6.3\times$ after deflation). Tuning again places EVA's
+learning rate one grid step below LoRA's ($3\times10^{-4}$ against $10^{-3}$),
+while whitened EVA and \method{}, whose initial directions carry little excess
+energy, select LoRA's rate. This is the ChemProt pattern that
+Section~\ref{sec:outliers} reads as support for the curvature account, with a
+lower usable rate for EVA alone. No
 method beats LoRA ($83.9\pm0.5$), and EVA is again the least stable
 ($82.2\pm3.6$, one seed at $78.1$). On HoC, where the encoder's failures
-occurred and $512$-token documents require a batch of $8$, all four methods
-train without a failed run and tuning gives all of them $10^{-3}$. LoRA reaches
+occurred, all four methods train without a failed run and tuning gives all of
+them $10^{-3}$. LoRA reaches
 $80.9\pm0.8$, whitened EVA $80.5\pm0.3$ and \method{} $80.3\pm0.9$, while EVA is
 again the least stable at $74.6\pm5.5$, with seeds at $80.6$, $73.3$ and $69.9$
 ($-6.3$ against LoRA, $p = 0.22$). In fp16 the decoder thus repeats the
@@ -1179,7 +1213,8 @@ the news and random-token references (Table~\ref{tab:clinical}).
 Both the mechanism and the conclusions carry over. EVA's leading directions peak
 on dimension $77$ or $588$ at $21$ of the $24$ hidden-state inputs of the
 clinical profile and carry a median $57\times$ the energy of an average
-direction, compared with $24$ of $24$ and $73\times$ on ChemProt. Deflation
+direction over all $72$ modules, compared with $24$ of $24$ and $73\times$ on
+ChemProt. Deflation
 leaves one such input and a median of $4.0\times$. The drift ratio matches
 ChemProt's, with an excess over $1-\tau$ of $2.6$ points at $\tau = 0.95$,
 against $2.5$. Tuning selects $10^{-4}$ for all four methods, and no run fails.
@@ -1233,9 +1268,11 @@ these lessons into a protocol, and we explain the reasons below.
 \begin{enumerate}\setlength{\itemsep}{1pt}\setlength{\leftmargin}{1.2em}
 \item \emph{Budget in parameters.} Match adapter parameters, not total rank,
       and report the parameters actually spent (head excluded).
-\item \emph{Tune every configuration.} Select the learning rate on the dev set
-      separately for every method, backbone, budget and placement, and extend
-      each grid until the selection is interior.
+\item \emph{Tune every configuration.} Select the learning rate separately for
+      every method, backbone, budget and placement, by the mean dev score over
+      at least three seeds (on small tasks one seed can land on the edge of
+      stability, Section~\ref{sec:main}), and extend each grid until the
+      selection is interior.
 \item \emph{Seeds and failures.} Use at least five seeds on small tasks. Report
       medians and failed runs next to means, rerun failures in fp32 to separate
       numerics from method, and correct for multiple comparisons.
@@ -1284,7 +1321,8 @@ backbone with outlier dimensions, these dimensions dominate the principal
 directions of the activations. Computing the energy of each initial direction
 relative to an average one (Fig.~\ref{fig:outliers}) costs only the target half
 of the profiling pass ($10$--$63$\,s here) and a leading eigenvector per module.
-EVA's medians were $59$--$73\times$ on RoBERTa-base, where it failed runs, and
+EVA's all-module medians were $59$--$73\times$ on RoBERTa-base, where it failed
+runs, and
 $125\times$ on SmolLM2-360M, where it failed no run but was the least stable
 method in fp16, against $1$--$15\times$ for the initialisations that largely
 restored stability (whitened EVA, $1\times$ by
@@ -1300,7 +1338,8 @@ specific to RoBERTa, but it is not decisive on its own either.
 help where capacity is scarce, and at $1\%$ of RoBERTa-base it usually is not.
 All-module LoRA at half the budget and attention-only LoRA at less than half
 match the full budget on all three tasks, and on ChemProt rank $2$, a quarter of
-it, is within $0.1$ points. Where the budget does bind, the answer is the same.
+it, is within $0.1$ points. Where the budget does bind, the answer is the same,
+although with three seeds our power is lowest there.
 At rank $1$ on ChemProt, \method{} has its only nominal gain of the budget
 sweep, and on HoC, where doubling the budget to $2\%$ gains LoRA $2.4$ points,
 no allocation rule beats LoRA at that budget either. A budget sweep and a
@@ -1323,9 +1362,8 @@ practitioners who use decoders generatively face a different objective, about
 which we make no claim.
 
 \noindent\textbf{Deployment.} Everything here runs on a single commodity GPU
-with a frozen, shared backbone, which keeps sensitive data inside an
-institution. If anything, the move towards small on-premise models
-that this study supports is privacy-positive.
+with a frozen, shared backbone, so each method we compare can be trained and
+served on premises, without data leaving the institution.
 
 \section{Limitations}
 
@@ -1348,8 +1386,9 @@ We did not test references closer to the pretraining mix.
 
 \noindent\textbf{Statistical power and selection.}
 Three to five seeds detect only large differences. Our conclusion that no
-method beats LoRA therefore rules out gains of the size typically claimed for
-adaptive allocation (a point or more), but not small ones. The runs behind
+method beats LoRA therefore rules out large gains but not small ones: the
+instance-level intervals exclude gains above $1.2$ points on ChemProt and
+RCT-20k, but on HoC only those above $3.4$ (Section~\ref{sec:main}). The runs behind
 Table~\ref{tab:main} did not store per-example predictions, so its intervals
 come from a replication of every parameter-efficient run in it
 (Appendix~\ref{app:ci}), and Appendix~\ref{app:seeds} lists every seed. Learning
@@ -1393,6 +1432,13 @@ reused, but we have not measured how much this loses.
 
 \section{Conclusion}
 
+For practitioners the advice is short. On small encoders at budgets like ours,
+use all-module LoRA at rank $4$ to $8$, select its learning rate by the mean dev
+score of at least three seeds, check whether a larger budget helps before trying
+to allocate one, and skip data-derived allocation. If you do use a data-derived
+initialisation, check the energy of its directions and whiten them when it is
+high.
+
 Activation-guided allocation asks where the target distribution's variance is
 largest. On RoBERTa-base, for most modules, the answer is one of two outlier
 dimensions of the backbone, and adapters initialised there are fragile.
@@ -1403,7 +1449,12 @@ inference cost. But under a matched parameter budget, with every configuration
 tuned on its own, no such fix and no allocation rule we tested outperformed
 uniform LoRA on three biomedical benchmarks, a clinical task or a decoder SLM.
 Rank allocation alone slightly hurt, adapter placement changed nothing reliable
-at a matched budget, and half the budget was enough. On smaller backbones the
+at a matched budget, and half the budget was enough. This verdict holds where
+the budget does not bind, which at the budgets we tested is almost everywhere.
+Where it binds (rank $1$ on ChemProt, and HoC, where rank $16$ beats rank $8$),
+no allocation rule gained after correction, but three seeds give us the least
+power there, and we tested only input-side, activation-derived signals. On
+smaller backbones the
 learning rate tuned for each backbone, not any allocation rule, decided how far
 EVA trailed LoRA.
 
@@ -1415,6 +1466,13 @@ their failures, and checked for the stability of their initialisation. Natural
 next steps are to test the outlier mechanism in larger decoders, generative
 tasks and real clinical records, and to ask whether a cheap output-side signal
 can make allocation matter where input geometry alone does not.
+
+\section*{Acknowledgment}
+We used an AI assistant, Claude (Anthropic), to help write and debug the code
+behind every experiment, table and figure, and to help draft and edit the text of
+every section. We checked the reported results against the raw run files with a
+script independent of the analysis code, reviewed all code and text, and take
+full responsibility for the content.
 
 \bibliographystyle{IEEEtran}
 \bibliography{refs}

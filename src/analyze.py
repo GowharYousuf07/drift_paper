@@ -301,7 +301,9 @@ def table_main(rows, model, methods, tasks, out_path):
              "from a grid extended until the selection is interior "
              "(Appendix~\\ref{app:lr}). HoC med.: median over seeds. Failed: runs "
              "whose best dev score is more than 10 points below the median of LoRA's "
-             "runs on the same task, over all three tasks. Best parameter-efficient "
+             "runs on the same task, over all three tasks; not assessed for the "
+             "linear probe (--), which cannot reach LoRA's level with a frozen "
+             "backbone. Best parameter-efficient "
              "result per column in bold, ties included. Below the rule, the two "
              "instruments of Section~\\ref{sec:family}: \\method{} and the exact "
              "contrast GEV, which keeps uniform rank so that only its "
@@ -478,7 +480,8 @@ def table_placement(rows, model, tasks, out_path):
              "them). Rank 14 on "
              "the feed-forward matrices spends about the all-module rank-8 budget; "
              "rank 4 on all modules about the feed-forward rank-8 budget. \\method{} "
-             "rows use \\method{}'s rate." + repair + "}",
+             "rows are not tuned: they inherit the rate of all-module \\method{}."
+             + repair + "}",
              "\\label{tab:placement}", "\\footnotesize", "\\setlength{\\tabcolsep}{3pt}",
              "\\begin{tabular}{lrr" + "c" * len(tasks) + "}", "\\toprule",
              "Placement & $r$ & Params & " + " & ".join(TASK_PRETTY[t] for t in tasks)
@@ -573,10 +576,32 @@ def table_decoder(rows, out_path, tasks=("chemprot", "hoc"), methods=SWEEP):
         return None
     tasks = [t for t in tasks if any(A[(t, m)][2] for m in methods)]
     best = {t: max(r1(A[(t, m)][0]) for m in methods if A[(t, m)][2]) for t in tasks}
+    # A run whose fp16 loss scale collapses stops learning, yet the failure
+    # criterion reads only its best dev score (Section IV), so name such runs here
+    # rather than let "no failed run" read as "trained normally" (round-3 M4).
+    words = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five"}
+    notes = []
+    for t in tasks:
+        for m in methods:
+            rs = pick(rows, DECODER, t, m)
+            hit = [r for r in rs if any(e.get("loss_scale") == 0 for e in r["history"] or [])]
+            if not hit:
+                continue
+            # from this epoch on no gradient reaches the adapter
+            stop = [min(k for k in range(len(r["history"]))
+                        if all(e["grad_norm_max"] == 0 for e in r["history"][k:])) + 1
+                    for r in hit]
+            best_ep = sorted(r["best_epoch"] + 1 for r in hit)
+            notes.append(
+                f" In fp16 the loss scale of {words[len(hit)]} of {PRETTY[m].split(' (')[0]}'s "
+                f"{words[len(rs)]} {TASK_PRETTY[t]} seeds collapses, and no gradient reaches "
+                f"the adapter from epoch {min(stop)} on; their scores come from epochs "
+                + " and ".join(str(e) for e in best_ep)
+                + ", so the failure criterion does not count them (Section~\\ref{sec:scale}).")
     lines = ["\\begin{table}[t]", "\\centering",
              "\\caption{Decoder SLM: SmolLM2-360M (test F1, mean$\\pm$s.d., three "
              "seeds), each method at its own tuned learning rate (rate above the "
-             "score).}",
+             "score)." + "".join(notes) + "}",
              "\\label{tab:decoder}", "\\footnotesize", "\\setlength{\\tabcolsep}{3pt}",
              "\\begin{tabular}{l" + "c" * len(tasks) + "}", "\\toprule",
              "Method & " + " & ".join(TASK_PRETTY[t] for t in tasks) + " \\\\", "\\midrule"]
@@ -826,7 +851,8 @@ def table_fp32(rows, model, methods, out_path, task="hoc"):
              "\\caption{HoC in fp16 (Table~\\ref{tab:main}) and rerun in fp32 at the "
              "same learning rates, PyTorch's deterministic algorithms on (example-based F1, "
              "three seeds; fp16 rows with $^\\dagger$ have five). Failed: best dev "
-             "score more than 10 points below LoRA's median.}",
+             "score more than 10 points below LoRA's median; not assessed for the "
+             "linear probe (--).}",
              "\\label{tab:fp32}", "\\footnotesize", "\\setlength{\\tabcolsep}{2.5pt}",
              "\\begin{tabular}{lcccccc}", "\\toprule",
              " & \\multicolumn{3}{c}{fp16} & \\multicolumn{3}{c}{fp32} \\\\",
@@ -857,13 +883,22 @@ BUDGET_X_TASKS = ("rct20k", "hoc")
 BUDGET_X_RANKS = (4, 8, 16)
 
 
+def budget_share(rows, model, rank, task="rct20k"):
+    """Adapter budget of uniform LoRA at `rank` as a percentage of the backbone
+    (the full fine-tuning count of Table I: every backbone weight, no head)."""
+    lora = cell(pick(rows, model, task, "lora", budget_rank=rank), "adapter_params")
+    full = cell(pick(rows, model, task, "full"), "adapter_params")
+    return 100 * lora[0] / full[0]
+
+
 def table_budget_x(rows, model, out_path):
-    """Budgets of 0.5%, 1.06% and 2% on the other two tasks, each (method,
+    """Budgets of 0.53%, 1.07% and 2.14% on the other two tasks, each (method,
     budget) at its own tuned rate; rank 8 is Table I (seeds 1-3)."""
+    pct = [f"${budget_share(rows, model, r):.2f}\\%$" for r in BUDGET_X_RANKS]
     lines = ["\\begin{table}[h]", "\\centering",
              "\\caption{Adapter budget on RCT-20k and HoC (mean$\\pm$s.d., three "
              "seeds, every method and budget tuned on its own). Rank $4$, $8$ and "
-             "$16$ spend $0.53\\%$, $1.06\\%$ and $2.1\\%$ of the backbone.}",
+             f"$16$ spend {pct[0]}, {pct[1]} and {pct[2]} of the backbone's parameters.}}",
              "\\label{tab:budgetx}", "\\footnotesize", "\\setlength{\\tabcolsep}{2.5pt}",
              "\\begin{tabular}{llcccc}", "\\toprule",
              "Task & $r$ & LoRA & EVA & \\shortstack{EVA\\\\(whitened)} & \\method{} \\\\",

@@ -1,0 +1,2209 @@
+{
+  "key": "roberta-base__mtsamples__ref1024__dom1024__random__cen",
+  "t_ref_s": 68.81144226299966,
+  "t_dom_s": 66.93138242999976,
+  "t_eig_s": 196.82591744300044,
+  "n_modules": 72,
+  "taus": [
+    0.0,
+    0.5,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "centered": true,
+  "ref": "random",
+  "n_ref_actual": 1024,
+  "n_dom_actual": 1024,
+  "drift_ratio": {
+    "0.0": 1.0000002057573674,
+    "0.5": 0.6992237366594956,
+    "0.9": 0.36507811070220875,
+    "0.95": 0.26422604894398366,
+    "0.99": 0.1067356600948625
+  },
+  "k": {
+    "0.0": {
+      "roberta.encoder.layer.0.attention.self.query": 0,
+      "roberta.encoder.layer.0.attention.self.key": 0,
+      "roberta.encoder.layer.0.attention.self.value": 0,
+      "roberta.encoder.layer.0.attention.output.dense": 0,
+      "roberta.encoder.layer.0.intermediate.dense": 0,
+      "roberta.encoder.layer.0.output.dense": 0,
+      "roberta.encoder.layer.1.attention.self.query": 0,
+      "roberta.encoder.layer.1.attention.self.key": 0,
+      "roberta.encoder.layer.1.attention.self.value": 0,
+      "roberta.encoder.layer.1.attention.output.dense": 0,
+      "roberta.encoder.layer.1.intermediate.dense": 0,
+      "roberta.encoder.layer.1.output.dense": 0,
+      "roberta.encoder.layer.2.attention.self.query": 0,
+      "roberta.encoder.layer.2.attention.self.key": 0,
+      "roberta.encoder.layer.2.attention.self.value": 0,
+      "roberta.encoder.layer.2.attention.output.dense": 0,
+      "roberta.encoder.layer.2.intermediate.dense": 0,
+      "roberta.encoder.layer.2.output.dense": 0,
+      "roberta.encoder.layer.3.attention.self.query": 0,
+      "roberta.encoder.layer.3.attention.self.key": 0,
+      "roberta.encoder.layer.3.attention.self.value": 0,
+      "roberta.encoder.layer.3.attention.output.dense": 0,
+      "roberta.encoder.layer.3.intermediate.dense": 0,
+      "roberta.encoder.layer.3.output.dense": 0,
+      "roberta.encoder.layer.4.attention.self.query": 0,
+      "roberta.encoder.layer.4.attention.self.key": 0,
+      "roberta.encoder.layer.4.attention.self.value": 0,
+      "roberta.encoder.layer.4.attention.output.dense": 0,
+      "roberta.encoder.layer.4.intermediate.dense": 0,
+      "roberta.encoder.layer.4.output.dense": 0,
+      "roberta.encoder.layer.5.attention.self.query": 0,
+      "roberta.encoder.layer.5.attention.self.key": 0,
+      "roberta.encoder.layer.5.attention.self.value": 0,
+      "roberta.encoder.layer.5.attention.output.dense": 0,
+      "roberta.encoder.layer.5.intermediate.dense": 0,
+      "roberta.encoder.layer.5.output.dense": 0,
+      "roberta.encoder.layer.6.attention.self.query": 0,
+      "roberta.encoder.layer.6.attention.self.key": 0,
+      "roberta.encoder.layer.6.attention.self.value": 0,
+      "roberta.encoder.layer.6.attention.output.dense": 0,
+      "roberta.encoder.layer.6.intermediate.dense": 0,
+      "roberta.encoder.layer.6.output.dense": 0,
+      "roberta.encoder.layer.7.attention.self.query": 0,
+      "roberta.encoder.layer.7.attention.self.key": 0,
+      "roberta.encoder.layer.7.attention.self.value": 0,
+      "roberta.encoder.layer.7.attention.output.dense": 0,
+      "roberta.encoder.layer.7.intermediate.dense": 0,
+      "roberta.encoder.layer.7.output.dense": 0,
+      "roberta.encoder.layer.8.attention.self.query": 0,
+      "roberta.encoder.layer.8.attention.self.key": 0,
+      "roberta.encoder.layer.8.attention.self.value": 0,
+      "roberta.encoder.layer.8.attention.output.dense": 0,
+      "roberta.encoder.layer.8.intermediate.dense": 0,
+      "roberta.encoder.layer.8.output.dense": 0,
+      "roberta.encoder.layer.9.attention.self.query": 0,
+      "roberta.encoder.layer.9.attention.self.key": 0,
+      "roberta.encoder.layer.9.attention.self.value": 0,
+      "roberta.encoder.layer.9.attention.output.dense": 0,
+      "roberta.encoder.layer.9.intermediate.dense": 0,
+      "roberta.encoder.layer.9.output.dense": 0,
+      "roberta.encoder.layer.10.attention.self.query": 0,
+      "roberta.encoder.layer.10.attention.self.key": 0,
+      "roberta.encoder.layer.10.attention.self.value": 0,
+      "roberta.encoder.layer.10.attention.output.dense": 0,
+      "roberta.encoder.layer.10.intermediate.dense": 0,
+      "roberta.encoder.layer.10.output.dense": 0,
+      "roberta.encoder.layer.11.attention.self.query": 0,
+      "roberta.encoder.layer.11.attention.self.key": 0,
+      "roberta.encoder.layer.11.attention.self.value": 0,
+      "roberta.encoder.layer.11.attention.output.dense": 0,
+      "roberta.encoder.layer.11.intermediate.dense": 0,
+      "roberta.encoder.layer.11.output.dense": 0
+    },
+    "0.5": {
+      "roberta.encoder.layer.0.attention.self.query": 140,
+      "roberta.encoder.layer.0.attention.self.key": 140,
+      "roberta.encoder.layer.0.attention.self.value": 140,
+      "roberta.encoder.layer.0.attention.output.dense": 37,
+      "roberta.encoder.layer.0.intermediate.dense": 122,
+      "roberta.encoder.layer.0.output.dense": 120,
+      "roberta.encoder.layer.1.attention.self.query": 89,
+      "roberta.encoder.layer.1.attention.self.key": 89,
+      "roberta.encoder.layer.1.attention.self.value": 89,
+      "roberta.encoder.layer.1.attention.output.dense": 34,
+      "roberta.encoder.layer.1.intermediate.dense": 77,
+      "roberta.encoder.layer.1.output.dense": 70,
+      "roberta.encoder.layer.2.attention.self.query": 60,
+      "roberta.encoder.layer.2.attention.self.key": 60,
+      "roberta.encoder.layer.2.attention.self.value": 60,
+      "roberta.encoder.layer.2.attention.output.dense": 30,
+      "roberta.encoder.layer.2.intermediate.dense": 54,
+      "roberta.encoder.layer.2.output.dense": 40,
+      "roberta.encoder.layer.3.attention.self.query": 37,
+      "roberta.encoder.layer.3.attention.self.key": 37,
+      "roberta.encoder.layer.3.attention.self.value": 37,
+      "roberta.encoder.layer.3.attention.output.dense": 27,
+      "roberta.encoder.layer.3.intermediate.dense": 35,
+      "roberta.encoder.layer.3.output.dense": 39,
+      "roberta.encoder.layer.4.attention.self.query": 33,
+      "roberta.encoder.layer.4.attention.self.key": 33,
+      "roberta.encoder.layer.4.attention.self.value": 33,
+      "roberta.encoder.layer.4.attention.output.dense": 21,
+      "roberta.encoder.layer.4.intermediate.dense": 33,
+      "roberta.encoder.layer.4.output.dense": 32,
+      "roberta.encoder.layer.5.attention.self.query": 32,
+      "roberta.encoder.layer.5.attention.self.key": 32,
+      "roberta.encoder.layer.5.attention.self.value": 32,
+      "roberta.encoder.layer.5.attention.output.dense": 16,
+      "roberta.encoder.layer.5.intermediate.dense": 32,
+      "roberta.encoder.layer.5.output.dense": 35,
+      "roberta.encoder.layer.6.attention.self.query": 31,
+      "roberta.encoder.layer.6.attention.self.key": 31,
+      "roberta.encoder.layer.6.attention.self.value": 31,
+      "roberta.encoder.layer.6.attention.output.dense": 28,
+      "roberta.encoder.layer.6.intermediate.dense": 28,
+      "roberta.encoder.layer.6.output.dense": 38,
+      "roberta.encoder.layer.7.attention.self.query": 24,
+      "roberta.encoder.layer.7.attention.self.key": 24,
+      "roberta.encoder.layer.7.attention.self.value": 24,
+      "roberta.encoder.layer.7.attention.output.dense": 22,
+      "roberta.encoder.layer.7.intermediate.dense": 21,
+      "roberta.encoder.layer.7.output.dense": 15,
+      "roberta.encoder.layer.8.attention.self.query": 19,
+      "roberta.encoder.layer.8.attention.self.key": 19,
+      "roberta.encoder.layer.8.attention.self.value": 19,
+      "roberta.encoder.layer.8.attention.output.dense": 33,
+      "roberta.encoder.layer.8.intermediate.dense": 20,
+      "roberta.encoder.layer.8.output.dense": 26,
+      "roberta.encoder.layer.9.attention.self.query": 21,
+      "roberta.encoder.layer.9.attention.self.key": 21,
+      "roberta.encoder.layer.9.attention.self.value": 21,
+      "roberta.encoder.layer.9.attention.output.dense": 50,
+      "roberta.encoder.layer.9.intermediate.dense": 28,
+      "roberta.encoder.layer.9.output.dense": 27,
+      "roberta.encoder.layer.10.attention.self.query": 31,
+      "roberta.encoder.layer.10.attention.self.key": 31,
+      "roberta.encoder.layer.10.attention.self.value": 31,
+      "roberta.encoder.layer.10.attention.output.dense": 46,
+      "roberta.encoder.layer.10.intermediate.dense": 28,
+      "roberta.encoder.layer.10.output.dense": 16,
+      "roberta.encoder.layer.11.attention.self.query": 21,
+      "roberta.encoder.layer.11.attention.self.key": 21,
+      "roberta.encoder.layer.11.attention.self.value": 21,
+      "roberta.encoder.layer.11.attention.output.dense": 61,
+      "roberta.encoder.layer.11.intermediate.dense": 23,
+      "roberta.encoder.layer.11.output.dense": 40
+    },
+    "0.9": {
+      "roberta.encoder.layer.0.attention.self.query": 523,
+      "roberta.encoder.layer.0.attention.self.key": 523,
+      "roberta.encoder.layer.0.attention.self.value": 523,
+      "roberta.encoder.layer.0.attention.output.dense": 281,
+      "roberta.encoder.layer.0.intermediate.dense": 494,
+      "roberta.encoder.layer.0.output.dense": 1099,
+      "roberta.encoder.layer.1.attention.self.query": 395,
+      "roberta.encoder.layer.1.attention.self.key": 395,
+      "roberta.encoder.layer.1.attention.self.value": 395,
+      "roberta.encoder.layer.1.attention.output.dense": 294,
+      "roberta.encoder.layer.1.intermediate.dense": 376,
+      "roberta.encoder.layer.1.output.dense": 854,
+      "roberta.encoder.layer.2.attention.self.query": 305,
+      "roberta.encoder.layer.2.attention.self.key": 305,
+      "roberta.encoder.layer.2.attention.self.value": 305,
+      "roberta.encoder.layer.2.attention.output.dense": 257,
+      "roberta.encoder.layer.2.intermediate.dense": 293,
+      "roberta.encoder.layer.2.output.dense": 472,
+      "roberta.encoder.layer.3.attention.self.query": 236,
+      "roberta.encoder.layer.3.attention.self.key": 236,
+      "roberta.encoder.layer.3.attention.self.value": 236,
+      "roberta.encoder.layer.3.attention.output.dense": 168,
+      "roberta.encoder.layer.3.intermediate.dense": 229,
+      "roberta.encoder.layer.3.output.dense": 395,
+      "roberta.encoder.layer.4.attention.self.query": 204,
+      "roberta.encoder.layer.4.attention.self.key": 204,
+      "roberta.encoder.layer.4.attention.self.value": 204,
+      "roberta.encoder.layer.4.attention.output.dense": 208,
+      "roberta.encoder.layer.4.intermediate.dense": 208,
+      "roberta.encoder.layer.4.output.dense": 387,
+      "roberta.encoder.layer.5.attention.self.query": 196,
+      "roberta.encoder.layer.5.attention.self.key": 196,
+      "roberta.encoder.layer.5.attention.self.value": 196,
+      "roberta.encoder.layer.5.attention.output.dense": 174,
+      "roberta.encoder.layer.5.intermediate.dense": 201,
+      "roberta.encoder.layer.5.output.dense": 407,
+      "roberta.encoder.layer.6.attention.self.query": 192,
+      "roberta.encoder.layer.6.attention.self.key": 192,
+      "roberta.encoder.layer.6.attention.self.value": 192,
+      "roberta.encoder.layer.6.attention.output.dense": 239,
+      "roberta.encoder.layer.6.intermediate.dense": 190,
+      "roberta.encoder.layer.6.output.dense": 390,
+      "roberta.encoder.layer.7.attention.self.query": 177,
+      "roberta.encoder.layer.7.attention.self.key": 177,
+      "roberta.encoder.layer.7.attention.self.value": 177,
+      "roberta.encoder.layer.7.attention.output.dense": 185,
+      "roberta.encoder.layer.7.intermediate.dense": 176,
+      "roberta.encoder.layer.7.output.dense": 269,
+      "roberta.encoder.layer.8.attention.self.query": 167,
+      "roberta.encoder.layer.8.attention.self.key": 167,
+      "roberta.encoder.layer.8.attention.self.value": 167,
+      "roberta.encoder.layer.8.attention.output.dense": 205,
+      "roberta.encoder.layer.8.intermediate.dense": 175,
+      "roberta.encoder.layer.8.output.dense": 324,
+      "roberta.encoder.layer.9.attention.self.query": 174,
+      "roberta.encoder.layer.9.attention.self.key": 174,
+      "roberta.encoder.layer.9.attention.self.value": 174,
+      "roberta.encoder.layer.9.attention.output.dense": 268,
+      "roberta.encoder.layer.9.intermediate.dense": 207,
+      "roberta.encoder.layer.9.output.dense": 349,
+      "roberta.encoder.layer.10.attention.self.query": 212,
+      "roberta.encoder.layer.10.attention.self.key": 212,
+      "roberta.encoder.layer.10.attention.self.value": 212,
+      "roberta.encoder.layer.10.attention.output.dense": 305,
+      "roberta.encoder.layer.10.intermediate.dense": 201,
+      "roberta.encoder.layer.10.output.dense": 345,
+      "roberta.encoder.layer.11.attention.self.query": 187,
+      "roberta.encoder.layer.11.attention.self.key": 187,
+      "roberta.encoder.layer.11.attention.self.value": 187,
+      "roberta.encoder.layer.11.attention.output.dense": 291,
+      "roberta.encoder.layer.11.intermediate.dense": 181,
+      "roberta.encoder.layer.11.output.dense": 825
+    },
+    "0.95": {
+      "roberta.encoder.layer.0.attention.self.query": 620,
+      "roberta.encoder.layer.0.attention.self.key": 620,
+      "roberta.encoder.layer.0.attention.self.value": 620,
+      "roberta.encoder.layer.0.attention.output.dense": 406,
+      "roberta.encoder.layer.0.intermediate.dense": 596,
+      "roberta.encoder.layer.0.output.dense": 1574,
+      "roberta.encoder.layer.1.attention.self.query": 506,
+      "roberta.encoder.layer.1.attention.self.key": 506,
+      "roberta.encoder.layer.1.attention.self.value": 506,
+      "roberta.encoder.layer.1.attention.output.dense": 427,
+      "roberta.encoder.layer.1.intermediate.dense": 495,
+      "roberta.encoder.layer.1.output.dense": 1335,
+      "roberta.encoder.layer.2.attention.self.query": 425,
+      "roberta.encoder.layer.2.attention.self.key": 425,
+      "roberta.encoder.layer.2.attention.self.value": 425,
+      "roberta.encoder.layer.2.attention.output.dense": 371,
+      "roberta.encoder.layer.2.intermediate.dense": 414,
+      "roberta.encoder.layer.2.output.dense": 845,
+      "roberta.encoder.layer.3.attention.self.query": 344,
+      "roberta.encoder.layer.3.attention.self.key": 344,
+      "roberta.encoder.layer.3.attention.self.value": 344,
+      "roberta.encoder.layer.3.attention.output.dense": 227,
+      "roberta.encoder.layer.3.intermediate.dense": 332,
+      "roberta.encoder.layer.3.output.dense": 704,
+      "roberta.encoder.layer.4.attention.self.query": 291,
+      "roberta.encoder.layer.4.attention.self.key": 291,
+      "roberta.encoder.layer.4.attention.self.value": 291,
+      "roberta.encoder.layer.4.attention.output.dense": 313,
+      "roberta.encoder.layer.4.intermediate.dense": 300,
+      "roberta.encoder.layer.4.output.dense": 688,
+      "roberta.encoder.layer.5.attention.self.query": 280,
+      "roberta.encoder.layer.5.attention.self.key": 280,
+      "roberta.encoder.layer.5.attention.self.value": 280,
+      "roberta.encoder.layer.5.attention.output.dense": 265,
+      "roberta.encoder.layer.5.intermediate.dense": 287,
+      "roberta.encoder.layer.5.output.dense": 698,
+      "roberta.encoder.layer.6.attention.self.query": 273,
+      "roberta.encoder.layer.6.attention.self.key": 273,
+      "roberta.encoder.layer.6.attention.self.value": 273,
+      "roberta.encoder.layer.6.attention.output.dense": 341,
+      "roberta.encoder.layer.6.intermediate.dense": 272,
+      "roberta.encoder.layer.6.output.dense": 701,
+      "roberta.encoder.layer.7.attention.self.query": 251,
+      "roberta.encoder.layer.7.attention.self.key": 251,
+      "roberta.encoder.layer.7.attention.self.value": 251,
+      "roberta.encoder.layer.7.attention.output.dense": 303,
+      "roberta.encoder.layer.7.intermediate.dense": 252,
+      "roberta.encoder.layer.7.output.dense": 528,
+      "roberta.encoder.layer.8.attention.self.query": 239,
+      "roberta.encoder.layer.8.attention.self.key": 239,
+      "roberta.encoder.layer.8.attention.self.value": 239,
+      "roberta.encoder.layer.8.attention.output.dense": 305,
+      "roberta.encoder.layer.8.intermediate.dense": 253,
+      "roberta.encoder.layer.8.output.dense": 609,
+      "roberta.encoder.layer.9.attention.self.query": 255,
+      "roberta.encoder.layer.9.attention.self.key": 255,
+      "roberta.encoder.layer.9.attention.self.value": 255,
+      "roberta.encoder.layer.9.attention.output.dense": 363,
+      "roberta.encoder.layer.9.intermediate.dense": 301,
+      "roberta.encoder.layer.9.output.dense": 656,
+      "roberta.encoder.layer.10.attention.self.query": 312,
+      "roberta.encoder.layer.10.attention.self.key": 312,
+      "roberta.encoder.layer.10.attention.self.value": 312,
+      "roberta.encoder.layer.10.attention.output.dense": 410,
+      "roberta.encoder.layer.10.intermediate.dense": 299,
+      "roberta.encoder.layer.10.output.dense": 678,
+      "roberta.encoder.layer.11.attention.self.query": 282,
+      "roberta.encoder.layer.11.attention.self.key": 282,
+      "roberta.encoder.layer.11.attention.self.value": 282,
+      "roberta.encoder.layer.11.attention.output.dense": 383,
+      "roberta.encoder.layer.11.intermediate.dense": 286,
+      "roberta.encoder.layer.11.output.dense": 1362
+    },
+    "0.99": {
+      "roberta.encoder.layer.0.attention.self.query": 726,
+      "roberta.encoder.layer.0.attention.self.key": 726,
+      "roberta.encoder.layer.0.attention.self.value": 726,
+      "roberta.encoder.layer.0.attention.output.dense": 617,
+      "roberta.encoder.layer.0.intermediate.dense": 712,
+      "roberta.encoder.layer.0.output.dense": 2358,
+      "roberta.encoder.layer.1.attention.self.query": 667,
+      "roberta.encoder.layer.1.attention.self.key": 667,
+      "roberta.encoder.layer.1.attention.self.value": 667,
+      "roberta.encoder.layer.1.attention.output.dense": 638,
+      "roberta.encoder.layer.1.intermediate.dense": 666,
+      "roberta.encoder.layer.1.output.dense": 2250,
+      "roberta.encoder.layer.2.attention.self.query": 630,
+      "roberta.encoder.layer.2.attention.self.key": 630,
+      "roberta.encoder.layer.2.attention.self.value": 630,
+      "roberta.encoder.layer.2.attention.output.dense": 574,
+      "roberta.encoder.layer.2.intermediate.dense": 628,
+      "roberta.encoder.layer.2.output.dense": 1756,
+      "roberta.encoder.layer.3.attention.self.query": 580,
+      "roberta.encoder.layer.3.attention.self.key": 580,
+      "roberta.encoder.layer.3.attention.self.value": 580,
+      "roberta.encoder.layer.3.attention.output.dense": 421,
+      "roberta.encoder.layer.3.intermediate.dense": 564,
+      "roberta.encoder.layer.3.output.dense": 1632,
+      "roberta.encoder.layer.4.attention.self.query": 528,
+      "roberta.encoder.layer.4.attention.self.key": 528,
+      "roberta.encoder.layer.4.attention.self.value": 528,
+      "roberta.encoder.layer.4.attention.output.dense": 535,
+      "roberta.encoder.layer.4.intermediate.dense": 539,
+      "roberta.encoder.layer.4.output.dense": 1581,
+      "roberta.encoder.layer.5.attention.self.query": 522,
+      "roberta.encoder.layer.5.attention.self.key": 522,
+      "roberta.encoder.layer.5.attention.self.value": 522,
+      "roberta.encoder.layer.5.attention.output.dense": 467,
+      "roberta.encoder.layer.5.intermediate.dense": 523,
+      "roberta.encoder.layer.5.output.dense": 1554,
+      "roberta.encoder.layer.6.attention.self.query": 517,
+      "roberta.encoder.layer.6.attention.self.key": 517,
+      "roberta.encoder.layer.6.attention.self.value": 517,
+      "roberta.encoder.layer.6.attention.output.dense": 545,
+      "roberta.encoder.layer.6.intermediate.dense": 517,
+      "roberta.encoder.layer.6.output.dense": 1602,
+      "roberta.encoder.layer.7.attention.self.query": 492,
+      "roberta.encoder.layer.7.attention.self.key": 492,
+      "roberta.encoder.layer.7.attention.self.value": 492,
+      "roberta.encoder.layer.7.attention.output.dense": 571,
+      "roberta.encoder.layer.7.intermediate.dense": 494,
+      "roberta.encoder.layer.7.output.dense": 1403,
+      "roberta.encoder.layer.8.attention.self.query": 486,
+      "roberta.encoder.layer.8.attention.self.key": 486,
+      "roberta.encoder.layer.8.attention.self.value": 486,
+      "roberta.encoder.layer.8.attention.output.dense": 534,
+      "roberta.encoder.layer.8.intermediate.dense": 496,
+      "roberta.encoder.layer.8.output.dense": 1489,
+      "roberta.encoder.layer.9.attention.self.query": 509,
+      "roberta.encoder.layer.9.attention.self.key": 509,
+      "roberta.encoder.layer.9.attention.self.value": 509,
+      "roberta.encoder.layer.9.attention.output.dense": 548,
+      "roberta.encoder.layer.9.intermediate.dense": 543,
+      "roberta.encoder.layer.9.output.dense": 1590,
+      "roberta.encoder.layer.10.attention.self.query": 568,
+      "roberta.encoder.layer.10.attention.self.key": 568,
+      "roberta.encoder.layer.10.attention.self.value": 568,
+      "roberta.encoder.layer.10.attention.output.dense": 593,
+      "roberta.encoder.layer.10.intermediate.dense": 557,
+      "roberta.encoder.layer.10.output.dense": 1732,
+      "roberta.encoder.layer.11.attention.self.query": 550,
+      "roberta.encoder.layer.11.attention.self.key": 550,
+      "roberta.encoder.layer.11.attention.self.value": 550,
+      "roberta.encoder.layer.11.attention.output.dense": 535,
+      "roberta.encoder.layer.11.intermediate.dense": 555,
+      "roberta.encoder.layer.11.output.dense": 2307
+    }
+  },
+  "lead": {
+    "0.0": {
+      "roberta.encoder.layer.0.attention.self.query": {
+        "argmax": 588,
+        "peak": 0.5720990896224976,
+        "energy_rel": 35.26714421821403
+      },
+      "roberta.encoder.layer.0.attention.self.key": {
+        "argmax": 588,
+        "peak": 0.5720990896224976,
+        "energy_rel": 35.26714421821403
+      },
+      "roberta.encoder.layer.0.attention.self.value": {
+        "argmax": 588,
+        "peak": 0.5720990896224976,
+        "energy_rel": 35.26714421821403
+      },
+      "roberta.encoder.layer.0.attention.output.dense": {
+        "argmax": 639,
+        "peak": 0.4509407877922058,
+        "energy_rel": 48.01181245489156
+      },
+      "roberta.encoder.layer.0.intermediate.dense": {
+        "argmax": 588,
+        "peak": 0.8125382661819458,
+        "energy_rel": 69.76506007413198
+      },
+      "roberta.encoder.layer.0.output.dense": {
+        "argmax": 1848,
+        "peak": 0.33985599875450134,
+        "energy_rel": 157.3876035041602
+      },
+      "roberta.encoder.layer.1.attention.self.query": {
+        "argmax": 588,
+        "peak": 0.8166190981864929,
+        "energy_rel": 53.588796203916225
+      },
+      "roberta.encoder.layer.1.attention.self.key": {
+        "argmax": 588,
+        "peak": 0.8166190981864929,
+        "energy_rel": 53.588796203916225
+      },
+      "roberta.encoder.layer.1.attention.self.value": {
+        "argmax": 588,
+        "peak": 0.8166190981864929,
+        "energy_rel": 53.588796203916225
+      },
+      "roberta.encoder.layer.1.attention.output.dense": {
+        "argmax": 139,
+        "peak": 0.33846229314804077,
+        "energy_rel": 44.365806149300354
+      },
+      "roberta.encoder.layer.1.intermediate.dense": {
+        "argmax": 588,
+        "peak": 0.8123531341552734,
+        "energy_rel": 60.55857621762524
+      },
+      "roberta.encoder.layer.1.output.dense": {
+        "argmax": 2175,
+        "peak": 0.2944793403148651,
+        "energy_rel": 161.46715639429064
+      },
+      "roberta.encoder.layer.2.attention.self.query": {
+        "argmax": 588,
+        "peak": 0.7611129283905029,
+        "energy_rel": 47.96788682333261
+      },
+      "roberta.encoder.layer.2.attention.self.key": {
+        "argmax": 588,
+        "peak": 0.7611129283905029,
+        "energy_rel": 47.96788682333261
+      },
+      "roberta.encoder.layer.2.attention.self.value": {
+        "argmax": 588,
+        "peak": 0.7611129283905029,
+        "energy_rel": 47.96788682333261
+      },
+      "roberta.encoder.layer.2.attention.output.dense": {
+        "argmax": 390,
+        "peak": 0.19347047805786133,
+        "energy_rel": 47.82685830704112
+      },
+      "roberta.encoder.layer.2.intermediate.dense": {
+        "argmax": 588,
+        "peak": 0.6093300580978394,
+        "energy_rel": 37.83788340067265
+      },
+      "roberta.encoder.layer.2.output.dense": {
+        "argmax": 2660,
+        "peak": 0.3630417585372925,
+        "energy_rel": 174.60391220297552
+      },
+      "roberta.encoder.layer.3.attention.self.query": {
+        "argmax": 77,
+        "peak": 0.42615965008735657,
+        "energy_rel": 37.01006339000834
+      },
+      "roberta.encoder.layer.3.attention.self.key": {
+        "argmax": 77,
+        "peak": 0.42615965008735657,
+        "energy_rel": 37.01006339000834
+      },
+      "roberta.encoder.layer.3.attention.self.value": {
+        "argmax": 77,
+        "peak": 0.42615965008735657,
+        "energy_rel": 37.01006339000834
+      },
+      "roberta.encoder.layer.3.attention.output.dense": {
+        "argmax": 282,
+        "peak": 0.2429124414920807,
+        "energy_rel": 73.54636487025161
+      },
+      "roberta.encoder.layer.3.intermediate.dense": {
+        "argmax": 77,
+        "peak": 0.5732868313789368,
+        "energy_rel": 38.69871283577929
+      },
+      "roberta.encoder.layer.3.output.dense": {
+        "argmax": 2108,
+        "peak": 0.5891896486282349,
+        "energy_rel": 392.89138837420387
+      },
+      "roberta.encoder.layer.4.attention.self.query": {
+        "argmax": 551,
+        "peak": 0.6862087249755859,
+        "energy_rel": 46.44197434326318
+      },
+      "roberta.encoder.layer.4.attention.self.key": {
+        "argmax": 551,
+        "peak": 0.6862087249755859,
+        "energy_rel": 46.44197434326318
+      },
+      "roberta.encoder.layer.4.attention.self.value": {
+        "argmax": 551,
+        "peak": 0.6862087249755859,
+        "energy_rel": 46.44197434326318
+      },
+      "roberta.encoder.layer.4.attention.output.dense": {
+        "argmax": 427,
+        "peak": 0.2414599359035492,
+        "energy_rel": 68.24555764643101
+      },
+      "roberta.encoder.layer.4.intermediate.dense": {
+        "argmax": 77,
+        "peak": 0.6682999134063721,
+        "energy_rel": 45.24224696258702
+      },
+      "roberta.encoder.layer.4.output.dense": {
+        "argmax": 581,
+        "peak": 0.4939533472061157,
+        "energy_rel": 466.91891283420273
+      },
+      "roberta.encoder.layer.5.attention.self.query": {
+        "argmax": 77,
+        "peak": 0.6653981804847717,
+        "energy_rel": 47.89804018025779
+      },
+      "roberta.encoder.layer.5.attention.self.key": {
+        "argmax": 77,
+        "peak": 0.6653981804847717,
+        "energy_rel": 47.89804018025779
+      },
+      "roberta.encoder.layer.5.attention.self.value": {
+        "argmax": 77,
+        "peak": 0.6653981804847717,
+        "energy_rel": 47.89804018025779
+      },
+      "roberta.encoder.layer.5.attention.output.dense": {
+        "argmax": 490,
+        "peak": 0.21553073823451996,
+        "energy_rel": 60.83226543647764
+      },
+      "roberta.encoder.layer.5.intermediate.dense": {
+        "argmax": 551,
+        "peak": 0.6600469350814819,
+        "energy_rel": 47.41536330446533
+      },
+      "roberta.encoder.layer.5.output.dense": {
+        "argmax": 291,
+        "peak": 0.5906244516372681,
+        "energy_rel": 305.9647505163427
+      },
+      "roberta.encoder.layer.6.attention.self.query": {
+        "argmax": 77,
+        "peak": 0.6628014445304871,
+        "energy_rel": 52.12871608041467
+      },
+      "roberta.encoder.layer.6.attention.self.key": {
+        "argmax": 77,
+        "peak": 0.6628014445304871,
+        "energy_rel": 52.12871608041467
+      },
+      "roberta.encoder.layer.6.attention.self.value": {
+        "argmax": 77,
+        "peak": 0.6628014445304871,
+        "energy_rel": 52.12871608041467
+      },
+      "roberta.encoder.layer.6.attention.output.dense": {
+        "argmax": 760,
+        "peak": 0.37946420907974243,
+        "energy_rel": 72.01259702703246
+      },
+      "roberta.encoder.layer.6.intermediate.dense": {
+        "argmax": 77,
+        "peak": 0.67009037733078,
+        "energy_rel": 52.21204219812702
+      },
+      "roberta.encoder.layer.6.output.dense": {
+        "argmax": 2441,
+        "peak": 0.4781333804130554,
+        "energy_rel": 418.853568421494
+      },
+      "roberta.encoder.layer.7.attention.self.query": {
+        "argmax": 77,
+        "peak": 0.6852423548698425,
+        "energy_rel": 56.60119504276574
+      },
+      "roberta.encoder.layer.7.attention.self.key": {
+        "argmax": 77,
+        "peak": 0.6852423548698425,
+        "energy_rel": 56.60119504276574
+      },
+      "roberta.encoder.layer.7.attention.self.value": {
+        "argmax": 77,
+        "peak": 0.6852423548698425,
+        "energy_rel": 56.60119504276574
+      },
+      "roberta.encoder.layer.7.attention.output.dense": {
+        "argmax": 528,
+        "peak": 0.2970992922782898,
+        "energy_rel": 44.98563184255922
+      },
+      "roberta.encoder.layer.7.intermediate.dense": {
+        "argmax": 77,
+        "peak": 0.6929708123207092,
+        "energy_rel": 58.06393506968099
+      },
+      "roberta.encoder.layer.7.output.dense": {
+        "argmax": 2859,
+        "peak": 0.4160921573638916,
+        "energy_rel": 1358.9589051992843
+      },
+      "roberta.encoder.layer.8.attention.self.query": {
+        "argmax": 77,
+        "peak": 0.7099407911300659,
+        "energy_rel": 58.929834706617456
+      },
+      "roberta.encoder.layer.8.attention.self.key": {
+        "argmax": 77,
+        "peak": 0.7099407911300659,
+        "energy_rel": 58.929834706617456
+      },
+      "roberta.encoder.layer.8.attention.self.value": {
+        "argmax": 77,
+        "peak": 0.7099407911300659,
+        "energy_rel": 58.929834706617456
+      },
+      "roberta.encoder.layer.8.attention.output.dense": {
+        "argmax": 330,
+        "peak": 0.8182933926582336,
+        "energy_rel": 135.0228236026111
+      },
+      "roberta.encoder.layer.8.intermediate.dense": {
+        "argmax": 77,
+        "peak": 0.7101237177848816,
+        "energy_rel": 59.16176575525467
+      },
+      "roberta.encoder.layer.8.output.dense": {
+        "argmax": 378,
+        "peak": 0.44207972288131714,
+        "energy_rel": 2892.964830397145
+      },
+      "roberta.encoder.layer.9.attention.self.query": {
+        "argmax": 77,
+        "peak": 0.6908690929412842,
+        "energy_rel": 58.39490625441508
+      },
+      "roberta.encoder.layer.9.attention.self.key": {
+        "argmax": 77,
+        "peak": 0.6908690929412842,
+        "energy_rel": 58.39490625441508
+      },
+      "roberta.encoder.layer.9.attention.self.value": {
+        "argmax": 77,
+        "peak": 0.6908690929412842,
+        "energy_rel": 58.39490625441508
+      },
+      "roberta.encoder.layer.9.attention.output.dense": {
+        "argmax": 213,
+        "peak": 0.6661151647567749,
+        "energy_rel": 89.6087365106965
+      },
+      "roberta.encoder.layer.9.intermediate.dense": {
+        "argmax": 77,
+        "peak": 0.6468420624732971,
+        "energy_rel": 56.76033397346172
+      },
+      "roberta.encoder.layer.9.output.dense": {
+        "argmax": 2611,
+        "peak": 0.4004631042480469,
+        "energy_rel": 2841.704879929115
+      },
+      "roberta.encoder.layer.10.attention.self.query": {
+        "argmax": 77,
+        "peak": 0.6535251140594482,
+        "energy_rel": 53.89239792175406
+      },
+      "roberta.encoder.layer.10.attention.self.key": {
+        "argmax": 77,
+        "peak": 0.6535251140594482,
+        "energy_rel": 53.89239792175406
+      },
+      "roberta.encoder.layer.10.attention.self.value": {
+        "argmax": 77,
+        "peak": 0.6535251140594482,
+        "energy_rel": 53.89239792175406
+      },
+      "roberta.encoder.layer.10.attention.output.dense": {
+        "argmax": 67,
+        "peak": 0.7447057366371155,
+        "energy_rel": 55.97899509157177
+      },
+      "roberta.encoder.layer.10.intermediate.dense": {
+        "argmax": 77,
+        "peak": 0.6149344444274902,
+        "energy_rel": 59.88287393516452
+      },
+      "roberta.encoder.layer.10.output.dense": {
+        "argmax": 960,
+        "peak": 0.40177273750305176,
+        "energy_rel": 2227.493484551669
+      },
+      "roberta.encoder.layer.11.attention.self.query": {
+        "argmax": 77,
+        "peak": 0.7110175490379333,
+        "energy_rel": 62.34034463319916
+      },
+      "roberta.encoder.layer.11.attention.self.key": {
+        "argmax": 77,
+        "peak": 0.7110175490379333,
+        "energy_rel": 62.34034463319916
+      },
+      "roberta.encoder.layer.11.attention.self.value": {
+        "argmax": 77,
+        "peak": 0.7110175490379333,
+        "energy_rel": 62.34034463319916
+      },
+      "roberta.encoder.layer.11.attention.output.dense": {
+        "argmax": 579,
+        "peak": 0.2051006406545639,
+        "energy_rel": 64.66098209226472
+      },
+      "roberta.encoder.layer.11.intermediate.dense": {
+        "argmax": 551,
+        "peak": 0.7562816739082336,
+        "energy_rel": 71.82492538813523
+      },
+      "roberta.encoder.layer.11.output.dense": {
+        "argmax": 2295,
+        "peak": 0.33842307329177856,
+        "energy_rel": 441.55442208708723
+      }
+    },
+    "0.5": {
+      "roberta.encoder.layer.0.attention.self.query": {
+        "argmax": 588,
+        "peak": 0.27753812074661255,
+        "energy_rel": 20.32187781663975
+      },
+      "roberta.encoder.layer.0.attention.self.key": {
+        "argmax": 588,
+        "peak": 0.27753812074661255,
+        "energy_rel": 20.32187781663975
+      },
+      "roberta.encoder.layer.0.attention.self.value": {
+        "argmax": 588,
+        "peak": 0.27753812074661255,
+        "energy_rel": 20.32187781663975
+      },
+      "roberta.encoder.layer.0.attention.output.dense": {
+        "argmax": 434,
+        "peak": 0.21551473438739777,
+        "energy_rel": 20.322650638023617
+      },
+      "roberta.encoder.layer.0.intermediate.dense": {
+        "argmax": 570,
+        "peak": 0.4084059000015259,
+        "energy_rel": 19.926670932242224
+      },
+      "roberta.encoder.layer.0.output.dense": {
+        "argmax": 1848,
+        "peak": 0.41576528549194336,
+        "energy_rel": 119.26601262218252
+      },
+      "roberta.encoder.layer.1.attention.self.query": {
+        "argmax": 131,
+        "peak": 0.1578902006149292,
+        "energy_rel": 20.74811196444187
+      },
+      "roberta.encoder.layer.1.attention.self.key": {
+        "argmax": 131,
+        "peak": 0.1578902006149292,
+        "energy_rel": 20.74811196444187
+      },
+      "roberta.encoder.layer.1.attention.self.value": {
+        "argmax": 131,
+        "peak": 0.1578902006149292,
+        "energy_rel": 20.74811196444187
+      },
+      "roberta.encoder.layer.1.attention.output.dense": {
+        "argmax": 602,
+        "peak": 0.2100098878145218,
+        "energy_rel": 25.664363374931455
+      },
+      "roberta.encoder.layer.1.intermediate.dense": {
+        "argmax": 131,
+        "peak": 0.16733211278915405,
+        "energy_rel": 20.654276273179494
+      },
+      "roberta.encoder.layer.1.output.dense": {
+        "argmax": 63,
+        "peak": 0.3236723840236664,
+        "energy_rel": 97.03052175848293
+      },
+      "roberta.encoder.layer.2.attention.self.query": {
+        "argmax": 131,
+        "peak": 0.17114661633968353,
+        "energy_rel": 19.1858265289271
+      },
+      "roberta.encoder.layer.2.attention.self.key": {
+        "argmax": 131,
+        "peak": 0.17114661633968353,
+        "energy_rel": 19.1858265289271
+      },
+      "roberta.encoder.layer.2.attention.self.value": {
+        "argmax": 131,
+        "peak": 0.17114661633968353,
+        "energy_rel": 19.1858265289271
+      },
+      "roberta.encoder.layer.2.attention.output.dense": {
+        "argmax": 419,
+        "peak": 0.19181615114212036,
+        "energy_rel": 38.06512074536268
+      },
+      "roberta.encoder.layer.2.intermediate.dense": {
+        "argmax": 115,
+        "peak": 0.125452920794487,
+        "energy_rel": 22.847472823651035
+      },
+      "roberta.encoder.layer.2.output.dense": {
+        "argmax": 1880,
+        "peak": 0.2644767463207245,
+        "energy_rel": 116.01215214518506
+      },
+      "roberta.encoder.layer.3.attention.self.query": {
+        "argmax": 498,
+        "peak": 0.13040249049663544,
+        "energy_rel": 23.62963134029796
+      },
+      "roberta.encoder.layer.3.attention.self.key": {
+        "argmax": 498,
+        "peak": 0.13040249049663544,
+        "energy_rel": 23.62963134029796
+      },
+      "roberta.encoder.layer.3.attention.self.value": {
+        "argmax": 498,
+        "peak": 0.13040249049663544,
+        "energy_rel": 23.62963134029796
+      },
+      "roberta.encoder.layer.3.attention.output.dense": {
+        "argmax": 282,
+        "peak": 0.215306356549263,
+        "energy_rel": 56.55993229901732
+      },
+      "roberta.encoder.layer.3.intermediate.dense": {
+        "argmax": 570,
+        "peak": 0.14861658215522766,
+        "energy_rel": 25.81507295970549
+      },
+      "roberta.encoder.layer.3.output.dense": {
+        "argmax": 2108,
+        "peak": 0.7469664812088013,
+        "energy_rel": 200.7577868821724
+      },
+      "roberta.encoder.layer.4.attention.self.query": {
+        "argmax": 570,
+        "peak": 0.17583677172660828,
+        "energy_rel": 23.534654416503187
+      },
+      "roberta.encoder.layer.4.attention.self.key": {
+        "argmax": 570,
+        "peak": 0.17583677172660828,
+        "energy_rel": 23.534654416503187
+      },
+      "roberta.encoder.layer.4.attention.self.value": {
+        "argmax": 570,
+        "peak": 0.17583677172660828,
+        "energy_rel": 23.534654416503187
+      },
+      "roberta.encoder.layer.4.attention.output.dense": {
+        "argmax": 598,
+        "peak": 0.21683871746063232,
+        "energy_rel": 44.73273067481078
+      },
+      "roberta.encoder.layer.4.intermediate.dense": {
+        "argmax": 570,
+        "peak": 0.18831416964530945,
+        "energy_rel": 25.487186648435404
+      },
+      "roberta.encoder.layer.4.output.dense": {
+        "argmax": 2182,
+        "peak": 0.18730592727661133,
+        "energy_rel": 74.52980989618685
+      },
+      "roberta.encoder.layer.5.attention.self.query": {
+        "argmax": 570,
+        "peak": 0.2129504233598709,
+        "energy_rel": 23.528277564919215
+      },
+      "roberta.encoder.layer.5.attention.self.key": {
+        "argmax": 570,
+        "peak": 0.2129504233598709,
+        "energy_rel": 23.528277564919215
+      },
+      "roberta.encoder.layer.5.attention.self.value": {
+        "argmax": 570,
+        "peak": 0.2129504233598709,
+        "energy_rel": 23.528277564919215
+      },
+      "roberta.encoder.layer.5.attention.output.dense": {
+        "argmax": 265,
+        "peak": 0.1742493212223053,
+        "energy_rel": 48.99181205276137
+      },
+      "roberta.encoder.layer.5.intermediate.dense": {
+        "argmax": 570,
+        "peak": 0.17767441272735596,
+        "energy_rel": 25.893229382165856
+      },
+      "roberta.encoder.layer.5.output.dense": {
+        "argmax": 1236,
+        "peak": 0.1691531091928482,
+        "energy_rel": 88.69825177123533
+      },
+      "roberta.encoder.layer.6.attention.self.query": {
+        "argmax": 570,
+        "peak": 0.2033500224351883,
+        "energy_rel": 24.72735260478668
+      },
+      "roberta.encoder.layer.6.attention.self.key": {
+        "argmax": 570,
+        "peak": 0.2033500224351883,
+        "energy_rel": 24.72735260478668
+      },
+      "roberta.encoder.layer.6.attention.self.value": {
+        "argmax": 570,
+        "peak": 0.2033500224351883,
+        "energy_rel": 24.72735260478668
+      },
+      "roberta.encoder.layer.6.attention.output.dense": {
+        "argmax": 615,
+        "peak": 0.18090865015983582,
+        "energy_rel": 42.191626359639315
+      },
+      "roberta.encoder.layer.6.intermediate.dense": {
+        "argmax": 570,
+        "peak": 0.19109542667865753,
+        "energy_rel": 27.336233399159973
+      },
+      "roberta.encoder.layer.6.output.dense": {
+        "argmax": 1901,
+        "peak": 0.18141882121562958,
+        "energy_rel": 93.16732870907977
+      },
+      "roberta.encoder.layer.7.attention.self.query": {
+        "argmax": 570,
+        "peak": 0.19024132192134857,
+        "energy_rel": 26.820448482597648
+      },
+      "roberta.encoder.layer.7.attention.self.key": {
+        "argmax": 570,
+        "peak": 0.19024132192134857,
+        "energy_rel": 26.820448482597648
+      },
+      "roberta.encoder.layer.7.attention.self.value": {
+        "argmax": 570,
+        "peak": 0.19024132192134857,
+        "energy_rel": 26.820448482597648
+      },
+      "roberta.encoder.layer.7.attention.output.dense": {
+        "argmax": 528,
+        "peak": 0.29569506645202637,
+        "energy_rel": 36.842966093400435
+      },
+      "roberta.encoder.layer.7.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.26615527272224426,
+        "energy_rel": 27.90596110730876
+      },
+      "roberta.encoder.layer.7.output.dense": {
+        "argmax": 1929,
+        "peak": 0.4340353012084961,
+        "energy_rel": 81.77115890136996
+      },
+      "roberta.encoder.layer.8.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.22781036794185638,
+        "energy_rel": 29.21033221340898
+      },
+      "roberta.encoder.layer.8.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.22781036794185638,
+        "energy_rel": 29.21033221340898
+      },
+      "roberta.encoder.layer.8.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.22781036794185638,
+        "energy_rel": 29.21033221340898
+      },
+      "roberta.encoder.layer.8.attention.output.dense": {
+        "argmax": 330,
+        "peak": 0.8174327611923218,
+        "energy_rel": 133.36052270841088
+      },
+      "roberta.encoder.layer.8.intermediate.dense": {
+        "argmax": 330,
+        "peak": 0.37258008122444153,
+        "energy_rel": 31.320012434363182
+      },
+      "roberta.encoder.layer.8.output.dense": {
+        "argmax": 378,
+        "peak": 0.49480634927749634,
+        "energy_rel": 1846.1427861611592
+      },
+      "roberta.encoder.layer.9.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.22933384776115417,
+        "energy_rel": 30.245291123478147
+      },
+      "roberta.encoder.layer.9.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.22933384776115417,
+        "energy_rel": 30.245291123478147
+      },
+      "roberta.encoder.layer.9.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.22933384776115417,
+        "energy_rel": 30.245291123478147
+      },
+      "roberta.encoder.layer.9.attention.output.dense": {
+        "argmax": 213,
+        "peak": 0.7017595767974854,
+        "energy_rel": 84.83485468087888
+      },
+      "roberta.encoder.layer.9.intermediate.dense": {
+        "argmax": 155,
+        "peak": 0.4196688234806061,
+        "energy_rel": 36.00592546469797
+      },
+      "roberta.encoder.layer.9.output.dense": {
+        "argmax": 702,
+        "peak": 0.3362804651260376,
+        "energy_rel": 2170.1027564081014
+      },
+      "roberta.encoder.layer.10.attention.self.query": {
+        "argmax": 570,
+        "peak": 0.20261365175247192,
+        "energy_rel": 30.741581172918863
+      },
+      "roberta.encoder.layer.10.attention.self.key": {
+        "argmax": 570,
+        "peak": 0.20261365175247192,
+        "energy_rel": 30.741581172918863
+      },
+      "roberta.encoder.layer.10.attention.self.value": {
+        "argmax": 570,
+        "peak": 0.20261365175247192,
+        "energy_rel": 30.741581172918863
+      },
+      "roberta.encoder.layer.10.attention.output.dense": {
+        "argmax": 67,
+        "peak": 0.8049538135528564,
+        "energy_rel": 53.54932482345487
+      },
+      "roberta.encoder.layer.10.intermediate.dense": {
+        "argmax": 551,
+        "peak": 0.2554166615009308,
+        "energy_rel": 33.20883009963294
+      },
+      "roberta.encoder.layer.10.output.dense": {
+        "argmax": 489,
+        "peak": 0.2209760844707489,
+        "energy_rel": 1073.9513942484937
+      },
+      "roberta.encoder.layer.11.attention.self.query": {
+        "argmax": 551,
+        "peak": 0.20116610825061798,
+        "energy_rel": 34.033507037581685
+      },
+      "roberta.encoder.layer.11.attention.self.key": {
+        "argmax": 551,
+        "peak": 0.20116610825061798,
+        "energy_rel": 34.033507037581685
+      },
+      "roberta.encoder.layer.11.attention.self.value": {
+        "argmax": 551,
+        "peak": 0.20116610825061798,
+        "energy_rel": 34.033507037581685
+      },
+      "roberta.encoder.layer.11.attention.output.dense": {
+        "argmax": 185,
+        "peak": 0.25913599133491516,
+        "energy_rel": 39.053579626074885
+      },
+      "roberta.encoder.layer.11.intermediate.dense": {
+        "argmax": 570,
+        "peak": 0.1613842099905014,
+        "energy_rel": 33.98123223343002
+      },
+      "roberta.encoder.layer.11.output.dense": {
+        "argmax": 1833,
+        "peak": 0.39951494336128235,
+        "energy_rel": 171.92229863758322
+      }
+    },
+    "0.9": {
+      "roberta.encoder.layer.0.attention.self.query": {
+        "argmax": 570,
+        "peak": 0.26285964250564575,
+        "energy_rel": 12.792340208082559
+      },
+      "roberta.encoder.layer.0.attention.self.key": {
+        "argmax": 570,
+        "peak": 0.26285964250564575,
+        "energy_rel": 12.792340208082559
+      },
+      "roberta.encoder.layer.0.attention.self.value": {
+        "argmax": 570,
+        "peak": 0.26285964250564575,
+        "energy_rel": 12.792340208082559
+      },
+      "roberta.encoder.layer.0.attention.output.dense": {
+        "argmax": 556,
+        "peak": 0.20879359543323517,
+        "energy_rel": 7.699544971207668
+      },
+      "roberta.encoder.layer.0.intermediate.dense": {
+        "argmax": 570,
+        "peak": 0.25028032064437866,
+        "energy_rel": 12.121234287345176
+      },
+      "roberta.encoder.layer.0.output.dense": {
+        "argmax": 21,
+        "peak": 0.40806853771209717,
+        "energy_rel": 49.97040022926761
+      },
+      "roberta.encoder.layer.1.attention.self.query": {
+        "argmax": 38,
+        "peak": 0.19939158856868744,
+        "energy_rel": 12.139547590252505
+      },
+      "roberta.encoder.layer.1.attention.self.key": {
+        "argmax": 38,
+        "peak": 0.19939158856868744,
+        "energy_rel": 12.139547590252505
+      },
+      "roberta.encoder.layer.1.attention.self.value": {
+        "argmax": 38,
+        "peak": 0.19939158856868744,
+        "energy_rel": 12.139547590252505
+      },
+      "roberta.encoder.layer.1.attention.output.dense": {
+        "argmax": 584,
+        "peak": 0.3316807448863983,
+        "energy_rel": 11.894728334468546
+      },
+      "roberta.encoder.layer.1.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.20534390211105347,
+        "energy_rel": 11.277103417533006
+      },
+      "roberta.encoder.layer.1.output.dense": {
+        "argmax": 63,
+        "peak": 0.5259047746658325,
+        "energy_rel": 45.34480583940533
+      },
+      "roberta.encoder.layer.2.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.23185887932777405,
+        "energy_rel": 11.485953915176397
+      },
+      "roberta.encoder.layer.2.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.23185887932777405,
+        "energy_rel": 11.485953915176397
+      },
+      "roberta.encoder.layer.2.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.23185887932777405,
+        "energy_rel": 11.485953915176397
+      },
+      "roberta.encoder.layer.2.attention.output.dense": {
+        "argmax": 395,
+        "peak": 0.2092490941286087,
+        "energy_rel": 18.058125563461964
+      },
+      "roberta.encoder.layer.2.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.22863732278347015,
+        "energy_rel": 11.816819964216474
+      },
+      "roberta.encoder.layer.2.output.dense": {
+        "argmax": 1880,
+        "peak": 0.6360206604003906,
+        "energy_rel": 86.5829635046946
+      },
+      "roberta.encoder.layer.3.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.28130316734313965,
+        "energy_rel": 13.784493115972525
+      },
+      "roberta.encoder.layer.3.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.28130316734313965,
+        "energy_rel": 13.784493115972525
+      },
+      "roberta.encoder.layer.3.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.28130316734313965,
+        "energy_rel": 13.784493115972525
+      },
+      "roberta.encoder.layer.3.attention.output.dense": {
+        "argmax": 19,
+        "peak": 0.21936339139938354,
+        "energy_rel": 39.557247413582246
+      },
+      "roberta.encoder.layer.3.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.2029460072517395,
+        "energy_rel": 14.648227638780954
+      },
+      "roberta.encoder.layer.3.output.dense": {
+        "argmax": 2108,
+        "peak": 0.7720201015472412,
+        "energy_rel": 187.21635028167913
+      },
+      "roberta.encoder.layer.4.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.27758321166038513,
+        "energy_rel": 14.495924187057213
+      },
+      "roberta.encoder.layer.4.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.27758321166038513,
+        "energy_rel": 14.495924187057213
+      },
+      "roberta.encoder.layer.4.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.27758321166038513,
+        "energy_rel": 14.495924187057213
+      },
+      "roberta.encoder.layer.4.attention.output.dense": {
+        "argmax": 598,
+        "peak": 0.21398594975471497,
+        "energy_rel": 25.843586019658087
+      },
+      "roberta.encoder.layer.4.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.23686248064041138,
+        "energy_rel": 14.727417350043519
+      },
+      "roberta.encoder.layer.4.output.dense": {
+        "argmax": 2982,
+        "peak": 0.5823579430580139,
+        "energy_rel": 53.0675435554169
+      },
+      "roberta.encoder.layer.5.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.2987188398838043,
+        "energy_rel": 14.828432017384186
+      },
+      "roberta.encoder.layer.5.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.2987188398838043,
+        "energy_rel": 14.828432017384186
+      },
+      "roberta.encoder.layer.5.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.2987188398838043,
+        "energy_rel": 14.828432017384186
+      },
+      "roberta.encoder.layer.5.attention.output.dense": {
+        "argmax": 265,
+        "peak": 0.21680405735969543,
+        "energy_rel": 27.430573499065126
+      },
+      "roberta.encoder.layer.5.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.24916237592697144,
+        "energy_rel": 14.584728866137194
+      },
+      "roberta.encoder.layer.5.output.dense": {
+        "argmax": 1236,
+        "peak": 0.1679120808839798,
+        "energy_rel": 59.465251288659836
+      },
+      "roberta.encoder.layer.6.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.3101373016834259,
+        "energy_rel": 15.709655283278588
+      },
+      "roberta.encoder.layer.6.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.3101373016834259,
+        "energy_rel": 15.709655283278588
+      },
+      "roberta.encoder.layer.6.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.3101373016834259,
+        "energy_rel": 15.709655283278588
+      },
+      "roberta.encoder.layer.6.attention.output.dense": {
+        "argmax": 172,
+        "peak": 0.14023157954216003,
+        "energy_rel": 21.75876613374379
+      },
+      "roberta.encoder.layer.6.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.28481051325798035,
+        "energy_rel": 15.757772196362227
+      },
+      "roberta.encoder.layer.6.output.dense": {
+        "argmax": 1595,
+        "peak": 0.1516258269548416,
+        "energy_rel": 61.56417254543329
+      },
+      "roberta.encoder.layer.7.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.2952091693878174,
+        "energy_rel": 16.775039669273376
+      },
+      "roberta.encoder.layer.7.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.2952091693878174,
+        "energy_rel": 16.775039669273376
+      },
+      "roberta.encoder.layer.7.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.2952091693878174,
+        "energy_rel": 16.775039669273376
+      },
+      "roberta.encoder.layer.7.attention.output.dense": {
+        "argmax": 219,
+        "peak": 0.21939042210578918,
+        "energy_rel": 14.934445998276592
+      },
+      "roberta.encoder.layer.7.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.2752416133880615,
+        "energy_rel": 16.15830713145007
+      },
+      "roberta.encoder.layer.7.output.dense": {
+        "argmax": 476,
+        "peak": 0.4724288284778595,
+        "energy_rel": 68.93143798651153
+      },
+      "roberta.encoder.layer.8.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.2948639392852783,
+        "energy_rel": 16.83751766052751
+      },
+      "roberta.encoder.layer.8.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.2948639392852783,
+        "energy_rel": 16.83751766052751
+      },
+      "roberta.encoder.layer.8.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.2948639392852783,
+        "energy_rel": 16.83751766052751
+      },
+      "roberta.encoder.layer.8.attention.output.dense": {
+        "argmax": 330,
+        "peak": 0.8055185675621033,
+        "energy_rel": 130.31831397819963
+      },
+      "roberta.encoder.layer.8.intermediate.dense": {
+        "argmax": 331,
+        "peak": 0.3384080231189728,
+        "energy_rel": 24.213766188797347
+      },
+      "roberta.encoder.layer.8.output.dense": {
+        "argmax": 378,
+        "peak": 0.4977399706840515,
+        "energy_rel": 758.7953920487887
+      },
+      "roberta.encoder.layer.9.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.2894512116909027,
+        "energy_rel": 16.583469724880626
+      },
+      "roberta.encoder.layer.9.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.2894512116909027,
+        "energy_rel": 16.583469724880626
+      },
+      "roberta.encoder.layer.9.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.2894512116909027,
+        "energy_rel": 16.583469724880626
+      },
+      "roberta.encoder.layer.9.attention.output.dense": {
+        "argmax": 213,
+        "peak": 0.6927902102470398,
+        "energy_rel": 78.04886357313556
+      },
+      "roberta.encoder.layer.9.intermediate.dense": {
+        "argmax": 155,
+        "peak": 0.3478834927082062,
+        "energy_rel": 23.359218344515067
+      },
+      "roberta.encoder.layer.9.output.dense": {
+        "argmax": 702,
+        "peak": 0.43832844495773315,
+        "energy_rel": 560.3913878268339
+      },
+      "roberta.encoder.layer.10.attention.self.query": {
+        "argmax": 61,
+        "peak": 0.17441479861736298,
+        "energy_rel": 14.836054035140627
+      },
+      "roberta.encoder.layer.10.attention.self.key": {
+        "argmax": 61,
+        "peak": 0.17441479861736298,
+        "energy_rel": 14.836054035140627
+      },
+      "roberta.encoder.layer.10.attention.self.value": {
+        "argmax": 61,
+        "peak": 0.17441479861736298,
+        "energy_rel": 14.836054035140627
+      },
+      "roberta.encoder.layer.10.attention.output.dense": {
+        "argmax": 67,
+        "peak": 0.8280439972877502,
+        "energy_rel": 51.45537481200965
+      },
+      "roberta.encoder.layer.10.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.2334335595369339,
+        "energy_rel": 14.315476130642665
+      },
+      "roberta.encoder.layer.10.output.dense": {
+        "argmax": 489,
+        "peak": 0.3591391444206238,
+        "energy_rel": 411.9635115135555
+      },
+      "roberta.encoder.layer.11.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.1478370726108551,
+        "energy_rel": 15.010090472901686
+      },
+      "roberta.encoder.layer.11.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.1478370726108551,
+        "energy_rel": 15.010090472901686
+      },
+      "roberta.encoder.layer.11.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.1478370726108551,
+        "energy_rel": 15.010090472901686
+      },
+      "roberta.encoder.layer.11.attention.output.dense": {
+        "argmax": 89,
+        "peak": 0.3350715935230255,
+        "energy_rel": 27.34395672259018
+      },
+      "roberta.encoder.layer.11.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.26004067063331604,
+        "energy_rel": 14.361820139089314
+      },
+      "roberta.encoder.layer.11.output.dense": {
+        "argmax": 2710,
+        "peak": 0.33337903022766113,
+        "energy_rel": 61.864529342847625
+      }
+    },
+    "0.95": {
+      "roberta.encoder.layer.0.attention.self.query": {
+        "argmax": 570,
+        "peak": 0.2614656090736389,
+        "energy_rel": 11.810004066190237
+      },
+      "roberta.encoder.layer.0.attention.self.key": {
+        "argmax": 570,
+        "peak": 0.2614656090736389,
+        "energy_rel": 11.810004066190237
+      },
+      "roberta.encoder.layer.0.attention.self.value": {
+        "argmax": 570,
+        "peak": 0.2614656090736389,
+        "energy_rel": 11.810004066190237
+      },
+      "roberta.encoder.layer.0.attention.output.dense": {
+        "argmax": 513,
+        "peak": 0.20105676352977753,
+        "energy_rel": 6.192953365645178
+      },
+      "roberta.encoder.layer.0.intermediate.dense": {
+        "argmax": 765,
+        "peak": 0.21343335509300232,
+        "energy_rel": 10.382400175055658
+      },
+      "roberta.encoder.layer.0.output.dense": {
+        "argmax": 1802,
+        "peak": 0.4493665397167206,
+        "energy_rel": 29.33577527494905
+      },
+      "roberta.encoder.layer.1.attention.self.query": {
+        "argmax": 38,
+        "peak": 0.19838809967041016,
+        "energy_rel": 10.356760379198331
+      },
+      "roberta.encoder.layer.1.attention.self.key": {
+        "argmax": 38,
+        "peak": 0.19838809967041016,
+        "energy_rel": 10.356760379198331
+      },
+      "roberta.encoder.layer.1.attention.self.value": {
+        "argmax": 38,
+        "peak": 0.19838809967041016,
+        "energy_rel": 10.356760379198331
+      },
+      "roberta.encoder.layer.1.attention.output.dense": {
+        "argmax": 584,
+        "peak": 0.32622864842414856,
+        "energy_rel": 8.312936324574983
+      },
+      "roberta.encoder.layer.1.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.21080267429351807,
+        "energy_rel": 9.338663506571667
+      },
+      "roberta.encoder.layer.1.output.dense": {
+        "argmax": 63,
+        "peak": 0.5408576130867004,
+        "energy_rel": 31.43309142253744
+      },
+      "roberta.encoder.layer.2.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.2575210928916931,
+        "energy_rel": 9.37221417221018
+      },
+      "roberta.encoder.layer.2.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.2575210928916931,
+        "energy_rel": 9.37221417221018
+      },
+      "roberta.encoder.layer.2.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.2575210928916931,
+        "energy_rel": 9.37221417221018
+      },
+      "roberta.encoder.layer.2.attention.output.dense": {
+        "argmax": 411,
+        "peak": 0.30089640617370605,
+        "energy_rel": 13.062661447659789
+      },
+      "roberta.encoder.layer.2.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.2726590037345886,
+        "energy_rel": 8.731988885040183
+      },
+      "roberta.encoder.layer.2.output.dense": {
+        "argmax": 1880,
+        "peak": 0.6788922548294067,
+        "energy_rel": 82.65256954311585
+      },
+      "roberta.encoder.layer.3.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.3120543360710144,
+        "energy_rel": 11.143185887600167
+      },
+      "roberta.encoder.layer.3.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.3120543360710144,
+        "energy_rel": 11.143185887600167
+      },
+      "roberta.encoder.layer.3.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.3120543360710144,
+        "energy_rel": 11.143185887600167
+      },
+      "roberta.encoder.layer.3.attention.output.dense": {
+        "argmax": 19,
+        "peak": 0.2221890091896057,
+        "energy_rel": 32.78600495362964
+      },
+      "roberta.encoder.layer.3.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.24286246299743652,
+        "energy_rel": 10.50550570472513
+      },
+      "roberta.encoder.layer.3.output.dense": {
+        "argmax": 2108,
+        "peak": 0.7884907126426697,
+        "energy_rel": 175.3729846570319
+      },
+      "roberta.encoder.layer.4.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.31288084387779236,
+        "energy_rel": 11.478427586824601
+      },
+      "roberta.encoder.layer.4.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.31288084387779236,
+        "energy_rel": 11.478427586824601
+      },
+      "roberta.encoder.layer.4.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.31288084387779236,
+        "energy_rel": 11.478427586824601
+      },
+      "roberta.encoder.layer.4.attention.output.dense": {
+        "argmax": 594,
+        "peak": 0.2360621988773346,
+        "energy_rel": 18.457326085325185
+      },
+      "roberta.encoder.layer.4.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.2657776474952698,
+        "energy_rel": 10.786899806362849
+      },
+      "roberta.encoder.layer.4.output.dense": {
+        "argmax": 2982,
+        "peak": 0.6096324920654297,
+        "energy_rel": 49.552625180619515
+      },
+      "roberta.encoder.layer.5.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.32981178164482117,
+        "energy_rel": 11.977304309328794
+      },
+      "roberta.encoder.layer.5.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.32981178164482117,
+        "energy_rel": 11.977304309328794
+      },
+      "roberta.encoder.layer.5.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.32981178164482117,
+        "energy_rel": 11.977304309328794
+      },
+      "roberta.encoder.layer.5.attention.output.dense": {
+        "argmax": 265,
+        "peak": 0.25694021582603455,
+        "energy_rel": 21.609324608337193
+      },
+      "roberta.encoder.layer.5.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.27962321043014526,
+        "energy_rel": 12.127754932159378
+      },
+      "roberta.encoder.layer.5.output.dense": {
+        "argmax": 1236,
+        "peak": 0.17310848832130432,
+        "energy_rel": 49.044132363884515
+      },
+      "roberta.encoder.layer.6.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.3239864706993103,
+        "energy_rel": 13.255518158328114
+      },
+      "roberta.encoder.layer.6.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.3239864706993103,
+        "energy_rel": 13.255518158328114
+      },
+      "roberta.encoder.layer.6.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.3239864706993103,
+        "energy_rel": 13.255518158328114
+      },
+      "roberta.encoder.layer.6.attention.output.dense": {
+        "argmax": 632,
+        "peak": 0.17263126373291016,
+        "energy_rel": 15.874654018559688
+      },
+      "roberta.encoder.layer.6.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.30250120162963867,
+        "energy_rel": 12.837625261971235
+      },
+      "roberta.encoder.layer.6.output.dense": {
+        "argmax": 1595,
+        "peak": 0.16071897745132446,
+        "energy_rel": 46.85166743339161
+      },
+      "roberta.encoder.layer.7.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.3129275143146515,
+        "energy_rel": 14.117423617239995
+      },
+      "roberta.encoder.layer.7.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.3129275143146515,
+        "energy_rel": 14.117423617239995
+      },
+      "roberta.encoder.layer.7.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.3129275143146515,
+        "energy_rel": 14.117423617239995
+      },
+      "roberta.encoder.layer.7.attention.output.dense": {
+        "argmax": 219,
+        "peak": 0.2067897617816925,
+        "energy_rel": 10.398811859521745
+      },
+      "roberta.encoder.layer.7.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.29124733805656433,
+        "energy_rel": 13.04979370890725
+      },
+      "roberta.encoder.layer.7.output.dense": {
+        "argmax": 476,
+        "peak": 0.4849907159805298,
+        "energy_rel": 64.66135215585601
+      },
+      "roberta.encoder.layer.8.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.31608596444129944,
+        "energy_rel": 14.155664420859331
+      },
+      "roberta.encoder.layer.8.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.31608596444129944,
+        "energy_rel": 14.155664420859331
+      },
+      "roberta.encoder.layer.8.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.31608596444129944,
+        "energy_rel": 14.155664420859331
+      },
+      "roberta.encoder.layer.8.attention.output.dense": {
+        "argmax": 330,
+        "peak": 0.7820223569869995,
+        "energy_rel": 127.04292319518177
+      },
+      "roberta.encoder.layer.8.intermediate.dense": {
+        "argmax": 331,
+        "peak": 0.3215816617012024,
+        "energy_rel": 19.75155756824296
+      },
+      "roberta.encoder.layer.8.output.dense": {
+        "argmax": 2963,
+        "peak": 0.1018742099404335,
+        "energy_rel": 122.10043234604787
+      },
+      "roberta.encoder.layer.9.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.30251219868659973,
+        "energy_rel": 13.67501359817004
+      },
+      "roberta.encoder.layer.9.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.30251219868659973,
+        "energy_rel": 13.67501359817004
+      },
+      "roberta.encoder.layer.9.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.30251219868659973,
+        "energy_rel": 13.67501359817004
+      },
+      "roberta.encoder.layer.9.attention.output.dense": {
+        "argmax": 213,
+        "peak": 0.6956732273101807,
+        "energy_rel": 75.26623956341855
+      },
+      "roberta.encoder.layer.9.intermediate.dense": {
+        "argmax": 155,
+        "peak": 0.34946680068969727,
+        "energy_rel": 19.842777322232294
+      },
+      "roberta.encoder.layer.9.output.dense": {
+        "argmax": 2611,
+        "peak": 0.1151360273361206,
+        "energy_rel": 128.68379044666713
+      },
+      "roberta.encoder.layer.10.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.24131520092487335,
+        "energy_rel": 12.412112490823683
+      },
+      "roberta.encoder.layer.10.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.24131520092487335,
+        "energy_rel": 12.412112490823683
+      },
+      "roberta.encoder.layer.10.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.24131520092487335,
+        "energy_rel": 12.412112490823683
+      },
+      "roberta.encoder.layer.10.attention.output.dense": {
+        "argmax": 67,
+        "peak": 0.822455644607544,
+        "energy_rel": 50.43043049524666
+      },
+      "roberta.encoder.layer.10.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.2314576655626297,
+        "energy_rel": 11.643724407453773
+      },
+      "roberta.encoder.layer.10.output.dense": {
+        "argmax": 489,
+        "peak": 0.41512370109558105,
+        "energy_rel": 300.4408949759272
+      },
+      "roberta.encoder.layer.11.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.2249377816915512,
+        "energy_rel": 11.844096346459665
+      },
+      "roberta.encoder.layer.11.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.2249377816915512,
+        "energy_rel": 11.844096346459665
+      },
+      "roberta.encoder.layer.11.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.2249377816915512,
+        "energy_rel": 11.844096346459665
+      },
+      "roberta.encoder.layer.11.attention.output.dense": {
+        "argmax": 89,
+        "peak": 0.31886032223701477,
+        "energy_rel": 25.029828801705886
+      },
+      "roberta.encoder.layer.11.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.23583011329174042,
+        "energy_rel": 9.796059593456942
+      },
+      "roberta.encoder.layer.11.output.dense": {
+        "argmax": 640,
+        "peak": 0.30227357149124146,
+        "energy_rel": 37.61929362460263
+      }
+    },
+    "0.99": {
+      "roberta.encoder.layer.0.attention.self.query": {
+        "argmax": 765,
+        "peak": 0.29709285497665405,
+        "energy_rel": 9.955859469339572
+      },
+      "roberta.encoder.layer.0.attention.self.key": {
+        "argmax": 765,
+        "peak": 0.29709285497665405,
+        "energy_rel": 9.955859469339572
+      },
+      "roberta.encoder.layer.0.attention.self.value": {
+        "argmax": 765,
+        "peak": 0.29709285497665405,
+        "energy_rel": 9.955859469339572
+      },
+      "roberta.encoder.layer.0.attention.output.dense": {
+        "argmax": 478,
+        "peak": 0.24401265382766724,
+        "energy_rel": 2.7614558967261917
+      },
+      "roberta.encoder.layer.0.intermediate.dense": {
+        "argmax": 765,
+        "peak": 0.2552812099456787,
+        "energy_rel": 7.204477856885211
+      },
+      "roberta.encoder.layer.0.output.dense": {
+        "argmax": 70,
+        "peak": 0.25592929124832153,
+        "energy_rel": 11.035947105816906
+      },
+      "roberta.encoder.layer.1.attention.self.query": {
+        "argmax": 330,
+        "peak": 0.2122713178396225,
+        "energy_rel": 7.071292316538449
+      },
+      "roberta.encoder.layer.1.attention.self.key": {
+        "argmax": 330,
+        "peak": 0.2122713178396225,
+        "energy_rel": 7.071292316538449
+      },
+      "roberta.encoder.layer.1.attention.self.value": {
+        "argmax": 330,
+        "peak": 0.2122713178396225,
+        "energy_rel": 7.071292316538449
+      },
+      "roberta.encoder.layer.1.attention.output.dense": {
+        "argmax": 584,
+        "peak": 0.40077638626098633,
+        "energy_rel": 4.198211541840049
+      },
+      "roberta.encoder.layer.1.intermediate.dense": {
+        "argmax": 330,
+        "peak": 0.15371058881282806,
+        "energy_rel": 5.717248695469916
+      },
+      "roberta.encoder.layer.1.output.dense": {
+        "argmax": 590,
+        "peak": 0.8410614728927612,
+        "energy_rel": 13.686594770582246
+      },
+      "roberta.encoder.layer.2.attention.self.query": {
+        "argmax": 330,
+        "peak": 0.1899818480014801,
+        "energy_rel": 5.546322277283642
+      },
+      "roberta.encoder.layer.2.attention.self.key": {
+        "argmax": 330,
+        "peak": 0.1899818480014801,
+        "energy_rel": 5.546322277283642
+      },
+      "roberta.encoder.layer.2.attention.self.value": {
+        "argmax": 330,
+        "peak": 0.1899818480014801,
+        "energy_rel": 5.546322277283642
+      },
+      "roberta.encoder.layer.2.attention.output.dense": {
+        "argmax": 411,
+        "peak": 0.3855968415737152,
+        "energy_rel": 8.422090925692967
+      },
+      "roberta.encoder.layer.2.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.1987057626247406,
+        "energy_rel": 4.7820138591934205
+      },
+      "roberta.encoder.layer.2.output.dense": {
+        "argmax": 1880,
+        "peak": 0.7159284353256226,
+        "energy_rel": 76.16486183834473
+      },
+      "roberta.encoder.layer.3.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.2419225424528122,
+        "energy_rel": 6.152071067575469
+      },
+      "roberta.encoder.layer.3.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.2419225424528122,
+        "energy_rel": 6.152071067575469
+      },
+      "roberta.encoder.layer.3.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.2419225424528122,
+        "energy_rel": 6.152071067575469
+      },
+      "roberta.encoder.layer.3.attention.output.dense": {
+        "argmax": 552,
+        "peak": 0.17715510725975037,
+        "energy_rel": 13.87239778845888
+      },
+      "roberta.encoder.layer.3.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.2067965716123581,
+        "energy_rel": 5.141698302841165
+      },
+      "roberta.encoder.layer.3.output.dense": {
+        "argmax": 2108,
+        "peak": 0.7380133271217346,
+        "energy_rel": 99.322199865558
+      },
+      "roberta.encoder.layer.4.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.27458465099334717,
+        "energy_rel": 6.12904921130482
+      },
+      "roberta.encoder.layer.4.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.27458465099334717,
+        "energy_rel": 6.12904921130482
+      },
+      "roberta.encoder.layer.4.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.27458465099334717,
+        "energy_rel": 6.12904921130482
+      },
+      "roberta.encoder.layer.4.attention.output.dense": {
+        "argmax": 98,
+        "peak": 0.2023227959871292,
+        "energy_rel": 8.427819320879752
+      },
+      "roberta.encoder.layer.4.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.2533743977546692,
+        "energy_rel": 5.252074418706863
+      },
+      "roberta.encoder.layer.4.output.dense": {
+        "argmax": 2982,
+        "peak": 0.6493871808052063,
+        "energy_rel": 40.34137910502086
+      },
+      "roberta.encoder.layer.5.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.23666425049304962,
+        "energy_rel": 5.636598502407759
+      },
+      "roberta.encoder.layer.5.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.23666425049304962,
+        "energy_rel": 5.636598502407759
+      },
+      "roberta.encoder.layer.5.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.23666425049304962,
+        "energy_rel": 5.636598502407759
+      },
+      "roberta.encoder.layer.5.attention.output.dense": {
+        "argmax": 8,
+        "peak": 0.19598166644573212,
+        "energy_rel": 10.517497379928706
+      },
+      "roberta.encoder.layer.5.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.19899651408195496,
+        "energy_rel": 5.239866578824458
+      },
+      "roberta.encoder.layer.5.output.dense": {
+        "argmax": 1501,
+        "peak": 0.46077579259872437,
+        "energy_rel": 26.467284893115057
+      },
+      "roberta.encoder.layer.6.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.2681722342967987,
+        "energy_rel": 6.3679889684316615
+      },
+      "roberta.encoder.layer.6.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.2681722342967987,
+        "energy_rel": 6.3679889684316615
+      },
+      "roberta.encoder.layer.6.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.2681722342967987,
+        "energy_rel": 6.3679889684316615
+      },
+      "roberta.encoder.layer.6.attention.output.dense": {
+        "argmax": 639,
+        "peak": 0.25964993238449097,
+        "energy_rel": 6.437033119707248
+      },
+      "roberta.encoder.layer.6.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.20995961129665375,
+        "energy_rel": 5.444036550865071
+      },
+      "roberta.encoder.layer.6.output.dense": {
+        "argmax": 1904,
+        "peak": 0.5335510969161987,
+        "energy_rel": 23.69147636681006
+      },
+      "roberta.encoder.layer.7.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.21682336926460266,
+        "energy_rel": 6.147169393608406
+      },
+      "roberta.encoder.layer.7.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.21682336926460266,
+        "energy_rel": 6.147169393608406
+      },
+      "roberta.encoder.layer.7.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.21682336926460266,
+        "energy_rel": 6.147169393608406
+      },
+      "roberta.encoder.layer.7.attention.output.dense": {
+        "argmax": 219,
+        "peak": 0.1536080241203308,
+        "energy_rel": 3.9838081765031625
+      },
+      "roberta.encoder.layer.7.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.20103265345096588,
+        "energy_rel": 5.175845295176306
+      },
+      "roberta.encoder.layer.7.output.dense": {
+        "argmax": 476,
+        "peak": 0.5357800126075745,
+        "energy_rel": 49.27552686195378
+      },
+      "roberta.encoder.layer.8.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.24099190533161163,
+        "energy_rel": 6.625596265588507
+      },
+      "roberta.encoder.layer.8.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.24099190533161163,
+        "energy_rel": 6.625596265588507
+      },
+      "roberta.encoder.layer.8.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.24099190533161163,
+        "energy_rel": 6.625596265588507
+      },
+      "roberta.encoder.layer.8.attention.output.dense": {
+        "argmax": 330,
+        "peak": 0.619541347026825,
+        "energy_rel": 106.08984570083473
+      },
+      "roberta.encoder.layer.8.intermediate.dense": {
+        "argmax": 155,
+        "peak": 0.205397829413414,
+        "energy_rel": 11.446456435259766
+      },
+      "roberta.encoder.layer.8.output.dense": {
+        "argmax": 378,
+        "peak": 0.1709577888250351,
+        "energy_rel": 49.60184342224558
+      },
+      "roberta.encoder.layer.9.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.245866596698761,
+        "energy_rel": 6.7568877180425755
+      },
+      "roberta.encoder.layer.9.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.245866596698761,
+        "energy_rel": 6.7568877180425755
+      },
+      "roberta.encoder.layer.9.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.245866596698761,
+        "energy_rel": 6.7568877180425755
+      },
+      "roberta.encoder.layer.9.attention.output.dense": {
+        "argmax": 213,
+        "peak": 0.6212822794914246,
+        "energy_rel": 52.84817604838698
+      },
+      "roberta.encoder.layer.9.intermediate.dense": {
+        "argmax": 155,
+        "peak": 0.2558765709400177,
+        "energy_rel": 8.519399734785107
+      },
+      "roberta.encoder.layer.9.output.dense": {
+        "argmax": 702,
+        "peak": 0.283887654542923,
+        "energy_rel": 44.09303456674743
+      },
+      "roberta.encoder.layer.10.attention.self.query": {
+        "argmax": 731,
+        "peak": 0.19858334958553314,
+        "energy_rel": 6.432503337929178
+      },
+      "roberta.encoder.layer.10.attention.self.key": {
+        "argmax": 731,
+        "peak": 0.19858334958553314,
+        "energy_rel": 6.432503337929178
+      },
+      "roberta.encoder.layer.10.attention.self.value": {
+        "argmax": 731,
+        "peak": 0.19858334958553314,
+        "energy_rel": 6.432503337929178
+      },
+      "roberta.encoder.layer.10.attention.output.dense": {
+        "argmax": 67,
+        "peak": 0.8109251856803894,
+        "energy_rel": 47.45801356785468
+      },
+      "roberta.encoder.layer.10.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.16956815123558044,
+        "energy_rel": 5.249911477052886
+      },
+      "roberta.encoder.layer.10.output.dense": {
+        "argmax": 489,
+        "peak": 0.593884289264679,
+        "energy_rel": 105.7731282328041
+      },
+      "roberta.encoder.layer.11.attention.self.query": {
+        "argmax": 522,
+        "peak": 0.14425185322761536,
+        "energy_rel": 4.65710670260232
+      },
+      "roberta.encoder.layer.11.attention.self.key": {
+        "argmax": 522,
+        "peak": 0.14425185322761536,
+        "energy_rel": 4.65710670260232
+      },
+      "roberta.encoder.layer.11.attention.self.value": {
+        "argmax": 522,
+        "peak": 0.14425185322761536,
+        "energy_rel": 4.65710670260232
+      },
+      "roberta.encoder.layer.11.attention.output.dense": {
+        "argmax": 99,
+        "peak": 0.35057467222213745,
+        "energy_rel": 10.742204961461667
+      },
+      "roberta.encoder.layer.11.intermediate.dense": {
+        "argmax": 731,
+        "peak": 0.1904062181711197,
+        "energy_rel": 3.6788915811812473
+      },
+      "roberta.encoder.layer.11.output.dense": {
+        "argmax": 640,
+        "peak": 0.7852768301963806,
+        "energy_rel": 24.10218180703969
+      }
+    }
+  }
+}

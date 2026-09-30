@@ -1,0 +1,14 @@
+{
+  "key": "roberta-base__rct20k__ref1024__dom1024__cen__tau1",
+  "t_ref_s": 17.163312916999985,
+  "t_dom_s": 11.04608550699993,
+  "t_eig_s": 45.188871063999954,
+  "n_modules": 72,
+  "taus": [
+    0.95
+  ],
+  "centered": true,
+  "drift_ratio": {
+    "0.95": 0.07027146554434971
+  }
+}

@@ -1,33 +1,41 @@
-# DRIFT — Domain-Residual Rank Allocation for Parameter-Efficient Adaptation of SLMs
+# Where Should the Adapter Go? Outlier Dimensions, Rank Allocation and Placement in Low-Rank Adaptation of Small Language Models
 
-Research code and paper for a conference submission on parameter-efficient
-adaptation of small language models to domain-specific classification.
+Code, experiment plans, per-run results and paper for an evaluation study of
+training-free, activation-guided rank allocation for LoRA on small language
+models and biomedical classification.
 
-## The idea
+## What the study finds
 
-Existing activation-geometry PEFT methods (EVA, CorDA, AIRA, TLoRA, RSLoRA)
-decide where to put adapter capacity by profiling the **target** task's
-activations in isolation. For *domain* adaptation that is the wrong question:
-biomedical text is still English, so its dominant activation directions are the
-directions the backbone was already optimised for, and rank spent there is
-wasted.
+Activation-guided methods such as EVA decide where a low-rank adapter's
+capacity goes by profiling the target task's activations before training. At
+matched parameter budgets, with every configuration's learning rate tuned on its
+own, none of eleven methods beats a tuned uniform LoRA once multiple comparisons
+are corrected (1,328 runs over three benchmarks, a budget sweep, a 4M-110M
+backbone ladder, a decoder SLM and a clinical task). The methods differ in
+stability instead: on RoBERTa-base the leading directions of activation PCA lie
+on the backbone's outlier dimensions 77 and 588, and EVA's initialisation is
+fragile as a result. Whitening those directions, deflating a general-domain
+reference subspace (DRIFT) or the exact generalised-eigenvector contrast largely
+restore stability but add no accuracy we can detect, and a random-token
+reference serves as well as real text. The paper closes with a protocol for
+evaluating adapter allocation.
 
-DRIFT instead **contrasts two distributions**. It profiles the target corpus and
-a general-domain reference corpus (WikiText-103), deflates the target
-second-moment matrix by the reference's principal subspace,
+## DRIFT, the instrument
+
+DRIFT **contrasts two distributions**. It profiles the target corpus and a
+general-domain reference corpus (WikiText-103), deflates the target covariance
+by the reference's principal subspace,
 
 ```
 Sigma_tilde = (I - P_G) Sigma_D (I - P_G)
 ```
 
 and uses the spectrum of that *drift covariance* both to allocate a global
-parameter budget across modules (greedy marginal analysis, provably optimal for
-the continuous relaxation) and to initialise each adapter inside the residual
-subspace.
-
-Profiling is two forward passes: no labels, no gradients, no training.
-`tau = 0` recovers single-distribution profiling (EVA) exactly, so any gain is
-attributable to the contrast itself.
+parameter budget across modules (greedy marginal analysis) and to initialise
+each adapter inside the residual subspace. Profiling is two forward passes: no
+labels, no gradients, no training. `tau = 0` recovers single-distribution
+profiling (EVA) exactly, which isolates the effect of the contrast. In the paper
+DRIFT serves as an instrument for that comparison, not as a recommended method.
 
 ## Layout
 
@@ -47,7 +55,8 @@ src/
   make_kaggle.py    packages everything into a self-contained notebook
 data/               datasets (downloaded)
 runs/results/*.json one file per experiment
-runs/profiles/      cached drift profiles (.pt) + timing summaries (.json)
+runs/profiles/      profile summaries (.json); the covariance tensors (.pt, 3.2 GB)
+                    are recomputed by profile_drift.py and not in the repository
 paper/              main.tex, refs.bib, generated tables, figures, main.pdf
 kaggle/             self-contained notebook for running the grid on a free GPU
 tools/tectonic.exe  LaTeX engine (no system TeX install needed)
@@ -95,14 +104,18 @@ python src/ingest_results.py path/to/drift_results.zip
 tools/tectonic.exe -X compile paper/main.tex --outdir paper
 ```
 
-Numbers still to be filled from results appear in red as `[TODO: ...]`.
+`python src/analyze.py --model roberta-base --tasks chemprot,rct20k,hoc` rebuilds
+every table from `runs/results/`. `python src/verify_results.py` re-derives the
+tables and every result number quoted in the text from the same files, sharing
+no code with `analyze.py` (its profile checks need the `.pt` tensors), and
+`python src/number_coverage.py` lists any quoted number no check covers.
 
 ## Validation
 
-The harness reproduces the published reference point: RoBERTa-base on ChemProt
-reaches **82.4** test micro-F1 with LoRA at 1.06% trainable parameters, against
-**81.9 ± 1.0** reported for full fine-tuning by Gururangan et al. (ACL 2020) on
-the same split.
+The harness reproduces both published reference points on these splits: full
+fine-tuning of RoBERTa-base reaches **81.7 ± 0.4** test micro-F1 on ChemProt,
+against **81.9 ± 1.0** reported by Gururangan et al. (ACL 2020), and **80.0 ± 2.4**
+micro-F1 on HoC, against **79.7** reported for RoBERTa-base on the BLURB split.
 
 ## License
 

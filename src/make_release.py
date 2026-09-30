@@ -72,7 +72,7 @@ dev set (seed 1), and every grid is extended until the selection is interior;
 see `grid.tuning_cells` and the paper's Appendix A.
 
 ## Licence
-To be chosen by the authors before public release.
+The code is released under the MIT License.
 """
 
 

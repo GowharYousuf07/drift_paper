@@ -1,0 +1,14 @@
+{
+  "key": "roberta-base__chemprot__ref1024__dom1024__cen__tau1",
+  "t_ref_s": 20.651066691999972,
+  "t_dom_s": 14.654721985000037,
+  "t_eig_s": 46.87655616699999,
+  "n_modules": 72,
+  "taus": [
+    0.95
+  ],
+  "centered": true,
+  "drift_ratio": {
+    "0.95": 0.07416231230091527
+  }
+}

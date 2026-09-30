@@ -1230,6 +1230,157 @@ check("AdaLoRA: the three-seed dev mean prefers the lower rate",
 check("the allocation-only difference quoted in the limitation",
       quoted(f"the {sgn(ao[0])} of allocation alone among them"))
 
+# ================================================================== round 3
+# --- M5: the budget as a share of the backbone. The denominator is the full
+#     fine-tuning count of Table I (every backbone weight, no head, no pooler);
+#     1.06% had come from the 124.65M count that includes RoBERTa's pooler.
+back = {r["result"]["params_adapter"] for t in TASKS for r in cells[(t, "full")].values()}
+
+
+def lora_params(rk, tasks):
+    return {r["result"]["params_adapter"] for t in tasks
+            for r in runs(RB, t, "lora", tuned(RB, t, "lora", budget_rank=rk),
+                          budget_rank=rk).values()}
+
+
+bud = {4: lora_params(4, ("rct20k", "hoc")), 8: lora_params(8, TASKS),
+       16: lora_params(16, ("rct20k", "hoc"))}
+share = {rk: 100 * next(iter(v)) / next(iter(back)) for rk, v in bud.items()}
+tab_bx = open(os.path.join(PAPER, "tab_budgetx.tex"), encoding="utf-8").read()
+check(f"budget shares of the backbone ({share[4]:.3f} / {share[8]:.3f} / {share[16]:.3f}%)",
+      len(back) == 1 and all(len(v) == 1 for v in bud.values())
+      and next(iter(bud[8])) == 1327104
+      and quoted(f"(${share[8]:.2f}\\%$ of the backbone's ${next(iter(back)) / 1e6:.2f}$M)")
+      and quoted(f"matched budget of ${share[8]:.2f}\\%$ of the backbone")
+      and f"${share[4]:.2f}\\%$, ${share[8]:.2f}\\%$ and ${share[16]:.2f}\\%$" in tab_bx)
+
+# --- M4 and the telemetry claim: how many runs carry per-epoch logs, and which
+#     reported runs lost their fp16 loss scale (the failure criterion, which
+#     reads the best dev score, does not flag them)
+STUDY = [r for r in R if (r["args"].get("tag") or "") != "smoke"]
+TEL = [r for r in STUDY if r["result"].get("history")
+       and "loss_scale" in r["result"]["history"][0]]
+lost = [r for r in TEL if (r["args"].get("tag") or "") != "tune"
+        and any(e.get("loss_scale") == 0 for e in r["result"]["history"])]
+check(f"per-epoch logs on {len(TEL)} of {len(STUDY)} runs; loss scale lost in 2 reported runs",
+      quoted(f"${len(TEL)}$ of the runs also log, for each epoch")
+      and len(lost) == 2 and {r["args"]["seed"] for r in lost} == set(over)
+      and all((r["args"]["model"], r["args"]["task"], r["args"]["method"]) == (DEC, "hoc", "eva")
+              for r in lost)
+      and all(100 * r["result"]["dev_best"]["example_f1"] > floor_d for r in lost)
+      and quoted("only two reported runs lose their fp16 loss scale, both EVA on the "
+                 "decoder's HoC, and neither counts as failed"))
+tab_dec = " ".join(open(os.path.join(PAPER, "tab_decoder.tex"), encoding="utf-8").read().split())
+stop_ep = {min(k for k in range(len(r["history"]))
+               if all(e["grad_norm_max"] == 0 for e in r["history"][k:])) + 1 for r in over.values()}
+best_ep = sorted(r["best_epoch"] + 1 for r in over.values())
+check("Table VI caption names the two decoder runs whose loss scale collapsed",
+      stop_ep == {5} and best_ep == [2, 3]
+      and "the loss scale of two of EVA's three HoC seeds collapses" in tab_dec
+      and "from epoch 5 on; their scores come from epochs 2 and 3" in tab_dec)
+# the decoder's own settings, now stated in Section IV
+DEC_RUNS = [r for r in STUDY if r["args"]["model"] == DEC]
+check("decoder settings: batch 32/8, lengths 128/512, 10/12 epochs, linear last-token head",
+      all(r["args"]["batch_size"] == {"chemprot": 32, "hoc": 8}[r["args"]["task"]]
+          and r["max_len"] == {"chemprot": 128, "hoc": 512}[r["args"]["task"]]
+          and r["args"]["epochs"] == {"chemprot": 10, "hoc": 12}[r["args"]["task"]]
+          and r["result"]["params_head"] == 960 * r["num_labels"] for r in DEC_RUNS)
+      and quoted("decoder keeps these lengths and epochs but needs a batch of $8$ on HoC")
+      and quoted("classifying from its last token with a linear head"))
+
+# --- DA-4: EVA's fp32 collapse on HoC is the empty label set for every document,
+#     so its 14.3 F1 is the share of test documents that have no hallmark
+e32p = [r for r in F32["eva"].values() if "test_preds" in r["result"]]
+empty = [sum(1 for g in r["result"]["test_gold"] if g == 0) / len(r["result"]["test_gold"]) for r in e32p]
+# a seed that stored no predictions counts as collapsed in the same way when its test
+# score is exactly the empty-set share and its dev curve is the same constant
+dev_curves = {tuple(round(e["dev"], 12) for e in r["result"]["history"]) for r in F32["eva"].values()}
+check("EVA's fp32 HoC collapse predicts no label; 14.3 = documents without a hallmark",
+      len(F32["eva"]) == 3 and len(e32p) >= 2 and len(set(empty)) == 1
+      and all(not any(r["result"]["test_preds"]) for r in e32p)
+      and all(abs(r["result"]["test"]["example_f1"] - empty[0]) < 1e-12 for r in F32["eva"].values())
+      and round(100 * empty[0], 1) == 14.3
+      and len(dev_curves) == 1 and len(set(next(iter(dev_curves)))) == 1
+      and quoted("predict the empty label set for every document (their $14.3$ F1 is the share "
+                 "of test documents without a hallmark)"))
+
+# --- M3: what the instance-level intervals exclude. On ChemProt and RCT-20k every
+#     paired interval ends below +1.2 points, 12 of 16 lie within +-2, and the four
+#     that do not reach past -2 only; on HoC every interval ends below +3.4.
+cr = [v["delta"] for k, v in ci.items() if v.get("delta") and k.split(":")[0] in ("chemprot", "rct20k")]
+inside = [d for d in cr if d[1] >= -0.02 and d[2] <= 0.02]
+hoc_hi = max(v["delta"][2] for k, v in ci.items() if v.get("delta") and k.startswith("hoc:"))
+check(f"intervals bound the gains (max +{100 * max(d[2] for d in cr):.2f} / HoC +{100 * hoc_hi:.2f}; "
+      f"{len(inside)} of {len(cr)} within 2)",
+      len(cr) == 16 and len(inside) == 12
+      and all(d[2] <= 0.02 < -d[1] for d in cr if d not in inside)
+      and 0.011 <= max(d[2] for d in cr) < 0.012 and 0.033 <= hoc_hi < 0.034
+      and quoted("every interval ends below $+1.2$ points")
+      and quoted("$12$ of the $16$ lie within $\\pm2$ points")
+      and quoted("the other four extend past it only on the side of a loss")
+      and quoted("none ends above $+3.4$")
+      and quoted("exclude gains above $1.2$ points on ChemProt and RCT-20k, but on HoC only "
+                 "those above $3.4$"))
+
+# --- DA-2: the selected rates support the curvature account on ChemProt only
+def lr_of(model, task, m):
+    return tuned(model, task, m)
+
+
+step = all(2.9 < lr_of(mdl, "chemprot", "lora") / lr_of(mdl, "chemprot", "eva") < 3.4
+           and lr_of(mdl, "chemprot", "eva_white") >= lr_of(mdl, "chemprot", "lora")
+           and lr_of(mdl, "chemprot", "drift") >= lr_of(mdl, "chemprot", "lora")
+           for mdl in (RB, DEC))
+weak = (lr_of(RB, "rct20k", "eva") < lr_of(RB, "rct20k", "lora")
+        and all(abs(lr_of(RB, "rct20k", m) - lr_of(RB, "rct20k", "eva")) < 1e-12
+                for m in ("eva_white", "drift"))
+        and lr_of(RB, "hoc", "eva_white") < lr_of(RB, "hoc", "eva")
+        and len({lr_of(RB, "mtsamples", m) for m in SWEEP4}) == 1)
+check("rate selection: EVA a step lower on ChemProt (both backbones); weak elsewhere",
+      step and weak
+      and quoted("on ChemProt it selects a rate one grid step below LoRA's, on RoBERTa-base and "
+                 "on the decoder of")
+      and quoted("on RCT-20k whitened EVA and \\method{} also select EVA's lower rate, on HoC "
+                 "whitened EVA selects a lower rate than EVA, and on the clinical notes all four "
+                 "methods share one rate"))
+
+# --- D1: the tau-free divergences order the three benchmarks as the drift excess
+#     does; the clinical notes are the one inversion (more drift, less distance)
+DIVX = {}
+for t in TASKS + ["mtsamples"]:
+    with open(os.path.join(ROOT, "runs", "divergence", f"roberta-base__{t}.json"), encoding="utf-8") as f:
+        mods = json.load(f)["modules"]
+    sites = {site_of(n): v for n, v in mods.items()}
+    DIVX[t] = {k: st.mean(v["target"][k] for v in sites.values()) for k in ("coral", "bures", "jeffreys")}
+ex95 = {t: RHO[t]["0.95"][0] for t in TASKS + ["mtsamples"]}
+by_drift = sorted(TASKS, key=lambda t: -ex95[t])
+check("CORAL, Bures and log-det order the benchmarks as the drift ratio; clinical inverts",
+      all(sorted(TASKS, key=lambda t: -DIVX[t][k]) == by_drift for k in ("coral", "bures", "jeffreys"))
+      and ex95["mtsamples"] > ex95["chemprot"]
+      and all(DIVX["mtsamples"][k] < DIVX["chemprot"][k] for k in ("coral", "bures", "jeffreys"))
+      and quoted("On the three benchmarks they follow the same order as the drift ratio, as do the "
+                 "Bures and log-det divergences; the clinical notes, whose drift excess slightly "
+                 "exceeds ChemProt's")
+      and quoted("are the one inversion"))
+
+# --- DA-3: EVA's ladder deficit grows as the backbone shrinks, but no allocation
+#     method's difference from LoRA moves in its favour as the backbone shrinks
+from scipy.stats import spearmanr
+size = [4.4, 11.2, 28.8, 41.4, 110.1]              # BERT-Tiny ... BERT-Base (Table V)
+trend = {m: spearmanr(size, [st.mean(LS[(n, m)].values()) - st.mean(LS[(n, "lora")].values())
+                             for n, _ in LAD]).correlation for m in ("eva", "eva_white", "drift")}
+check("ladder: no allocation method gains on LoRA as the backbone shrinks (" +
+      ", ".join(f"{m} rho {v:+.1f}" for m, v in trend.items()) + ")",
+      all(v >= 0 for v in trend.values())
+      and quoted("no allocation method's difference from LoRA moves in its favour as the backbone "
+                 "shrinks"))
+
+# --- M1: DRIFT placed on one module type was never tuned; it inherits its rate
+check("DRIFT's single-type placements inherit all-module DRIFT's rate (no tuning runs)",
+      not any(k[2] == "drift" and k[3] != "all" for k in TUNE)
+      and quoted("the reference controls, \\method{} placed on one module type and the fp32 reruns")
+      and quoted("at the rate it inherits from all-module \\method{}"))
+
 print("TEXT CHECKS")
 for name, ok in text_checks:
     report(name, ok)

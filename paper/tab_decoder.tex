@@ -1,6 +1,6 @@
 \begin{table}[t]
 \centering
-\caption{Decoder SLM: SmolLM2-360M (test F1, mean$\pm$s.d., three seeds), each method at its own tuned learning rate (rate above the score).}
+\caption{Decoder SLM: SmolLM2-360M (test F1, mean$\pm$s.d., three seeds), each method at its own tuned learning rate (rate above the score). In fp16 the loss scale of two of EVA's three HoC seeds collapses, and no gradient reaches the adapter from epoch 5 on; their scores come from epochs 2 and 3, so the failure criterion does not count them (Section~\ref{sec:scale}).}
 \label{tab:decoder}
 \footnotesize
 \setlength{\tabcolsep}{3pt}

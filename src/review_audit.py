@@ -1,6 +1,7 @@
-"""Check every item of the round-1 review package against the revised sources.
+"""Check every item of the three review rounds against the revised sources.
 
-Each entry names a demand from peer_review.docx and the evidence that must be
+Round 1 is peer_review.docx, round 2 ARS_re_review_round2.docx and round 3
+ARS_review_round3_final.md. Each entry names a demand and the evidence that must be
 present in the manuscript, the generated tables, the bibliography or the response
 letter. Run after any edit:
 
@@ -178,7 +179,8 @@ ITEMS = [
         (MAIN, "a mean shift between domains"),
         (MAIN, "Inference cost does not separate the methods we compare"),
         (MAIN, "spectral counterpart of a small participation ratio"),
-        (MAIN, "privacy-positive")]),
+        # round 3 (P3) replaced "privacy-positive" with a neutral statement
+        (MAIN, "served on premises, without data leaving the institution")]),
     ("R3 min", "Fig. 1 markers; Fig. 3 axis as ranks", [
         (MAIN, "Open triangles: \\method{} after deflation; crosses: GEV"),
         (MAIN, "adapter budget (uniform-equivalent rank)")]),
@@ -234,7 +236,7 @@ ITEMS = [
     ("DA prem", "Does the ranking change at 0.5% or 2% on other tasks?", [
         (MAIN, "\\section{Budgets on RCT-20k and HoC}"),
         (MAIN, "At $0.5\\%$ (rank $4$) and $2\\%$ (rank $16$) on RCT-20k and HoC"),
-        (TAB_BX, "Rank $4$, $8$ and $16$ spend $0.53\\%$, $1.06\\%$ and $2.1\\%$"),
+        (TAB_BX, "Rank $4$, $8$ and $16$ spend $0.53\\%$, $1.07\\%$ and $2.14\\%$"),
         (TAB_BX, "RCT-20k & 4 &"), (TAB_BX, "HoC & 4 &")]),
     # ------------------------------------------------- round 2 (re-review)
     ("R2 NEW-1", "Protocol box: threshold stated two-sided, consistent with the ladder", [
@@ -273,8 +275,9 @@ ITEMS = [
     ("R2 NEW-7", "Appendix set in one column so its tables no longer take a float page each", [
         (MAIN, "\\onecolumn"),
         (MAIN, "its tables are wide, and in two-column mode each")]),
-    ("R2 NEW-8", "Availability placeholder kept visible until the repository is public", [
-        (MAIN, "\\NUM{will be released with the paper}"),
+    ("R2 NEW-8", "Availability placeholder kept visible until the repository is public; "
+                 "replaced by the public repository link in round 3 (EIC-2)", [
+        (MAIN, "available at \\url{https://github.com/GowharYousuf07/drift_paper}"),
         (RESP2, "stays red deliberately")]),
     ("R2 letter", "Point-by-point response to the round-2 re-review", [
         (RESP2, "Response to the Round-2 Re-Review"),
@@ -285,12 +288,100 @@ ITEMS = [
         (RESP, "Editor-in-Chief"), (RESP, "Reviewer 1 (Methodology)"),
         (RESP, "Reviewer 2 (Domain)"), (RESP, "Reviewer 3 (Perspective)"),
         (RESP, "Devil's advocate")]),
+    # ------------------------------------------ round 3 (ARS_review_round3_final.md)
+    ("R3 EIC-2", "Availability: repository link instead of the red placeholder; "
+                 "MTSamples terms (with P2)", [
+        (MAIN, "available at \\url{https://github.com/GowharYousuf07/drift_paper}"),
+        (MAIN, "whose terms allow its sample reports to be shared for educational use"),
+        (MAIN, "states no licence, so we redistribute no note text")]),
+    ("R3 EIC-4", "AI-use disclosure, in the acknowledgments as IEEE requires", [
+        (MAIN, "\\section*{Acknowledgment}"),
+        (MAIN, "We used an AI assistant, Claude (Anthropic)")]),
+    ("R3 M1", "Table IV's DRIFT rows declared as inheriting DRIFT's rate; V-D softened", [
+        (MAIN, "every LoRA placement and budget of"),
+        (MAIN, "the reference controls, \\method{} placed on one module type and the fp32 reruns"),
+        (MAIN, "at the rate it inherits from all-module \\method{}"),
+        (TAB_PLACE, "rows are not tuned: they inherit the rate of all-module")]),
+    ("R3 M2", "Protocol step 2: select the rate on the mean dev score over >= 3 seeds", [
+        (MAIN, "by the mean dev score over at least three seeds"),
+        (MAIN, "the protocol of Fig.~\\ref{fig:protocol} recommends the multi-seed rule")]),
+    ("R3 M3", "What the instance-level intervals exclude (equivalence at +-2 points)", [
+        (MAIN, "every interval ends below $+1.2$ points"),
+        (MAIN, "$12$ of the $16$ lie within $\\pm2$ points, which establishes equivalence at that margin"),
+        (MAIN, "(one we did not fix in advance)"),
+        (MAIN, "exclude gains above $1.2$ points on ChemProt and RCT-20k")]),
+    ("R3 M4", "Runs that die after their best epoch: Section IV and the Table VI caption", [
+        (MAIN, "it does not flag a run that trains well and then stops"),
+        (TAB_DEC, "the loss scale of two of EVA's three HoC seeds collapses")]),
+    ("R3 M5", "1.07% with its denominator; 'around 1%'; linear-probe '--' explained; "
+              "decoder batch, length and head in Section IV", [
+        (MAIN, "($1.07\\%$ of the backbone's $124.06$M)"),
+        (MAIN, "matched budget of $1.07\\%$ of the backbone"),
+        (MAIN, "typically around $1\\%$ of the parameters"),
+        (TAB_BX, "$0.53\\%$, $1.07\\%$ and $2.14\\%$ of the backbone's parameters"),
+        (TAB_MAIN, "not assessed for the linear probe (--)"),
+        (TAB_FP32, "not assessed for the linear probe (--)"),
+        (MAIN, "decoder keeps these lengths and epochs but needs a batch of $8$ on HoC"),
+        (MAIN, "classifying from its last token with a linear head")]),
+    ("R3 D1", "CORAL ordering scoped to the benchmarks; the clinical inversion named", [
+        (MAIN, "On the three benchmarks they follow the same order as the drift ratio"),
+        (MAIN, "are the one inversion")]),
+    ("R3 D2", "Energy medians labelled by aggregation wherever they appear", [
+        (MAIN, "and, over all modules, carry a median"),
+        (MAIN, "the aggregate we quote from here on unless we name a module group"),
+        (MAIN, "energy of their initial directions over all modules"),
+        (MAIN, "over all $72$ modules, compared with $24$ of $24$ and $73\\times$ on ChemProt"),
+        (MAIN, "average direction over all $224$ modules"),
+        (MAIN, "Over all modules, EVA's leading directions carry a median $59\\times$"),
+        (MAIN, "EVA's all-module medians were")]),
+    ("R3 D3", "Citation status: TLoRA at ACL 2026, RSRA retitled, AIRA authors, "
+              "SmolLM2 and massive activations at COLM", [
+        (BIB, "Computational Linguistics (ACL, Volume 1: Long Papers)"),
+        (BIB, "{RSRA}: Training-Free Probing of Representation Sensitivity"),
+        (BIB, "Han, Sirui"),
+        (BIB, "Data-Centric Training of a Fully Open Small Language Model"),
+        (BIB, "Conference on Language Modeling (COLM)")]),
+    ("R3 P1", "A plain practitioner take-away opens Section VIII", [
+        (MAIN, "For practitioners the advice is short.")]),
+    ("R3 P2", "MTSamples terms of use stated in the Availability paragraph", [
+        (MAIN, "The Hugging Face release we use states no licence")]),
+    ("R3 P3", "Neutral wording in the deployment/privacy sentence", [
+        (MAIN, "served on premises, without data leaving the institution")]),
+    ("R3 DA-1", "Verdict scoped to non-binding budgets, in the abstract and Section VIII; "
+                "input-side signals only", [
+        (MAIN, "so capacity rarely binds; where it does, no allocation gain survives "
+               "correction, but our power is lowest there"),
+        (MAIN, "This verdict holds where the budget does not bind"),
+        (MAIN, "we tested only input-side, activation-derived signals"),
+        (MAIN, "although with three seeds our power is lowest there")]),
+    ("R3 DA-2", "Rate-selection evidence for the curvature account scoped to ChemProt", [
+        (MAIN, "Elsewhere the selected rates are weak evidence"),
+        (MAIN, "the ChemProt pattern that Section~\\ref{sec:outliers} reads as support")]),
+    ("R3 DA-3", "Ladder: the predicted direction appears as EVA's deficit, not as a gain", [
+        (MAIN, "so the ladder gives the prediction no partial support either")]),
+    ("R3 DA-4", "EVA's HoC collapse: the head-interaction alternative acknowledged", [
+        (MAIN, "may also act through the randomly initialised multi-label head"),
+        (MAIN, "cannot separate the two")]),
+    ("R3 logs", "Per-epoch logs claimed only for the runs that have them (found while "
+                "checking M4)", [
+        (MAIN, "$784$ of the runs also log, for each epoch"),
+        (MAIN, "with its per-epoch logs, where recorded")]),
+]
+
+# Phrases the round-3 revision removed; each must be gone from the manuscript
+GONE = [
+    ("R3 EIC-2", "\\NUM{will be released"),
+    ("R3 P3", "privacy-positive"),
+    ("R3 M5", "well under $1\\%$"),
+    ("R3 M5", "$1.06\\%$"),
+    ("R3 M2", "as the protocol states"),
+    ("R3 logs", "every run logs"),
 ]
 
 
 def main():
     bad = []
-    print("REVIEW AUDIT - peer_review.docx against the revised sources\n" + "=" * 78)
+    print("REVIEW AUDIT - review rounds 1-3 against the revised sources\n" + "=" * 78)
     for ident, demand, evidence in ITEMS:
         missing = [e for src, e in evidence if " ".join(e.split()) not in src]
         status = "OK  " if not missing else "MISS"
@@ -308,10 +399,20 @@ def main():
     print(f"{'OK  ' if ok else 'MISS'} EIC D1     abstract is {n} words (<= 250)")
     if not ok:
         bad.append(("EIC D1", f"{n} words"))
+    for ident, text in GONE:
+        present = " ".join(text.split()) in MAIN
+        print(f"{'MISS' if present else 'OK  '} {ident:10s} removed: {text!r}")
+        if present:
+            bad.append((ident, f"still present: {text}"))
     left = MAIN.count("\\NUM{")
-    print(f"\nred placeholders left in the manuscript: {left} "
-          f"({'release URL only' if left == 1 else 'check them'})")
-    print(f"\n{len(ITEMS) + 1} review items checked, {len(bad)} with missing evidence")
+    print(f"\nred placeholders left in the manuscript: {left}"
+          + (" (check them)" if left else ""))
+    # decisions that belong to the authors: reported, not counted as missing
+    if "Author Name" in MAIN:
+        print("OPEN R3 EIC-1 author block is still the placeholder (the authors fill it in "
+              "before submission)")
+    print(f"\n{len(ITEMS) + 1} review items and {len(GONE)} removals checked, "
+          f"{len(bad)} with missing evidence")
     return 1 if bad else 0
 
 

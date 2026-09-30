@@ -1,4 +1,4 @@
-﻿MAIN TABLE
+MAIN TABLE
   full       means                                           OK paper [81.7, 83.7, 76.2] recomputed [81.7, 83.7, 76.2]
   full       HoC median                                      OK paper 75.5 recomputed 75.5
   full       failed                                          OK paper 0/9 recomputed 0/9
@@ -222,4 +222,14 @@ TEXT CHECKS
   AdaLoRA's RCT-20k selection is a near-tie on seed 1        OK 
   AdaLoRA: the three-seed dev mean prefers the lower rate    OK 
   the allocation-only difference quoted in the limitation    OK 
+  budget shares of the backbone (0.535 / 1.070 / 2.140%)     OK 
+  per-epoch logs on 784 of 1328 runs; loss scale lost in 2 reported runs OK 
+  Table VI caption names the two decoder runs whose loss scale collapsed OK 
+  decoder settings: batch 32/8, lengths 128/512, 10/12 epochs, linear last-token head OK 
+  EVA's fp32 HoC collapse predicts no label; 14.3 = documents without a hallmark OK 
+  intervals bound the gains (max +1.14 / HoC +3.34; 12 of 16 within 2) OK 
+  rate selection: EVA a step lower on ChemProt (both backbones); weak elsewhere OK 
+  CORAL, Bures and log-det order the benchmarks as the drift ratio; clinical inverts OK 
+  ladder: no allocation method gains on LoRA as the backbone shrinks (eva rho +1.0, eva_white rho +0.9, drift rho +0.1) OK 
+  DRIFT's single-type placements inherit all-module DRIFT's rate (no tuning runs) OK 
 TOTAL MISMATCHES: 0

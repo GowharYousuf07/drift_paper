@@ -1,0 +1,14 @@
+{
+  "key": "roberta-base__hoc__ref1024__dom1024__cen__tau1",
+  "t_ref_s": 38.38193341500005,
+  "t_dom_s": 60.70103913799994,
+  "t_eig_s": 47.17345653000007,
+  "n_modules": 72,
+  "taus": [
+    0.95
+  ],
+  "centered": true,
+  "drift_ratio": {
+    "0.95": 0.06305737858869592
+  }
+}
