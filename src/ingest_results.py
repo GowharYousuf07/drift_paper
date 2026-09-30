@@ -98,13 +98,11 @@ def main():
     ):
         subprocess.run(cmd, check=False)
 
-    tectonic = os.path.join(ROOT, "tools", "tectonic.exe")
-    if os.path.exists(tectonic):
-        print("\ncompiling paper ...")
-        # --keep-logs: check_paper.py reads main.log, which would otherwise be stale
-        subprocess.run([tectonic, "-X", "compile", "main.tex", "--outdir", ".",
-                        "--keep-logs"],
-                       cwd=os.path.join(ROOT, "paper"), check=False)
+    if os.path.exists(os.path.join(ROOT, "tools", "tectonic.exe")):
+        print("\ncompiling the paper and its supplement ...")
+        # the two documents cross-reference each other, so build_paper.py runs the
+        # passes that resolve those references (and keeps the logs check_paper.py reads)
+        subprocess.run([PY, os.path.join(ROOT, "src", "build_paper.py")], check=False)
     subprocess.run([PY, os.path.join(ROOT, "src", "check_paper.py")], check=False)
 
 

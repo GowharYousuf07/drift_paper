@@ -351,7 +351,10 @@ for k, b, lrs in edges:
     print("   edge:", k, b, lrs)
 
 # ================================================================== text checks
-TEXT = open(os.path.join(PAPER, "main.tex"), encoding="utf-8").read()
+# the paper and its supplementary material, which holds the full analyses
+TEXT = "\n".join(open(os.path.join(PAPER, f), encoding="utf-8").read()
+                 for f in ("main.tex", "supplement.tex")
+                 if os.path.exists(os.path.join(PAPER, f)))
 text_checks = []
 
 

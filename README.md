@@ -57,7 +57,8 @@ data/               datasets (downloaded)
 runs/results/*.json one file per experiment
 runs/profiles/      profile summaries (.json); the covariance tensors (.pt, 3.2 GB)
                     are recomputed by profile_drift.py and not in the repository
-paper/              main.tex, refs.bib, generated tables, figures, main.pdf
+paper/              main.tex (the 10-page paper), supplement.tex (full analyses
+                    and appendices), refs.bib, generated tables, figures, PDFs
 kaggle/             self-contained notebook for running the grid on a free GPU
 tools/tectonic.exe  LaTeX engine (no system TeX install needed)
 ```
@@ -101,8 +102,12 @@ python src/ingest_results.py path/to/drift_results.zip
 ## Building the paper
 
 ```bash
-tools/tectonic.exe -X compile paper/main.tex --outdir paper
+python src/build_paper.py
 ```
+
+This compiles `paper/main.tex` (the paper, ten pages including references) and
+`paper/supplement.tex` (the full analyses and the appendices) in the order that
+resolves their references to each other, then reports any unresolved reference.
 
 `python src/analyze.py --model roberta-base --tasks chemprot,rct20k,hoc` rebuilds
 every table from `runs/results/`. `python src/verify_results.py` re-derives the

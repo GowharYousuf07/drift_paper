@@ -62,10 +62,14 @@ def main():
     report = buf.getvalue()
     mismatches = int(re.search(r"TOTAL MISMATCHES: (\d+)", report).group(1))
 
-    # 2. the body prose: drop the preamble, the bibliography and \input-ed tables
+    # 2. the body prose of the paper and of its supplementary material: drop the
+    #    preambles, the bibliographies and \input-ed tables
     text = open(os.path.join(PAPER, "main.tex"), encoding="utf-8").read()
     body = text[text.index("\\begin{abstract}"):text.index("\\bibliographystyle")]
-    body += text[text.index("\\appendices"):]
+    supp = os.path.join(PAPER, "supplement.tex")
+    if os.path.exists(supp):
+        text = open(supp, encoding="utf-8").read()
+        body += "\n\n" + text[text.index("\\maketitle"):text.index("\\bibliographystyle")]
     body = re.sub(r"\\caption\{.*?\n\n", " ", body, flags=re.S)   # figure captions
     body = re.sub(r"\\label\{[^}]*\}|\\ref\{[^}]*\}|\\cite[^{]*\{[^}]*\}", " ", body)
     body = re.sub(r"\\(section|subsection|IfFileExists|input)\{[^}]*\}", " ", body)

@@ -299,7 +299,7 @@ def table_main(rows, model, methods, tasks, out_path):
              "parameters actually spent, excluding the classification head that every "
              "method trains). Every method's learning rate is selected on the dev set "
              "from a grid extended until the selection is interior "
-             "(Appendix~\\ref{app:lr}). HoC med.: median over seeds. Failed: runs "
+             "(Section~\\ref{app:lr}). HoC med.: median over seeds. Failed: runs "
              "whose best dev score is more than 10 points below the median of LoRA's "
              "runs on the same task, over all three tasks; not assessed for the "
              "linear probe (--), which cannot reach LoRA's level with a frozen "

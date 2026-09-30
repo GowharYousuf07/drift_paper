@@ -22,7 +22,9 @@ def load(name):
         return " ".join(f.read().split())
 
 
-MAIN = load("main.tex")
+# the paper followed by its supplementary material (the full analyses and the
+# former appendices moved there when the paper was cut to ten pages)
+MAIN = load("main.tex") + " " + load("supplement.tex")
 RESP = load("response.tex")
 RESP2 = load("response2.tex")
 BIB = load("refs.bib")
@@ -59,7 +61,7 @@ ITEMS = [
         (MAIN, "23--24 of the 24 distinct hidden-state inputs")]),
     ("EIC W4", "Code/data statement; per-seed supplement; author block (authors')", [
         (MAIN, "\\noindent\\textbf{Availability.}"),
-        (MAIN, "\\appendices"),
+        (MAIN, "Supplementary Material for"),
         (MAIN, "\\section{Per-seed results}"),
         (RESP, "The author block is handled by the authors")]),
     ("EIC W5", "Extend the decoder experiment to HoC", [
@@ -264,16 +266,19 @@ ITEMS = [
         (MAIN, "agree once multiple comparisons are corrected"),
         (MAIN, "add no accuracy we can detect at this power"),
         (MAIN, "inherit their parent configuration's rate")]),
-    ("R2 NEW-5", "Author block: placeholder marked and an anonymous alternative supplied", [
-        (MAIN, "AUTHOR BLOCK --- fill this in before submission"),
-        (MAIN, "Anonymous alternative for a double-blind venue")]),
+    ("R2 NEW-5", "Author block: placeholder in round 2; filled in with the authors' "
+                 "details for the (single-blind) IEEE conference in round 3 (EIC-1)", [
+        (MAIN, "\\IEEEauthorblockN{Gowhar Yousuf}"),
+        (MAIN, "\\IEEEauthorblockN{Mohammad Ahsan Chishti}"),
+        (MAIN, "\\textit{National Institute of Technology Srinagar}")]),
     ("R2 NEW-6", "Seed counts stated in the captions of Tables III and IV; five-seed "
                  "reference values given", [
         (TAB_ABL, "seeds $1$--$3$ throughout"),
         (TAB_ABL, "Over five seeds the reference rows give"),
         (TAB_PLACE, "seeds $1$--$3$; Table~\\ref{tab:main} reports five seeds")]),
-    ("R2 NEW-7", "Appendix set in one column so its tables no longer take a float page each", [
-        (MAIN, "\\onecolumn"),
+    ("R2 NEW-7", "Appendix set in one column so its tables no longer take a float page each "
+                 "(now the one-column supplement)", [
+        (MAIN, "\\documentclass[conference,onecolumn]{IEEEtran}"),
         (MAIN, "its tables are wide, and in two-column mode each")]),
     ("R2 NEW-8", "Availability placeholder kept visible until the repository is public; "
                  "replaced by the public repository link in round 3 (EIC-2)", [
@@ -294,6 +299,11 @@ ITEMS = [
         (MAIN, "available at \\url{https://github.com/GowharYousuf07/drift_paper}"),
         (MAIN, "whose terms allow its sample reports to be shared for educational use"),
         (MAIN, "states no licence, so we redistribute no note text")]),
+    ("R3 EIC-3", "Length: the paper cut to the 10-page IEEE conference limit (references "
+                 "included); the full analyses and appendices in a supplement", [
+        (MAIN, "\\externaldocument{supplement}"),
+        (MAIN, "\\externaldocument{main}"),
+        (MAIN, "whose sections, tables and figures are numbered with an S")]),
     ("R3 EIC-4", "AI-use disclosure, in the acknowledgments as IEEE requires", [
         (MAIN, "\\section*{Acknowledgment}"),
         (MAIN, "We used an AI assistant, Claude (Anthropic)")]),
@@ -370,6 +380,7 @@ ITEMS = [
 
 # Phrases the round-3 revision removed; each must be gone from the manuscript
 GONE = [
+    ("R3 EIC-1", "Author Name"),
     ("R3 EIC-2", "\\NUM{will be released"),
     ("R3 P3", "privacy-positive"),
     ("R3 M5", "well under $1\\%$"),
